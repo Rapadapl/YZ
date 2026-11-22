@@ -23,7 +23,16 @@ window.YZE_STRINGS = {
     edition: "System reference",
     note: "Rules reference compiled from the Year Zero Engine SRD. Covers the classic dice-pool variant and the modern ranked-die variant side by side.",
     contentsNote: "Chapter list",
-    backToStart: "Back to the beginning"
+    backToStart: "Back to the beginning",
+    sheet: "Character sheet",
+    sheetSaved: "Saved in this browser",
+    sheetSaveFailed: "Not saved — this browser blocks local storage",
+    sheetExported: "Copy saved as a file",
+    sheetImported: "Sheet opened",
+    sheetImportFailed: "That file is not a character sheet",
+    sheetConfirmBlank: "Clear this sheet and start a new character?",
+    sheetBlank: "Blank sheet",
+    sheetLoad: "Load"
   },
   ru: {
     contents: "Содержание",
@@ -45,7 +54,16 @@ window.YZE_STRINGS = {
     edition: "Система правил",
     note: "Справочник по правилам, собранный из Year Zero Engine SRD. Классический вариант с пулом d6 и современный вариант с ранговыми кубиками разобраны параллельно.",
     contentsNote: "Список глав",
-    backToStart: "В начало"
+    backToStart: "В начало",
+    sheet: "Лист персонажа",
+    sheetSaved: "Сохранено в этом браузере",
+    sheetSaveFailed: "Не сохранено — браузер блокирует локальное хранилище",
+    sheetExported: "Копия сохранена в файл",
+    sheetImported: "Лист открыт",
+    sheetImportFailed: "Этот файл не похож на лист персонажа",
+    sheetConfirmBlank: "Очистить лист и начать нового персонажа?",
+    sheetBlank: "Чистый лист",
+    sheetLoad: "Нагрузка"
   }
 };
 

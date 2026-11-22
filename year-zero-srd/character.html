@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="Character sheet — Year Zero Engine" data-ru="Лист персонажа — Year Zero Engine">Character sheet — Year Zero Engine</title>
+<meta name="description" content="A character sheet for the Year Zero Engine that you fill in the browser, keep, and print to PDF. Classic d6 pools and modern ranked dice.">
+<link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/book.css">
+<link rel="stylesheet" href="assets/sheet.css">
+<script src="assets/i18n.js" defer></script>
+<script src="assets/home.js" defer></script>
+<script src="assets/sheet.js" defer></script>
+</head>
+<body class="home sheet-page" data-variant="classic">
+
+<a class="skip-link" href="#sheet" data-en="Skip to the sheet" data-ru="Перейти к листу">Skip to the sheet</a>
+
+<header class="home__head sheet__head">
+  <a class="home__mark" href="index.html">YEAR ZERO ENGINE</a>
+
+  <div class="sheet__tools">
+    <div class="lang-switch" role="group" aria-label="Language / Язык">
+      <button class="btn" type="button" data-set-lang="en" aria-pressed="true">EN</button>
+      <button class="btn" type="button" data-set-lang="ru" aria-pressed="false">RU</button>
+    </div>
+    <button class="btn btn--strong" type="button" data-print data-en="Print or save PDF" data-ru="Печать или PDF">Print or save PDF</button>
+    <button class="btn" type="button" data-export data-en="Save a copy" data-ru="Сохранить копию">Save a copy</button>
+    <label class="btn btn--file">
+      <input type="file" accept="application/json,.json" data-import hidden>
+      <span data-en="Open a copy" data-ru="Открыть копию">Open a copy</span>
+    </label>
+    <button class="btn" type="button" data-new data-en="Blank sheet" data-ru="Чистый лист">Blank sheet</button>
+  </div>
+</header>
+
+<main id="main" class="sheet-main">
+  <div class="sheet-lead">
+    <h1 data-en="Character sheet" data-ru="Лист персонажа">Character sheet</h1>
+    <p data-en="Fill it in, close the tab, come back — the sheet is kept in this browser. Print it or save it as a PDF from the print dialogue, and save a copy as a file if you want to keep it elsewhere."
+       data-ru="Заполняйте, закрывайте вкладку, возвращайтесь — лист хранится в этом браузере. Печатайте или сохраняйте в PDF через диалог печати, а копию сохраняйте в файл, если хотите держать её где-то ещё.">Fill it in, close the tab, come back — the sheet is kept in this browser. Print it or save it as a PDF from the print dialogue, and save a copy as a file if you want to keep it elsewhere.</p>
+    <p class="sheet__status" data-sheet-status role="status" aria-live="polite"></p>
+  </div>
+
+  <div class="sheet" id="sheet" data-sheet>
+
+    <div class="sheet__col">
+
+      <section class="sec">
+        <div class="sec__head">
+          <span class="sec__num">01</span>
+          <h2 data-en="The character" data-ru="Персонаж">The character</h2>
+          <div class="seg" role="group" aria-label="Variant">
+            <button class="seg__btn" type="button" data-variant-set="classic" aria-pressed="true">
+              <span data-en="Classic d6" data-ru="Классика d6">Classic d6</span>
+            </button>
+            <button class="seg__btn" type="button" data-variant-set="modern" aria-pressed="false">
+              <span data-en="Modern A–D" data-ru="Современный A–D">Modern A–D</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="rows">
+          <label class="line">
+            <span class="line__label" data-en="Name" data-ru="Имя">Name</span>
+            <input class="f f--big" type="text" data-field="name" autocomplete="off" spellcheck="false">
+          </label>
+          <label class="line">
+            <span class="line__label" data-en="Archetype" data-ru="Архетип">Archetype</span>
+            <input class="f" type="text" data-field="archetype" autocomplete="off">
+          </label>
+          <label class="line">
+            <span class="line__label" data-en="Concept" data-ru="Замысел">Concept</span>
+            <input class="f" type="text" data-field="concept" autocomplete="off">
+          </label>
+        </div>
+      </section>
+
+      <section class="sec">
+        <div class="sec__head">
+          <span class="sec__num">02</span>
+          <h2 data-en="Characteristics" data-ru="Характеристики">Characteristics</h2>
+        </div>
+        <p class="sec__hint" data-en="Classic: 14 points, 2 to 5 each. Modern: every characteristic starts at C, with three steps to raise and the option to lower one to gain a step."
+           data-ru="Классика: 14 пунктов, по 2–5 на характеристику. Современный: все начинаются с C, три шага на повышение, можно понизить одну, чтобы получить ещё шаг.">Classic: 14 points, 2 to 5 each. Modern: every characteristic starts at C.</p>
+        <div class="chars" data-chars></div>
+      </section>
+
+      <section class="sec">
+        <div class="sec__head">
+          <span class="sec__num">03</span>
+          <h2 data-en="Skills and specializations" data-ru="Навыки и специализации">Skills and specializations</h2>
+        </div>
+        <div class="tbl-wrap">
+          <table class="skills">
+            <thead>
+              <tr>
+                <th scope="col" data-en="Skill" data-ru="Навык">Skill</th>
+                <th scope="col" class="skills__char" data-en="Char." data-ru="Хар.">Char.</th>
+                <th scope="col" class="skills__val"><span data-variant-label="classic" data-en="Lvl" data-ru="Ур.">Lvl</span><span data-variant-label="modern" data-en="Rank" data-ru="Ранг">Rank</span></th>
+                <th scope="col" data-en="Specialization" data-ru="Специализация">Specialization</th>
+                <th scope="col" class="skills__specrank" data-en="Rank" data-ru="Ранг">Rank</th>
+              </tr>
+            </thead>
+            <tbody data-skill-rows></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="sec">
+        <div class="sec__head">
+          <span class="sec__num">04</span>
+          <h2 data-en="Damage and condition" data-ru="Урон и состояние">Damage and condition</h2>
+        </div>
+        <p class="sec__hint" data-en="Tick a box per point of damage or stress. Three conditions of one kind take the hero out."
+           data-ru="Отмечайте клетку за каждый пункт урона или стресса. Три состояния одного вида выводят героя из строя.">Tick a box per point of damage or stress. Three conditions of one kind take the hero out.</p>
+
+        <div class="track">
+          <span class="track__name" data-en="Damage" data-ru="Раны">Damage</span>
+          <div class="track__pips" data-track="damage"></div>
+        </div>
+        <div class="track">
+          <span class="track__name" data-en="Stress" data-ru="Стресс">Stress</span>
+          <div class="track__pips" data-track="stress"></div>
+        </div>
+
+        <div class="conditions">
+          <div class="cond">
+            <span class="cond__name" data-en="Physical" data-ru="Физические">Physical</span>
+            <input class="f" type="text" data-field="cond.physical.1" aria-label="Physical condition 1">
+            <input class="f" type="text" data-field="cond.physical.2" aria-label="Physical condition 2">
+            <input class="f" type="text" data-field="cond.physical.3" aria-label="Physical condition 3">
+          </div>
+          <div class="cond">
+            <span class="cond__name" data-en="Mental" data-ru="Психические">Mental</span>
+            <input class="f" type="text" data-field="cond.mental.1" aria-label="Mental condition 1">
+            <input class="f" type="text" data-field="cond.mental.2" aria-label="Mental condition 2">
+            <input class="f" type="text" data-field="cond.mental.3" aria-label="Mental condition 3">
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <div class="sheet__col">
+
+      <section class="sec">
+        <div class="sec__head">
+          <span class="sec__num">05</span>
+          <h2 data-en="Personality edges" data-ru="Личностные края">Personality edges</h2>
+        </div>
+        <div class="rows">
+          <label class="line">
+            <span class="line__label" data-en="Pride" data-ru="Гордость">Pride</span>
+            <input class="f" type="text" data-field="edge.pride">
+          </label>
+          <label class="line">
+            <span class="line__label" data-en="Weakness" data-ru="Слабость">Weakness</span>
+            <input class="f" type="text" data-field="edge.weakness">
+          </label>
+          <label class="line">
+            <span class="line__label" data-en="Dark secret" data-ru="Тёмная тайна">Dark secret</span>
+            <input class="f" type="text" data-field="edge.secret">
+          </label>
+          <label class="line">
+            <span class="line__label" data-en="Dream" data-ru="Мечта">Dream</span>
+            <input class="f" type="text" data-field="edge.dream">
+          </label>
+          <label class="line">
+            <span class="line__label" data-en="Best friend" data-ru="Лучший друг">Best friend</span>
+            <input class="f" type="text" data-field="edge.friend">
+          </label>
+          <label class="line">
+            <span class="line__label" data-en="Relationships" data-ru="Отношения">Relationships</span>
+            <textarea class="f f--area" rows="2" data-field="edge.relationships"></textarea>
+          </label>
+        </div>
+      </section>
+
+      <section class="sec">
+        <div class="sec__head">
+          <span class="sec__num">06</span>
+          <h2 data-en="Equipment" data-ru="Снаряжение">Equipment</h2>
+          <p class="load" data-load>
+            <span class="load__label" data-en="Load" data-ru="Нагрузка">Load</span>
+            <span class="load__value" data-load-value>0 / 0</span>
+          </p>
+        </div>
+
+        <div class="gear__head">
+          <span data-en="Item" data-ru="Предмет">Item</span>
+          <span data-en="Load" data-ru="Нагр.">Load</span>
+        </div>
+        <div class="gear" data-gear></div>
+
+        <div class="weapons">
+          <div class="weapons__head">
+            <span data-en="Weapon" data-ru="Оружие">Weapon</span>
+            <span data-en="Damage" data-ru="Урон">Damage</span>
+            <span data-en="Range" data-ru="Дистанция">Range</span>
+          </div>
+          <div class="weapons__row">
+            <input class="f" type="text" data-field="weapon.0.name" aria-label="Weapon 1">
+            <input class="f f--num" type="text" data-field="weapon.0.damage" aria-label="Weapon 1 damage">
+            <input class="f" type="text" data-field="weapon.0.range" aria-label="Weapon 1 range">
+          </div>
+          <div class="weapons__row">
+            <input class="f" type="text" data-field="weapon.1.name" aria-label="Weapon 2">
+            <input class="f f--num" type="text" data-field="weapon.1.damage" aria-label="Weapon 2 damage">
+            <input class="f" type="text" data-field="weapon.1.range" aria-label="Weapon 2 range">
+          </div>
+          <div class="weapons__row">
+            <input class="f" type="text" data-field="weapon.2.name" aria-label="Weapon 3">
+            <input class="f f--num" type="text" data-field="weapon.2.damage" aria-label="Weapon 3 damage">
+            <input class="f" type="text" data-field="weapon.2.range" aria-label="Weapon 3 range">
+          </div>
+        </div>
+
+        <label class="line line--armour">
+          <span class="line__label" data-en="Armour" data-ru="Броня">Armour</span>
+          <input class="f" type="text" data-field="armour">
+        </label>
+
+        <div class="track track--supply">
+          <span class="track__name" data-en="Supplies" data-ru="Припасы">Supplies</span>
+          <div class="track__pips track__pips--six" data-track="supplies"></div>
+        </div>
+      </section>
+
+      <section class="sec">
+        <div class="sec__head">
+          <span class="sec__num">07</span>
+          <h2 data-en="Experience and notes" data-ru="Опыт и заметки">Experience and notes</h2>
+        </div>
+        <div class="xp">
+          <label class="line line--mid">
+            <span class="line__label" data-en="Earned" data-ru="Получено">Earned</span>
+            <input class="f f--num" type="number" min="0" inputmode="numeric" data-field="xp.earned">
+          </label>
+          <label class="line line--mid">
+            <span class="line__label" data-en="Spent" data-ru="Потрачено">Spent</span>
+            <input class="f f--num" type="number" min="0" inputmode="numeric" data-field="xp.spent">
+          </label>
+        </div>
+        <label class="line line--area">
+          <span class="line__label" data-en="Notes" data-ru="Заметки">Notes</span>
+          <textarea class="f f--area" rows="4" data-field="notes"></textarea>
+        </label>
+      </section>
+
+    </div>
+  </div>
+
+  <footer class="sheet-foot">
+    <span data-en="Kept in this browser only. Save a copy to move the hero to another device."
+          data-ru="Хранится только в этом браузере. Сохраните копию, чтобы перенести героя на другое устройство.">Kept in this browser only. Save a copy to move the hero to another device.</span>
+    <span><a href="index.html" data-en="All books" data-ru="Все книги">All books</a> · <a href="player-book.html" data-href-en="player-book.html" data-href-ru="player-book.ru.html" data-en="Player's book" data-ru="Книга игрока">Player's book</a></span>
+  </footer>
+</main>
+</body>
+</html>
