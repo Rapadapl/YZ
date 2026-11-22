@@ -1,65 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Year Zero Engine — SRD</title>
-    <style>
-        :root { color-scheme: light dark; }
-        * { box-sizing: border-box; }
-        body {
-            font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            max-width: 900px; margin: 0 auto; padding: 40px 20px 60px;
-            line-height: 1.6; color: #2c3e50; background: #fdfdfb;
-        }
-        h1 { font-size: 2rem; margin-bottom: 0.2em; }
-        .lead { color: #5b6b7b; margin-top: 0; }
-        .cards { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin: 32px 0; }
-        .card {
-            display: block; text-decoration: none; color: inherit;
-            border: 1px solid #e0e4e8; border-radius: 8px; padding: 20px;
-            background: #fff; transition: border-color .15s, transform .15s;
-        }
-        .card:hover { border-color: #3498db; transform: translateY(-2px); }
-        .card h2 { margin: 0 0 8px; font-size: 1.15rem; color: #2c3e50; }
-        .card p { margin: 0; font-size: 0.95rem; color: #5b6b7b; }
-        section { margin-top: 34px; }
-        h3 { font-size: 1rem; text-transform: uppercase; letter-spacing: .06em; color: #7f8c8d; }
-        ul { padding-left: 1.2em; }
-        li { margin: 4px 0; }
-        a { color: #2980b9; }
-        footer { margin-top: 48px; font-size: 0.85rem; color: #95a5a6; border-top: 1px solid #e8eaec; padding-top: 16px; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="Year Zero Engine — rules reference" data-ru="Year Zero Engine — справочник правил">Year Zero Engine — rules reference</title>
+<meta name="description" content="A two-book reference for the Year Zero Engine: the player's book and the master's book, in English and Russian, covering the classic d6 and modern ranked-die variants.">
+<link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/book.css">
+<script src="assets/home.js" defer></script>
 </head>
-<body>
-    <h1>Year Zero Engine — System Reference</h1>
-    <p class="lead">Rules reference for the Year Zero Engine, covering both the classic variant (d6 dice pools, characteristics 1–5) and the modern variant (dice ranks A–D).</p>
+<body class="home">
+<a class="skip-link" href="#main" data-en="Skip to the books" data-ru="Перейти к книгам">Skip to the books</a>
 
-    <div class="cards">
-        <a class="card" href="player-book.html">
-            <h2>Player's Book →</h2>
-            <p>Character creation in seven steps, archetypes, skills, equipment, experience and special efforts.</p>
-        </a>
-        <a class="card" href="master-book.html">
-            <h2>Master's Book →</h2>
-            <p>Combat and damage, magic traditions, travel and survival, advancement and gamemaster guidance.</p>
-        </a>
-    </div>
+<header class="home__head">
+  <a class="home__mark" href="index.html">YEAR ZERO ENGINE</a>
+  <div class="lang-switch" role="group" aria-label="Language / Язык">
+    <button class="btn" type="button" data-set-lang="en" aria-pressed="true">EN</button>
+    <button class="btn" type="button" data-set-lang="ru" aria-pressed="false">RU</button>
+  </div>
+</header>
 
-    <section>
-        <h3>Markdown sources</h3>
-        <ul>
-            <li><a href="00-reference.md">Reference index</a> — what each chapter file covers</li>
-            <li><a href="00-overview.md">Overview</a> — the system in brief</li>
-            <li><a href="01-introduction.md">01 Introduction</a> · <a href="02-player-characters.md">02 Player Characters</a> · <a href="03-skills-specializations.md">03 Skills</a></li>
-            <li><a href="04-combat-damage.md">04 Combat &amp; Damage</a> · <a href="05-magic.md">05 Magic</a> · <a href="06-travel.md">06 Travel</a></li>
-            <li><a href="AI-INSTRUCTIONS.md">AI instructions</a> — how to work with these files</li>
-            <li>Russian versions: <code>.ru.md</code> files next to each chapter, plus <a href="00-reference.ru.md">00-reference.ru.md</a></li>
-        </ul>
-    </section>
+<main id="main">
+  <section class="home__hero">
+    <h1 data-en="Two books for the table, and the rules that keep it moving"
+        data-ru="Две книги для стола и правила, которые не дают ему остановиться">Two books for the table, and the rules that keep it moving</h1>
+    <p data-en="The player's book is for the person with the character sheet. The master's book is for the person running the world. Both cover the same system twice: as dice pools of d6, and as ranked dice from A to D — pick the one your table plays."
+       data-ru="Книга игрока — для того, у кого лист персонажа. Книга мастера — для того, кто ведёт мир. Обе описывают одну систему дважды: как пулы d6 и как ранговые кубики от A до D — выберите тот вариант, в который играет ваш стол.">The player's book is for the person with the character sheet. The master's book is for the person running the world. Both cover the same system twice: as dice pools of d6, and as ranked dice from A to D.</p>
+  </section>
 
-    <footer>
-        Compiled from the Year Zero Engine SRD. Both books are self-contained single files and can be printed.
-    </footer>
+  <div class="home__rule" role="presentation"></div>
+
+  <section class="books" aria-label="Books">
+    <a class="book-card" href="player-book.html" data-href-en="player-book.html" data-href-ru="player-book.ru.html">
+      <span class="book-card__kicker" data-en="Volume one" data-ru="Первый том">Volume one</span>
+      <h2 data-en="Player's book" data-ru="Книга игрока">Player's book</h2>
+      <ul>
+        <li data-en="How a roll works, in both variants" data-ru="Как работает бросок в обоих вариантах">How a roll works, in both variants</li>
+        <li data-en="Creating a character in seven steps" data-ru="Создание персонажа за семь шагов">Creating a character in seven steps</li>
+        <li data-en="The twelve skills and what they cover" data-ru="Двенадцать навыков и что они покрывают">The twelve skills and what they cover</li>
+        <li data-en="Personality edges, and why they earn experience" data-ru="Личностные края и почему они приносят опыт">Personality edges, and why they earn experience</li>
+        <li data-en="Equipment, load, special effort, advancement" data-ru="Снаряжение, нагрузка, особое усилие, развитие">Equipment, load, special effort, advancement</li>
+      </ul>
+      <span class="book-card__go" data-en="Open the player's book" data-ru="Открыть книгу игрока">Open the player's book</span>
+    </a>
+
+    <a class="book-card" href="master-book.html" data-href-en="master-book.html" data-href-ru="master-book.ru.html">
+      <span class="book-card__kicker" data-en="Volume two" data-ru="Второй том">Volume two</span>
+      <h2 data-en="Master's book" data-ru="Книга мастера">Master's book</h2>
+      <ul>
+        <li data-en="Running the game, difficulty and fate points" data-ru="Как вести игру: сложность и очки судьбы">Running the game, difficulty and fate points</li>
+        <li data-en="Combat, initiative, weapons, armour" data-ru="Бой, инициатива, оружие, броня">Combat, initiative, weapons, armour</li>
+        <li data-en="Injuries, conditions and death" data-ru="Ранения, состояния и смерть">Injuries, conditions and death</li>
+        <li data-en="Hazards, chases, vehicles and cover" data-ru="Опасности, погони, транспорт и укрытия">Hazards, chases, vehicles and cover</li>
+        <li data-en="Magic, travel and survival" data-ru="Магия, путешествия и выживание">Magic, travel and survival</li>
+      </ul>
+      <span class="book-card__go" data-en="Open the master's book" data-ru="Открыть книгу мастера">Open the master's book</span>
+    </a>
+  </section>
+
+  <section class="home__section">
+    <h2 data-en="The two variants, side by side" data-ru="Два варианта рядом">The two variants, side by side</h2>
+    <dl class="variants" style="margin:0">
+      <div>
+        <dt data-en="Classic" data-ru="Классика">Classic</dt>
+        <dd data-en="Characteristics 1–5, skills 0–5, pool of d6. One success finishes the job; every extra success buys an effect."
+            data-ru="Характеристики 1–5, навыки 0–5, пул d6. Один успех закрывает задачу; каждый следующий покупает эффект.">Characteristics 1–5, skills 0–5, pool of d6.</dd>
+      </div>
+      <div>
+        <dt data-en="Modern" data-ru="Современный">Modern</dt>
+        <dd data-en="Ranks A–D, two dice per check, success on 6+. Advantages add a die, penalties remove the smaller one."
+            data-ru="Ранги A–D, два кубика на проверку, успех на 6+. Преимущество добавляет кубик, помеха убирает меньший.">Ranks A–D, two dice per check, success on 6+.</dd>
+      </div>
+    </dl>
+  </section>
+
+  <section class="home__section">
+    <h2 data-en="Plain markdown, if you want the source" data-ru="Markdown-исходники, если нужен текст">Plain markdown, if you want the source</h2>
+    <ul>
+      <li><a href="00-reference.md" data-en="Reference index: what each chapter file covers" data-ru="Индекс справочника: что в каком файле">Reference index: what each chapter file covers</a></li>
+      <li><a href="01-introduction.md" data-en="01 — Introduction and core concepts" data-ru="01 — Введение и базовые понятия">01 — Introduction and core concepts</a></li>
+      <li><a href="02-player-characters.md" data-en="02 — Player characters" data-ru="02 — Персонажи игроков">02 — Player characters</a></li>
+      <li><a href="03-skills-specializations.md" data-en="03 — Skills and specializations" data-ru="03 — Навыки и специализации">03 — Skills and specializations</a></li>
+      <li><a href="04-combat-damage.md" data-en="04 — Combat and damage" data-ru="04 — Бой и урон">04 — Combat and damage</a></li>
+      <li><a href="05-magic.md" data-en="05 — Magic" data-ru="05 — Магия">05 — Magic</a></li>
+      <li><a href="06-travel.md" data-en="06 — Travel" data-ru="06 — Путешествия">06 — Travel</a></li>
+      <li><a href="AI-INSTRUCTIONS.md" data-en="Instructions for working with these files" data-ru="Инструкции по работе с этими файлами">Instructions for working with these files</a></li>
+    </ul>
+  </section>
+</main>
+
+<footer class="home__foot">
+  <span data-en="Compiled from the Year Zero Engine SRD. Rules only — no setting, no adventures." data-ru="Собрано из Year Zero Engine SRD. Только правила — без сеттинга и приключений.">Compiled from the Year Zero Engine SRD.</span>
+  <span>EN / RU · <a href="master-book.ru.html">книга мастера</a> · <a href="player-book.html">player's book</a></span>
+</footer>
 </body>
 </html>

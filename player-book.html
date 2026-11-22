@@ -1,265 +1,421 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Year Zero Engine - Player's Book</title>
-    <style>
-        body { font-family: sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; }
-        h1, h2, h3 { color: #2c3e50; }
-        .section { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #eee; }
-        .quick-tip { background: #f8f9fa; padding: 10px; border-left: 3px solid #3498db; margin: 15px 0; }
-        .variant { font-size: 0.9em; color: #7f8c8d; margin-top: 5px; }
-        .archetype { background: #e8f4fd; padding: 15px; border-radius: 5px; margin: 10px 0; }
-        .dice-info { font-family: monospace; background: #f0f0f0; padding: 10px; margin: 10px 0; }
-        .toc { list-style: none; padding: 0; }
-        .toc li { margin: 5px 0; }
-        .toc a { text-decoration: none; color: #2c3e50; }
-        .toc a:hover { text-decoration: underline; }
-        @media print { body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Player's book — Year Zero Engine</title>
+<meta name="description" content="Player's reference for the Year Zero Engine: character creation, skills, personality edges, equipment, checks, special effort and experience, in the classic d6 and modern ranked-die variants.">
+<link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/book.css">
+<script src="assets/i18n.js" defer></script>
+<script src="assets/book.js" defer></script>
 </head>
 <body>
-    <h1>Year Zero Engine - Player's Book</h1>
-    
-    <p>Your complete guide to creating and playing characters in the Year Zero Engine.</p>
-    
-    <div class="section" id="character-creation">
-        <h2>Character Creation - 7 Steps</h2>
-        
-        <h3>Step 1: Choose an Archetype</h3>
-        <p>Who your character is, their past, and role in the group. Archetypes define characteristics, skills, specializations, and starting equipment.</p>
-        
-        <h3>Step 2: Determine Characteristic Values</h3>
-        <p><strong>Four Characteristics:</strong></p>
+<a class="skip-link" href="#main"></a>
+<div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Reading progress"></div>
+<button class="rail-toggle" type="button" aria-expanded="false" aria-controls="rail" data-str="openMenu"></button>
+<button class="scrim" type="button" hidden aria-label="Close contents"></button>
+
+<div class="shell">
+  <aside class="rail" id="rail" data-open="false" aria-label="Contents">
+    <div class="rail__brand">
+      <span class="rail__brand-mark">YEAR ZERO ENGINE</span>
+      <a class="rail__brand-title" href="player-book.html" data-str="playerBook"></a>
+      <span class="rail__brand-sub">System reference</span>
+    </div>
+
+    <div class="rail__search">
+      <label class="visually-hidden" for="toc-search" data-str-aria="searchLabel"></label>
+      <input id="toc-search" type="search" autocomplete="off" data-toc-search data-str-placeholder="searchPlaceholder">
+      <span class="rail__search-key" aria-hidden="true">/</span>
+    </div>
+
+    <nav aria-label="Contents">
+      <ul class="toc" id="toc"></ul>
+    </nav>
+
+    <div class="rail__foot">
+      <div class="lang-switch" data-lang-switch>
+        <span aria-current="true">EN</span>
+        <a href="player-book.ru.html" lang="ru" hreflang="ru" data-alt-lang="player-book.ru.html">RU</a>
+      </div>
+      <a class="btn" href="index.html" data-str="library"></a>
+      <button class="btn" type="button" data-print data-str="print"></button>
+      <button class="btn" type="button" data-close data-str="closeMenu"></button>
+    </div>
+  </aside>
+
+  <main class="book" id="main">
+    <div class="book__inner">
+
+      <header class="masthead">
+        <p class="masthead__book">Year Zero Engine · System reference</p>
+        <h1>Player's book</h1>
+        <p class="masthead__lead">Everything the person holding a character sheet needs: how a roll works, how a hero is built, and how they grow after the first session.</p>
+
+        <dl class="variants">
+          <div>
+            <dt>The classic variant</dt>
+            <dd>A pool of <span class="die">d6</span>. Characteristics run from 1 to 5, skills from 0 to 5. Add them together and roll that many dice; every 6 is a success.</dd>
+          </div>
+          <div>
+            <dt>The modern variant</dt>
+            <dd>Two ranked dice per check. Characteristics and skills run from A to D, where A is <span class="die">d12</span> and D is <span class="die">d6</span>. Any 6 or higher succeeds.</dd>
+          </div>
+        </dl>
+      </header>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">01</span>
+          <h2 id="how-it-works">How a roll works</h2>
+        </div>
+
+        <p>A skill check answers two questions at once: did the action succeed, and what did it cost. The dice do not measure how well a hero performs in general — they measure the outcome of one specific attempt under pressure.</p>
+
+        <h3>The classic pool</h3>
+        <p>Take dice equal to the character's skill level plus the linked characteristic. Roll them all at once. Each die showing a 6 is one success; a single success is enough to succeed. If the hero lacks the skill, roll only the characteristic dice, and add extra dice for helpful equipment.</p>
+
+        <h3>The modern pair</h3>
+        <p>Roll one die for the skill rank and one for the characteristic rank. A result of 6 or higher on either die is a success. When a die shows 10 or more — possible only on the d10 and d12 — it counts as two successes.</p>
+
+        <div class="rule">
+          <span class="rule__label">Success and effect</span>
+          <p>One success finishes the job. Every success beyond the first buys an extra effect, agreed with the gamemaster: the hero acts faster, stays quiet, helps a companion, or notices something nobody else did. In combat each extra success adds 1 point of damage.</p>
+        </div>
+
+        <div class="warn">
+          <span class="rule__label">No successes</span>
+          <p>A roll with no successes is a failure with a consequence. Describe what went wrong and how the story moves on — the action may still happen, but at a price in time, noise, equipment or position. Failure should never stop the game.</p>
+        </div>
+
+        <p>A character can also push a roll further, at a cost. That is a special effort, covered in chapter 7.</p>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">02</span>
+          <h2 id="character">Creating a character</h2>
+        </div>
+
+        <p>Character creation is seven steps, in order. Each step narrows the next: the archetype suggests who the hero was, the numbers say what they can do now, and the personality edges say what they will risk everything for.</p>
+
+        <h3>Step 1 — Choose an archetype</h3>
+        <p>An archetype is a role, profession or past: enforcer, scavenger, healer, archivist, hunter. It fixes the starting package of characteristics, skills and equipment, and gives everyone at the table a shared picture of the character within a minute. It is a starting point, not a cage.</p>
+
+        <h3>Step 2 — Determine characteristics</h3>
+        <p>Four characteristics describe the body and the mind. <strong>Body</strong> is raw strength and endurance; <strong>Dexterity</strong> is coordination and speed; <strong>Wits</strong> is perception, intelligence and common sense; <strong>Empathy</strong> is charisma and the ability to read and move people.</p>
+
+        <div class="variant">
+          <b>Classic</b>
+          Distribute 14 points across the four characteristics. No characteristic starts below 2 or above 5, and the archetype's key characteristic is the only one that may reach 5 — the others cap at 4.
+        </div>
+
+        <div class="variant">
+          <b>Modern</b>
+          All four characteristics begin at rank C (<span class="die">d8</span>). You have three steps to raise ranks during creation. You may lower one characteristic from C to D to gain a fourth step. No characteristic may end above A.
+        </div>
+
+        <h3>Step 3 — Determine skills</h3>
+        <p>The twelve basic skills are covered in chapter 3. Skills are what the character has actually practised, and they are always read together with a characteristic.</p>
+
+        <div class="variant">
+          <b>Classic</b>
+          Skills run from 0 to 5. Spend your starting levels on the skills the archetype implies. A skill at 0 is not a prohibition: the hero can still try, rolling characteristic dice alone.
+        </div>
+
+        <div class="variant">
+          <b>Modern</b>
+          Skills run from A to D. Choose one skill at rank B, two at rank C and three at rank D; the rest stay unranked. The B usually goes to an archetype skill.
+        </div>
+
+        <h3>Step 4 — Pick a specialization</h3>
+        <p>A specialization is a technique, a trick or a narrow field of expertise: lockpicking rather than general Craft, knife fighting rather than all close combat. It is narrower than a skill and gives a small, reliable edge inside that narrow field. Most characters start with one; more are earned in play.</p>
+
+        <h3>Step 5 — Choose personality edges</h3>
+        <p>Six short statements turn a set of numbers into a person. They are described in chapter 4, and they are the main engine of experience: playing to them is how a hero advances.</p>
+
+        <h3>Step 6 — Take starting equipment</h3>
+        <p>Write down everything the hero carries. Clothes and the container itself do not count against the load limit; the contents do. Starting gear usually follows from the archetype.</p>
+
+        <h3>Step 7 — Name the character</h3>
+        <p>A name, and perhaps one sentence about where it came from. That is enough to begin.</p>
+
+        <div class="example">
+          <p><strong>Worked example, classic.</strong> An enforcer takes Body 5, Dexterity 4, Wits 3, Empathy 2 — 14 points, key characteristic at 5. Skills: Skelm 3, Near Combat 3, Ranged 1. Her specialization is grappling. Her Pride is “never backs down from a challenge”, and her Weakness is a debt she cannot repay. She starts with a crowbar, a revolver and a backpack.</p>
+        </div>
+
+        <div class="example">
+          <p><strong>Worked example, modern.</strong> The same enforcer raises Body to A and Dexterity to B, and lowers Empathy from C to D to buy a third and fourth step, ending at Body A, Dexterity B, Wits C, Empathy D. One skill at B (Near Combat), two at C (Skelm, Endurance), three at D (Ranged, Observation, Persuasion).</p>
+        </div>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">03</span>
+          <h2 id="skills">The twelve skills</h2>
+        </div>
+
+        <p>Every skill belongs to one characteristic. The pairing is fixed: it tells you which die or how many dice to add, and it explains why a strong character is not automatically good at everything physical.</p>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>Basic skills and their characteristics</caption>
+            <thead>
+              <tr><th scope="col">Skill</th><th scope="col">Characteristic</th><th scope="col">What it covers</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Skelm</td><td>Body</td><td>Lifting, shifting or breaking heavy and stubborn things</td></tr>
+              <tr><td>Near combat</td><td>Body</td><td>Attacking and defending with melee weapons or bare hands</td></tr>
+              <tr><td>Endurance</td><td>Body</td><td>Stamina: holding your breath, resisting poison, marching on</td></tr>
+              <tr><td>Ranged</td><td>Dexterity</td><td>Shooting and throwing</td></tr>
+              <tr><td>Dexterity</td><td>Dexterity</td><td>Risky movement and precise work: jumping, climbing, escaping</td></tr>
+              <tr><td>Stealth</td><td>Dexterity</td><td>Staying unseen and unheard, and taking things quietly</td></tr>
+              <tr><td>Craft</td><td>Wits</td><td>Repairing what is broken, building what is missing</td></tr>
+              <tr><td>Observation</td><td>Wits</td><td>Reading a place, searching it, noticing what is out of place</td></tr>
+              <tr><td>Survival</td><td>Wits</td><td>Weather, terrain, hunger, thirst and the things that hunt you</td></tr>
+              <tr><td>Healing</td><td>Empathy</td><td>Stopping blood, setting bones, keeping someone alive</td></tr>
+              <tr><td>Insight</td><td>Empathy</td><td>Reading people and catching lies</td></tr>
+              <tr><td>Persuasion</td><td>Empathy</td><td>Convincing, calming, bargaining, lying well</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Specializations</h3>
+        <p>A specialization never replaces the skill — it adds to it inside a narrow situation. Some carry ranks, usually three, each unlocking another effect; others are simply on or off. A character can learn a specialization only from someone who already has it, which makes teachers a resource worth protecting.</p>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">04</span>
+          <h2 id="edges">Personality edges</h2>
+        </div>
+
+        <p>Personality edges are the part of the character sheet that pushes the story. Each one is a sentence, and each one can earn experience when it makes the hero's life harder.</p>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>The six edges</caption>
+            <thead>
+              <tr><th scope="col">Edge</th><th scope="col">What it is</th><th scope="col">At the table</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Pride</td><td>What the hero believes about themselves and will not let go of</td><td>Once per game session, gain one automatic success on a check — if you can explain how pride helps</td></tr>
+              <tr><td>Weakness</td><td>The crack in the armour: a fear, a habit, a hunger</td><td>When the weakness causes real trouble, it earns extra experience at the end of the session</td></tr>
+              <tr><td>Dark secret</td><td>Something that happened before the game began</td><td>A hook for the gamemaster; revealing or protecting it changes what experience you earn</td></tr>
+              <tr><td>Dream</td><td>The long goal the hero would sacrifice for</td><td>Experience for risking something real in its pursuit</td></tr>
+              <tr><td>Relationships</td><td>One phrase per other hero: how you stand with them</td><td>Gives the gamemaster handles to pull, and you reasons to act</td></tr>
+              <tr><td>Best friend</td><td>The one character you would go back for</td><td>Experience for risking or sacrificing something significant for them</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="rule">
+          <span class="rule__label">Why they matter</span>
+          <p>A character who only shoots straight earns experience slowly. A character who cannot walk away from a fight, who owes the wrong people, or who goes back for a friend, earns it every session — and gives the table something to play against.</p>
+        </div>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">05</span>
+          <h2 id="gear">Equipment and load</h2>
+        </div>
+
+        <p>Carrying capacity is measured in ordinary items: a knife, a rope, a day of food, a box of matches. What you carry is what you have when the plan falls apart.</p>
+
+        <div class="variant">
+          <b>Classic</b>
+          Comfortable load equals twice the Body value. A hero with Body 4 carries eight ordinary items.
+        </div>
+        <div class="variant">
+          <b>Modern</b>
+          Comfortable load equals the number of faces on the Body rank's die: Body A carries twelve items, Body D carries six.
+        </div>
+
+        <h3>Heavy, light and small</h3>
         <ul>
-            <li><strong>Body:</strong> Combination of gross physical strength and endurance</li>
-            <li><strong>Dexterity:</strong> Coordination of movements, speed, and body motor skills</li>
-            <li><strong>Wits:</strong> Intelligence, perception, and common sense</li>
-            <li><strong>Empathy:</strong> Charisma and ability to manipulate others</li>
+          <li><strong>Heavy</strong> items count as two, three or more ordinary items — a rifle, a jerrycan, a stretcher.</li>
+          <li><strong>Light</strong> items count as a half or a quarter — a lens, a lockpick set, a letter.</li>
+          <li><strong>Small</strong> items fit in a fist and can be hidden, but still get written down. Forgotten inventory is lost inventory.</li>
         </ul>
-        
-        <div class="variant">
-            <strong>Classic Variant:</strong> Values range from 1 to 5. Players typically distribute 14 development points among characteristics. Minimum 2, maximum 5 points per characteristic. Each archetype has a key characteristic where 5 points can be invested; others cannot exceed 4.
+
+        <h3>Backpacks, animals and vehicles</h3>
+        <p>A worn backpack doubles the load a hero can carry, at the cost of a −2 modifier to Dexterity checks. Pack animals and vehicles carry their own maximum load, and a led animal rather than a ridden one carries double.</p>
+
+        <h3>Supplies instead of counting</h3>
+        <p>Food, water, fuel, ammunition, torches and batteries can be tracked two ways. Count them one by one, which is exact and tedious, or give each type a supply rating. Each supply occupies one ordinary item, and whenever the gamemaster calls for a consumption check, roll dice equal to the current rating (maximum six). Each success reduces the rating by one. At zero, that resource is gone.</p>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">06</span>
+          <h2 id="checks">Modifiers, help and opposition</h2>
         </div>
-        
-        <div class="variant">
-            <strong>Modern Variant:</strong> Characteristics ranked from A to D. Each rank corresponds to a die with specific faces. Initially all four characteristics have rank C. 3 steps to raise ranks during character creation. Can lower one characteristic from C to D to gain an additional step.
+
+        <p>Most checks need no modification. When the situation clearly favours or hinders the hero, the gamemaster applies one modifier, and the table moves on.</p>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>Difficulty in the classic variant</caption>
+            <thead><tr><th scope="col">Difficulty</th><th scope="col" class="num">Modifier</th></tr></thead>
+            <tbody>
+              <tr><td>Elementary</td><td class="num">+3 dice</td></tr>
+              <tr><td>Simple</td><td class="num">+2 dice</td></tr>
+              <tr><td>Easy</td><td class="num">+1 die</td></tr>
+              <tr><td>Standard</td><td class="num">0</td></tr>
+              <tr><td>Not easy</td><td class="num">−1 die</td></tr>
+              <tr><td>Hard</td><td class="num">−2 dice</td></tr>
+              <tr><td>Extreme</td><td class="num">−3 dice</td></tr>
+            </tbody>
+          </table>
         </div>
-        
-        <h3>Health and Resolve</h3>
-        <p><strong>Health:</strong> Determines how much damage a character can take before being taken out.<br>
-        <strong>Resolve:</strong> Determines how much stress a character can take before being taken out.</p>
-        
+
+        <p>When a check must lose dice, take them in this order: skill dice first, then equipment, then characteristic dice. If nothing is left to roll, the attempt is impossible as things stand — a new approach is needed, not a new roll.</p>
+
         <div class="variant">
-            <strong>Classic Variant:</strong> Health: Average of Body and Dexterity, rounded up + 1. Resolve: Average of Wits and Empathy, rounded up + 1.
+          <b>Modern</b>
+          Advantages and penalties work differently. An advantage adds a third die, equal to the smaller of the skill and characteristic ranks. A penalty removes the smaller of the two dice. An advantage and a penalty cancel each other, and only one modifier can remain after cancellation.
         </div>
-        
-        <div class="variant">
-            <strong>Modern Variant:</strong> Health: Sum of Body and Dexterity maximum dice, divided by 4, rounded up. Resolve: Sum of Wits and Empathy maximum dice, divided by 4, rounded up.
+
+        <h3>Help</h3>
+        <p>Another character can help if they are close enough and able to affect the outcome, declared before the dice are rolled. Each helper adds +1, to a maximum of +3. In combat, helping costs the same action the helped character is spending.</p>
+
+        <h3>Opposed checks</h3>
+        <p>Both sides roll and compare successes; every success on one side cancels one on the other. Whoever has successes left wins. Only the character who initiated the contest may make a special effort, and only after seeing the opponent's roll. Equal totals are a tie: usually the instigator loses, and if the table needs a decision, roll the contest again.</p>
+
+        <h3>Passive checks</h3>
+        <p>Noticing an ambush, resisting a lie, staying calm — these are not actions, so they cannot be pushed with a special effort (chapter 7). Roll them plainly and take the result.</p>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">07</span>
+          <h2 id="effort">Special effort</h2>
         </div>
-        
-        <h3>Step 3: Determine Skill Values</h3>
-        <p><strong>12 Basic Skills (Classic):</strong></p>
+
+        <p>When everything is on the line, a hero can dig deeper: reroll every die that did not come up 1. The 1s stay where they are — they are curses, and they are what the effort costs.</p>
+
+        <div class="rule">
+          <span class="rule__label">Once per check</span>
+          <p>A special effort can be made once on any single check, and only when the character is actively acting. It cannot be used on a passive check.</p>
+        </div>
+
+        <h3>What the price looks like</h3>
+        <p>The system offers several ways to charge for the effort; a game uses one of them, chosen before play begins.</p>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>Cost of a special effort, by variant</caption>
+            <thead><tr><th scope="col">Cost</th><th scope="col">How it works</th></tr></thead>
+            <tbody>
+              <tr><td>Wounds and stress</td><td>One point of damage per curse if the skill is tied to Body or Dexterity; one point of stress per curse if it is tied to Wits or Empathy.</td></tr>
+              <tr><td>Characteristic reduction</td><td>Each curse immediately lowers the characteristic used, until the scene ends. Skill and equipment dice are not affected.</td></tr>
+              <tr><td>Stress dice</td><td>Each curse adds a stress die (<span class="die">d6</span>) to later checks. Stress dice can produce successes on a 6, but a 1 on a stress die forces a panic check.</td></tr>
+              <tr><td>Conditions</td><td>Each curse gives a condition — exhausted, annoyed, frightened — with a penalty attached to particular checks.</td></tr>
+              <tr><td>Fate points</td><td>The gamemaster gains a fate point for every effort made, to spend later on obstacles and bad luck.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="example">
+          <p>A scavenger with Body 3 and Skelm 3 rolls six dice to force a hatch, and comes up with two 1s and no sixes. She pushes: four dice are rerolled, two successes come up — and she takes two points of damage, or two conditions, depending on the game's chosen cost.</p>
+        </div>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">08</span>
+          <h2 id="experience">Experience and advancement</h2>
+        </div>
+
+        <p>Experience is awarded at the end of a session, by the group, in answer to six questions. Each honest yes is a point.</p>
+
         <ol>
-            <li><strong>Skelm (Body)</strong> - Lifting, moving, or breaking heavy/tough obstacles</li>
-            <li><strong>Near Combat (Body)</strong> - Attacking or defending with cold weapons or unarmed</li>
-            <li><strong>Endurance (Body)</strong> - Stamina, e.g., holding breath under water, resisting poison</li>
-            <li><strong>Ranged (Dexterity)</strong> - Shooting with ranged weapons</li>
-            <li><strong>Dexterity (Dexterity)</strong> - Risky movements and precise actions</li>
-            <li><strong>Stealth (Dexterity)</strong> - Hiding unnoticed, stealing</li>
-            <li><strong>Craft (Wits)</strong> - Repairing damaged items, creating new ones</li>
-            <li><strong>Observation (Wits)</strong> - Studying terrain, gaining useful information</li>
-            <li><strong>Survival (Wits)</strong> - Surviving extreme temperatures, acid rain, sandstorms</li>
-            <li><strong>Healing (Empathy)</strong> - Healing injured characters, saving lives</li>
-            <li><strong>Insight (Empathy)</strong> - Understanding others, detecting lies</li>
-            <li><strong>Persuasion (Empathy)</strong> - Hypnotizing, convincing others</li>
+          <li>Did the character take part in the session?</li>
+          <li>Did the character explore somewhere new?</li>
+          <li>Did the character defeat a dangerous opponent?</li>
+          <li>Did the character overcome an obstacle without violence?</li>
+          <li>Did the character act on a personality edge?</li>
+          <li>Did the character do something outstanding?</li>
         </ol>
-        
-        <div class="variant">
-            <strong>Modern Variant:</strong> Skills have ranks A to D, each corresponding to a die. Initially choose 1 skill at rank B, 2 at rank C, 3 at rank D. Usually rank B goes to an archetype skill, others can be any.
+
+        <p>Points are spent between sessions, or during a rest. A skill rises by one step at a time, and only if it was used successfully since the last advance — practice is the permission slip.</p>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>Cost to raise a skill</caption>
+            <thead><tr><th scope="col">Classic: new level</th><th scope="col" class="num">Cost</th><th scope="col">Modern: new rank</th><th scope="col" class="num">Cost</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td class="num">5</td><td>D</td><td class="num">5</td></tr>
+              <tr><td>2</td><td class="num">10</td><td>C</td><td class="num">10</td></tr>
+              <tr><td>3</td><td class="num">15</td><td>B</td><td class="num">15</td></tr>
+              <tr><td>4</td><td class="num">20</td><td>A</td><td class="num">20</td></tr>
+              <tr><td>5</td><td class="num">25</td><td>—</td><td class="num">—</td></tr>
+            </tbody>
+          </table>
         </div>
-        
-        <div class="variant">
-            <strong>Skill Levels (Classic):</strong> Level 0 to 5 (higher is better). Even at level 0, a hero can attempt a check using only the characteristic value and appropriate equipment.
+
+        <p>Specializations always cost 10 experience. They cannot be learned alone: the hero needs a teacher who already has it, a full shift of training for both of them, and a successful Persuasion check by the teacher at the end of that shift.</p>
+
+        <div class="rule">
+          <span class="rule__label">Advancement in one line</span>
+          <p>Use the skill to earn the right to raise it, find someone who knows more than you to learn something new, and pay for both in experience.</p>
         </div>
-        
-        <h3>Step 4: Choose Initial Specializations</h3>
-        <p>Abilities, techniques, and tricks that give the hero a small advantage. More narrow application than skills. Usually choose one during character creation; can gain more during play.</p>
-        
-        <h3>Step 5: Choose Personality Edges</h3>
-        <p>Unique features that add depth to your character:</p>
-        <ul>
-            <li><strong>Pride:</strong> Once per gaming encounter, can use to gain 1 automatic success on a check. Must explain how pride helps the hero.</li>
-            <li><strong>Weakness:</strong> Achilles' heel that can drag the hero into trouble. Adds depth and individuality. Revealing a weakness in game earns extra experience at end of encounter.</li>
-            <li><strong>Dark Secret:</strong> Event the character experienced before the game started. Tool for the gamemaster to create stories. Can affect experience earned at end of encounter.</li>
-            <li><strong>Dream:</strong> Main long-term goal of the character. Earn experience by risking or sacrificing something significant in pursuit.</li>
-            <li><strong>Relationships:</strong> Short phrase defining character's relationship to other heroes. Helps gamemaster create interesting challenges.</li>
-            <li><strong>Best Friend:</strong> Another player's character with whom your hero feels closest. Earn experience by risking or sacrificing something significant for your best friend.</li>
-        </ul>
-        
-        <h3>Step 6: Determine Starting Equipment</h3>
-        <p>Record all items your character carries in the "Equipment" section of the character sheet. Items for carrying other gear and clothing don't count toward encumbrance. Usually starting equipment depends on archetype.</p>
-        
-        <h3>Step 7: Choose a Name</h3>
-        <p>Give your character an identity.</p>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">09</span>
+          <h2 id="quick-reference">Quick reference</h2>
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <h3>Dice by rank</h3>
+            <div class="tbl-wrap">
+              <table class="tbl">
+                <thead><tr><th scope="col">Rank</th><th scope="col">Die</th><th scope="col">Successes on</th></tr></thead>
+                <tbody>
+                  <tr><td>A</td><td><span class="die">d12</span></td><td>6–9: one, 10–12: two</td></tr>
+                  <tr><td>B</td><td><span class="die">d10</span></td><td>6–9: one, 10: two</td></tr>
+                  <tr><td>C</td><td><span class="die">d8</span></td><td>6–8: one</td></tr>
+                  <tr><td>D</td><td><span class="die">d6</span></td><td>6: one</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div>
+            <h3>First session checklist</h3>
+            <ul>
+              <li>Archetype chosen and named</li>
+              <li>Four characteristics written down</li>
+              <li>Twelve skills with levels or ranks</li>
+              <li>One specialization</li>
+              <li>Pride, weakness, secret, dream, a relationship and a best friend</li>
+              <li>Equipment listed, load added up</li>
+              <li>One thing the hero would risk everything for</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="rule">
+          <span class="rule__label">The whole game in three sentences</span>
+          <p>Say what you do and how. Roll the dice the character has earned. Live with the result, and let it change the situation.</p>
+        </div>
+      </section>
+
+      <nav class="pager" aria-label="Chapters">
+        <a class="pager__link" data-pager="prev" href="#how-it-works"><span>Previous chapter</span><b data-pager-label></b></a>
+        <a class="pager__link pager__link--next" data-pager="next" href="#character"><span>Next chapter</span><b data-pager-label></b></a>
+      </nav>
+
+      <footer class="colophon">
+        <p data-str="note"></p>
+        <p>Sources: <a href="02-player-characters.md">02 — Player characters</a>, <a href="03-skills-specializations.md">03 — Skills and specializations</a>, <a href="04-combat-damage.md">04 — Combat and damage</a>. Master's rules: <a href="master-book.html">the master's book</a>.</p>
+      </footer>
     </div>
-    
-    <div class="section" id="encumbrance">
-        <h2>Encumbrance</h2>
-        
-        <h3>Basic Load</h3>
-        <p>Can comfortably carry items equal to maximum encumbrance.</p>
-        <div class="variant">
-            <strong>Classic:</strong> Double the Body value
-        </div>
-        <div class="variant">
-            <strong>Modern:</strong> Maximum die of Body characteristic
-        </div>
-        
-        <h3>Heavy and Light Items</h3>
-        <p>Heavy items count as 2 or 3 (or more) regular items. Light items count as half or quarter of a regular item.</p>
-        
-        <h3>Backpack</h3>
-        <p>Worn backpack allows carrying twice as many items but imposes -2 modifier to Dexterity checks.</p>
-        
-        <h3>Small Items</h3>
-        <p>Can be hidden in the fist; weight can be neglected. Must still be recorded on the character sheet.</p>
-        
-        <h3>Mount Animals and Vehicles</h3>
-        <p>Mount animals can carry gear equal to their maximum load. Or double if being led (not ridden). Vehicles can carry even more.</p>
-        
-        <h3>Expendables</h3>
-        <p>Category of items: food, water, ammunition, arrows, torches, air, batteries, etc. Two main tracking methods:</p>
-        <ul>
-            <li><strong>Accounting and Control:</strong> Record quantity on character sheet; each consumed item reduces it.</li>
-            <li><strong>Supplies:</strong> Each type has a supply rating; each type occupies space of one regular item. Periodically must make consumption checks. Roll dice equal to current supply, max 6. Each success reduces supply by 1. When supply reaches 0, material is gone.</li>
-        </ul>
-    </div>
-    
-    <div class="section" id="experience">
-        <h2>Experience and Advancement</h2>
-        
-        <h3>Earning Experience</h3>
-        <p>At end of each gaming encounter, discuss with the group and answer "yes" to questions:</p>
-        <ul>
-            <li>Did your character participate in the encounter?</li>
-            <li>Did your character explore a new place?</li>
-            <li>Did your character defeat a dangerous opponent?</li>
-            <li>Did your character overcome an obstacle without using force?</li>
-            <li>Did your character act according to a personality edge?</li>
-            <li>Did your character do something outstanding?</li>
-        </ul>
-        
-        <h3>Spending Experience</h3>
-        <p>Between encounters or when resting:</p>
-        <ul>
-            <li><strong>Skills:</strong> Cost indicated in table; can only increase by 1 level at a time; must have used skill successfully since last advancement.</li>
-            <li><strong>New skill (level 1 or rank D):</strong> 5 experience points</li>
-            <li><strong>Specializations:</strong> Always costs 10 experience points; requires a mentor who already has it; both mentor and student must spend a full shift on training; teacher must make a persuasion check at the end of the shift.</li>
-        </ul>
-        
-        <div class="toc">
-            <strong>Advancement Table (Skills):</strong>
-            <br>
-            <span class="dice-info">New Level | Experience Points</span>
-            <br>Level 1 | 5
-            <br>Level 2 | 10
-            <br>Level 3 | 15
-            <br>Level 4 | 20
-            <br>Level 5 | 25
-        </div>
-        
-        <div class="toc">
-            <strong>Advancement Table (Specializations):</strong>
-            <br>
-            <span class="dice-info">New Rank | Experience Points</span>
-            <br>Rank D | 5
-            <br>Rank C | 10
-            <br>Rank B | 15
-            <br>Rank A | 20
-        </div>
-    </div>
-    
-    <div class="section" id="special-efforts">
-        <h2>Special Efforts</h2>
-        
-        <p>When a hero fully commits to a task at risk of failure, they can make a special effort to re-roll any dice that didn't show a 1. 1s on main dice are called "curses" - they are not re-rolled.</p>
-        
-        <div class="variant">
-            <strong>Modern Variant - Wounds and Stress:</strong> After special effort, character takes 1 wound point (if skill linked to Body or Dexterity) or 1 stress point (if linked to Wits or Empathy) for each curse rolled.
-        </div>
-        
-        <div class="variant">
-            <strong>Characteristic Reduction:</strong> For each curse, immediately reduce the used characteristic (only main characteristic dice, not skill or equipment).
-        </div>
-        
-        <div class="variant">
-            <strong>Stress Dice:</strong> After special effort, immediately gain 1 stress point per curse; these d6 dice add to skill checks (6s are successes), but if a 1 appears on a stress die, must make a panic check.
-        </div>
-        
-        <div class="variant">
-            <strong>Conditions:</strong> After special effort, receive a condition (e.g., exhausted, annoyed, frightened); each imposes penalties on certain skill checks.
-        </div>
-        
-        <div class="variant">
-            <strong>Fate Points:</strong> After each special effort, gamemaster receives 1 fate point to create obstacles and unfortunate circumstances.
-        </div>
-        
-        <p><strong>Only Once:</strong> Special effort can only be applied once per check.</p>
-    </div>
-    
-    <div class="section" id="help">
-        <h2>Help</h2>
-        
-        <p>Other players or the gamemaster can help by providing +1 modifier each. Must be declared before rolling. Helper must be nearby and able to influence the situation. Maximum 3 helpers for +3 total. In combat, helping costs the same type of action (quick or standard) as the assisted character.</p>
-    </div>
-    
-    <div class="section" id="opposed-checks">
-        <h2>Opposed Checks</h2>
-        
-        <p>Sometimes one success isn't enough. Must get more successes than opponent. Each opponent's success cancels one of your successes. Only the initiator of opposed check can make special effort, and only after opponent's check. Can be different skills (e.g., Persuasion vs. Insight) or same skill.</p>
-        
-        <div class="variant">
-            <strong>Tie:</strong> If opponents get equal number of successes - it's a tie. Usually the side that initiated the conflict loses, but sometimes tie has special consequences. If tie needs resolution - conduct opposed check again.
-        </div>
-    </div>
-    
-    <div class="section" id="critical-failure">
-        <h2>Critical Failure (Idea Failure)</h2>
-        
-        <p>If no successes are rolled on a skill check, something went wrong. Describe why it failed and consult gamemaster for additional consequences if needed. Must be able to move forward - at cost of additional effort, time, or other resources. When truly needed, one last chance: make a special effort.</p>
-    </div>
-    
-    <div class="section" id="advantages-penalties">
-        <h2>Advantages and Penalties</h2>
-        
-        <div class="variant">
-            <strong>Classic Variant:</strong> +1 adds 1 main die; +2 adds 2 main dice, etc. -1 means rolling 1 main die less, etc. Multiple modifiers stack.
-        </div>
-        
-        <div class="variant">
-            <strong>Modern Variant:</strong> +1 replaces one main die with a die one rank higher; -1 replaces one main die with a die one rank lower, etc. Maximum die is d12. Must always have at least 1 d6 remaining. Advantage and penalty cancel each other out. Only one modifier can affect a check after cancellations.
-        </div>
-        
-        <div class="variant">
-            <strong>Complexity Modifier Table:</strong>
-            <br>
-            <span class="dice-info">Check Difficulty | Modifier</span>
-            <br>Elementary | +3
-            <br>Simple | +2
-            <br>Easy | +1
-            <br>Standard | 0
-            <br>Not Easy | -1
-            <br>Hard | -2
-            <br>Extreme | -3
-        </div>
-    </div>
-    
-    <footer>
-        <p>Year Zero Engine - Player's Reference Book<br>
-        Rules for creating and playing characters.</p>
-    </footer>
+  </main>
+</div>
 </body>
 </html>

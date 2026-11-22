@@ -1,129 +1,562 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Year Zero Engine - Master's Book</title>
-    <style>
-        body { font-family: serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; }
-        h1, h2, h3 { color: #2c3e50; }
-        .section { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #ddd; }
-        .quick-tip { background: #f8f9fa; padding: 10px; border-left: 3px solid #3498db; margin: 15px 0; }
-        .variant { font-size: 0.9em; color: #7f8c8d; margin-top: 5px; }
-        .toc { list-style: none; padding: 0; }
-        .toc li { margin: 5px 0; }
-        .toc a { text-decoration: none; color: #2c3e50; }
-        .toc a:hover { text-decoration: underline; }
-        @media print { body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Master's book — Year Zero Engine</title>
+<meta name="description" content="Gamemaster's reference for the Year Zero Engine: combat and initiative, damage and armour, injuries, hazards, chases, magic and travel, in the classic d6 and modern ranked-die variants.">
+<link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/book.css">
+<script src="assets/i18n.js" defer></script>
+<script src="assets/book.js" defer></script>
 </head>
 <body>
-    <h1>Year Zero Engine - Master's Book</h1>
-    
-    <p>Complete reference for gamemasters running Year Zero Engine games.</p>
-    
-    <div class="section" id="introduction">
-        <h2>Introduction</h2>
-        <p>The Year Zero Engine (YZE) is a story-focused roleplaying system designed to give players meaningful choices while keeping the narrative moving forward. This master's book contains all the rules needed to run games using this system.</p>
+<a class="skip-link" href="#main"></a>
+<div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Reading progress"></div>
+<button class="rail-toggle" type="button" aria-expanded="false" aria-controls="rail" data-str="openMenu"></button>
+<button class="scrim" type="button" hidden aria-label="Close contents"></button>
+
+<div class="shell">
+  <aside class="rail" id="rail" data-open="false" aria-label="Contents">
+    <div class="rail__brand">
+      <span class="rail__brand-mark">YEAR ZERO ENGINE</span>
+      <a class="rail__brand-title" href="master-book.html" data-str="masterBook"></a>
+      <span class="rail__brand-sub">System reference</span>
     </div>
-    
-    <div class="section" id="character-creation">
-        <h2>Character Creation</h2>
-        <p>Create unique characters through a 7-step process:</p>
+
+    <div class="rail__search">
+      <label class="visually-hidden" for="toc-search" data-str-aria="searchLabel"></label>
+      <input id="toc-search" type="search" autocomplete="off" data-toc-search data-str-placeholder="searchPlaceholder">
+      <span class="rail__search-key" aria-hidden="true">/</span>
+    </div>
+
+    <nav aria-label="Contents">
+      <ul class="toc" id="toc"></ul>
+    </nav>
+
+    <div class="rail__foot">
+      <div class="lang-switch" data-lang-switch>
+        <span aria-current="true">EN</span>
+        <a href="master-book.ru.html" lang="ru" hreflang="ru" data-alt-lang="master-book.ru.html">RU</a>
+      </div>
+      <a class="btn" href="index.html" data-str="library"></a>
+      <button class="btn" type="button" data-print data-str="print"></button>
+      <button class="btn" type="button" data-close data-str="closeMenu"></button>
+    </div>
+  </aside>
+
+  <main class="book" id="main">
+    <div class="book__inner">
+
+      <header class="masthead">
+        <p class="masthead__book">Year Zero Engine · System reference</p>
+        <h1>Master's book</h1>
+        <p class="masthead__lead">The rules the gamemaster runs: how violence resolves, what it costs, how magic bends the world, and what the road takes from people who travel it.</p>
+
+        <dl class="variants">
+          <div>
+            <dt>The classic variant</dt>
+            <dd>Pools of <span class="die">d6</span>. Damage is a number of points, armour is a number of dice, and wounds and stress are counted separately.</dd>
+          </div>
+          <div>
+            <dt>The modern variant</dt>
+            <dd>Ranked dice from A to D. Damage and armour talk in ranks and reliability, and the same wound can also be paid as a condition.</dd>
+          </div>
+        </dl>
+      </header>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">01</span>
+          <h2 id="running">Running the game</h2>
+        </div>
+
+        <p>Roll when the outcome is uncertain and the stakes are real. If a competent character would simply succeed, say yes and move on; if the action is impossible, say so and offer another route. Everything else is a check.</p>
+
+        <h3>Setting difficulty</h3>
+        <p>Pick the modifier before the dice hit the table, and say it out loud so the table can argue with the situation rather than with the result. One modifier is usually enough; two only when the fiction clearly has two separate problems.</p>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>Difficulty, classic variant</caption>
+            <thead><tr><th scope="col">Difficulty</th><th scope="col" class="num">Modifier</th><th scope="col">Typical situation</th></tr></thead>
+            <tbody>
+              <tr><td>Elementary</td><td class="num">+3</td><td>No pressure, good tools, plenty of time</td></tr>
+              <tr><td>Simple</td><td class="num">+2</td><td>Favourable conditions, mild distraction</td></tr>
+              <tr><td>Easy</td><td class="num">+1</td><td>Slightly in the character's favour</td></tr>
+              <tr><td>Standard</td><td class="num">0</td><td>Two competent people against each other</td></tr>
+              <tr><td>Not easy</td><td class="num">−1</td><td>Bad light, bad tools, bad weather</td></tr>
+              <tr><td>Hard</td><td class="num">−2</td><td>Hostile conditions, improvised equipment</td></tr>
+              <tr><td>Extreme</td><td class="num">−3</td><td>Everything is against it, and everyone knows</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="variant">
+          <b>Modern</b>
+          Difficulty in the modern variant becomes advantage or penalty: an advantage adds a third die equal to the smaller of the two ranks, a penalty removes the smaller die. Both cancel before anything is rolled, so state which one applies, not how many.
+        </div>
+
+        <h3>Fate points</h3>
+        <p>Fate points are the gamemaster's licence to make life interesting: an obstacle appears, a patrol turns up, a rope frays at the worst moment. Characters hand them over by pushing rolls with a special effort, which keeps the exchange honest — the more the players strain, the more the world pushes back.</p>
+
+        <h3>Gamemaster characters</h3>
+        <p>Give an NPC only what the scene needs: a name, one characteristic worth noticing, a skill if they are good at something, and a reason to be in the way. Full character sheets are for recurring rivals, not for the guard at the gate.</p>
+
+        <div class="rule">
+          <span class="rule__label">The one rule that keeps a session alive</span>
+          <p>Fail forward. A failed check changes the situation instead of stopping it: the door opens, but loudly; the trail is found, but the light is fading; the negotiation fails, and now someone is owed a favour.</p>
+        </div>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">02</span>
+          <h2 id="combat">Combat</h2>
+        </div>
+
+        <p>Combat runs in rounds. Every participant acts once per round, in initiative order, and violence is resolved the same way as any other check — it just costs something every time it happens.</p>
+
+        <h3>Initiative</h3>
+        <p>Initiative is dealt with cards: each participant draws a card, and the highest card acts first, counting down. Cards are drawn again at the start of every round, so a fast character is not permanently first — the situation keeps moving.</p>
+        <ul>
+          <li><strong>Surprise:</strong> a character who did not see the attack coming does not act in the first round; they can only react.</li>
+          <li><strong>Exchanging initiative:</strong> two characters who want to act at the same time may swap cards by agreement, which lets a pair coordinate without a special rule.</li>
+        </ul>
+
+        <h3>A turn</h3>
+        <p>A character takes one standard action and one quick action, in any order. A standard action can be traded for a second quick action, but not the other way around.</p>
+
+        <div class="grid-2">
+          <div>
+            <h4>Standard actions</h4>
+            <ul>
+              <li>Attack in close combat, or shoot</li>
+              <li>Aim, and gain a bonus to the next ranged attack</li>
+              <li>Use a skill that takes real effort — heal, repair, force a door</li>
+              <li>Full movement across the scene</li>
+              <li>Help another character with their action</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Quick actions</h4>
+            <ul>
+              <li>Move a short distance, dive for cover</li>
+              <li>Draw or reload a weapon</li>
+              <li>Shout a warning, give an order</li>
+              <li>Grab, drop or throw an object</li>
+              <li>Look around, spot a target</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>Movement and distance</h3>
+        <p>Distances are descriptive: point-blank, near, far and out of sight. A character moves one zone as part of their turn, and a full standard action to cross the scene. Cover, light and noise are properties of a zone, and they matter more than exact metres.</p>
+
+        <div class="warn">
+          <span class="rule__label">Keep the map in your head</span>
+          <p>If the table has to measure something, describe the scene in zones instead: the yard, the doorway, the roof. Any two people in the same zone can reach each other; anything further needs a move or a ranged weapon.</p>
+        </div>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">03</span>
+          <h2 id="attacks">Attacks and damage</h2>
+        </div>
+
+        <p>An attack is a skill check with a weapon. Close combat uses Near combat and Body; ranged attacks use Ranged and Dexterity. Success means the hit lands; additional successes mean it lands harder.</p>
+
+        <h3>Weapons</h3>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>Weapon reference</caption>
+            <thead>
+              <tr><th scope="col">Weapon</th><th scope="col">Hands</th><th scope="col" class="num">Attack mod.</th><th scope="col" class="num">Damage</th><th scope="col">Range</th><th scope="col" class="num">Weight</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Unarmed</td><td>—</td><td class="num">—</td><td class="num">1</td><td>Point-blank</td><td class="num">—</td></tr>
+              <tr><td>Blunt object</td><td>1</td><td class="num">+1</td><td class="num">1</td><td>Point-blank</td><td class="num">1</td></tr>
+              <tr><td>Knife</td><td>1</td><td class="num">+1</td><td class="num">1</td><td>Point-blank</td><td class="num">½</td></tr>
+              <tr><td>Club</td><td>1</td><td class="num">+2</td><td class="num">1</td><td>Point-blank</td><td class="num">1</td></tr>
+              <tr><td>Axe</td><td>2</td><td class="num">+2</td><td class="num">2</td><td>Point-blank</td><td class="num">2</td></tr>
+              <tr><td>Spear</td><td>1</td><td class="num">+1</td><td class="num">2</td><td>Near</td><td class="num">½</td></tr>
+              <tr><td>Battle axe</td><td>2</td><td class="num">+2</td><td class="num">3</td><td>Near</td><td class="num">3</td></tr>
+              <tr><td>Pistol</td><td>1</td><td class="num">+2</td><td class="num">2</td><td>Near</td><td class="num">½</td></tr>
+              <tr><td>Rifle</td><td>1</td><td class="num">+2</td><td class="num">2</td><td>Far</td><td class="num">1</td></tr>
+              <tr><td>Machine gun</td><td>2</td><td class="num">+2</td><td class="num">2</td><td>Far</td><td class="num">2</td></tr>
+              <tr><td>Bow</td><td>2</td><td class="num">+1</td><td class="num">1</td><td>Far</td><td class="num">½</td></tr>
+              <tr><td>Crossbow</td><td>2</td><td class="num">+1</td><td class="num">1</td><td>Near</td><td class="num">¼</td></tr>
+              <tr><td>Musket</td><td>2</td><td class="num">+1</td><td class="num">1</td><td>Near</td><td class="num">¼</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Aiming and automatic fire</h3>
+        <p>Aiming spends a standard action and grants a bonus to the next ranged attack in the same or the following round. Automatic fire spends a standard action and empties a burst: the attack gains a bonus, and the shooter may spread successes across several targets in the same zone.</p>
+
+        <h3>Damage</h3>
+        <p>Damage equals the weapon's damage value plus one point for every success beyond the first. A hit that lands for 3 points removes 3 points of health, or imposes conditions, depending on which damage system the game uses.</p>
+
+        <h3>Armour</h3>
+        <div class="variant">
+          <b>Classic</b>
+          Armour has a numeric value. Roll that many dice; each success reduces incoming damage by 1. A curse on the armour roll — a 1 — reduces the armour's value by 1 until repaired with Craft.
+        </div>
+        <div class="variant">
+          <b>Modern</b>
+          Armour has a rank from A to D. Roll its two dice; each success reduces damage by 1, and each point of damage that gets through lowers the armour's reliability by one step. At zero reliability the item is destroyed.
+        </div>
+
+        <div class="rule">
+          <span class="rule__label">Armour never makes a fight safe</span>
+          <p>Armour buys a round, not immunity. Because armour degrades — by curses in the classic variant, by reliability in the modern one — a long fight strips everyone down to their skin.</p>
+        </div>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">04</span>
+          <h2 id="injuries">Injuries and conditions</h2>
+        </div>
+
+        <p>Damage is not hit points in the abstract; it is the price of staying in the fight. Three systems exist for paying it, and a game picks one before the first session.</p>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>The three damage systems</caption>
+            <thead><tr><th scope="col">System</th><th scope="col">How damage is tracked</th><th scope="col">Taken out when</th></tr></thead>
+            <tbody>
+              <tr><td>Health and resolve</td><td>Two pools, one physical and one mental</td><td>Either pool reaches zero</td></tr>
+              <tr><td>Characteristic reduction</td><td>The characteristic used by the attack is reduced</td><td>Any characteristic reaches zero</td></tr>
+              <tr><td>Conditions</td><td>Three physical and three mental slots</td><td>A fourth condition of the same type is required</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Conditions</h3>
+        <p>Physical conditions — exhausted, battered, injured — impose −1 on every Body and Dexterity check. Mental conditions — annoyed, frightened, depressed — impose −1 on every Wits and Empathy check. With three of one type already marked, the next one takes the character out.</p>
+
+        <h3>Being taken out</h3>
+        <p>A character who is taken out is out of the scene and takes an injury. They are not necessarily dead: death is a separate, rarer result, and it always comes with a chance to resist.</p>
+
+        <h3>Death</h3>
+        <p>Lethal injuries kill after a stated interval — a round, a period, a shift. When the interval runs out, the character makes an Endurance check. Success means survival until the next interval and another check; failure means death. Some results kill outright, and no check helps. Another character may stabilise the wounded with Healing and the right equipment before the interval runs out.</p>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>Physical injuries (D66)</caption>
+            <thead><tr><th scope="col" class="num">D66</th><th scope="col">Injury</th><th scope="col">Effect</th></tr></thead>
+            <tbody>
+              <tr><td class="num">11</td><td>Winded</td><td>Recover after a moment</td></tr>
+              <tr><td class="num">12</td><td>Stunned</td><td>Lose the next action</td></tr>
+              <tr><td class="num">13</td><td>Unbearable pain</td><td>−2 to all actions until treated</td></tr>
+              <tr><td class="num">14</td><td>Ankle sprain</td><td>−2 Skelm; movement costs a standard action</td></tr>
+              <tr><td class="num">15</td><td>Burst vessel in the eye</td><td>−2 Observation and Ranged</td></tr>
+              <tr><td class="num">16</td><td>Concussion</td><td>−2 Dexterity</td></tr>
+              <tr><td class="num">21</td><td>Ear cut off</td><td>−2 Observation</td></tr>
+              <tr><td class="num">22</td><td>Broken toe</td><td>Movement costs a standard action</td></tr>
+              <tr><td class="num">23</td><td>Broken wrist</td><td>Cannot use the hand</td></tr>
+              <tr><td class="num">24</td><td>Knocked-out teeth</td><td>−2 Persuasion</td></tr>
+              <tr><td class="num">25</td><td>Wound through the hip</td><td>Movement costs a standard action</td></tr>
+              <tr><td class="num">26</td><td>Broken hand</td><td>Cannot use the hand</td></tr>
+              <tr><td class="num">31</td><td>Broken nose</td><td>−1 Persuasion and Observation</td></tr>
+              <tr><td class="num">32</td><td>Low blow</td><td>1 damage on every Dexterity or close combat check</td></tr>
+              <tr><td class="num">33</td><td>Broken ribs</td><td>−2 Dexterity and Observation</td></tr>
+              <tr><td class="num">34</td><td>Eye injury</td><td>−2 Ranged and Observation</td></tr>
+              <tr><td class="num">35</td><td>Shattered kneecap</td><td>Movement costs a standard action</td></tr>
+              <tr><td class="num">36</td><td>Broken arm</td><td>Cannot use the hand</td></tr>
+              <tr><td class="num">41</td><td>Broken leg</td><td>Movement costs a standard action</td></tr>
+              <tr><td class="num">42</td><td>Broken foot</td><td>Movement costs a standard action</td></tr>
+              <tr><td class="num">43</td><td>Broken elbow</td><td>Cannot use the hand</td></tr>
+              <tr><td class="num">44</td><td>Wound through the lung</td><td>Lethal (shift): −2 Endurance, −2 Dexterity</td></tr>
+              <tr><td class="num">45</td><td>Penetrating abdominal wound</td><td>Lethal (shift): 1 damage on Dexterity or close combat checks</td></tr>
+              <tr><td class="num">46</td><td>Ruptured intestine</td><td>Lethal (shift), plus disease risk on 6</td></tr>
+              <tr><td class="num">51</td><td>Internal organ damage</td><td>Lethal (day): movement costs a standard action, −2 Dexterity</td></tr>
+              <tr><td class="num">52</td><td>Arterial bleeding, arm</td><td>Lethal (1 per period): cannot use the hand</td></tr>
+              <tr><td class="num">53</td><td>Arterial bleeding, leg</td><td>Lethal (1 per period): movement costs a standard action</td></tr>
+              <tr><td class="num">54</td><td>Hand amputated</td><td>Permanent: cannot use the hand</td></tr>
+              <tr><td class="num">55</td><td>Leg amputated</td><td>Permanent: movement costs a standard action</td></tr>
+              <tr><td class="num">56</td><td>Spinal fracture</td><td>Paralysis below the neck unless treated at once</td></tr>
+              <tr><td class="num">61</td><td>Torn venous sinus</td><td>Lethal (1 round): −1 Endurance</td></tr>
+              <tr><td class="num">62</td><td>Torn aorta</td><td>Lethal (2 rounds): −2 Endurance</td></tr>
+              <tr><td class="num">63</td><td>Eviscerated</td><td>Instant death</td></tr>
+              <tr><td class="num">64</td><td>Cracked skull</td><td>The story ends here</td></tr>
+              <tr><td class="num">65</td><td>Pierced heart</td><td>Dead immediately</td></tr>
+              <tr><td class="num">66</td><td>Heart struck</td><td>One last beat, then death</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>Mental injuries (D66)</caption>
+            <thead><tr><th scope="col" class="num">D66</th><th scope="col">Injury</th><th scope="col">Effect</th><th scope="col">Duration</th></tr></thead>
+            <tbody>
+              <tr><td class="num">11–16</td><td>Tremor</td><td>−1 on all Dexterity checks</td><td><span class="die">d6</span> days</td></tr>
+              <tr><td class="num">21–24</td><td>Anxiety</td><td>−1 on all Wits checks</td><td><span class="die">d6</span> days</td></tr>
+              <tr><td class="num">25–31</td><td>Closure</td><td>−1 on all Empathy checks</td><td><span class="die">d6</span> days</td></tr>
+              <tr><td class="num">32–35</td><td>Nightmares</td><td>Persuasion check to sleep at all</td><td><span class="die">d6</span> days</td></tr>
+              <tr><td class="num">36–41</td><td>Broken sleep</td><td>Can only sleep in daylight</td><td><span class="die">2d6</span> days</td></tr>
+              <tr><td class="num">42–43</td><td>Phobia</td><td>Lose 1 resolve each round near the source of fear</td><td><span class="die">2d6</span> days</td></tr>
+              <tr><td class="num">44–45</td><td>Alcoholism</td><td>Drink daily or lose 1 resolve</td><td><span class="die">3d6</span> days</td></tr>
+              <tr><td class="num">46–51</td><td>Claustrophobia</td><td>Lose 1 resolve each period in enclosed spaces</td><td><span class="die">2d6</span> days</td></tr>
+              <tr><td class="num">52–53</td><td>Compulsive lying</td><td>Cannot stop lying about anything</td><td><span class="die">2d6</span> days</td></tr>
+              <tr><td class="num">54–55</td><td>Paranoia</td><td>Certain someone is hunting them</td><td><span class="die">2d6</span> days</td></tr>
+              <tr><td class="num">56</td><td>Delusion</td><td>One thing in the world stops existing for them</td><td><span class="die">3d6</span> days</td></tr>
+              <tr><td class="num">61–62</td><td>Personality change</td><td>Play the character differently, with the gamemaster</td><td>Permanent</td></tr>
+              <tr><td class="num">63–64</td><td>Amnesia</td><td>No memories, no recognition of companions</td><td>Permanent</td></tr>
+              <tr><td class="num">65</td><td>Catatonia</td><td>No reaction to any stimulus</td><td><span class="die">d6</span> days</td></tr>
+              <tr><td class="num">66</td><td>Panic</td><td>The heart stops from fear</td><td>Dead</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Healing</h3>
+        <p>Another character can spend a standard action on a Healing check; every success removes one wound or one stress point, and only a taken-out character can be helped this way. Without help, a character recovers one point per shift — but only if they are not hungry, thirsty or freezing. Injuries themselves heal over a shift with a successful Craft check, which restores one point of quality or reliability; a failure fixes the damage in place for good.</p>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">05</span>
+          <h2 id="hazards">Hazards</h2>
+        </div>
+
+        <p>The world is a participant. Fire, cold, falling, water, poison and darkness all attack, and they do not need to roll initiative.</p>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>Situational damage</caption>
+            <thead><tr><th scope="col">Hazard</th><th scope="col">What happens</th></tr></thead>
+            <tbody>
+              <tr><td>Fire</td><td>Attacks with an intensity rating. Each round in the flames deals that much damage; armour counts, but burning clothes keep the fire on the character until put out.</td></tr>
+              <tr><td>Cold</td><td>An Endurance check per period in freezing conditions. Failure deals damage or a condition, and wet clothing makes the check harder.</td></tr>
+              <tr><td>Falling</td><td>Damage rises with the height. A short fall hurts; a fall from a roof ends a character. A Dexterity check may soften the landing.</td></tr>
+              <tr><td>Drowning</td><td>Endurance check to hold breath, then damage each round once the air is gone. Cold water shortens the clock.</td></tr>
+              <tr><td>Poison</td><td>Has a toxicity rating rolled as dice; every success deals damage. Paralytic and sleeping poisons also impose conditions rather than mere wounds.</td></tr>
+              <tr><td>Darkness</td><td>Everything depending on sight takes a penalty; ranged attacks into the dark are guesses, and Observation checks fail before they start.</td></tr>
+              <tr><td>Heat and thirst</td><td>An Endurance check per shift in punishing heat. Failure costs a point of health, and water becomes the most valuable item in the pack.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="rule">
+          <span class="rule__label">Hazards should be telegraphed</span>
+          <p>Describe the slick floor, the smoke under the door, the ice on the handrail. A hazard nobody could see coming is a tax; a hazard the players chose to risk is a decision.</p>
+        </div>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">06</span>
+          <h2 id="chase">Chases, vehicles and cover</h2>
+        </div>
+
+        <p>A chase is a contest of position, run as a series of opposed checks. The quarry starts with a lead measured in successes; the pursuer erases it one success at a time, and the chase ends when the lead is gone or the quarry breaks line of sight.</p>
+
+        <h3>Manoeuvres</h3>
+        <p>Each round, both sides describe a manoeuvre and roll the skill it implies: a sprint is Dexterity, a shortcut is Survival or Observation, a ram is Drive, a bluff is Persuasion. The winner of the opposed check adjusts the lead and describes what changed — a gate slammed, a corner taken too fast, a shortcut through a flooded basement.</p>
+
+        <h3>Vehicles</h3>
+        <p>Vehicles have a speed on roads and a speed off them, a structure value that absorbs damage, and a fuel supply. In a collision the vehicle takes damage equal to the speed it was doing, and everyone inside takes a share of that. A vehicle reduced to zero structure is wrecked, and the wreck is cover.</p>
+
+        <h3>Cover</h3>
+        <p>Cover adds dice to defence or subtracts them from the attacker, depending on how much of the target it hides. Light cover — a fence, a curtain — is a small modifier; hard cover — a wall, an engine block — is a large one. Cover and armour stack, but cover can be destroyed, and the character behind it can be flanked.</p>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">07</span>
+          <h2 id="magic">Magic</h2>
+        </div>
+
+        <p>Magic is not a separate game; it is a skill check with a different currency. Spells are paid for in fate points, ranked from 1 to 3, and the cost of reaching beyond what a character has learned is paid in side effects.</p>
+
+        <h3>The seven traditions</h3>
+        <div class="grid-2">
+          <div>
+            <h4>Druidic</h4>
+            <ul>
+              <li><strong>Nature:</strong> growth, weather, beasts and the slow patience of the wild</li>
+              <li><strong>Elemental:</strong> water, fire, air and stone, called and shaped</li>
+              <li><strong>Symbolism:</strong> signs cut, painted or worn, which act when triggered</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Sorcerous</h4>
+            <ul>
+              <li><strong>Blood:</strong> strength, heat and binding, paid in the caster's own body</li>
+              <li><strong>Death:</strong> decay, fear, the dead and the space between heartbeats</li>
+              <li><strong>Elementalism:</strong> the raw elements as weapons rather than as allies</li>
+              <li><strong>Mind:</strong> perception, memory and the wills of other people</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>Learning magic</h3>
+        <p>Magic is learned as a specialization with ranks. A character with a magical specialization can cast every spell of that rank and below. Learning from a teacher costs the normal price; learning alone costs triple, and some things cannot be learned alone at all. A teacher must be higher rank than the student, and must be convinced — often paid.</p>
+
+        <h3>Casting a spell</h3>
         <ol>
-            <li>Choose an archetype</li>
-            <li>Determine characteristic values (Body, Dexterity, Wits, Empathy)</li>
-            <li>Determine skill values (12 basic skills)</li>
-            <li>Choose initial specializations</li>
-            <li>Choose personality edges (Pride, Weakness, Dark Secret, Dream, Relationships, Best Friend)</li>
-            <li>Determine starting equipment</li>
-            <li>Choose a name</li>
+          <li>Choose the spell and the target.</li>
+          <li>Spend at least one fate point. The number spent is the spell's main power.</li>
+          <li>Roll that many <span class="die">d6</span>. Every 6 adds 1 to the final power; any 1 triggers a side effect.</li>
+          <li>Resolve the effect at its final power: damage, duration, distance, or the number of targets.</li>
         </ol>
-        <p><strong>Classic Variant:</strong> Characteristics 1-5, 14 points to distribute. <br>
-        <strong>Modern Variant:</strong> Characteristics ranked A-D, initial rank C for all.</p>
-    </div>
-    
-    <div class="section" id="combat">
-        <h2>Combat System</h2>
-        <p>Turn-based combat using initiative cards:</p>
+
+        <p>A spell can never fail outright, and a special effort cannot be applied to casting. Casting one rank above the character's specialization is allowed, but always causes a side effect. Two ranks above is impossible.</p>
+
+        <div class="variant">
+          <b>Safe casting</b>
+          When casting a spell below the character's rank, they may roll one die fewer for each rank of difference. Fewer dice means fewer side effects — and fewer chances to enhance the spell. Reduce to zero dice and no roll is needed: the spell simply works.
+        </div>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>Magic side effects (d12)</caption>
+            <thead><tr><th scope="col" class="num">d12</th><th scope="col">Effect</th></tr></thead>
+            <tbody>
+              <tr><td class="num">1</td><td>The caster cannot sleep for <span class="die">d6</span> days.</td></tr>
+              <tr><td class="num">2</td><td>The spell drains the caster: 1 point of stress.</td></tr>
+              <tr><td class="num">3</td><td>The spell injures the caster's body: 1 point of damage.</td></tr>
+              <tr><td class="num">4</td><td>A magical disease with toxicity <span class="die">2d6</span>; everyone nearby risks infection this shift.</td></tr>
+              <tr><td class="num">5</td><td>An ally or bystander is caught in the effect instead of, or as well as, the target.</td></tr>
+              <tr><td class="num">6</td><td>The caster's appearance changes permanently.</td></tr>
+              <tr><td class="num">7</td><td>The caster is blinded for days, as if in total darkness.</td></tr>
+              <tr><td class="num">8</td><td>The caster's mind is scarred: roll a mental injury.</td></tr>
+              <tr><td class="num">9</td><td>The caster's bones break: roll a physical injury.</td></tr>
+              <tr><td class="num">10</td><td>Something from elsewhere notices and arrives within the shift.</td></tr>
+              <tr><td class="num">11</td><td>The spell strikes the caster instead of the target.</td></tr>
+              <tr><td class="num">12</td><td>The caster is taken. The character is gone, and may come back — changed — <span class="die">d66</span> days later as a gamemaster character.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Common spells</h3>
+        <div class="grid-2">
+          <div>
+            <ul>
+              <li><strong>Sense magic</strong> — feel a spell cast nearby, or read the charge on an object.</li>
+              <li><strong>Magical printing</strong> — protect a person or place from magic for a shift.</li>
+              <li><strong>Dispel magic</strong> — interfere with another caster's working.</li>
+              <li><strong>Hide magic</strong> — conceal a spell or an enchanted object from sight.</li>
+              <li><strong>Grimoire</strong> — a written spell counts as one rank lower, but takes a quick action to open.</li>
+            </ul>
+          </div>
+          <div>
+            <ul>
+              <li><strong>Enchanted items</strong> — bind a spell to an object; the extra fate points decide how long the binding lasts.</li>
+              <li><strong>Fate transfer</strong> — give fate points to another caster, or take them from the world around.</li>
+              <li><strong>Shapechange</strong> — wear another shape for as long as the power holds.</li>
+              <li><strong>Blood magic</strong> — power bought with the caster's own harm.</li>
+              <li><strong>Death magic</strong> — speak with the dead, wither the living, and pay for both.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="warn">
+          <span class="rule__label">Magic has witnesses</span>
+          <p>Every spell leaves a trace someone can read, and every side effect is a scene. When a character casts, ask what it looks like from outside the circle — that is what the world remembers.</p>
+        </div>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">08</span>
+          <h2 id="travel">Travel and survival</h2>
+        </div>
+
+        <p>The map is divided into sectors, and the journey is measured in shifts: morning, afternoon, evening and night. A day of travel is two shifts of walking; pushing to three or four costs Endurance checks that fail in ways the whole group has to argue about.</p>
+
+        <h3>Movement</h3>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>Terrain and its modifiers</caption>
+            <thead><tr><th scope="col">Terrain</th><th scope="col" class="num">Speed</th><th scope="col" class="num">Foraging</th><th scope="col" class="num">Hunting</th><th scope="col" class="num">Driving</th></tr></thead>
+            <tbody>
+              <tr><td>Open</td><td class="num">×1</td><td class="num">−1</td><td class="num">+1</td><td class="num">+1</td></tr>
+              <tr><td>Forest</td><td class="num">×1</td><td class="num">+1</td><td class="num">0</td><td class="num">−1</td></tr>
+              <tr><td>Hills</td><td class="num">×½</td><td class="num">0</td><td class="num">−1</td><td class="num">0</td></tr>
+              <tr><td>Mountains</td><td class="num">×½</td><td class="num">−2</td><td class="num">0</td><td class="num">−1</td></tr>
+              <tr><td>Desert</td><td class="num">×¼</td><td class="num">−2</td><td class="num">−1</td><td class="num">0</td></tr>
+              <tr><td>Swamp</td><td class="num">×½</td><td class="num">−1</td><td class="num">0</td><td class="num">−2</td></tr>
+              <tr><td>Ruins</td><td class="num">×1</td><td class="num">0</td><td class="num">0</td><td class="num">+2</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Two sectors per shift on a road in good conditions; one sector per shift anywhere else. Heavy rain calls for an Endurance check, and a failure costs a sector. Moving from a roadless sector into the next needs a Survival check to navigate: a failure lands the group in an adjacent sector, decided by a die roll.</p>
+
+        <h3>Encounters</h3>
+        <p>Each shift carries a chance of an encounter, at a distance set by the terrain: near in ruins, far almost everywhere else, and at the very edge of sight in forest. The group's scout makes a passive Insight check; success means the group sees first and can hide, retreat or set an ambush. A group on foot has an easier time spotting a vehicle than the other way around.</p>
+
+        <h3>Weather, rest and water</h3>
         <ul>
-            <li>Each participant draws one card numbered 1-10 (Ace is 1)</li>
-            <li>Action order: 1 first, then 2, etc.</li>
-            <li>Each hero can take one standard action and one quick action, or two quick actions</li>
-            <li>Combat divided into zones (size varies)</li>
+          <li><strong>Weather</strong> changes the modifiers on everything: rain ruins tracks and powder, heat empties canteens, cold kills the careless at night.</li>
+          <li><strong>Rest</strong> is a shift without travel; sleep is a shift without a watch. A character who misses both starts taking penalties that no amount of coffee fixes.</li>
+          <li><strong>Water</strong> travel uses boats and barges: faster on rivers, but the encounters are at close range and the shore is the only escape.</li>
         </ul>
-        <p><strong>Key Combat Rules:</strong></p>
-        <ul>
-            <li>Close combat attack: Skill - Close Combat</li>
-            <li>Ranged attack: Skill - Ranged, distance modifiers apply</li>
-            <li>Aiming: Quick action gives +2 modifier</li>
-            <li>Auto-fire: Additional attacks with ammunition checks</li>
-            <li>Cover: Provides defense value like armor</li>
-        </ul>
+
+        <div class="rule">
+          <span class="rule__label">Travel is a resource game</span>
+          <p>Every journey costs time, fuel, food and nerves. Decide which of the four the players are short of before the session, and let the road charge them for it. The journey is not the gap between fights; it is where the fight begins.</p>
+        </div>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">09</span>
+          <h2 id="session">At the table</h2>
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <h3>Before the session</h3>
+            <ul>
+              <li>One place worth reaching, and one reason it is dangerous</li>
+              <li>Two NPCs with a want each, and one who lies</li>
+              <li>A clock: what happens if the players do nothing</li>
+              <li>The damage system in use, written where everyone can see it</li>
+            </ul>
+          </div>
+          <div>
+            <h3>During the session</h3>
+            <ul>
+              <li>Say yes, or name the cost</li>
+              <li>Roll once, then move the fiction</li>
+              <li>Spend fate points when the table gets comfortable</li>
+              <li>End on a decision, not on an admin task</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>Numbers to keep in your head</caption>
+            <thead><tr><th scope="col">Thing</th><th scope="col">Value</th></tr></thead>
+            <tbody>
+              <tr><td>Ordinary NPC pool</td><td>4–6 dice, or two dice at C</td></tr>
+              <tr><td>Dangerous NPC pool</td><td>8–10 dice, or one die at B</td></tr>
+              <tr><td>Weapon damage</td><td>1–3 points, plus extra successes</td></tr>
+              <tr><td>Typical armour</td><td>3 dice, or rank C</td></tr>
+              <tr><td>Healing per shift</td><td>1 point without help, more with a healer</td></tr>
+              <tr><td>Encounter chance per shift</td><td>One roll, one answer, no repeats</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <nav class="pager" aria-label="Chapters">
+        <a class="pager__link" data-pager="prev" href="#running"><span>Previous chapter</span><b data-pager-label></b></a>
+        <a class="pager__link pager__link--next" data-pager="next" href="#combat"><span>Next chapter</span><b data-pager-label></b></a>
+      </nav>
+
+      <footer class="colophon">
+        <p data-str="note"></p>
+        <p>Sources: <a href="04-combat-damage.md">04 — Combat and damage</a>, <a href="05-magic.md">05 — Magic</a>, <a href="06-travel.md">06 — Travel</a>. Player's rules: <a href="player-book.html">the player's book</a>.</p>
+      </footer>
     </div>
-    
-    <div class="section" id="magic">
-        <h2>Magic System</h2>
-        <p>Seven magical traditions divided between druidic and sorcerous:</p>
-        <h3>Druidic Traditions (3)</h3>
-        <ul>
-            <li>Cleansing - Healing and protection</li>
-            <li>Transformation - Shapechange and elemental manipulation</li>
-            <li>Divination - Foreglimpse and tracking</li>
-        </ul>
-        <h3>Sorcerous Traditions (4)</h3>
-        <ul>
-            <li>Blood - Blood magic and life force manipulation</li>
-            <li>Death - Necromancy and spirit communication</li>
-            <li>Symbolism - Rune work and sigils</li>
-            <li>Elementalism - Elemental control (fire, ice, lightning)</li>
-        </ul>
-        <p>Spell creation involves determining effect, choosing tradition, defining risk and enhancement, and establishing potential side effects.</p>
-    </div>
-    
-    <div class="section" id="travel">
-        <h2>Travel Rules</h2>
-        <p>Overland travel using sector-based movement:</p>
-        <ul>
-            <li>Map divided into sectors for tracking</li>
-            <li>Terrain type affects movement cost</li>
-            <li>Random encounters determined by region and terrain</li>
-            <li>Weather affects travel speed and survival checks</li>
-            <li>Resource management (food, water, fuel)</li>
-        </ul>
-        <p>Journey tasks include navigation, resource management, and handling random encounters.</p>
-    </div>
-    
-    <div class="section" id="progression">
-        <h2>Advancement and Experience</h2>
-        <p>Earn experience at the end of each gaming encounter by answering "yes" to questions:</p>
-        <ul>
-            <li>Did your character participate in the encounter?</li>
-            <li>Did your character explore a new place?</li>
-            <li>Did your character defeat a dangerous opponent?</li>
-            <li>Did your character overcome an obstacle without using force?</li>
-            <li>Did your character act according to a personality edge?</li>
-            <li>Did your character do something outstanding?</li>
-        </ul>
-        <p>Experience can be spent on increasing skill levels (cost table: Level 1 = 5 XP, Level 2 = 10 XP, etc.) or specializations (Rank D = 5 XP, Rank C = 10 XP, etc.).</p>
-    </div>
-    
-    <div class="section" id="special-efforts">
-        <h2>Special Efforts</h2>
-        <p>When a hero fully commits to a task at risk of failure, they can make a special effort to re-roll any dice that didn't show a 1. 1s on main dice are called "curses" and are not re-rolled.</p>
-        <p><strong>Modern Variant Price:</strong> After special effort, character takes 1 wound point (if skill linked to Body or Dexterity) or 1 stress point (if linked to Wits or Empathy) for each curse rolled. Gamemaster receives 1 fate point.</p>
-        <p><strong>Classic Variant:</strong> After special effort, characteristic reduction or other consequences apply.</p>
-    </div>
-    
-    <div class="section" id="help">
-        <h2>Help Rules</h2>
-        <p>Other players or the gamemaster can help by providing +1 modifier each. Maximum 3 helpers for +3 total. In combat, helping costs the same type of action as the assisted character.</p>
-    </div>
-    
-    <footer>
-        <p>Year Zero Engine - Master's Reference Book<br>
-        Rules organized for gamemaster reference and gameplay.</p>
-    </footer>
+  </main>
+</div>
 </body>
 </html>
