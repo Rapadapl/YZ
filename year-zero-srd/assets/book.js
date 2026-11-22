@@ -233,6 +233,29 @@
 
   /* ---------- language hand-off ---------------------------------------- */
 
+  /* A saved language choice outranks the file name: opening player-book.html
+     after choosing Russian in the library goes to player-book.ru.html, and the
+     same in reverse. replace() keeps the unwanted page out of the back stack. */
+  const savedLang = (() => {
+    try {
+      const saved = localStorage.getItem("yze-lang");
+      if (saved === "en" || saved === "ru") return saved;
+    } catch (error) {
+      /* storage can be unavailable; the page simply stays as it is */
+    }
+    return null;
+  })();
+
+  if (savedLang && savedLang !== lang) {
+    const pair = Array.from(document.querySelectorAll("[data-alt-lang]")).find(
+      (link) => (link.lang || link.getAttribute("hreflang")) === savedLang
+    );
+    if (pair) {
+      window.location.replace(pair.dataset.altLang + (window.location.hash || ""));
+      return;
+    }
+  }
+
   document.querySelectorAll("[data-alt-lang]").forEach((link) => {
     const base = link.dataset.altLang;
     if (!base) return;
