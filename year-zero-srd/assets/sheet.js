@@ -11,6 +11,7 @@
   const STORE = "yze-sheet-v1";
   const GEAR_ROWS = 8;
   const TRACKS = { damage: 10, stress: 10, supplies: 6 };
+  const trackValues = { damage: 0, stress: 0, supplies: 0 };
 
   const lang = () => (document.documentElement.lang === "ru" ? "ru" : "en");
 
@@ -192,19 +193,59 @@
     }
   };
 
+  /* A damage track is a counter, not a set of independent ticks: clicking the
+     fifth box marks five points, and clicking the last marked box takes one
+     back. That way the track can never show a gap in the middle. */
   const buildTracks = () => {
     root.querySelectorAll("[data-track]").forEach((host) => {
       const track = host.dataset.track;
       const count = TRACKS[track] || 6;
       for (let index = 0; index < count; index += 1) {
-        const pip = document.createElement("input");
+        const pip = document.createElement("button");
+        pip.type = "button";
         pip.className = "pip";
-        pip.type = "checkbox";
-        pip.dataset.pip = `${track}.${index}`;
-        pip.setAttribute("aria-label", `${track} ${index + 1}`);
+        pip.dataset.pip = String(index);
+        pip.dataset.track = track;
         host.append(pip);
       }
+
+      const counter = document.createElement("span");
+      counter.className = "track__count";
+      counter.dataset.count = track;
+      host.after(counter);
+
+      host.addEventListener("click", (event) => {
+        const pip = event.target.closest(".pip");
+        if (!pip) return;
+        const index = Number(pip.dataset.pip);
+        const current = trackValues[track] || 0;
+        trackValues[track] = index + 1 === current ? index : index + 1;
+        paintTrack(track);
+        queueSave();
+      });
     });
+  };
+
+  const paintTrack = (track) => {
+    const count = TRACKS[track] || 6;
+    const value = Math.max(0, Math.min(count, trackValues[track] || 0));
+    const row = root.querySelector(`[data-track="${track}"]`).closest(".track");
+    const name = row ? (row.querySelector(".track__name") || {}).textContent || track : track;
+
+    root.querySelectorAll(`.pip[data-track="${track}"]`).forEach((pip) => {
+      const index = Number(pip.dataset.pip);
+      const on = index < value;
+      pip.setAttribute("aria-pressed", String(on));
+      pip.setAttribute("aria-label", `${name} ${index + 1} / ${count}`);
+      pip.title = `${name} ${index + 1} / ${count}`;
+    });
+
+    const counter = root.querySelector(`[data-count="${track}"]`);
+    if (counter) counter.textContent = `${value} / ${count}`;
+  };
+
+  const paintTracks = () => {
+    Object.keys(TRACKS).forEach((track) => paintTrack(track));
   };
 
   /* ---------- state ----------------------------------------------------- */
@@ -212,12 +253,13 @@
   const fields = () => Array.from(root.querySelectorAll("[data-field]"));
 
   const collect = () => {
-    const data = { version: 1, variant: document.body.dataset.variant || "classic", fields: {}, pips: {} };
+    const data = { version: 1, variant: document.body.dataset.variant || "classic", fields: {} };
     fields().forEach((field) => {
       data.fields[field.dataset.field] = field.value;
     });
-    root.querySelectorAll("[data-pip]").forEach((pip) => {
-      if (pip.checked) data.pips[pip.dataset.pip] = true;
+    data.tracks = {};
+    Object.keys(TRACKS).forEach((track) => {
+      data.tracks[track] = trackValues[track] || 0;
     });
     return data;
   };
@@ -231,9 +273,11 @@
       const value = saved[field.dataset.field];
       if (typeof value === "string" || typeof value === "number") field.value = value;
     });
-    root.querySelectorAll("[data-pip]").forEach((pip) => {
-      pip.checked = Boolean((data.pips || {})[pip.dataset.pip]);
+    const tracks = data.tracks || {};
+    Object.keys(TRACKS).forEach((track) => {
+      trackValues[track] = Number(tracks[track]) || 0;
     });
+    paintTracks();
     recalculate();
   };
 
@@ -241,9 +285,10 @@
     fields().forEach((field) => {
       field.value = field.tagName === "SELECT" ? (field.classList.contains("char__rank") || field.classList.contains("skill__rank") ? "C" : "") : "";
     });
-    root.querySelectorAll("[data-pip]").forEach((pip) => {
-      pip.checked = false;
+    Object.keys(TRACKS).forEach((track) => {
+      trackValues[track] = 0;
     });
+    paintTracks();
     recalculate();
   };
 
@@ -311,7 +356,7 @@
   });
 
   root.addEventListener("change", (event) => {
-    if (!event.target.matches("[data-field], [data-pip]")) return;
+    if (!event.target.matches("[data-field]")) return;
     recalculate();
     queueSave();
   });
@@ -405,6 +450,7 @@
   buildSkills();
   buildGear();
   buildTracks();
+  paintTracks();
 
   let stored = null;
   try {

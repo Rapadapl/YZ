@@ -55,11 +55,11 @@
         <p class="masthead__lead">The rules the gamemaster runs: how violence resolves, what it costs, how magic bends the world, and what the road takes from people who travel it.</p>
 
         <dl class="variants">
-          <div>
+          <div data-system="classic">
             <dt>The classic variant</dt>
             <dd>Pools of <span class="die">d6</span>. Damage is a number of points, armour is a number of dice, and wounds and stress are counted separately.</dd>
           </div>
-          <div>
+          <div data-system="modern">
             <dt>The modern variant</dt>
             <dd>Ranked dice from A to D. Damage and armour talk in ranks and reliability, and the same wound can also be paid as a condition.</dd>
           </div>
@@ -77,7 +77,7 @@
         <h3>Setting difficulty</h3>
         <p>Pick the modifier before the dice hit the table, and say it out loud so the table can argue with the situation rather than with the result. One modifier is usually enough; two only when the fiction clearly has two separate problems.</p>
 
-        <div class="tbl-wrap">
+        <div class="tbl-wrap" data-system="classic">
           <table class="tbl">
             <caption>Difficulty, classic variant</caption>
             <thead><tr><th scope="col">Difficulty</th><th scope="col" class="num">Modifier</th><th scope="col">Typical situation</th></tr></thead>
@@ -93,7 +93,7 @@
           </table>
         </div>
 
-        <div class="variant">
+        <div class="variant" data-system="modern">
           <b>Modern</b>
           Difficulty in the modern variant becomes advantage or penalty: an advantage adds a third die equal to the smaller of the two ranks, a penalty removes the smaller die. Both cancel before anything is rolled, so state which one applies, not how many.
         </div>
@@ -200,11 +200,11 @@
         <p>Damage equals the weapon's damage value plus one point for every success beyond the first. A hit that lands for 3 points removes 3 points of health, or imposes conditions, depending on which damage system the game uses.</p>
 
         <h3>Armour</h3>
-        <div class="variant">
+        <div class="variant" data-system="classic">
           <b>Classic</b>
           Armour has a numeric value. Roll that many dice; each success reduces incoming damage by 1. A curse on the armour roll — a 1 — reduces the armour's value by 1 until repaired with Craft.
         </div>
-        <div class="variant">
+        <div class="variant" data-system="modern">
           <b>Modern</b>
           Armour has a rank from A to D. Roll its two dice; each success reduces damage by 1, and each point of damage that gets through lowers the armour's reliability by one step. At zero reliability the item is destroyed.
         </div>

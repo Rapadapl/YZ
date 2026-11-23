@@ -708,6 +708,50 @@ table.tbl {
   justify-content: space-between;
 }
 
+/* ---------- system editions --------------------------------------------- */
+
+/* One page carries both variants; an edition hides the other one. */
+html[data-system="classic"] [data-system="modern"],
+html[data-system="modern"] [data-system="classic"] { display: none !important; }
+
+.edition {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 1.5rem 0 0;
+}
+.edition__label {
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-right: 0.35rem;
+}
+.edition__btn {
+  font: inherit;
+  font-family: var(--font-display);
+  font-size: 0.66rem;
+  letter-spacing: 0.02em;
+  padding: 0.32rem 0.6rem;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+}
+.edition__btn:hover { border-color: var(--ink); }
+.edition__btn[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+.edition__note {
+  font-size: var(--step--2);
+  color: var(--muted);
+  margin: 0.5rem 0 0;
+  max-width: 60ch;
+}
+
 /* ---------- responsive -------------------------------------------------- */
 
 @media (max-width: 60rem) {
@@ -782,4 +826,7 @@ table.tbl {
   a { color: #000; text-decoration: none; }
   .chapter h2 a.anchor::after { content: ""; }
   .colophon { border-top: 1px solid #999; }
+  .edition__btn, .edition__label { display: none; }
+  .edition { margin-top: 6mm; }
+  .edition__note { color: #444; }
 }

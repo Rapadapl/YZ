@@ -32,7 +32,14 @@ window.YZE_STRINGS = {
     sheetImportFailed: "That file is not a character sheet",
     sheetConfirmBlank: "Clear this sheet and start a new character?",
     sheetBlank: "Blank sheet",
-    sheetLoad: "Load"
+    sheetLoad: "Load",
+    edition: "Edition",
+    editionBoth: "Both systems",
+    editionClassic: "Classic d6",
+    editionModern: "Modern A\u2013D",
+    editionNoteBoth: "Both variants, side by side. Pick one to read the book as a single system.",
+    editionNoteClassic: "Classic edition: the pool of d6, characteristics 1\u20135, skills 0\u20135. Modern rules are hidden.",
+    editionNoteModern: "Modern edition: ranked dice A\u2013D, two dice per check. Classic rules are hidden."
   },
   ru: {
     contents: "Содержание",
@@ -63,7 +70,14 @@ window.YZE_STRINGS = {
     sheetImportFailed: "Этот файл не похож на лист персонажа",
     sheetConfirmBlank: "Очистить лист и начать нового персонажа?",
     sheetBlank: "Чистый лист",
-    sheetLoad: "Нагрузка"
+    sheetLoad: "Нагрузка",
+    edition: "Издание",
+    editionBoth: "Оба варианта",
+    editionClassic: "Классика d6",
+    editionModern: "Современный A\u2013D",
+    editionNoteBoth: "Оба варианта рядом. Выберите один, чтобы читать книгу как одну систему.",
+    editionNoteClassic: "Издание «Классика d6»: пул d6, характеристики 1\u20135, навыки 0\u20135. Современные правила скрыты.",
+    editionNoteModern: "Издание «Современный A\u2013D»: ранговые кубики, два кубика на проверку. Классические правила скрыты."
   }
 };
 

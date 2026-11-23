@@ -331,23 +331,35 @@ body[data-variant="modern"] .skills .skill__level { display: none; }
 .pip {
   appearance: none;
   -webkit-appearance: none;
+  padding: 0;
   margin: 0;
   width: 1.05rem;
-  height: 1.05rem;
+  height: 1.15rem;
   border: 1px solid var(--form-line);
+  border-radius: 0;
   background: #fff;
   cursor: pointer;
   display: inline-block;
   position: relative;
 }
 .pip:hover { border-color: var(--ink); }
-.pip:checked { background: var(--verdigris); border-color: var(--verdigris); }
-.pip:checked::after {
+.pip[aria-pressed="true"] { background: var(--verdigris); border-color: var(--verdigris); }
+.pip[aria-pressed="true"]::after {
   content: "";
   position: absolute;
-  inset: 3px;
+  inset: 3px 2px;
   background: #fff;
   clip-path: polygon(14% 48%, 0 62%, 38% 100%, 100% 22%, 86% 8%, 36% 72%);
+}
+
+.track__count {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  min-width: 3rem;
+  text-align: right;
+  margin-left: auto;
 }
 
 .conditions {
@@ -528,9 +540,10 @@ body[data-variant="modern"] .skills .skill__level { display: none; }
   .gear__head span { font-size: 6pt; }
   .skills td .f { border-bottom: 0.4pt solid #cfd4c9; }
 
-  .pip { width: 3.4mm; height: 3.4mm; border: 0.4pt solid #6b766e; }
-  .pip:checked { background: #2a6b58; border-color: #2a6b58; }
-  .pip:checked::after { inset: 0.7mm; }
+  .pip { width: 3.4mm; height: 3.9mm; border: 0.4pt solid #6b766e; }
+  .pip[aria-pressed="true"] { background: #2a6b58; border-color: #2a6b58; }
+  .pip[aria-pressed="true"]::after { inset: 0.7mm; }
+  .track__count { font-size: 7pt; }
   .track { padding: 0.6mm 0; gap: 2mm; }
   .track__name { width: 14mm; font-size: 6.4pt; }
 

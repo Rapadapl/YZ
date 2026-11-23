@@ -55,11 +55,11 @@
         <p class="masthead__lead">Everything the person holding a character sheet needs: how a roll works, how a hero is built, and how they grow after the first session.</p>
 
         <dl class="variants">
-          <div>
+          <div data-system="classic">
             <dt>The classic variant</dt>
             <dd>A pool of <span class="die">d6</span>. Characteristics run from 1 to 5, skills from 0 to 5. Add them together and roll that many dice; every 6 is a success.</dd>
           </div>
-          <div>
+          <div data-system="modern">
             <dt>The modern variant</dt>
             <dd>Two ranked dice per check. Characteristics and skills run from A to D, where A is <span class="die">d12</span> and D is <span class="die">d6</span>. Any 6 or higher succeeds.</dd>
           </div>
@@ -74,11 +74,11 @@
 
         <p>A skill check answers two questions at once: did the action succeed, and what did it cost. The dice do not measure how well a hero performs in general — they measure the outcome of one specific attempt under pressure.</p>
 
-        <h3>The classic pool</h3>
-        <p>Take dice equal to the character's skill level plus the linked characteristic. Roll them all at once. Each die showing a 6 is one success; a single success is enough to succeed. If the hero lacks the skill, roll only the characteristic dice, and add extra dice for helpful equipment.</p>
+        <h3 data-system="classic">The classic pool</h3>
+        <p data-system="classic">Take dice equal to the character's skill level plus the linked characteristic. Roll them all at once. Each die showing a 6 is one success; a single success is enough to succeed. If the hero lacks the skill, roll only the characteristic dice, and add extra dice for helpful equipment.</p>
 
-        <h3>The modern pair</h3>
-        <p>Roll one die for the skill rank and one for the characteristic rank. A result of 6 or higher on either die is a success. When a die shows 10 or more — possible only on the d10 and d12 — it counts as two successes.</p>
+        <h3 data-system="modern">The modern pair</h3>
+        <p data-system="modern">Roll one die for the skill rank and one for the characteristic rank. A result of 6 or higher on either die is a success. When a die shows 10 or more — possible only on the d10 and d12 — it counts as two successes.</p>
 
         <div class="rule">
           <span class="rule__label">Success and effect</span>
@@ -107,12 +107,12 @@
         <h3>Step 2 — Determine characteristics</h3>
         <p>Four characteristics describe the body and the mind. <strong>Body</strong> is raw strength and endurance; <strong>Dexterity</strong> is coordination and speed; <strong>Wits</strong> is perception, intelligence and common sense; <strong>Empathy</strong> is charisma and the ability to read and move people.</p>
 
-        <div class="variant">
+        <div class="variant" data-system="classic">
           <b>Classic</b>
           Distribute 14 points across the four characteristics. No characteristic starts below 2 or above 5, and the archetype's key characteristic is the only one that may reach 5 — the others cap at 4.
         </div>
 
-        <div class="variant">
+        <div class="variant" data-system="modern">
           <b>Modern</b>
           All four characteristics begin at rank C (<span class="die">d8</span>). You have three steps to raise ranks during creation. You may lower one characteristic from C to D to gain a fourth step. No characteristic may end above A.
         </div>
@@ -120,12 +120,12 @@
         <h3>Step 3 — Determine skills</h3>
         <p>The twelve basic skills are covered in chapter 3. Skills are what the character has actually practised, and they are always read together with a characteristic.</p>
 
-        <div class="variant">
+        <div class="variant" data-system="classic">
           <b>Classic</b>
           Skills run from 0 to 5. Spend your starting levels on the skills the archetype implies. A skill at 0 is not a prohibition: the hero can still try, rolling characteristic dice alone.
         </div>
 
-        <div class="variant">
+        <div class="variant" data-system="modern">
           <b>Modern</b>
           Skills run from A to D. Choose one skill at rank B, two at rank C and three at rank D; the rest stay unranked. The B usually goes to an archetype skill.
         </div>
@@ -225,11 +225,11 @@
 
         <p>Carrying capacity is measured in ordinary items: a knife, a rope, a day of food, a box of matches. What you carry is what you have when the plan falls apart.</p>
 
-        <div class="variant">
+        <div class="variant" data-system="classic">
           <b>Classic</b>
           Comfortable load equals twice the Body value. A hero with Body 4 carries eight ordinary items.
         </div>
-        <div class="variant">
+        <div class="variant" data-system="modern">
           <b>Modern</b>
           Comfortable load equals the number of faces on the Body rank's die: Body A carries twelve items, Body D carries six.
         </div>
@@ -256,7 +256,7 @@
 
         <p>Most checks need no modification. When the situation clearly favours or hinders the hero, the gamemaster applies one modifier, and the table moves on.</p>
 
-        <div class="tbl-wrap">
+        <div class="tbl-wrap" data-system="classic">
           <table class="tbl">
             <caption>Difficulty in the classic variant</caption>
             <thead><tr><th scope="col">Difficulty</th><th scope="col" class="num">Modifier</th></tr></thead>
@@ -272,9 +272,9 @@
           </table>
         </div>
 
-        <p>When a check must lose dice, take them in this order: skill dice first, then equipment, then characteristic dice. If nothing is left to roll, the attempt is impossible as things stand — a new approach is needed, not a new roll.</p>
+        <p data-system="classic">When a check must lose dice, take them in this order: skill dice first, then equipment, then characteristic dice. If nothing is left to roll, the attempt is impossible as things stand — a new approach is needed, not a new roll.</p>
 
-        <div class="variant">
+        <div class="variant" data-system="modern">
           <b>Modern</b>
           Advantages and penalties work differently. An advantage adds a third die, equal to the smaller of the skill and characteristic ranks. A penalty removes the smaller of the two dice. An advantage and a penalty cancel each other, and only one modifier can remain after cancellation.
         </div>
@@ -372,7 +372,7 @@
         </div>
 
         <div class="grid-2">
-          <div>
+          <div data-system="modern">
             <h3>Dice by rank</h3>
             <div class="tbl-wrap">
               <table class="tbl">
