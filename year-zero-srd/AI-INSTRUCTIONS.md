@@ -1,11 +1,11 @@
-# Year Zero Engine - AI Working Instructions
+# Root & Claw — AI Working Instructions
 
 ## Purpose
-These instructions guide AI assistance when working with the Year Zero Engine reference document split into .md files. Follow these guidelines for consistent, accurate support.
+These instructions guide AI assistance when working with the Root & Claw rules reference split into .md files. Follow these guidelines for consistent, accurate support.
 
 ## File Structure Understanding
 
-The YZE reference document has been divided into 7 core .md files:
+The Root & Claw reference has been divided into 7 core .md files:
 
 1. **00-overview.md** - General overview and system introduction
 2. **01-introduction.md** - Core concepts, character creation basics
@@ -22,7 +22,7 @@ Additionally there are:
 ## Common AI Assistance Tasks
 
 ### Rule Lookups
-- **Ask**: "What are the modifiers for a ranged attack at long range in YZE?"
+- **Ask**: "What are the modifiers for a ranged attack at long range in Root & Claw?"
 - **Check**: First look in `04-combat-damage.md` under "Ranged Attack" section for distance modifiers
 - **Cross-reference**: If not found there, check `01-introduction.md` for general modifier rules
 
@@ -49,7 +49,7 @@ Additionally there are:
 ## Working Pattern
 
 ### 1. Identify the Request
-Determine which aspect of YZE the user needs help with:
+Determine which aspect of the rules the user needs help with:
 - Character creation
 - Combat resolution
 - Magic casting
@@ -87,7 +87,7 @@ When rules differ between variants, explicitly state which variant applies.
 When providing rule information:
 
 ```
-According to YZE rules (from [filename].md):
+According to the rules (from [filename].md):
 
 [Rule explanation]
 

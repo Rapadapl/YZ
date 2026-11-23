@@ -1,4 +1,4 @@
-/* Language toggle for the library page. Every translatable element carries
+/* Language toggle for the library and sheet pages. Every translatable element carries
    data-en / data-ru; the choice is remembered and passed to the books. */
 
 (function () {

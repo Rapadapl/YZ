@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Year Zero Engine — field reference
+   Root & Claw — field reference
    Shared design system for the player's book, the master's book and the index.
    ========================================================================== */
 
@@ -509,6 +509,10 @@ table.tbl {
   border-bottom: 1px solid var(--line);
 }
 .tbl tbody tr:nth-child(even) { background: #e4e7de; }
+/* the module tables are four columns wide with longer Russian headings */
+.module-book .tbl th,
+.module-book .tbl td { padding-inline: 0.5rem; }
+
 .tbl td.num,
 .tbl th.num { text-align: right; font-variant-numeric: tabular-nums; }
 .tbl td:first-child { font-weight: 500; }
@@ -815,13 +819,17 @@ html[data-system="modern"] [data-system="classic"] { display: none !important; }
     font-size: 10.5pt;
     line-height: 1.5;
   }
-  .rail, .rail-toggle, .scrim, .progress, .pager { display: none !important; }
+  .rail, .rail-toggle, .scrim, .progress, .pager, .skip-link, .edition { display: none !important; }
   .shell { display: block; }
   .book__inner { max-width: none; padding: 0; }
   .masthead { padding-top: 0; }
   .chapter { break-inside: auto; }
   .chapter h2, h3 { break-after: avoid; }
-  .tbl-wrap, .rule, .warn, .example, .variants { break-inside: avoid; }
+  .tbl-wrap { break-inside: auto; overflow: visible; }
+  .tbl { break-inside: auto; }
+  .tbl thead { display: table-header-group; }
+  .tbl tr { break-inside: avoid; }
+  .rule, .warn, .example, .variants { break-inside: avoid; }
   a { color: #000; text-decoration: none; }
   .chapter h2 a.anchor::after { content: ""; }
   .colophon { border-top: 1px solid #999; }

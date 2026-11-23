@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title data-en="Character sheet — Year Zero Engine" data-ru="Лист персонажа — Year Zero Engine">Character sheet — Year Zero Engine</title>
-<meta name="description" content="A character sheet for the Year Zero Engine that you fill in the browser, keep, and print to PDF. Classic d6 pools and modern ranked dice.">
+<title data-en="Character sheet — Root &amp; Claw" data-ru="Лист персонажа — Корень и коготь">Character sheet — Root &amp; Claw</title>
+<meta name="description" content="A mutant-animal character sheet for Root &amp; Claw: lineages, module skills, bio- and psi-mutations, aura, traits, load and condition, filled in the browser.">
 <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/book.css">
 <link rel="stylesheet" href="assets/sheet.css">
@@ -17,7 +17,7 @@
 <a class="skip-link" href="#sheet" data-en="Skip to the sheet" data-ru="Перейти к листу">Skip to the sheet</a>
 
 <header class="home__head sheet__head">
-  <a class="home__mark" href="index.html">YEAR ZERO ENGINE</a>
+  <a class="home__mark" href="index.html">ROOT &amp; CLAW</a>
 
   <div class="sheet__tools">
     <div class="lang-switch" role="group" aria-label="Language / Язык">
@@ -37,8 +37,8 @@
 <main id="main" class="sheet-main">
   <div class="sheet-lead">
     <h1 data-en="Character sheet" data-ru="Лист персонажа">Character sheet</h1>
-    <p data-en="Fill it in, close the tab, come back — the sheet is kept in this browser. Print it or save it as a PDF from the print dialogue, and save a copy as a file if you want to keep it elsewhere."
-       data-ru="Заполняйте, закрывайте вкладку, возвращайтесь — лист хранится в этом браузере. Печатайте или сохраняйте в PDF через диалог печати, а копию сохраняйте в файл, если хотите держать её где-то ещё.">Fill it in, close the tab, come back — the sheet is kept in this browser. Print it or save it as a PDF from the print dialogue, and save a copy as a file if you want to keep it elsewhere.</p>
+    <p data-en="A mutant of the world after the Tree: lineage, twelve skills, two mutations, an aura and a beast trait or two. Fill it in, close the tab, come back — the sheet is kept in this browser. Print it or save it as a PDF, and save a copy as a file to move the hero elsewhere."
+       data-ru="Мутант мира после Древа: линия, двенадцать навыков, две мутации, аура и пара звериных черт. Заполняйте, закрывайте вкладку, возвращайтесь — лист хранится в этом браузере. Печатайте или сохраняйте в PDF, а копию сохраняйте в файл, чтобы перенести героя на другое устройство.">A mutant of the world after the Tree: lineage, twelve skills, two mutations, an aura and a beast trait or two.</p>
     <p class="sheet__status" data-sheet-status role="status" aria-live="polite"></p>
   </div>
 
@@ -49,7 +49,7 @@
       <section class="sec">
         <div class="sec__head">
           <span class="sec__num">01</span>
-          <h2 data-en="The character" data-ru="Персонаж">The character</h2>
+          <h2 data-en="The mutant" data-ru="Мутант">The mutant</h2>
           <div class="seg" role="group" aria-label="Variant">
             <button class="seg__btn" type="button" data-variant-set="classic" aria-pressed="true">
               <span data-en="Classic d6" data-ru="Классика d6">Classic d6</span>
@@ -66,8 +66,12 @@
             <input class="f f--big" type="text" data-field="name" autocomplete="off" spellcheck="false">
           </label>
           <label class="line">
-            <span class="line__label" data-en="Archetype" data-ru="Архетип">Archetype</span>
-            <input class="f" type="text" data-field="archetype" autocomplete="off">
+            <span class="line__label" data-en="Lineage" data-ru="Линия">Lineage</span>
+            <input class="f" type="text" data-field="lineage" autocomplete="off" placeholder="Raccoon-kin">
+          </label>
+          <label class="line">
+            <span class="line__label" data-en="Tribe" data-ru="Племя">Tribe</span>
+            <input class="f" type="text" data-field="tribe" autocomplete="off">
           </label>
           <label class="line">
             <span class="line__label" data-en="Concept" data-ru="Замысел">Concept</span>
@@ -147,9 +151,48 @@
       <section class="sec">
         <div class="sec__head">
           <span class="sec__num">05</span>
-          <h2 data-en="Personality edges" data-ru="Личностные края">Personality edges</h2>
+          <h2 data-en="Mutations" data-ru="Мутации">Mutations</h2>
+        </div>
+        <p class="sec__hint" data-en="Two bio-mutations, or one bio and one psi. Psi costs 1 Aura per use and rolls Wits + grade."
+           data-ru="Две био-мутации или одна био и одна пси. Пси тратит 1 ауру за применение, бросок Смекалки плюс ступень.">Two bio-mutations, or one bio and one psi. Psi costs 1 Aura per use.</p>
+
+        <div class="tbl-wrap">
+          <table class="muts">
+            <thead>
+              <tr>
+                <th scope="col" data-en="Mutation" data-ru="Мутация">Mutation</th>
+                <th scope="col" data-en="Type" data-ru="Тип">Type</th>
+                <th scope="col" data-en="Grade" data-ru="Ступень">Grade</th>
+                <th scope="col" data-en="Cost" data-ru="Цена">Cost</th>
+              </tr>
+            </thead>
+            <tbody data-mutation-rows></tbody>
+          </table>
+        </div>
+        <p class="mut__sum" data-mutation-sum></p>
+      </section>
+
+      <section class="sec">
+        <div class="sec__head">
+          <span class="sec__num">06</span>
+          <h2 data-en="Beast traits and aura" data-ru="Звериные черты и аура">Beast traits and aura</h2>
         </div>
         <div class="rows">
+          <label class="line">
+            <span class="line__label" data-en="Trait" data-ru="Черта">Trait</span>
+            <input class="f" type="text" data-field="trait.0">
+          </label>
+          <label class="line">
+            <span class="line__label" data-en="Trait" data-ru="Черта">Trait</span>
+            <input class="f" type="text" data-field="trait.1">
+          </label>
+          <label class="line">
+            <span class="line__label" data-en="Aura" data-ru="Аура">Aura</span>
+            <span class="aura">
+              <input class="f f--inline" type="number" min="-5" max="5" inputmode="numeric" data-field="aura.value" aria-label="Aura, −5 to +5">
+              <span class="aura__state" data-aura-state data-balance="even">—</span>
+            </span>
+          </label>
           <label class="line">
             <span class="line__label" data-en="Pride" data-ru="Гордость">Pride</span>
             <input class="f" type="text" data-field="edge.pride">
@@ -158,31 +201,18 @@
             <span class="line__label" data-en="Weakness" data-ru="Слабость">Weakness</span>
             <input class="f" type="text" data-field="edge.weakness">
           </label>
-          <label class="line">
-            <span class="line__label" data-en="Dark secret" data-ru="Тёмная тайна">Dark secret</span>
-            <input class="f" type="text" data-field="edge.secret">
-          </label>
-          <label class="line">
-            <span class="line__label" data-en="Dream" data-ru="Мечта">Dream</span>
-            <input class="f" type="text" data-field="edge.dream">
-          </label>
-          <label class="line">
-            <span class="line__label" data-en="Best friend" data-ru="Лучший друг">Best friend</span>
-            <input class="f" type="text" data-field="edge.friend">
-          </label>
-          <label class="line">
-            <span class="line__label" data-en="Relationships" data-ru="Отношения">Relationships</span>
-            <textarea class="f f--area" rows="2" data-field="edge.relationships"></textarea>
-          </label>
         </div>
+        <p class="sec__hint" data-en="Light aura: +1 die to Animal Ken and Persuasion with beasts and tribes. Dark aura: +1 die to Brawl and Shooting against a foe who has seen you draw blood, −1 to Animal Ken."
+           data-ru="Светлая аура: +1 кубик к Звериному языку и Убеждению со зверями и племенами. Тёмная: +1 кубик к Драке и Стрельбе против того, кто видел вашу кровь, −1 к Звериному языку.">Light aura: +1 die to Animal Ken and Persuasion. Dark aura: +1 die to Brawl and Shooting.</p>
       </section>
 
       <section class="sec">
         <div class="sec__head">
-          <span class="sec__num">06</span>
+          <span class="sec__num">07</span>
           <h2 data-en="Equipment" data-ru="Снаряжение">Equipment</h2>
           <p class="load" data-load>
             <span class="load__label" data-en="Load" data-ru="Нагрузка">Load</span>
+            <span class="load__pen" data-load-pen hidden data-en="−2 Acrobatics" data-ru="−2 Акробатика">−2 Acrobatics</span>
             <span class="load__value" data-load-value>0 / 0</span>
           </p>
         </div>
@@ -221,6 +251,34 @@
           <input class="f" type="text" data-field="armour">
         </label>
 
+        <div class="carry">
+          <label class="line line--check">
+            <span class="line__label" data-en="Backpack" data-ru="Рюкзак">Backpack</span>
+            <span class="check">
+              <input type="checkbox" data-field="carry.backpack">
+              <span data-en="worn: load ×2, −2 on Acrobatics rolls" data-ru="надет: нагрузка ×2, −2 на Акробатику">worn: load ×2, −2 on Acrobatics rolls</span>
+            </span>
+          </label>
+          <label class="line">
+            <span class="line__label" data-en="Mount limit" data-ru="Предел">Mount limit</span>
+            <input class="f f--inline" type="number" min="0" inputmode="numeric" data-field="carry.mount" aria-label="Mount or vehicle carry limit">
+          </label>
+          <label class="line line--check">
+            <span class="line__label" data-en="Led on foot" data-ru="В поводу">Led on foot</span>
+            <span class="check">
+              <input type="checkbox" data-field="carry.led">
+              <span data-en="it carries twice its limit" data-ru="несёт вдвое больше своего предела">it carries twice its limit</span>
+            </span>
+          </label>
+          <p class="carry__sum">
+            <span data-en="It carries" data-ru="Оно несёт">It carries</span>
+            <b data-mount-value>—</b>
+            <span data-en="items" data-ru="предметов">items</span>
+          </p>
+          <p class="sec__hint carry__hint" data-en="A mount or vehicle carries up to its own limit — twice that if you dismount and lead it instead of riding. Its load is kept apart from your own."
+             data-ru="Животное или машина везут до своего предела — вдвое больше, если идти рядом и вести, а не ехать. Их груз считается отдельно от вашего.">A mount or vehicle carries up to its own limit — twice that if you dismount and lead it instead of riding.</p>
+        </div>
+
         <div class="track track--supply">
           <span class="track__name" data-en="Supplies" data-ru="Припасы">Supplies</span>
           <div class="track__pips track__pips--six" data-track="supplies"></div>
@@ -229,7 +287,7 @@
 
       <section class="sec">
         <div class="sec__head">
-          <span class="sec__num">07</span>
+          <span class="sec__num">08</span>
           <h2 data-en="Experience and notes" data-ru="Опыт и заметки">Experience and notes</h2>
         </div>
         <div class="xp">
@@ -249,12 +307,103 @@
       </section>
 
     </div>
+
+    <section class="sec sec--wide">
+      <div class="sec__head">
+        <span class="sec__num">09</span>
+        <h2 data-en="At the table" data-ru="За столом">At the table</h2>
+        <span class="sec__note" data-en="What comes up every round." data-ru="Что нужно каждый раунд.">What comes up every round.</span>
+      </div>
+
+      <div class="quick">
+        <div class="quick__card">
+          <h3 data-en="Your turn" data-ru="Ваш ход">Your turn</h3>
+          <ul>
+            <li data-en="One slow action and one fast action, or two fast actions." data-ru="Одно медленное действие и одно быстрое либо два быстрых.">One slow action and one fast action, or two fast actions.</li>
+            <li data-en="Fast: move a zone, aim, seek cover, draw, get up, retreat, block." data-ru="Быстрые: переход в зону, прицеливание, укрытие, выхватить оружие, встать, отход, блок.">Fast: move a zone, aim, seek cover, draw, get up, retreat, block.</li>
+            <li data-en="Slow: brawl, shoot, reload, first aid, persuade, crawl, a psi-power." data-ru="Медленные: драка, выстрел, перезарядка, первая помощь, убеждение, ползти, пси-сила.">Slow: brawl, shoot, reload, first aid, persuade, crawl, a psi-power.</li>
+            <li data-en="Free: drop prone, say a few words — on your own turn only." data-ru="Бесплатно: упасть ничком, сказать пару слов — только в свой ход.">Free: drop prone, say a few words — on your own turn only.</li>
+          </ul>
+        </div>
+
+        <div class="quick__card">
+          <h3 data-en="Initiative" data-ru="Инициатива">Initiative</h3>
+          <ul>
+            <li data-en="Cards 1–10, drawn once when the fight starts." data-ru="Карты 1–10, тянут один раз в начале боя.">Cards 1–10, drawn once when the fight starts.</li>
+            <li data-en="Lowest number acts first; actions refresh at the start of each round." data-ru="Первым действует меньший номер; действия обновляются в начале каждого раунда.">Lowest number acts first; actions refresh at the start of each round.</li>
+            <li data-en="One card can cover a whole group of identical beasts." data-ru="Одна карта может покрывать группу одинаковых зверей.">One card can cover a whole group of identical beasts.</li>
+          </ul>
+        </div>
+
+        <div class="quick__card">
+          <h3 data-en="Ranges" data-ru="Дистанции">Ranges</h3>
+          <ul>
+            <li data-en="Engaged — right next to you." data-ru="Вплотную — прямо перед вами.">Engaged — right next to you.</li>
+            <li data-en="Short — a few metres, in your own zone." data-ru="Короткая — несколько метров, ваша зона.">Short — a few metres, in your own zone.</li>
+            <li data-en="Medium — up to 25 m, the next zone." data-ru="Средняя — до 25 м, соседняя зона.">Medium — up to 25 m, the next zone.</li>
+            <li data-en="Long — about 100 m, four zones." data-ru="Длинная — около 100 м, четыре зоны.">Long — about 100 m, four zones.</li>
+            <li data-en="Extreme — up to a kilometre." data-ru="Предельная — до километра.">Extreme — up to a kilometre.</li>
+            <li data-en="Dim light: −2 to Observation and to ranged attacks." data-ru="Тусклый свет: −2 к Наблюдательности и к стрельбе.">Dim light: −2 to Observation and to ranged attacks.</li>
+          </ul>
+        </div>
+
+        <div class="quick__card">
+          <h3 data-en="Movement" data-ru="Передвижение">Movement</h3>
+          <ul>
+            <li data-en="A fast action takes you to a neighbouring zone; no roll." data-ru="Быстрое действие — переход в соседнюю зону без броска.">A fast action takes you to a neighbouring zone; no roll.</li>
+            <li data-en="Cluttered zone: Acrobatics, or you fall." data-ru="Захламлённая зона: Акробатика, иначе падение.">Cluttered zone: Acrobatics, or you fall.</li>
+            <li data-en="Crawling is a slow action; in a cramped zone it is the only movement." data-ru="Ползти — медленное действие; в тесной зоне это единственное движение.">Crawling is a slow action; in a cramped zone it is the only movement.</li>
+            <li data-en="Leaving Engaged range takes Acrobatics, or the enemy gets a free attack." data-ru="Уйти из «вплотную» — Акробатика, иначе враг бьёт бесплатно.">Leaving Engaged range takes Acrobatics, or the enemy gets a free attack.</li>
+          </ul>
+        </div>
+
+        <div class="quick__card">
+          <h3 data-en="Healing" data-ru="Лечение">Healing</h3>
+          <ul>
+            <li data-en="First aid on the broken: Healing, a slow action, each success removes 1 damage or 1 stress." data-ru="Первая помощь сломленному: Медицина, медленное действие, каждый успех снимает 1 урон или 1 стресс.">First aid on the broken: Healing, a slow action, each success removes 1 damage or 1 stress.</li>
+            <li data-en="Otherwise 1 damage and 1 stress recover per shift, if fed, watered and warm." data-ru="Иначе за смену восстанавливается 1 урон и 1 стресс, если есть еда, вода и тепло.">Otherwise 1 damage and 1 stress recover per shift, if fed, watered and warm.</li>
+            <li data-en="Lethal crit: a Stamina death save at the time limit; Healing of the same length raises the limit one step." data-ru="Смертельная травма: спасение на Выносливость в срок; Медицина той же длительности поднимает срок на шаг.">Lethal crit: a Stamina death save at the time limit; Healing of the same length raises the limit one step.</li>
+            <li data-en="A critical injury heals in days; a carer's daily Healing roll makes the day count double." data-ru="Критическая травма лечится днями; ежедневный бросок Медицины ухаживающего удваивает день.">A critical injury heals in days; a carer's daily Healing roll makes the day count double.</li>
+          </ul>
+        </div>
+
+        <div class="quick__card">
+          <h3 data-en="Damage and armour" data-ru="Урон и броня">Damage and armour</h3>
+          <ul>
+            <li data-en="Damage is the weapon value plus 1 for each extra success." data-ru="Урон — значение оружия плюс 1 за каждый лишний успех.">Damage is the weapon value plus 1 for each extra success.</li>
+            <li data-en="Armour and cover subtract from it; a broken character takes critical injuries." data-ru="Броня и укрытие вычитаются; сломленный получает критические травмы.">Armour and cover subtract from it; a broken character takes critical injuries.</li>
+            <li data-en="Pushing costs 1 damage (Strength, Agility) or 1 stress (Wits, Empathy) per bane." data-ru="Дожим стоит 1 урон (Сила, Ловкость) или 1 стресс (Смекалка, Эмпатия) за каждую «1».">Pushing costs 1 damage (Strength, Agility) or 1 stress (Wits, Empathy) per bane.</li>
+            <li data-en="Pushing a roll can never kill you." data-ru="Дожимом себя убить нельзя.">Pushing a roll can never kill you.</li>
+          </ul>
+        </div>
+
+        <div class="quick__card">
+          <h3 data-en="Mutations" data-ru="Мутации">Mutations</h3>
+          <ul>
+            <li data-en="Bio-mutations are always on and cost no aura." data-ru="Био-мутации всегда включены и не тратят ауру.">Bio-mutations are always on and cost no aura.</li>
+            <li data-en="A psi-power is a slow action and costs 1 Aura, hit or miss." data-ru="Пси-сила — медленное действие и 1 аура, попали или нет.">A psi-power is a slow action and costs 1 Aura, hit or miss.</li>
+            <li data-en="Roll Wits plus grade: +1/+2/+3 dice, or d6/d8/d10." data-ru="Бросок Смекалки плюс ступень: +1/+2/+3 кубика или d6/d8/d10.">Roll Wits plus grade: +1/+2/+3 dice, or d6/d8/d10.</li>
+            <li data-en="Extra successes buy damage, targets or duration." data-ru="Лишние успехи покупают урон, цели или длительность.">Extra successes buy damage, targets or duration.</li>
+          </ul>
+        </div>
+
+        <div class="quick__card">
+          <h3 data-en="Aura" data-ru="Аура">Aura</h3>
+          <ul>
+            <li data-en="Aura runs from −5 to +5 and starts at 0; it is never spent." data-ru="Аура идёт от −5 до +5 и начинается с 0; она не тратится.">Aura runs from −5 to +5 and starts at 0; it is never spent.</li>
+            <li data-en="Light: +1 die to Animal Ken and Persuasion with beasts and tribes." data-ru="Светлая: +1 кубик к Звериному языку и Убеждению со зверями и племенами.">Light: +1 die to Animal Ken and Persuasion with beasts and tribes.</li>
+            <li data-en="Dark: +1 die to Brawl and Shooting against a foe who has seen you draw blood; −1 to Animal Ken." data-ru="Тёмная: +1 кубик к Драке и Стрельбе против того, кто видел вашу кровь; −1 к Звериному языку.">Dark: +1 die to Brawl and Shooting against a foe who has seen you draw blood; −1 to Animal Ken.</li>
+            <li data-en="Mercy raises it; killing the defenceless lowers it." data-ru="Милосердие поднимает её; убийство беззащитного опускает.">Mercy raises it; killing the defenceless lowers it.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
   </div>
 
   <footer class="sheet-foot">
     <span data-en="Kept in this browser only. Save a copy to move the hero to another device."
           data-ru="Хранится только в этом браузере. Сохраните копию, чтобы перенести героя на другое устройство.">Kept in this browser only. Save a copy to move the hero to another device.</span>
-    <span><a href="index.html" data-en="All books" data-ru="Все книги">All books</a> · <a href="player-book.html" data-href-en="player-book.html" data-href-ru="player-book.ru.html" data-en="Player's book" data-ru="Книга игрока">Player's book</a></span>
+    <span><a href="index.html" data-en="All books" data-ru="Все книги">All books</a> · <a href="module.html" data-href-en="module.html" data-href-ru="module.ru.html" data-en="Mutations and skills" data-ru="Мутации и навыки">Mutations and skills</a> · <a href="player-book.html" data-href-en="player-book.html" data-href-ru="player-book.ru.html" data-en="Player's book" data-ru="Книга игрока">Player's book</a></span>
   </footer>
 </main>
 </body>
