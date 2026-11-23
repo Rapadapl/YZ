@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Бестиарий — Root &amp; Claw</title>
+<meta name="description" content="Бестиарий Поросли — падальщики, хищники, корень и сок, тронутые гнилью и великие звери.">
+
+<link rel="stylesheet" href="assets/book.css">
+<link rel="stylesheet" href="assets/bestiary.css">
+
+<script type="module" src="assets/bestiary.js"></script>
+<script type="module" src="assets/i18n.js"></script>
+<script type="module" src="assets/book.js"></script>
+</head>
+<body>
+
+<div class="rail">
+  <div class="rail-inner">
+    <a href="index.html" class="rail__brand">
+      <span class="rail__brand-mark">КОРЕНЬ И КОГОТЬ</span>
+      <span class="rail__brand-name">Бестиарий</span>
+      <span class="rail__brand-sub">Бестиарий</span>
+    </a>
+    <form class="rail-search" role="search">
+      <input type="search" data-page-search placeholder="Поиск" aria-label="Поиск">
+      <span class="rail-search__kbd">/</span>
+    </form>
+    <nav class="rail-nav" data-toc="toc"></nav>
+    <div class="rail-foot">
+      <div class="rail-lang" role="group">
+        <button type="button" data-alt-lang="bestiary.ru.html" class="lang">RU</button>
+        <button type="button" data-alt-lang="bestiary.html" class="lang">EN</button>
+      </div>
+      <ul class="rail-foot-links">
+        <li><a href="index.html" data-en="All books" data-ru="Все книги">Все книги</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<main>
+  <header class="pg-head">
+    <div class="pg-kicker">Корень и коготь · Бестиарий</div>
+    <h1>Бестиарий</h1>
+    <p>То, с чем встречаются в Поросли: по зверям — одна карточка на каждого, по главам — по порядку. Фильтры: угроза, ключевое слово.</p>
+  </header>
+
+  <div class="best-filters">
+    <div class="chips">
+      <button type="button" data-threat-filter="0" class="chip" aria-pressed="true">Все</button>
+      <button type="button" data-threat-filter="1" class="chip">● Низкая</button>
+      <button type="button" data-threat-filter="2" class="chip">●● Средняя</button>
+      <button type="button" data-threat-filter="3" class="chip">●●● Высокая</button>
+    </div>
+    <label class="best-search">
+      <span class="visually-hidden">Пометить ключевым словом</span>
+      <input type="search" data-best-search placeholder="Пометить ключевым словом…">
+    </label>
+    <p class="best-count" data-best-count>Показано: 0</p>
+  </div>
+
+  <div class="bestiary">
+    <section class="chapter" id="scavengers">
+      <div class="chapter__head">
+        <h2 id="scavengers">01 — Падальщики и вредители</h2>
+        <p class="chapter__lead" id="lead-scavengers"></p>
+      </div>
+      <div class="beasts" id="beasts-scavengers"></div>
+    </section>
+
+    <section class="chapter" id="predators">
+      <div class="chapter__head">
+        <h2 id="predators">02 — Хищники</h2>
+        <p class="chapter__lead" id="lead-predators"></p>
+      </div>
+      <div class="beasts" id="beasts-predators"></div>
+    </section>
+
+    <section class="chapter" id="roots">
+      <div class="chapter__head">
+        <h2 id="roots">03 — Корень и сок</h2>
+        <p class="chapter__lead" id="lead-roots"></p>
+      </div>
+      <div class="beasts" id="beasts-roots"></div>
+    </section>
+
+    <section class="chapter" id="rot">
+      <div class="chapter__head">
+        <h2 id="rot">04 — Тронутые гнилью</h2>
+        <p class="chapter__lead" id="lead-rot"></p>
+      </div>
+      <div class="beasts" id="beasts-rot"></div>
+    </section>
+
+    <section class="chapter" id="great">
+      <div class="chapter__head">
+        <h2 id="great">05 — Великие</h2>
+        <p class="chapter__lead" id="lead-great"></p>
+      </div>
+      <div class="beasts" id="beasts-great"></div>
+    </section>
+  </div>
+
+  <footer class="pg-foot">
+    <p data-name="edition">Бестиарий — Root &amp; Claw / SandPit Productions</p>
+  </footer>
+</main>
+
+</body>
+</html>
