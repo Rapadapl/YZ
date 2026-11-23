@@ -95,14 +95,30 @@
   /* ---------- reading position ------------------------------------------ */
 
   let ticking = false;
+  let lockedEntry = null;
+  let lockUntil = 0;
+
+  /* The chapter counts as current once its heading has come to rest just
+     under the top edge. That means using exactly the offset the browser
+     scrolls to (scroll-padding-top), not a second guess at it — with a wider
+     threshold the chapter before the one you clicked stays selected. */
+  const restOffset = () => {
+    const value = parseFloat(window.getComputedStyle(document.documentElement).scrollPaddingTop);
+    return (Number.isFinite(value) ? value : 80) + 2;
+  };
 
   const updatePosition = () => {
     ticking = false;
-    const offset = 130;
+    const offset = restOffset();
     let current = entries[0];
-    for (const entry of entries) {
-      const node = document.getElementById(entry.id);
-      if (node && node.getBoundingClientRect().top - offset <= 0) current = entry;
+
+    if (lockedEntry && performance.now() < lockUntil) {
+      current = lockedEntry;
+    } else {
+      for (const entry of entries) {
+        const node = document.getElementById(entry.id);
+        if (node && node.getBoundingClientRect().top - offset <= 0) current = entry;
+      }
     }
     entries.forEach((entry) => {
       if (!entry.link) return;
@@ -128,6 +144,34 @@
 
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll);
+
+  /* A click on a chapter is authoritative: keep that chapter selected while
+     the smooth scroll is still travelling, instead of letting it walk back
+     through the chapters it passes. */
+  const lockTo = (entry) => {
+    if (!entry) return;
+    lockedEntry = entry;
+    lockUntil = performance.now() + 900;
+  };
+
+  if (toc) {
+    toc.addEventListener("click", (event) => {
+      const link = event.target.closest("a[href^='#']");
+      if (!link) return;
+      const id = link.getAttribute("href").slice(1);
+      lockTo(entries.find((entry) => entry.id === id));
+      window.requestAnimationFrame(updatePosition);
+    });
+  }
+
+  document.querySelectorAll(".pager a[href^='#'], .chapter h2 a.anchor").forEach((link) => {
+    link.addEventListener("click", () => {
+      const id = (link.getAttribute("href") || "").slice(1);
+      lockTo(entries.find((entry) => entry.id === id));
+      window.requestAnimationFrame(updatePosition);
+    });
+  });
+
   updatePosition();
 
   /* ---------- search ---------------------------------------------------- */
