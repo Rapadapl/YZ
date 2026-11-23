@@ -324,3 +324,98 @@
     window.addEventListener("scroll", () => window.requestAnimationFrame(sync), { passive: true });
   }
 })();
+
+/* ---------- editions: read the book as one system ---------------------- */
+
+/* Every rule that belongs to a single variant is marked with data-system in
+   the page itself. Choosing an edition hides the other one, remembers the
+   choice and keeps it in the address, so player-book.html?system=classic is
+   a link to the classic edition of the book. */
+(function () {
+  "use strict";
+
+  const masthead = document.querySelector(".masthead");
+  if (!masthead) return;
+
+  const str = window.YZE_STR || ((key) => key);
+  const root = document.documentElement;
+  const STORE = "yze-system";
+  const baseTitle = document.title;
+
+  const group = document.createElement("div");
+  group.className = "edition";
+  group.setAttribute("role", "group");
+  group.setAttribute("aria-label", str("edition"));
+
+  const label = document.createElement("span");
+  label.className = "edition__label";
+  label.textContent = str("edition");
+  group.append(label);
+
+  [
+    ["both", "editionBoth"],
+    ["classic", "editionClassic"],
+    ["modern", "editionModern"]
+  ].forEach(([value, key]) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "edition__btn";
+    button.dataset.edition = value;
+    button.textContent = str(key);
+    group.append(button);
+  });
+
+  const note = document.createElement("p");
+  note.className = "edition__note";
+
+  const lead = masthead.querySelector(".masthead__lead");
+  if (lead) lead.after(group, note);
+  else masthead.append(group, note);
+
+  const apply = (value, remember) => {
+    const choice = value === "classic" || value === "modern" ? value : "both";
+
+    if (choice === "both") root.removeAttribute("data-system");
+    else root.dataset.system = choice;
+
+    group.querySelectorAll("[data-edition]").forEach((button) => {
+      button.setAttribute("aria-pressed", String(button.dataset.edition === choice));
+    });
+
+    note.textContent = str(
+      choice === "classic" ? "editionNoteClassic" : choice === "modern" ? "editionNoteModern" : "editionNoteBoth"
+    );
+
+    const name = choice === "classic" ? str("editionClassic") : choice === "modern" ? str("editionModern") : "";
+    document.title = name ? `${baseTitle} · ${name}` : baseTitle;
+
+    if (!remember) return;
+
+    try {
+      localStorage.setItem(STORE, choice);
+    } catch (error) {
+      /* the edition still applies, it just will not be remembered */
+    }
+
+    const url = new URL(window.location.href);
+    if (choice === "both") url.searchParams.delete("system");
+    else url.searchParams.set("system", choice);
+    window.history.replaceState(null, "", url);
+  };
+
+  group.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-edition]");
+    if (button) apply(button.dataset.edition, true);
+  });
+
+  const requested = new URLSearchParams(window.location.search).get("system");
+  let saved = null;
+  try {
+    saved = localStorage.getItem(STORE);
+  } catch (error) {
+    saved = null;
+  }
+
+  const initial = requested === "classic" || requested === "modern" || requested === "both" ? requested : saved;
+  apply(initial || "both", false);
+})();

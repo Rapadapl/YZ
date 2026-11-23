@@ -1,0 +1,562 @@
+/* ==========================================================================
+   Year Zero Engine — character sheet
+   A field form, not a dashboard: hairlines, numbered steps in the order the
+   player's book teaches them, and nothing that a pencil cannot fill in.
+   Loaded after book.css, so it inherits the palette and the type.
+   ========================================================================== */
+
+:root {
+  --form-line: #b3bbae;
+  --form-line-soft: #d2d7cc;
+  --field-wash: #f7f8f2;
+  --die: #eef0e7;
+  --sheet-paper: #fbfcf7;
+}
+
+.sheet-page {
+  background:
+    linear-gradient(var(--paper), var(--paper)) ,
+    var(--paper);
+}
+
+/* ---------- head and tools ---------------------------------------------- */
+
+.sheet__head {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  padding-block: 0.85rem;
+}
+
+.sheet__tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.5rem;
+  margin-left: auto;
+}
+
+.sheet__tools .btn {
+  border: 1px solid var(--form-line);
+  padding: 0.36rem 0.6rem;
+}
+.sheet__tools .btn:hover { border-color: var(--ink); background: transparent; }
+.sheet__tools .btn--strong {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+.sheet__tools .btn--strong:hover { background: var(--ink-soft); color: var(--paper); }
+.sheet__tools .btn--file { cursor: pointer; }
+
+/* ---------- page lead --------------------------------------------------- */
+
+.sheet-main {
+  width: 100%;
+  max-width: 74rem;
+  margin: 0 auto;
+  padding: 1.8rem var(--pad) 3rem;
+}
+
+.sheet-lead {
+  max-width: 58ch;
+  margin-bottom: 1.4rem;
+}
+.sheet-lead h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.7rem, 3.4vw, 2.4rem);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin: 0 0 0.6rem;
+}
+.sheet-lead p {
+  font-size: var(--step--1);
+  color: #3a4740;
+  margin: 0;
+}
+
+.sheet__status {
+  margin-top: 0.7rem;
+  font-size: var(--step--2);
+  color: var(--verdigris);
+  min-height: 1.2em;
+}
+
+/* ---------- the sheet itself -------------------------------------------- */
+
+.sheet {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 clamp(1.5rem, 3vw, 2.6rem);
+  background: var(--sheet-paper);
+  border: 1px solid var(--form-line);
+  padding: clamp(0.9rem, 2vw, 1.5rem) clamp(1rem, 2.4vw, 1.8rem) 1.2rem;
+  box-shadow: 0 1px 0 var(--form-line-soft);
+}
+
+.sheet__col {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.sec {
+  padding: 0.9rem 0 1.1rem;
+  border-top: 1px solid var(--form-line-soft);
+}
+.sheet__col > .sec:first-child { border-top: 0; padding-top: 0.2rem; }
+
+.sec__head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  margin-bottom: 0.55rem;
+}
+.sec__num {
+  font-family: var(--font-display);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--verdigris);
+  transform: translateY(-0.06em);
+}
+.sec__head h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  margin: 0;
+  color: var(--ink);
+}
+.sec__hint {
+  font-size: var(--step--2);
+  color: var(--muted);
+  margin: -0.2rem 0 0.65rem;
+  max-width: 46ch;
+}
+
+/* ---------- fields ------------------------------------------------------ */
+
+.rows { display: flex; flex-direction: column; }
+.line {
+  display: grid;
+  grid-template-columns: 6.5rem minmax(0, 1fr);
+  align-items: baseline;
+  gap: 0.6rem;
+  padding: 0.18rem 0;
+}
+.line--mid { grid-template-columns: 4rem minmax(0, 1fr); }
+.line--area { align-items: start; }
+
+.line__label {
+  font-size: var(--step--2);
+  color: var(--muted);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.f {
+  font: inherit;
+  font-size: var(--step--1);
+  color: var(--ink);
+  width: 100%;
+  min-width: 0;
+  padding: 0.16rem 0.35rem;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--form-line);
+  border-radius: 0;
+  transition: background-color 120ms ease, border-color 120ms ease;
+}
+.f:hover { background: var(--field-wash); }
+.f:focus {
+  outline: none;
+  background: #fff;
+  border-bottom-color: var(--verdigris);
+  box-shadow: inset 0 -1px 0 var(--verdigris);
+}
+.f--big { font-size: 1.3rem; font-weight: 600; letter-spacing: -0.01em; }
+.f--area { resize: vertical; line-height: 1.5; border: 1px solid var(--form-line-soft); min-height: 2.6rem; }
+.f--num { text-align: center; font-variant-numeric: tabular-nums; }
+.f--num::-webkit-outer-spin-button,
+.f--num::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.f--num { -moz-appearance: textfield; appearance: textfield; }
+
+select.f {
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 49%, var(--muted) 50%, var(--muted) 55%, transparent 56%),
+                    linear-gradient(-45deg, transparent 49%, var(--muted) 50%, var(--muted) 55%, transparent 56%);
+  background-size: 0.42rem 0.42rem, 0.42rem 0.42rem;
+  background-position: right 0.55rem center, right 0.28rem center;
+  background-repeat: no-repeat;
+  padding-right: 1.1rem;
+}
+
+textarea.f { padding-top: 0.3rem; }
+
+/* ---------- variant switch ---------------------------------------------- */
+
+.seg {
+  display: inline-flex;
+  margin-left: auto;
+  border: 1px solid var(--form-line);
+}
+.seg__btn {
+  font: inherit;
+  font-family: var(--font-display);
+  font-size: 0.63rem;
+  letter-spacing: 0.03em;
+  padding: 0.26rem 0.52rem;
+  background: transparent;
+  color: var(--muted);
+  border: 0;
+  cursor: pointer;
+}
+.seg__btn + .seg__btn { border-left: 1px solid var(--form-line); }
+.seg__btn[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.seg__btn:hover { color: var(--ink); }
+.seg__btn[aria-pressed="true"]:hover { color: var(--paper); }
+
+/* ---------- characteristics --------------------------------------------- */
+
+.chars {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.char {
+  border: 1px solid var(--form-line);
+  padding: 0.42rem 0.4rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  background: #fff;
+}
+.char__name {
+  font-size: var(--step--2);
+  color: var(--muted);
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+.char__slot {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.char__val {
+  font-family: var(--font-body);
+  font-size: 1.75rem;
+  font-weight: 600;
+  text-align: center;
+  width: 2.6rem;
+  padding: 0;
+  line-height: 1.1;
+  border-bottom: 1px solid var(--form-line);
+  background: transparent;
+  color: var(--ink);
+}
+.char__val:focus { outline: none; border-bottom-color: var(--verdigris); background: var(--field-wash); }
+.char__rank { width: 100%; font-size: var(--step--1); text-align: center; }
+body[data-variant="classic"] .char__rank { display: none; }
+body[data-variant="modern"] .char__val { display: none; }
+body[data-variant="classic"] [data-variant-label="modern"] { display: none; }
+body[data-variant="modern"] [data-variant-label="classic"] { display: none; }
+
+/* in modern play the level box gives way to the rank select */
+body[data-variant="classic"] .skills .skill__rank { display: none; }
+body[data-variant="modern"] .skills .skill__level { display: none; }
+
+/* ---------- skills table ------------------------------------------------ */
+
+.tbl-wrap { overflow-x: auto; }
+
+.skills {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--step--1);
+}
+.skills th {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.58rem;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  text-align: left;
+  padding: 0 0.25rem 0.25rem;
+  border-bottom: 1px solid var(--form-line);
+  white-space: nowrap;
+}
+.skills td {
+  padding: 0.02rem 0.25rem;
+  border-bottom: 1px solid var(--form-line-soft);
+  vertical-align: middle;
+}
+.skills tr:last-child td { border-bottom: 0; }
+.skills__name { color: var(--ink); }
+.skills__char {
+  width: 4.4rem;
+  font-size: var(--step--2);
+  color: var(--muted);
+}
+.skills__val { width: 2.6rem; text-align: center; }
+.skills__val .f { text-align: center; font-variant-numeric: tabular-nums; }
+.skills__specrank { width: 3.1rem; }
+.skills td .f { border-bottom-color: transparent; }
+.skills td .f:hover { border-bottom-color: var(--form-line); }
+.skills td .f:focus { border-bottom-color: var(--verdigris); }
+
+/* ---------- damage, stress, supplies ------------------------------------ */
+
+.track {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.3rem 0;
+}
+.track__name {
+  font-size: var(--step--2);
+  color: var(--muted);
+  width: 4.5rem;
+  flex: none;
+}
+.track__pips { display: flex; gap: 0.22rem; flex-wrap: wrap; }
+
+.pip {
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 0;
+  margin: 0;
+  width: 1.05rem;
+  height: 1.15rem;
+  border: 1px solid var(--form-line);
+  border-radius: 0;
+  background: #fff;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+}
+.pip:hover { border-color: var(--ink); }
+.pip[aria-pressed="true"] { background: var(--verdigris); border-color: var(--verdigris); }
+.pip[aria-pressed="true"]::after {
+  content: "";
+  position: absolute;
+  inset: 3px 2px;
+  background: #fff;
+  clip-path: polygon(14% 48%, 0 62%, 38% 100%, 100% 22%, 86% 8%, 36% 72%);
+}
+
+.track__count {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  min-width: 3rem;
+  text-align: right;
+  margin-left: auto;
+}
+
+.conditions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.3rem 1rem;
+  margin-top: 0.55rem;
+}
+.cond { display: flex; flex-direction: column; gap: 0.1rem; }
+.cond__name {
+  font-size: var(--step--2);
+  color: var(--muted);
+  margin-bottom: 0.1rem;
+}
+.cond .f { font-size: var(--step--2); }
+
+.track--supply { margin-top: 0.4rem; }
+.track__pips--six { flex-wrap: nowrap; }
+
+/* ---------- equipment --------------------------------------------------- */
+
+.load {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  margin: 0 0 0 auto;
+  font-size: var(--step--2);
+  color: var(--muted);
+}
+.load__value {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.load.is-over .load__value { color: var(--rust); }
+
+.gear { display: flex; flex-direction: column; }
+
+.weapons { margin-top: 0.55rem; }
+.weapons__head,
+.weapons__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 4.2rem 4.6rem;
+  gap: 0.4rem;
+  align-items: center;
+}
+.weapons__head span {
+  font-size: var(--step--2);
+  color: var(--muted);
+  padding: 0 0.25rem 0.15rem;
+  border-bottom: 1px solid var(--form-line);
+}
+.weapons__row .f { font-size: var(--step--2); }
+.weapons__row .f--num { text-align: center; }
+
+.line--armour { margin-top: 0.45rem; }
+.gear__head,
+.gear__row { display: grid; grid-template-columns: minmax(0, 1fr) 2.6rem; gap: 0.4rem; }
+.gear__head span {
+  font-size: var(--step--2);
+  color: var(--muted);
+  padding: 0 0.25rem 0.1rem;
+  border-bottom: 1px solid var(--form-line);
+}
+.gear__head span:last-child { text-align: center; }
+.gear__row .f--num { font-size: var(--step--2); }
+
+/* ---------- experience and notes ---------------------------------------- */
+
+.xp { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
+.xp .line { grid-template-columns: auto 3.2rem; gap: 0.4rem; align-items: center; }
+
+/* ---------- foot --------------------------------------------------------- */
+
+.sheet-foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.4rem;
+  justify-content: space-between;
+  margin-top: 1.1rem;
+  font-size: var(--step--2);
+  color: var(--muted);
+}
+
+/* ---------- narrow screens ---------------------------------------------- */
+
+@media (max-width: 62rem) {
+  .sheet { grid-template-columns: minmax(0, 1fr); }
+  .sheet__col > .sec:first-child { padding-top: 0.9rem; border-top: 1px solid var(--form-line-soft); }
+  .sheet__col:first-child > .sec:first-child { border-top: 0; }
+}
+@media (max-width: 34rem) {
+  .line { grid-template-columns: 1fr; gap: 0.1rem; }
+  .line--mid { grid-template-columns: auto 3.2rem; }
+  .chars { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .conditions { grid-template-columns: minmax(0, 1fr); }
+  .sheet__tools { width: 100%; }
+  .sec__head { flex-wrap: wrap; }
+  .seg { margin-left: 0; }
+}
+
+/* ---------- print -------------------------------------------------------- */
+
+@media print {
+  @page { size: A4 portrait; margin: 10mm 9mm 9mm; }
+
+  html { scroll-padding: 0; }
+  body,
+  .sheet-page {
+    background: #fff;
+    color: #000;
+    font-size: 9.4pt;
+    line-height: 1.5;
+  }
+
+  .sheet__head,
+  .skip-link,
+  .sheet__status,
+  .sheet-foot,
+  .sheet-lead p { display: none !important; }
+
+  .sheet-main { max-width: none; padding: 0; margin: 0; }
+  .sheet-lead { max-width: none; margin: 0 0 3mm; }
+  .sheet-lead h1 {
+    font-size: 17pt;
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
+  .sheet-lead::after {
+    content: "YEAR ZERO ENGINE";
+    display: block;
+    font-family: var(--font-display);
+    font-size: 6.5pt;
+    letter-spacing: 0.16em;
+    color: #2a6b58;
+    margin-top: 1mm;
+  }
+
+  .sheet {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 5mm;
+    border: 0;
+    padding: 0;
+    background: #fff;
+    box-shadow: none;
+  }
+
+  .sec { padding: 3.2mm 0 3.6mm; border-top: 0.4pt solid #b3bbae; break-inside: avoid; }
+  .sheet__col > .sec:first-child { padding-top: 0; }
+  .sec__head { margin-bottom: 1.4mm; gap: 1.5mm; }
+  .sec__num { font-size: 6pt; color: #2a6b58; }
+  .sec__head h2 { font-size: 8pt; letter-spacing: 0.04em; }
+  .sec__hint { display: none; }
+
+  .seg { border-color: #999; }
+  .seg__btn { padding: 0.1mm 1.6mm; font-size: 5.6pt; color: #444; }
+  .seg__btn[aria-pressed="true"] { background: #141b18; color: #fff; }
+
+  .line { padding: 1.15mm 0; grid-template-columns: 24mm minmax(0, 1fr); }
+  .line__label { white-space: normal; line-height: 1.25; overflow: visible; text-overflow: clip; }
+  .weapons__head span { font-size: 5.8pt; }
+  .weapons__row .f { font-size: 7.4pt; }
+  .f { font-size: 9pt; border-bottom: 0.4pt solid #9aa79d; padding: 0.6mm 1mm; }
+  .f:hover { background: transparent; }
+  .f--big { font-size: 11pt; }
+  .f--area { border: 0.4pt solid #b3bbae; }
+  .char { padding: 1.4mm 1mm 1.6mm; border: 0.4pt solid #9aa79d; background: #fff; }
+  .char__name { font-size: 6.4pt; }
+  .char__val { font-size: 14pt; }
+  .chars { gap: 1.6mm; }
+
+  .skills { font-size: 8.6pt; }
+  .skills th { font-size: 5.8pt; padding-bottom: 1mm; }
+  .skills td { padding-block: 0.55mm; }
+  .skills td { border-bottom: 0.3pt solid #cfd4c9; }
+  .skills__char { font-size: 6.6pt; }
+  .gear__head span { font-size: 6pt; }
+  .skills td .f { border-bottom: 0.4pt solid #cfd4c9; }
+
+  .pip { width: 3.4mm; height: 3.9mm; border: 0.4pt solid #6b766e; }
+  .pip[aria-pressed="true"] { background: #2a6b58; border-color: #2a6b58; }
+  .pip[aria-pressed="true"]::after { inset: 0.7mm; }
+  .track__count { font-size: 7pt; }
+  .track { padding: 0.6mm 0; gap: 2mm; }
+  .track__name { width: 14mm; font-size: 6.4pt; }
+
+  .load__value { font-size: 8.4pt; }
+  .gear__row .f { padding-block: 0.55mm; }
+  .f--area { min-height: 26mm; }
+  .track { padding: 1.1mm 0; }
+  .cond .f { padding-block: 0.5mm; }
+  .load.is-over .load__value { color: #a2442e; }
+
+  a { color: #000; text-decoration: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .f { transition: none; }
+}

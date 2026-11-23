@@ -23,7 +23,23 @@ window.YZE_STRINGS = {
     edition: "System reference",
     note: "Rules reference compiled from the Year Zero Engine SRD. Covers the classic dice-pool variant and the modern ranked-die variant side by side.",
     contentsNote: "Chapter list",
-    backToStart: "Back to the beginning"
+    backToStart: "Back to the beginning",
+    sheet: "Character sheet",
+    sheetSaved: "Saved in this browser",
+    sheetSaveFailed: "Not saved — this browser blocks local storage",
+    sheetExported: "Copy saved as a file",
+    sheetImported: "Sheet opened",
+    sheetImportFailed: "That file is not a character sheet",
+    sheetConfirmBlank: "Clear this sheet and start a new character?",
+    sheetBlank: "Blank sheet",
+    sheetLoad: "Load",
+    edition: "Edition",
+    editionBoth: "Both systems",
+    editionClassic: "Classic d6",
+    editionModern: "Modern A\u2013D",
+    editionNoteBoth: "Both variants, side by side. Pick one to read the book as a single system.",
+    editionNoteClassic: "Classic edition: the pool of d6, characteristics 1\u20135, skills 0\u20135. Modern rules are hidden.",
+    editionNoteModern: "Modern edition: ranked dice A\u2013D, two dice per check. Classic rules are hidden."
   },
   ru: {
     contents: "Содержание",
@@ -45,7 +61,23 @@ window.YZE_STRINGS = {
     edition: "Система правил",
     note: "Справочник по правилам, собранный из Year Zero Engine SRD. Классический вариант с пулом d6 и современный вариант с ранговыми кубиками разобраны параллельно.",
     contentsNote: "Список глав",
-    backToStart: "В начало"
+    backToStart: "В начало",
+    sheet: "Лист персонажа",
+    sheetSaved: "Сохранено в этом браузере",
+    sheetSaveFailed: "Не сохранено — браузер блокирует локальное хранилище",
+    sheetExported: "Копия сохранена в файл",
+    sheetImported: "Лист открыт",
+    sheetImportFailed: "Этот файл не похож на лист персонажа",
+    sheetConfirmBlank: "Очистить лист и начать нового персонажа?",
+    sheetBlank: "Чистый лист",
+    sheetLoad: "Нагрузка",
+    edition: "Издание",
+    editionBoth: "Оба варианта",
+    editionClassic: "Классика d6",
+    editionModern: "Современный A\u2013D",
+    editionNoteBoth: "Оба варианта рядом. Выберите один, чтобы читать книгу как одну систему.",
+    editionNoteClassic: "Издание «Классика d6»: пул d6, характеристики 1\u20135, навыки 0\u20135. Современные правила скрыты.",
+    editionNoteModern: "Издание «Современный A\u2013D»: ранговые кубики, два кубика на проверку. Классические правила скрыты."
   }
 };
 
