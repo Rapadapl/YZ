@@ -39,28 +39,29 @@ Each tradition is usually associated with a specific specialization (see Chapter
 - Can create a spell one rank higher than specialization allows, but always causes a random side effect
 - Never can cast a spell two or more ranks above specialization
 
-### Will: the price of a casting
+### Casting costs nothing
 
-- Every casting spends **Will**: at least 1, even when the spell description does not say so.
-- Maximum Will = Wits + Empathy (modern variant: A — 4, B — 3, C — 2, D — 1).
-- Will and psychosis are one and the same: Will spent becomes psychosis, Will returned removes it. Full rules in `05-magic-psychosis.md`.
+- Magic has no resource: no points, no charges. A spell spends nothing but the caster.
+- The price is **psychosis**: it rises from curses and shocks and at the top hands the body to the beast. Full rules in `05-magic-psychosis.md`.
+- The number of casting dice equals the **spell's rank**: rank 1 is one die, rank 2 is two, rank 3 is three.
 - Aura takes no part in a casting: it is the world's opinion, not a resource.
 
 ### Main power
 
-- The number of Will points spent is the spell's **main power**.
-- The number of main dice (d6) equals the Will spent.
+- A spell's main power equals its rank.
+- The number of main dice (d6) equals the spell's rank.
 - Spell creation cannot fail.
 - Each success (6) raises the final power by 1.
-- Example: 2 Will spent, 2 successes — final power 4.
+- Example: a rank 2 spell with two successes — final power 4.
 - Special effort cannot be used when creating a spell.
+- **Extra dice.** When a spell or a situation adds casting dice, each one adds 1 to the main power and raises the chance of a curse. It is not a resource: there is still nothing to pay but psychosis.
 
 ### Curses and side effects
 
-- Every 1 rolled (a curse) costs extra Will: +1 for a rank 1 spell, +2 for rank 2, +3 for rank 3 and above. A psi-power of any grade: +1.
+- Every 1 rolled (a curse) adds psychosis: +1 for a rank 1 spell, +2 for rank 2, +3 for rank 3 and above. A psi-power of any grade: +1.
 - If at least one curse is rolled, a side effect occurs: roll d12 on the table below.
 - A curse does not cancel the spell: it may work and still leave a mark.
-- When the Will is gone the hero falls into instinct; the save is rolled with Empathy — see `05-magic-psychosis.md`.
+- At psychosis 10 the hero falls into instinct; the save is rolled with Empathy — see `05-magic-psychosis.md`.
 
 ### Safe Magic
 
@@ -78,14 +79,14 @@ Each tradition is usually associated with a specific specialization (see Chapter
 - Parameter determining duration of spell effect
 - **Instant**: Effect occurs immediately after which spell is considered completed
 
-### Minimum Will
+### Free casting
 
-- At least 1 Will must be spent to create a spell, even if the spell description does not say so
-- Recovering Will, and losing it to shocks, is in `05-magic-psychosis.md`
+- A spell costs no points and no resource: nothing is spent but the caster's luck.
+- The only price is psychosis from curses and shocks, see `05-magic-psychosis.md`
 
 ### Spellcasters and Gamemaster Characters
 
-- Gamemaster characters have no will points
+- Gamemaster characters have no resource: main power equals the spell's rank
 - When one attempts to cast a spell, gamemaster can simply choose main power not exceeding corresponding advantage rank of player character
 - Enhancement and side effects checks proceed normally
 
@@ -115,15 +116,15 @@ Each tradition is usually associated with a specific specialization (see Chapter
 - Response action; can disrupt turn order in combat (see "Rounds and Initiative" Chapter 4)
 - Reduces opponent's spell potency by your dispel's potency
 - If result reaches 0 (or drops below) - spell produces no effect
-- Must decide how many will points to spend on dispelling before these checks
+- Decide how many extra casting dice to roll for the dispelling before these checks
 - Both you and opponent proceed with enhancement and side effects checks normally
 
 ### Hide Magic
 
-- If you want to cast spell discreetly, can additionally spend a will point to hide it
+- To cast a spell discreetly, add one casting die to hide it: that also raises the chance of a curse
 - Does not count toward final power calculation
 - To detect hidden magic, another mage must actively investigate area using Sense Magic
-- To detect hidden spell, another mage's Sense Magic power must be equal or higher than hidden spell's hidden will point
+- To detect a hidden spell, another mage's Sense Magic power must be equal or higher than the hidden spell's final power
 
 ### Weave Words (Word of Power)
 
@@ -135,7 +136,7 @@ Each tradition is usually associated with a specific specialization (see Chapter
 ### Conceal Magic
 
 - Rank 2, Distance: self, Duration: instant
-- If you want to cast spell discreetly, can additionally spend a will point to hide it
+- To cast a spell discreetly, add one casting die to hide it: that also raises the chance of a curse
 - Does not count toward final power calculation
 - To detect hidden magic, other mage must actively investigate area using Sense Magic
 
@@ -144,7 +145,7 @@ Each tradition is usually associated with a specific specialization (see Chapter
 - Rank 2, Distance: medium, Duration: instant
 - Reduces opponent's spell potency by your potency
 - If result reaches 0 - spell produces no effect
-- Must decide how many will points to spend on suppressing before these checks
+- Decide how many extra casting dice to roll for the suppression before these checks
 
 ### Mask Magic
 
@@ -164,7 +165,7 @@ Each tradition is usually associated with a specific specialization (see Chapter
 - Rank 2, Word of Power, Duration: instant
 - Reduces opponent's spell potency by your potency
 - If result reaches 0 - spell produces no effect
-- Must decide how many will points to spend on dispelling before these checks
+- Decide how many extra casting dice to roll for the dispelling before these checks
 
 ### Shielding Magic
 
@@ -298,7 +299,7 @@ Each tradition is usually associated with a specific specialization (see Chapter
 #### Hide Magic
 
 - Rank 2, Distance: self, Duration: instant
-- If you want to cast spell discreetly, can additionally spend a will point to hide it
+- To cast a spell discreetly, add one casting die to hide it: that also raises the chance of a curse
 - Does not count toward final power calculation
 - To detect hidden magic, other mage must actively investigate area using Sense Magic
 
@@ -418,7 +419,7 @@ Each tradition is usually associated with a specific specialization (see Chapter
 ### Blood Strength
 
 - Rank 3, Distance: self, Duration: one round
-- Using these spells, magician accumulates energy in own blood. Hero receives will points equal to twice spell's final power. But very briefly: these will points must be spent in next round, otherwise they disappear.
+- Using these spells, the magician accumulates energy in their own blood. The next spell in this round gains extra casting dice equal to the spell's final power. But very briefly: if the next casting does not happen in this round, the energy fades.
 
 ## Death Magic
 
@@ -455,12 +456,12 @@ Each tradition is usually associated with a specific specialization (see Chapter
 
 - Rank 2, Distance: up close, Duration: instant
 - Using these spells, necromant can reach victim's heart and squeeze life out. Damage equal to spell's final power. These spells only affect living human-like creatures.
-- Spending 1 additional will point (does not count toward final power) can increase distance to medium.
+- One extra casting die (not counted toward final power) can increase the distance to medium.
 
 ### Life Drain
 
 - Rank 3, Ritual, Distance: up close, Duration: instant
-- Your character can drain life forces from surrounding plants and animals. Hero receives will points equal to twice spell's final power. Ritual can only be performed in area covered with vegetation, so inside buildings and on rocky slopes of mountains it's useless. Upon ritual completion all living reasonable creatures and plants within up close distance - in same zone as necromancer - die.
+- Your character can drain life forces from surrounding plants and animals. The next spell gains extra casting dice equal to the spell's final power. Ritual can only be performed in area covered with vegetation, so inside buildings and on rocky slopes of mountains it's useless. Upon ritual completion all living reasonable creatures and plants within up close distance - in same zone as necromancer - die.
 
 ### Horror
 
@@ -523,7 +524,7 @@ Magic uses runes, esoteric signs and symbols that reflect fundamental principles
 #### Rune of Power
 
 - Rank 3, Ritual, Distance: up close, Duration: instant
-- Your hero charges symbol with magical power. Requires somehow inscribing needed symbol on item, allowing will points to be stored in it. Amount equal to spell's final power. Subsequently this symbol can be used when casting any spells, spending stored will points. These spells don't require enchanting. Other magicians versed in rune craft can use your hero's runes if they manage to reach them, so keep them like pupil of eye!
+- Your hero charges a symbol with magical power. The needed symbol must be inscribed on an item, which then stores charges; the amount equals the spell's final power. The symbol can later be used when casting any spell, spending stored charges: each charge is one extra casting die. These spells don't require enchanting. Other magicians versed in rune craft can use your hero's runes if they manage to reach them, so keep them like pupil of eye!
 
 ## Elementalism Tradition
 
@@ -608,21 +609,21 @@ If creating spell below rank of your magical specialization, can (but don't have
 ### Magical Items
 
 - Skilled magicians and druids can enchant inanimate objects to create magical traps or powerful artifacts
-- Spell creation follows normal rules; additionally spend will points to bind spell to item
-- Additional will points spent on binding not counted toward final power, but affect enhancement check
-- Spending 1 additional will point: charm holds until activation, but not more than 1 day
-- Spending 2 additional will points: can hold indefinitely, but after activation still disperse
-- Spending 5 additional will points: spell permanently bound to item; can activate once per day, but each activation requires spending will points equal to final power
+- Spell creation follows normal rules; extra casting dice bind the spell to the item
+- Additional dice spent on binding do not count toward final power, but affect the enhancement check
+- One extra casting die: the charm holds until activation, but not more than a day
+- 2 additional casting dice: can hold indefinitely, but after activation still disperse
+- 5 additional casting dice: spell permanently bound to item; can activate once per day, and each activation is a normal casting with its own dice and psychosis
 - Activation method chosen by magician: speak certain phrase, open item, break it or throw on ground
 - After activation spell works exactly as if created normally
 
-### Will transfer
+### Power transfer
 
 - Rank 3, Distance: up close, Duration: instant
-- Spells allow transferring will points to another or stealing from surrounding
-- To cast requires spending 1 will point; after can take or transfer as many as desired
-- If target resists - process complicated - amount transferred/limited by spell's final power
-- Will points spent on creating these spells are considered expended and cannot be transferred
+- The spell transfers power to another or takes it from the world around
+- Casting is normal and costs nothing: the amount transferred is limited by the spell's final power
+- If the target resists, the process is harder: the final power must exceed them
+- Transferred power is extra casting dice for the receiver's next spell; they fade at the end of the scene
 
 ### Shapechange
 

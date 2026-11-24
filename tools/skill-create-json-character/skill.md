@@ -34,8 +34,7 @@ and the import handler that rejects anything without `fields`):
 - `variant` — `"classic"` or `"modern"`.
 - `fields` — a flat object whose keys are the form's `data-field` names; values
   are strings (numbers as strings are fine) or booleans for checkboxes.
-- `tracks` — `{ "damage": 0-10, "stress": 0-10, "supplies": 0-6, "psychosis": 0-max }`,
-  where psychosis is the Will that is missing (`will.max` − `will.value`).
+- `tracks` — `{ "damage": 0-10, "stress": 0-10, "supplies": 0-6, "psychosis": 0-10 }`.
 
 The sheet clears itself, then applies only the keys present in `fields`, so
 missing keys are fine and unknown keys are ignored. But a file without `fields`
@@ -71,9 +70,6 @@ Rest of the sheet:
 
 - `trait.0`, `trait.1` — two beast traits.
 - `aura.value` — integer −5…+5 (the world's opinion; it is never spent).
-- `will.value`, `will.max` — current and maximum Will; maximum = Wits + Empathy,
-  spells and psi-powers are paid from it. Will and psychosis are one scale:
-  psychosis = `will.max` − `will.value`.
 - `edge.pride`, `edge.weakness` — personality edges.
 - `gear.0` … `gear.7`: `gear.<n>.item`, `gear.<n>.load` (0–9).
 - `weapon.0` … `weapon.2`: `weapon.<n>.name`, `weapon.<n>.damage`,
@@ -120,8 +116,6 @@ Rest of the sheet:
     "trait.0": "Ночное зрение",
     "trait.1": "Ловкие пальцы",
     "aura.value": "1",
-    "will.value": "5",
-    "will.max": "7",
     "edge.pride": "Не бросаю начатое",
     "edge.weakness": "Не могу пройти мимо запертой двери",
     "gear.0.item": "Отмычки",
@@ -137,7 +131,7 @@ Rest of the sheet:
     "xp.spent": "0",
     "notes": ""
   },
-  "tracks": { "damage": 0, "stress": 0, "supplies": 6, "psychosis": 2 }
+  "tracks": { "damage": 0, "stress": 0, "supplies": 6, "psychosis": 0 }
 }
 ```
 
@@ -152,7 +146,7 @@ time:
 3. Characteristics: how to spend the points or steps.
 4. Skills: starting levels/ranks for the twelve, and any specialization.
 5. Mutations: two bio, or one bio and one psi, with grades I–III.
-6. Aura and Will: the starting aura from −5 to +5, current and maximum Will.
+6. Aura: the starting value from −5 to +5. Psychosis starts at 0 and needs no question.
 7. Beast traits: which two.
 8. Edges: pride and weakness.
 9. Equipment, weapons, armour; whether the backpack is worn.
@@ -186,9 +180,9 @@ a specialization column next to each. So:
   (Клыкастая линия).
 - Four characteristics are Сила / Ловкость / Смекалка / Эмпатия with sheet ids
   `body` / `agility` / `wits` / `empathy` — not Body/Dexterity/Wits/Empathy.
-- Aura is a single number −5…+5 and is never spent. Spells and psi-powers are
-  paid with Will, and psychosis is simply the Will that is missing; at 0 Will
-  the hero falls into instinct and saves with Empathy.
+- Aura is a single number −5…+5 and is never spent. Casting costs nothing:
+  psychosis is its only price, and it is the only magic counter on the sheet.
+  At psychosis 10 the hero falls into instinct and saves with Empathy.
 - Creatures live in the bestiary: `08-bestiary.md` / `08-bestiary.ru.md` and the
   `bestiary.html` pages. Point there, not at a page that does not exist.
 
