@@ -140,9 +140,9 @@ At start of each shift while traveling, various unpleasantnesses may occur. Usua
 | 2 | Flooding | Middle of night starts pouring rain (see "Weather" above). Camp floods; all gear gets wet. Each member must make Endurance check or freeze (see "Other Dangers" Chapter 4); no one can sleep |
 | 3 | Fire goes out | Due to wet wood campfire dies. If not hot outside, each member must make Endurance check or freeze (see "Other Dangers" Chapter 4); no one can sleep |
 | 4 | Fire! | Flame from campfire starts spreading uncontrollably. If tent - it burns. Each member takes fire attack intensity 3 (D) and must make Dexterity check to save gear. Failure means chosen item burns |
-| 5 | Ants | Camp located on ant trail. Each member takes 1 stress point (reduces Empathy by 1); no one can sleep |
-| 6 | Lice | Randomly chosen character catches lice. Their bites itch terribly; every day takes 1 stress point (reduces Empathy) and cannot sleep. To get rid - successful Healing check |
-| 7 | Insect swarm | Huge swarm of mosquitoes or gnats attacks camp; gamemaster attacks each character with two d6. Each success on this check takes 1 stress point (reduces Empathy) |
+| 5 | Ants | Camp located on ant trail. Each member takes 1 psychosis; no one can sleep |
+| 6 | Lice | Randomly chosen character catches lice. Their bites itch terribly; every day takes 1 psychosis and cannot sleep. To get rid - successful Healing check |
+| 7 | Insect swarm | Huge swarm of mosquitoes or gnats attacks camp; gamemaster attacks each character with two d6. Each success on this check takes 1 psychosis |
 | 8 | Wild animal | Hungry dog, wolf, boar or even bear attacks camp |
 | 9 | Lost gear | Randomly chosen character loses some gear. Gamemaster decides what and can it be found |
 | 10 | Equipment breakage | Randomly chosen character's equipment breaks. Gamemaster decides what; can be repaired with Craft check |

@@ -175,14 +175,11 @@ Unique features that add depth to your character:
 
 When a hero fully commits to a task at risk of failure, they can make a special effort to re-roll any dice that didn't show a 1. 1s on main dice are called "curses" - they are not re-rolled.
 
-### Modern Variant - Wounds and Stress
-After special effort, character takes 1 wound point (if skill linked to Body or Dexterity) or 1 stress point (if linked to Wits or Empathy) for each curse rolled.
+### Wounds and psychosis
+After special effort, character takes 1 wound (if the skill is linked to Body or Agility) or 1 psychosis (if linked to Wits or Empathy) for each curse rolled.
 
 ### Characteristic Reduction
 After each curse, immediately reduce the used characteristic (only main characteristic dice, not skill or equipment).
-
-### Kubik Stresa (Stress Dice)
-After special effort, immediately gain 1 stress point per curse; these d6 dice add to skill checks (6s are successes), but a 1 on a stress die adds 1 psychosis.
 
 ### Conditions
 After special effort, receive a condition (e.g., exhausted, annoyed, frightened); each imposes penalties on certain skill checks.

@@ -114,18 +114,14 @@
       <section class="sec">
         <div class="sec__head">
           <span class="sec__num">04</span>
-          <h2 data-en="Damage and condition" data-ru="Урон и состояние">Damage and condition</h2>
+          <h2 data-en="Wounds and psychosis" data-ru="Раны и психоз">Wounds and psychosis</h2>
         </div>
-        <p class="sec__hint" data-en="Tick a box per point of damage, stress or psychosis. Three conditions of one kind take the hero out. Psychosis rises from curses and shocks; at 10 the beast takes over (see 05-magic-psychosis.md)."
-           data-ru="Отмечайте клетку за каждый пункт урона, стресса или психоза. Три состояния одного вида выводят героя из строя. Психоз растёт от проклятий при касте и от потрясений; на 10 герой уходит в инстинкты (см. 05-magic-psychosis.ru.md).">Tick a box per point of damage, stress or psychosis. Three conditions of one kind take the hero out.</p>
+        <p class="sec__hint" data-en="Wounds are health: 10 boxes for a hero, the HP value for a beast. Fill them all and you are taken out. Psychosis is the only mental track: at 10 instinct takes over, at 18 the beast does."
+           data-ru="Раны — это здоровье: 10 клеток у героя, у зверя — значение «Здор» из карточки. Заполнили все — выведен из строя. Психоз — единственная душевная дорожка: на 10 верх берёт инстинкт, на 18 — зверь.">Wounds are health: 10 boxes for a hero, the HP value for a beast.</p>
 
         <div class="track">
           <span class="track__name" data-en="Damage" data-ru="Раны">Damage</span>
           <div class="track__pips" data-track="damage"></div>
-        </div>
-        <div class="track">
-          <span class="track__name" data-en="Stress" data-ru="Стресс">Stress</span>
-          <div class="track__pips" data-track="stress"></div>
         </div>
         <div class="track">
           <span class="track__name" data-en="Psychosis" data-ru="Психоз">Psychosis</span>
@@ -138,12 +134,6 @@
             <input class="f" type="text" data-field="cond.physical.1" aria-label="Physical condition 1">
             <input class="f" type="text" data-field="cond.physical.2" aria-label="Physical condition 2">
             <input class="f" type="text" data-field="cond.physical.3" aria-label="Physical condition 3">
-          </div>
-          <div class="cond">
-            <span class="cond__name" data-en="Mental" data-ru="Психические">Mental</span>
-            <input class="f" type="text" data-field="cond.mental.1" aria-label="Mental condition 1">
-            <input class="f" type="text" data-field="cond.mental.2" aria-label="Mental condition 2">
-            <input class="f" type="text" data-field="cond.mental.3" aria-label="Mental condition 3">
           </div>
         </div>
       </section>
@@ -387,8 +377,8 @@
         <div class="quick__card">
           <h3 data-en="Healing" data-ru="Лечение">Healing</h3>
           <ul>
-            <li data-en="First aid on the broken: Healing, a slow action, each success removes 1 damage or 1 stress." data-ru="Первая помощь сломленному: Медицина, медленное действие, каждый успех снимает 1 урон или 1 стресс.">First aid on the broken: Healing, a slow action, each success removes 1 damage or 1 stress.</li>
-            <li data-en="Otherwise 1 damage and 1 stress recover per shift, if fed, watered and warm." data-ru="Иначе за смену восстанавливается 1 урон и 1 стресс, если есть еда, вода и тепло.">Otherwise 1 damage and 1 stress recover per shift, if fed, watered and warm.</li>
+            <li data-en="First aid on the broken: Healing, a slow action, each success removes 1 wound." data-ru="Первая помощь сломленному: Медицина, медленное действие, каждый успех снимает 1 рану.">First aid on the broken: Healing, a slow action, each success removes 1 wound.</li>
+            <li data-en="Otherwise 1 wound recovers per shift, if fed, watered and warm." data-ru="Иначе за смену восстанавливается 1 рана, если есть еда, вода и тепло.">Otherwise 1 wound recovers per shift, if fed, watered and warm.</li>
             <li data-en="Lethal crit: a Stamina death save at the time limit; Healing of the same length raises the limit one step." data-ru="Смертельная травма: спасение на Выносливость в срок; Медицина той же длительности поднимает срок на шаг.">Lethal crit: a Stamina death save at the time limit; Healing of the same length raises the limit one step.</li>
             <li data-en="A critical injury heals in days; a carer's daily Healing roll makes the day count double." data-ru="Критическая травма лечится днями; ежедневный бросок Медицины ухаживающего удваивает день.">A critical injury heals in days; a carer's daily Healing roll makes the day count double.</li>
           </ul>
@@ -399,7 +389,7 @@
           <ul>
             <li data-en="Damage is the weapon value plus 1 for each extra success." data-ru="Урон — значение оружия плюс 1 за каждый лишний успех.">Damage is the weapon value plus 1 for each extra success.</li>
             <li data-en="Armour and cover subtract from it; a broken character takes critical injuries." data-ru="Броня и укрытие вычитаются; сломленный получает критические травмы.">Armour and cover subtract from it; a broken character takes critical injuries.</li>
-            <li data-en="Pushing costs 1 damage (Strength, Agility) or 1 stress (Wits, Empathy) per bane." data-ru="Дожим стоит 1 урон (Сила, Ловкость) или 1 стресс (Смекалка, Эмпатия) за каждую «1».">Pushing costs 1 damage (Strength, Agility) or 1 stress (Wits, Empathy) per bane.</li>
+            <li data-en="Pushing costs 1 wound (Body, Agility) or 1 psychosis (Wits, Empathy) per bane." data-ru="Дожим стоит 1 рану (Тело, Ловкость) или 1 психоз (Смекалка, Эмпатия) за каждую «1».">Pushing costs 1 wound (Body, Agility) or 1 psychosis (Wits, Empathy) per bane.</li>
             <li data-en="Pushing a roll can never kill you." data-ru="Дожимом себя убить нельзя.">Pushing a roll can never kill you.</li>
           </ul>
         </div>

@@ -88,7 +88,7 @@
 
         <h3>Pushing the roll</h3>
         <p>A character can lean into an action and push the roll: reroll every die that did not come up 1. Dice showing 1 are banes and stay where they are. After a push the new result stands, including dice that were not rerolled.</p>
-        <p>A roll can only be pushed once, and only when the character is actively acting: passive rolls, such as noticing an ambush, cannot be pushed. What the push costs — damage, stress, conditions, attribute points or the complications the world answers with — is covered in chapter 7.</p>
+        <p>A roll can only be pushed once, and only when the character is actively acting: passive rolls, such as noticing an ambush, cannot be pushed. What the push costs — wounds, psychosis, conditions, attribute points or the complications the world answers with — is covered in chapter 7.</p>
       </section>
 
       <section class="chapter">
@@ -140,21 +140,19 @@
           </table>
         </div>
 
-        <h3>Health and resolve</h3>
-        <p>Attributes also decide how much a character can take. Health and resolve are optional — some games use attribute damage or conditions instead — but when they are used, the starting scores are fixed by the attributes.</p>
+        <h3>Wounds</h3>
+        <p>Wounds are health. A hero has 10 boxes; a beast or NPC uses the HP value on its card. When the boxes are full, the character is taken out and takes a critical injury. There is no separate resolve: psychosis handles the mind (chapter 05).</p>
         <div class="grid-2">
           <div data-system="classic">
             <h4>Classic</h4>
             <ul>
-              <li><strong>Health:</strong> the average of Strength and Agility, rounded up, plus one.</li>
-              <li><strong>Resolve:</strong> the average of Wits and Empathy, rounded up, plus one.</li>
+              <li><strong>Wounds:</strong> 10 boxes for a hero and an ally; a beast uses the HP on its card.</li>
             </ul>
           </div>
           <div data-system="modern">
             <h4>Modern</h4>
             <ul>
-              <li><strong>Health:</strong> the die sizes of Strength and Agility added together, divided by four, rounded up.</li>
-              <li><strong>Resolve:</strong> the die sizes of Wits and Empathy added together, divided by four, rounded up.</li>
+              <li><strong>Wounds:</strong> the same 10 boxes — the variant does not change the health pool.</li>
             </ul>
           </div>
         </div>
@@ -196,8 +194,8 @@
         <p>A name, and perhaps one sentence about where it came from. That is enough to begin.</p>
 
         <div class="example">
-          <p><strong>Worked example, classic.</strong> An enforcer takes Strength 5, Agility 4, Wits 3, Empathy 2 — 14 points, key attribute at 5. Skills: Force 3, Melee 3, Marksmanship 1, the rest at 0. Her specialty is grappling. Her pride is “never backs down from a challenge”, and her weakness is a debt she cannot repay. Health is the average of 5 and 4, rounded up, plus one: 6. Resolve is the average of 3 and 2, rounded up, plus one: 4.</p>
-          <p><strong>Worked example, modern.</strong> The same enforcer raises Strength to A and Agility to B, and lowers Empathy from C to D to buy a third and fourth increase, ending at Strength A, Agility B, Wits C, Empathy D. One skill at B (Melee), two at C (Force, Stamina), three at D (Marksmanship, Observation, Persuasion). Health is 12 + 10, divided by four and rounded up: 6. Resolve is 8 + 6, divided by four and rounded up: 4.</p>
+          <p><strong>Worked example, classic.</strong> An enforcer takes Strength 5, Agility 4, Wits 3, Empathy 2 — 14 points, key attribute at 5. Skills: Force 3, Melee 3, Marksmanship 1, the rest at 0. Her specialty is grappling. Her pride is “never backs down from a challenge”, and her weakness is a debt she cannot repay. Wounds are the same 10 boxes every hero has; beasts use their own HP value.</p>
+          <p><strong>Worked example, modern.</strong> The same enforcer raises Strength to A and Agility to B, and lowers Empathy from C to D to buy a third and fourth increase, ending at Strength A, Agility B, Wits C, Empathy D. One skill at B (Melee), two at C (Force, Stamina), three at D (Marksmanship, Observation, Persuasion). Wounds stay 10 boxes: the variant does not change the health pool.</p>
         </div>
       </section>
 
@@ -242,7 +240,7 @@
               <tr><td>Bodyguard</td><td>Dive in front of an attack on someone within Short range; roll Mobility, not an action.</td></tr>
               <tr><td>Fast reflexes</td><td>Draw two initiative cards and keep the one you want.</td></tr>
               <tr><td>Field surgeon</td><td>+1 to Healing when treating someone dying of a critical injury.</td></tr>
-              <tr><td>Hardened</td><td>Maximum Resolve +1. Can be taken three times.</td></tr>
+              <tr><td>Hardened</td><td>Once per scene, reduce psychosis from a shock by 1. Can be taken three times.</td></tr>
               <tr><td>Tough</td><td>Maximum Health +1. Can be taken three times.</td></tr>
               <tr><td>Killer</td><td>When your enemy takes a critical injury, roll twice and choose.</td></tr>
               <tr><td>Lucky</td><td>Reroll a critical injury and choose the result you prefer.</td></tr>
@@ -371,9 +369,9 @@
             <caption>Cost of pushing, by variant</caption>
             <thead><tr><th scope="col">Cost</th><th scope="col">How it works</th></tr></thead>
             <tbody>
-              <tr><td>Damage and stress</td><td>One point of damage per bane if the roll used Strength or Agility; one point of stress per bane if it used Wits or Empathy.</td></tr>
+              <tr><td>Wounds and psychosis</td><td>One wound per bane if the roll used Body or Agility; one psychosis per bane if it used Wits or Empathy.</td></tr>
               <tr><td>Attribute damage</td><td>One point of damage per bane on the attribute dice rolled, and one step of gear bonus lost per bane on gear dice. Damage that breaks you this way never causes a critical injury. </td></tr>
-              <tr><td>Stress dice</td><td>One stress point per push. Roll that many extra d6 on every skill roll: a 6 is a success, but a 1 on a stress die adds 1 psychosis.</td></tr>
+              <tr><td>Wounds for everyone</td><td>A hero and an ally have 10 wound boxes; a beast uses the HP value on its card. Wounds are health, not a separate pool.</td></tr>
               <tr><td>Conditions</td><td>One condition of your choice per push — physical for Strength and Agility, mental for Wits and Empathy.</td></tr>
               <tr><td>The world answers</td><td>For every push the gamemaster answers with a complication: a weapon misfires, something is dropped, reinforcements arrive. No separate currency, and its size follows the number of banes.</td></tr>
             </tbody>
@@ -455,7 +453,7 @@
           <li>One specialty</li>
           <li>Pride, weakness, dark secret, big dream, relationships and a buddy</li>
           <li>Equipment listed, load added up</li>
-          <li>Health and resolve worked out, if the game uses them</li>
+          <li>Wounds written down: 10 boxes for a hero, the HP value for a beast</li>
         </ul>
 
         <div class="rule">

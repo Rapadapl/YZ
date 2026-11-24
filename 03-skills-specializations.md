@@ -58,17 +58,13 @@ When making a skill check, take 2 dice: one corresponding to the skill rank and 
 
 When a hero fully commits to a task at risk of failure, they can make a special effort to re-roll any dice that didn't show a 1. 1s on main dice are called "curses" - they are not re-rolled.
 
-### Modern Variant - Wounds and Stress
+### Wounds and psychosis
 
-After special effort, character takes 1 wound point (if skill linked to Body or Dexterity) or 1 stress point (if linked to Wits or Empathy) for each curse rolled.
+After special effort, character takes 1 wound (if the skill is linked to Body or Agility) or 1 psychosis (if linked to Wits or Empathy) for each curse.
 
 ### Characteristic Reduction
 
 After each curse, immediately reduce the used characteristic (only main characteristic dice, not skill or equipment).
-
-### Kubik Stressa (Stress Dice)
-
-After special effort, immediately gain 1 stress point per curse; these d6 dice add to skill checks (6s are successes), but a 1 on a stress die adds 1 psychosis.
 
 ### Conditions
 

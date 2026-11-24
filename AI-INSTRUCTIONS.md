@@ -28,7 +28,7 @@ Additionally there are:
 
 ### Character Creation
 - **Ask**: "How do I calculate starting health for a modern-variant character?"
-- **Check**: `01-introduction.md` under "Health and Resolve" for modern variant formula
+- **Check**: `01-introduction.md` under "Health" for the wound track
 - **Check**: `02-player-characters.md` for classic variant (average of Body/Dexterity rounded up + 1)
 
 ### Combat Situations

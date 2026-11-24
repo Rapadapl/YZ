@@ -297,7 +297,7 @@ Each tradition is usually associated with a specific specialization (see Chapter
 #### Spirit Healing
 
 - Rank 1, Distance: up close, Duration: instant
-- Restores target number of resolve points (Wits or Empathy if using reduced characteristics) equal to spell's final power
+- Removes that many psychosis points from the target, equal to the spell's final power
 - Cannot heal self
 
 #### Posing Magic
@@ -333,7 +333,7 @@ Each tradition is usually associated with a specific specialization (see Chapter
 #### Spirit Healing
 
 - Rank 1, Distance: up close, Duration: instant
-- Immediately restores target number of resolve points equal to spell's final power
+- Immediately removes that many psychosis points from the target, equal to the spell's final power
 - Cannot heal self
 
 #### Targeted Healing
@@ -459,7 +459,7 @@ Each tradition is usually associated with a specific specialization (see Chapter
 ### Blood Sacrifice
 
 - Rank 2, Distance: up close, Duration: instant
-- Your hero can pump blood and energy contained within it from one creature to another, if both belong to same kind. Allows transferring certain amount of health points or resolve points (or any characteristic if damage tracked via reduction) equal to spell's final power. However this won't raise recipient's parameters above initial values. Reduced parameters restore as normal. Victim can resist: must make successful Insight check with penalty equal to spell's final power.
+- Your hero can pump blood and energy contained within it from one creature to another, if both belong to same kind. Allows transferring a certain amount of health points (or any characteristic if damage is tracked via reduction) equal to the spell's final power. However this won't raise recipient's parameters above initial values. Reduced parameters restore as normal. Victim can resist: must make successful Insight check with penalty equal to spell's final power.
 
 ### Soul Binding
 
@@ -474,7 +474,7 @@ Each tradition is usually associated with a specific specialization (see Chapter
 ### Blood Curse
 
 - Rank 3, Ritual, Distance: unlimited per power level per shift, Duration: one shift per power level
-- Victim of these spells may become any living human-like creature whose name and approximate location gamemaster knows. Health or resolve (or any characteristic if damage tracked via reduction) decreases by 1 point per shift, until damage equal to spell's final power is dealt. Natural recovery does not work during curse effects.
+- Victim of these spells may become any living human-like creature whose name and approximate location gamemaster knows. Health (or any characteristic if damage is tracked via reduction) decreases by 1 point per shift, until damage equal to spell's final power is dealt. Natural recovery does not work during curse effects.
 
 ### Blood Strength
 
@@ -491,12 +491,12 @@ Each tradition is usually associated with a specific specialization (see Chapter
 ### Mortal Gaze
 
 - Rank 1, Distance: medium, Duration: instant
-- Dark appearance of hero inspires uncertainty and fear in victim, reducing their resolve (or Empathy if using reduced characteristics). Damage equal to spell power. These spells only affect living human-like creatures.
+- The hero's dark appearance fills the victim with fear: their psychosis rises by the spell's final power (or Empathy drops if using reduced characteristics). These spells only affect living human-like creatures.
 
 ### Winter Death
 
 - Rank 1, Distance: up close, Duration: one round per power level
-- Merciless mortal cold penetrates to victim's heart. Target suffers from hypothermia (see "Other Dangers" Chapter 4). Result: health and resolve (Body and Wits if reduced characteristics) decrease by 1 point. This repeats each round until spells deal total damage equal to final power.
+- Merciless mortal cold penetrates to victim's heart. Target suffers from hypothermia (see "Other Dangers" Chapter 4). Result: health (Body if using reduced characteristics) decreases by 1 point. This repeats each round until spells deal total damage equal to final power.
 - These spells do not affect monsters.
 
 ### Raise Dead
@@ -526,7 +526,7 @@ Each tradition is usually associated with a specific specialization (see Chapter
 ### Horror
 
 - Rank 3, Distance: medium, Duration: instant
-- Necromant can instill strongest, unbearable fear: victim's reason fills with visions of aging and death. Target's resolve (or Wits and Empathy if reduced characteristics) decreases by amount equal to spell's final power. These spells only affect living human-like creatures.
+- Necromant can instill strongest, unbearable fear: victim's reason fills with visions of aging and death. The target's psychosis rises by the spell's final power (or Wits and Empathy drop if using reduced characteristics). These spells only affect living human-like creatures.
 
 ## Symbolism Tradition
 
@@ -548,7 +548,7 @@ Magic uses runes, esoteric signs and symbols that reflect fundamental principles
 #### Fear
 
 - Rank 1, Distance: medium, Duration: instant
-- Symbol awakens deep fears in victim, reducing their resolve (or Wits) by spell's final power. These spells do not affect monsters.
+- The symbol awakens deep fears: the victim's psychosis rises by the spell's final power (or Wits drops if using reduced characteristics). These spells do not affect monsters.
 
 #### Misdirection
 
@@ -648,13 +648,13 @@ If at least one curse (1) is rolled during spell creation, roll d12 and consult 
 | d12 Result | Effect |
 |------------|--------|
 | 1 | Due to magic next d6 days hero cannot sleep |
-| 2 | Spell drains strength from hero. Takes 1 stress point |
+| 2 | Spell drains strength from hero. Adds 1 psychosis |
 | 3 | Spell injures body. Takes 1 damage point |
 | 4 | Spell invokes magical disease with toxicity 2d6. During next shift hero and all within near distance risk infection |
 | 5 | Spell affects not only target but also hero's ally or other unintended victim. Healing and helping spells also affect one opponent |
 | 6 | Spell permanently changes hero's appearance. Gamemaster decides how |
 | 7 | Spell blinds hero. Next several days hero acts as if constantly in complete darkness |
-| 8 | Spell terrifies hero's mind. Make check per mental injury table |
+| 8 | The spell tears at the hero's mind: psychosis rises by D6 |
 | 9 | Spell breaks hero's bones. Make check per physical injury table |
 | 10 | Magic attracts demon from other dimension. Demon appears within next shift and becomes source of numerous diverse problems |
 | 11 | Spell strikes caster instead of target. Attacking spells hit caster; protective/healing spells deal damage |
@@ -750,7 +750,7 @@ If creating spell below rank of your magical specialization, can (but don't have
 ##### Spirit Healing
 
 - Rank 1, Duration: instant
-- Allows restoring target number of resolve points (Wits or Empathy if reduced characteristics) equal to spell's final power. Cannot heal self.
+- Removes that many psychosis points from the target (Wits or Empathy if using reduced characteristics), equal to the spell's final power. Cannot heal self.
 
 ##### Restoration
 
@@ -761,7 +761,7 @@ If creating spell below rank of your magical specialization, can (but don't have
 ##### Cleansing
 
 - Rank 1, Distance: up close, Duration: instant
-- Allows focusing nature's strength and bringing light to lost souls. Druid immediately restores target number of resolve points equal to spell's final power. Cannot heal self.
+- Allows focusing nature's strength and bringing light to lost souls. The druid immediately removes psychosis from the target equal to the spell's final power. Cannot heal self.
 
 #### Elemental Magic (Detailed)
 

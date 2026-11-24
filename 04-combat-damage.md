@@ -286,41 +286,29 @@
 - If armor protected from all damage, curses don't apply.
 - Can be repaired with Craft skill.
 
-### Conditions
+## Wounds, conditions and being taken out
 
-In some TO-based games instead of damage, heroes receive **conditions**:
+**Wounds are health.** One box on the sheet is one point of damage.
 
-- **Physical**: Exhausted, battered, injured (usually 3 types)
-- **Mental**: Annoyed, frightened, depressed (usually 3 types)
+- A hero has **10 wound boxes**.
+- A beast, NPC or ally has as many as its card's HP value says. A person with no card has 10.
+- When every box is filled, the character is **taken out** and takes a critical injury (d66).
+- Wounds are healed with Healing and rest. An injury is a consequence, not a buffer.
 
-### Receiving Conditions
+**Conditions** are optional tags such as battered, stunned or blinded.
 
-- Can receive condition from special effort (see Chapter 3).
-- Each point of damage from attacks - player chooses one condition for their character.
-- Instead of stress points, hero receives mental conditions; number can be reduced with Insight check.
-
-### Condition Effects
-
-- Each physical condition imposes -1 penalty to all skill checks related to Body and Dexterity.
-- Each mental condition imposes -1 penalty to all skill checks related to Wits and Empathy.
-- When character already has 3 conditions of one type and needs to receive 4th - character is **taken out** and receives corresponding injury (see below).
-
-### Being Taken Out
-
-- Hero can become **taken out** due to damage or stress.
-- **Health and Resolve variant**: Taken out when one of these parameters reaches 0 from damage or stress.
-- **Characteristic Reduction variant**: Taken out if any characteristic drops to 0.
-- **Conditions variant**: Taken out when 3 conditions of same type received; then receive corresponding injury.
+- Each physical condition gives −1 to Body and Agility checks.
+- Conditions **never take a character out**: only zero health does. Their number is not capped.
+- There are no mental conditions. Psychosis took their place: it rises from shocks and magic and is described in chapter 05.
 
 ### Injuries
 
-- Serious and possibly fatal character damage.
-- Can be physical or mental.
+Serious and possibly fatal damage. A character is injured when wounds (health) reach 0.
 
 ### How Injuries Occur
 
-- Physical injury when health drops to 0 (or Body characteristic to 0 in reduction variant) or when receiving certain number of physical conditions.
-- Mental injury when resolve drops to 0 (or Wits characteristic to 0) or when receiving certain number of mental conditions.
+- An injury happens when wounds (health) reach 0, or when Body reaches 0 in the attribute-reduction variant.
+- There are no mental injuries: psychosis handles the mind, and its 0–18 bands are described in chapter 05.
 
 ### Death
 
@@ -376,25 +364,6 @@ In some TO-based games instead of damage, heroes receive **conditions**:
 | 65 | Pierced heart | Yes | Hero dies immediately |
 | 66 | Heart struck | Yes | Hero's heart makes one last blow |
 
-#### Mental Injuries (D66)
-
-| Result | Injury | Duration | Effects |
-|--------|--------|----------|---------|
-| 11-16 | Tremor | -1 to all Dexterity checks | D6 |
-| 21-24 | Anxiety | -1 to all Wits checks | D6 |
-| 25-31 | Closure | -1 to all Empathy checks | D6 |
-| 32-35 | Nightmares | Must make Persuasion check to sleep this shift | D6 |
-| 36-41 | Sleep schedule disrupted | Can only sleep in daylight | 2d6 |
-| 42-43 | Phobia | Each round near feared object lose 1 Resolve (or 1 Dexterity) | 2d6 |
-| 44-45 | Alcoholism | Must drink alcohol daily or lose 1 Resolve (or 1 Dexterity) | 3d6 |
-| 46-51 | Claustrophobia | Each period in enclosed space lose 1 Resolve (or 1 Wits) | 2d6 |
-| 52-53 | Pseudologia | Cannot stop lying about anything | 2d6 |
-| 54-55 | Paranoia | Believes someone is hunting them; must roleplay | 2d6 |
-| 56 | Delusional disorder | Believes something that doesn't exist; e.g., color or object doesn't exist | 3d6 |
-| 61-62 | Personality change | Personality radically changes; define details with gamemaster; must roleplay; permanent |
-| 63-64 | Amnesia | Loses all memories; cannot recognize who they are or companions; must roleplay; must roleplay |
-| 65-66 | Catatonia | Stares blankly, doesn't react to any stimuli | D6 |
-| 66 | Psychotic fit | The heart gives out from terror - dies from horror | - |
 
 ### Healing
 
@@ -406,9 +375,9 @@ In some TO-based games instead of damage, heroes receive **conditions**:
 
 #### Natural Recovery
 
-- If no one helps, character spontaneously loses 1 wound or stress point after one full shift.
+- If no one helps, character spontaneously loses 1 wound after one full shift.
 - If character is not taken out, loses 1 point per shift.
-- Character can lose wounds and stress simultaneously.
+- Psychosis is recovered separately: with sleep and meditation, as chapter 05 says.
 - Note: this only happens if not suffering from hunger, thirst, or cold (see "Other Dangers" Chapter 6).
 
 #### Injured Characters
@@ -449,7 +418,7 @@ For certain damage types (e.g., fire, cold, hunger, thirst), injury tables aren'
 - Winter: one check per shift.
 - Severe frost: one check per period.
 - Additional cold protection (blanket, etc.) can give positive modifier.
-- Failed check: character takes 1 damage and 1 stress point (reduces Body and Wits) and cannot recover naturally.
+- Failed check: character takes 1 damage (reduces Body) and cannot recover naturally.
 - If character becomes taken out from freezing - dies when next check time comes.
 - Can resume natural recovery after warming, even just at regular campfire.
 
@@ -548,31 +517,6 @@ For certain damage types (e.g., fire, cold, hunger, thirst), injury tables aren'
 
 - First make cover check, then armor check.
 - Cover protective properties worsen same way as armor: each curse reduces value by 1.
-
-### States
-
-In some TO-based games instead of damage, heroes receive **states**:
-
-- **Physical**: Exhausted, battered, injured
-- **Mental**: Annoyed, frightened, depressed
-
-### Receiving States
-
-- Can receive from special effort (see Chapter 3).
-- If check linked to Body or Dexterity - physical state; if linked to Wits or Empathy - mental state.
-- Player chooses.
-
-### State Effects
-
-- Each physical state imposes -1 penalty to all skill checks related to Body and Dexterity.
-- Each mental state imposes -1 penalty to all skill checks related to Wits and Empathy.
-- When character already has 3 states of one type and needs to receive 4th - character is **taken out** and receives corresponding injury (see above).
-
-### Death from States
-
-- **Health and Resolve variant**: Taken out when one of these reaches 0 from damage or stress.
-- **Characteristic Reduction variant**: Taken out if any characteristic drops to 0.
-- **States variant**: Taken out when 3 states of same type received; then receive corresponding injury.
 
 ---
 *Generated from YZ SRD.pdf - Chapter 4: Combat and Damage*
