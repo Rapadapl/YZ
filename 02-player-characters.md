@@ -182,7 +182,7 @@ After special effort, character takes 1 wound point (if skill linked to Body or 
 After each curse, immediately reduce the used characteristic (only main characteristic dice, not skill or equipment).
 
 ### Kubik Stresa (Stress Dice)
-After special effort, immediately gain 1 stress point per curse; these d6 dice add to skill checks (6s are successes), but if a 1 appears on a stress die, must make a panic check according to the panic table.
+After special effort, immediately gain 1 stress point per curse; these d6 dice add to skill checks (6s are successes), but a 1 on a stress die adds 1 psychosis.
 
 ### Conditions
 After special effort, receive a condition (e.g., exhausted, annoyed, frightened); each imposes penalties on certain skill checks.

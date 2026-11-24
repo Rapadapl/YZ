@@ -243,7 +243,7 @@ When a hero fully commits to a task at risk of failure, they can make a special 
 ### Price of Special Effort
 - **Modern variant - Wounds and Stress**: After special effort, character takes 1 wound point (if skill linked to Body or Dexterity) or 1 stress point (if linked to Wits or Empathy) for each curse rolled
 - **Characteristic Reduction**: For each curse, immediately reduce the used characteristic
-- **Kubik Stressa (Stress Dice)**: After special effort, immediately gain 1 stress point per curse; these d6 dice add to skill checks (6s are successes), but if a 1 appears on a stress die, must make a panic check
+- **Kubik Stressa (Stress Dice)**: After special effort, immediately gain 1 stress point per curse; these d6 dice add to skill checks (6s are successes), but a 1 on a stress die adds 1 psychosis
 - **Conditions**: After special effort, receive a condition (e.g., exhausted, annoyed, frightened); each imposes penalties on certain skill checks
 - **The world answers**: for each curse on a special effort, the gamemaster may answer at once or later with a complication that fits the fiction (a ledge gives way, a witness sees too much, a tool jams). No separate currency is involved.
 - **Only Once**: Special effort can only be applied once per check

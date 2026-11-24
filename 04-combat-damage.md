@@ -394,7 +394,7 @@ In some TO-based games instead of damage, heroes receive **conditions**:
 | 61-62 | Personality change | Personality radically changes; define details with gamemaster; must roleplay; permanent |
 | 63-64 | Amnesia | Loses all memories; cannot recognize who they are or companions; must roleplay; must roleplay |
 | 65-66 | Catatonia | Stares blankly, doesn't react to any stimuli | D6 |
-| 66 | Panic attack | Heart stops from fear - dies from horror | - |
+| 66 | Psychotic fit | The heart gives out from terror - dies from horror | - |
 
 ### Healing
 

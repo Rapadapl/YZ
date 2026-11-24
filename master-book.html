@@ -110,8 +110,8 @@
         <h3>Opposed rolls</h3>
         <p>To win an opposed roll you must roll more successes than your adversary; every success on one side cancels one on the other. Only the active party may push, and may decide to do so even after seeing the opponent's roll. Equal totals are a tie: the active party's action typically fails, and if the tie has to be broken, reroll the contest.</p>
 
-        <h3>Doom points</h3>
-        <p>One optional price for pushing a roll: every time a player pushes, the gamemaster gains one Doom Point. The GM spends them to trigger misfortunes and obstacles — a weapon misfires, something is dropped, reinforcements arrive. The list of what Doom Points can do must be clear and known to all players, or the line between them and ordinary gamemastering blurs.</p>
+        <h3>The world answers</h3>
+        <p>There is no separate currency. For every push the gamemaster answers with a complication — a weapon misfires, something is dropped, reinforcements arrive. Its size follows the number of banes, and it is played as an ordinary event, not spent from a pool: the list of possible complications must be clear to all players, or the line between them and ordinary gamemastering blurs.</p>
 
         <h3>Gamemaster characters</h3>
         <p>NPCs use skills exactly like player characters and can push their rolls. The GM only has to roll when the NPC's action affects a PC directly; otherwise the GM simply decides what happens. For a group of identical NPCs, one initiative card for the group is enough.</p>
@@ -521,7 +521,7 @@
           <h2 id="magic">Magic</h2>
         </div>
 
-        <p>Magic is not a separate game; it is a skill check with a different currency. Casting costs Willpower Points, which characters usually earn by pushing rolls and taking attribute damage, and the cost of reaching beyond what a character has learned is paid in mishaps.</p>
+        <p>Magic is not a separate game; it is a skill check with no price tag. Casting costs nothing: the only price is psychosis and the mishaps it leaves behind.</p>
 
         <h3>The seven disciplines</h3>
         <div class="grid-2">
@@ -546,14 +546,32 @@
         <p>Each discipline is a tiered specialty, and you must have it to cast its spells. Learning a new discipline or raising your rank requires a master of higher rank who is willing to teach, often at a price; without a teacher the experience cost is tripled.</p>
 
         <h3>Casting a spell</h3>
-        <p>Spells are ranked 1 to 3, and a caster can use any spell at or below their rank in the discipline. Casting is usually a slow action; power words are fast, rituals take a shift or more. Spend at least one Willpower Point — the amount is the spell's base power level — and roll that many d6.</p>
+        <p>Spells are ranked 1 to 3, and a caster can use any spell at or below their rank in the discipline. Casting is usually a slow action; power words are fast, rituals take a shift or more. Roll a number of dice equal to the spell's rank; every success adds 1 to the final power.</p>
         <ul>
           <li>Every 6 raises the power level by one: the spell is overcharged.</li>
-          <li>Every 1 causes a magic mishap on the D12 table.</li>
+          <li>Every 1 adds psychosis (+1 at rank 1, +2 at rank 2, +3 at rank 3 and above) and causes a magic mishap on the D12 table.</li>
           <li>The roll cannot be pushed, and a spell never simply fails.</li>
         </ul>
         <p>Casting one rank above your talent is possible but always causes a mishap automatically; two ranks above is impossible. Casting at a lower rank, you may drop one die per rank of difference — fewer mishaps, but also fewer overcharges. At zero dice you do not roll at all and the spell simply works.</p>
-        <p><strong>Grimoires.</strong> A spell cast from a book or scroll counts as one rank lower, but readying the grimoire in combat is a fast action. <strong>NPC casters</strong> have no Willpower pool: the GM simply picks a power level up to the caster's rank and rolls for overcharge and mishap as usual.</p>
+        <p><strong>Grimoires.</strong> A spell cast from a book or scroll counts as one rank lower, but readying the grimoire in combat is a fast action. <strong>NPC casters</strong> have no pool: main power equals the spell's rank, and the GM rolls for overcharge and mishap as usual.</p>
+
+                <h3>Psychosis</h3>
+        <p>Psychosis is a track from 0 to 10 and the only price of magic.</p>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>Psychosis: the 0-10 track</caption>
+            <thead><tr><th scope="col">Psychosis</th><th scope="col">State</th><th scope="col">What it means at the table</th></tr></thead>
+            <tbody>
+              <tr><td><strong>0-2</strong></td><td>Clear</td><td>Magic has left no trace yet: the hero sleeps, eats and talks like a person.</td></tr>
+              <tr><td><strong>3-4</strong></td><td>Beast under the skin</td><td>Only your own people see the signs: pupils, smell, growling in sleep. No rule changes yet.</td></tr>
+              <tr><td><strong>5-6</strong></td><td>On the edge</td><td>The hero catches himself in beastly urges instead of words; to strangers he is already strange.</td></tr>
+              <tr><td><strong>7-8</strong></td><td>Breakdown close</td><td>Held together by habit and by his own. Being left alone is a bad idea.</td></tr>
+              <tr><td><strong>9</strong></td><td>One step from the beast</td><td>Any new curse or shock takes him to 10.</td></tr>
+              <tr><td><strong>10</strong></td><td>Instinct</td><td>An Empathy save at the start of each round; a failure shrinks the pool by one die. Pool gone means full transformation.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>A curse adds +1 at rank 1, +2 at rank 2, +3 at rank 3 and above. Psychosis falls with rest without casting (-1 at the end of a round), a full shift of meditation (-3), talk or food with allies (-1, real care -2) and a night in a dry room by a fire (-1). At 10 none of that works: only the Empathy save, or an ally.</p>
 
         <h3>Magic mishaps (D12)</h3>
         <div class="tbl-wrap">
@@ -585,9 +603,9 @@
               <tr><td>Magical seal</td><td class="num">1</td><td>Protects a person or place from magic for a shift; hostile spells lose power equal to the seal's.</td></tr>
               <tr><td>Sense magic</td><td class="num">1</td><td>Reveals what magic is at work, and finds obscured spells whose power is no higher.</td></tr>
               <tr><td>Dispel magic</td><td class="num">2, power word</td><td>Reactive; reduces another caster's power level. At zero or less, their spell does nothing.</td></tr>
-              <tr><td>Obscure magic</td><td class="num">2</td><td>Hides a spell for one extra Willpower Point; only an active Sense Magic can find it.</td></tr>
-              <tr><td>Bind magic</td><td class="num">3, ritual</td><td>Binds a spell to an object — a day for one extra point, forever for two, once a day for five.</td></tr>
-              <tr><td>Transfer</td><td class="num">3</td><td>Gives or steals Willpower Points; an unwilling target limits it to the power level.</td></tr>
+              <tr><td>Obscure magic</td><td class="num">2</td><td>Hides a spell for one extra casting die; only an active Sense Magic can find it.</td></tr>
+              <tr><td>Bind magic</td><td class="num">3, ritual</td><td>Binds a spell to an object — a day for one extra die, forever for two, once a day for five.</td></tr>
+              <tr><td>Transfer</td><td class="num">3</td><td>Gives or steals extra casting dice; an unwilling target limits it to the final power.</td></tr>
             </tbody>
           </table>
         </div>
@@ -715,7 +733,7 @@
             <ul>
               <li>Say yes, or name the cost</li>
               <li>Roll once, then move the fiction</li>
-              <li>Spend Doom Points when the table gets comfortable</li>
+              <li>Answer with a complication when the table gets comfortable</li>
               <li>End on a decision, not on an admin task</li>
             </ul>
           </div>
