@@ -157,8 +157,8 @@
           <span class="sec__num">05</span>
           <h2 data-en="Mutations" data-ru="Мутации">Mutations</h2>
         </div>
-        <p class="sec__hint" data-en="Two bio-mutations, or one bio and one psi. Psi costs 1 Will per use and rolls Wits + grade."
-           data-ru="Две био-мутации или одна био и одна пси. Пси тратит 1 волю за применение, бросок Смекалки плюс ступень.">Two bio-mutations, or one bio and one psi. Psi costs 1 Will per use.</p>
+        <p class="sec__hint" data-en="Two bio-mutations, or one bio and one psi. Psi costs nothing and rolls Wits + grade; each 1 on the die adds 1 psychosis."
+           data-ru="Две био-мутации или одна био и одна пси. Пси ничего не стоит, бросок Смекалки плюс ступень; каждая 1 на кубике даёт +1 психоз.">Two bio-mutations, or one bio and one psi. Psi costs nothing; a curse adds psychosis.</p>
 
         <div class="tbl-wrap">
           <table class="muts">
@@ -179,7 +179,7 @@
       <section class="sec">
         <div class="sec__head">
           <span class="sec__num">06</span>
-          <h2 data-en="Beast traits, Will and aura" data-ru="Звериные черты, воля и аура">Beast traits, Will and aura</h2>
+          <h2 data-en="Beast traits and aura" data-ru="Звериные черты и аура">Beast traits and aura</h2>
         </div>
         <div class="rows">
           <label class="line">
@@ -189,14 +189,6 @@
           <label class="line">
             <span class="line__label" data-en="Trait" data-ru="Черта">Trait</span>
             <input class="f" type="text" data-field="trait.1">
-          </label>
-          <label class="line">
-            <span class="line__label" data-en="Will" data-ru="Воля">Will</span>
-            <span class="aura">
-              <input class="f f--inline" type="number" min="0" max="12" inputmode="numeric" data-field="will.value" aria-label="Will, current">
-              <span class="aura__state" aria-hidden="true">/</span>
-              <input class="f f--inline" type="number" min="0" max="12" inputmode="numeric" data-field="will.max" aria-label="Will, maximum">
-            </span>
           </label>
           <label class="line">
             <span class="line__label" data-en="Aura" data-ru="Аура">Aura</span>
@@ -214,8 +206,8 @@
             <input class="f" type="text" data-field="edge.weakness">
           </label>
         </div>
-        <p class="sec__hint" data-en="Will and psychosis are one scale: psychosis is the Will that is missing. Maximum Will is Wits + Empathy; at 0 Will the hero falls into instinct and saves with Empathy. Light aura: +1 die to Animal Ken and Persuasion with beasts and tribes. Dark aura: +1 die to Brawl and Shooting against a foe who has seen you draw blood, −1 to Animal Ken."
-           data-ru="Воля и психоз — одна шкала: психоз это недостача воли. Максимум воли = Смекалка + Эмпатия; на нуле воли герой уходит в инстинкты и спасается Эмпатией. Светлая аура: +1 кубик к Звериному языку и Убеждению со зверями и племенами. Тёмная: +1 кубик к Драке и Стрельбе против того, кто видел вашу кровь, −1 к Звериному языку.">Light aura: +1 die to Animal Ken and Persuasion. Dark aura: +1 die to Brawl and Shooting.</p>
+        <p class="sec__hint" data-en="Casting costs nothing; psychosis is its only price. At psychosis 10 the hero falls into instinct and saves with Empathy. Light aura: +1 die to Animal Ken and Persuasion with beasts and tribes. Dark aura: +1 die to Brawl and Shooting against a foe who has seen you draw blood, −1 to Animal Ken."
+           data-ru="Каст ничего не стоит; единственная его цена — психоз. На 10 психоза герой уходит в инстинкты и спасается Эмпатией. Светлая аура: +1 кубик к Звериному языку и Убеждению со зверями и племенами. Тёмная: +1 кубик к Драке и Стрельбе против того, кто видел вашу кровь, −1 к Звериному языку.">Light aura: +1 die to Animal Ken and Persuasion. Dark aura: +1 die to Brawl and Shooting.</p>
       </section>
 
       <section class="sec">
@@ -393,7 +385,7 @@
           <h3 data-en="Mutations" data-ru="Мутации">Mutations</h3>
           <ul>
             <li data-en="Bio-mutations are always on and cost no aura." data-ru="Био-мутации всегда включены и не тратят ауру.">Bio-mutations are always on and cost no aura.</li>
-            <li data-en="A psi-power is a slow action and costs 1 Will, hit or miss. A curse on its die adds 1 psychosis." data-ru="Пси-сила — медленное действие и 1 воля, попали или нет. Проклятие на её кубике даёт 1 психоз.">A psi-power is a slow action and costs 1 Will, hit or miss.</li>
+            <li data-en="A psi-power is a slow action and costs nothing; a curse on its die adds 1 psychosis." data-ru="Пси-сила — медленное действие и ничего не стоит; проклятие на её кубике даёт 1 психоз.">A psi-power is a slow action and costs nothing; a curse adds 1 psychosis.</li>
             <li data-en="Roll Wits plus grade: +1/+2/+3 dice, or d6/d8/d10." data-ru="Бросок Смекалки плюс ступень: +1/+2/+3 кубика или d6/d8/d10.">Roll Wits plus grade: +1/+2/+3 dice, or d6/d8/d10.</li>
             <li data-en="Extra successes buy damage, targets or duration." data-ru="Лишние успехи покупают урон, цели или длительность.">Extra successes buy damage, targets or duration.</li>
           </ul>
