@@ -12,7 +12,7 @@
   const GEAR_ROWS = 8;
   const MUTATION_ROWS = 6;
   const TRACKS = { damage: 10, stress: 10, supplies: 6, psychosis: 10 };
-  const trackValues = { damage: 0, stress: 0, supplies: 0 };
+  const trackValues = { damage: 0, stress: 0, supplies: 0, psychosis: 0 };
 
   const lang = () => (document.documentElement.lang === "ru" ? "ru" : "en");
 
@@ -268,7 +268,6 @@
       sum.textContent = l === "ru" ? "Пси-мутации ничего не стоят, но каждая 1 на кубике даёт +1 психоз" : "Psi-mutations cost nothing; each 1 on the die adds 1 psychosis";
       return;
     }
-    const word = l === "ru" ? (psi === 1 ? "аура" : psi < 5 ? "ауры" : "аур") : psi === 1 ? "Aura" : "Aura";
     sum.textContent = l === "ru"
       ? `Пси: ${psi} · +1 психоз за каждую 1 на кубике`
       : `Psi: ${psi} · +1 psychosis per 1 on the die`;
