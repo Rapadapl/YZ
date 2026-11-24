@@ -302,6 +302,18 @@
         const current = trackValues[track] || 0;
         trackValues[track] = index + 1 === current ? index : index + 1;
         paintTrack(track);
+
+        /* clicking the psychosis track spends or restores Will, the same scale */
+        if (track === "psychosis") {
+          const topField = root.querySelector('[data-field="will.max"]');
+          const willField = root.querySelector('[data-field="will.value"]');
+          const top = Math.max(0, Number(topField && topField.value) || 0);
+          if (top) {
+            trackValues.psychosis = Math.min(trackValues.psychosis, top);
+            paintTrack("psychosis");
+            if (willField) willField.value = String(Math.max(0, top - trackValues.psychosis));
+          }
+        }
         queueSave();
       });
     });
@@ -450,6 +462,17 @@
     const mountValue = mountLimit ? mountLimit * (led ? 2 : 1) : 0;
     const mountOutput = root.querySelector("[data-mount-value]");
     if (mountOutput) mountOutput.textContent = mountValue ? String(mountValue) : "—";
+
+    /* will and psychosis are one scale: psychosis is the Will that is missing,
+       so the track follows the Will fields and clicking it writes them back */
+    const willValue = read("will.value");
+    const willMax = read("will.max");
+    if (willValue && willMax && willMax.value !== "" && willValue.value !== "") {
+      const top = Math.max(0, Number(willMax.value) || 0);
+      const current = Math.max(0, Math.min(top, Number(willValue.value) || 0));
+      trackValues.psychosis = Math.max(0, Math.min(TRACKS.psychosis, top - current));
+      if (root.querySelector('[data-track="psychosis"]')) paintTrack("psychosis");
+    }
 
     /* aura is a standing score, not a pool: the sheet reads it back as light,
        dark or balanced so the table can see which bonus applies */
