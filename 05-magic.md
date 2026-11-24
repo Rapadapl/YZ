@@ -41,18 +41,18 @@ Each tradition is usually associated with a specific specialization (see Chapter
 
 ### Spell Potency
 
-- Spell creation requires huge mental effort, expressed in spending one or more **Fate points**
-- Usually hero gains fate points from making special efforts, but other methods may exist depending on specific game
+- Spell creation requires huge mental effort, expressed in spending one or more **Will points**
+- Usually hero gains will points from making special efforts, but other methods may exist depending on specific game
 
 ### Main Power
 
-- The number of fate points spent on creating a spell is called its **main power**
+- The number of will points spent on creating a spell is called its **main power**
 - Together with other factors (e.g., check result) determines final power
 
 ### Check Nuances
 
 - Spell creation cannot result in failure
-- Number of main dice (d6) to roll equals number of spent fate points
+- Number of main dice (d6) to roll equals number of spent will points
 - If at least one success (6) is rolled - spell is enhanced
 - If at least one curse (1) is rolled - side effect occurs
 - Cannot make special effort when creating a spell
@@ -60,12 +60,19 @@ Each tradition is usually associated with a specific specialization (see Chapter
 ### Enhancement
 
 - Each success rolled increases spell potency by 1
-- Example: if you spend 2 fate points and get 2 successes, final power = 4
+- Example: if you spend 2 will points and get 2 successes, final power = 4
 
 ### Side Effects of Magic
 
 - If at least one curse is rolled during spell creation, hero releases powerful forces they cannot control, causing a side effect
 - Roll d12 and consult side effects table (see below)
+
+### Will, curses and psychosis
+
+- Will is the casting resource: see `05-magic-psychosis.md`. Aura takes no part in a casting.
+- Every curse (1) on a casting die adds psychosis: +1 for a rank 1 spell, +2 for rank 2, +3 for rank 3 and above.
+- Psychosis does not cancel the spell: it may work and still leave a mark.
+- At psychosis 10 the hero falls into instinct; the save and the way back are in `05-magic-psychosis.md`.
 
 ### Safe Magic
 
@@ -83,14 +90,14 @@ Each tradition is usually associated with a specific specialization (see Chapter
 - Parameter determining duration of spell effect
 - **Instant**: Effect occurs immediately after which spell is considered completed
 
-### Fate Points
+### Will points
 
-- At least 1 fate point must be spent to create a spell
+- At least 1 will point must be spent to create a spell
 - Even if not explicitly stated in spell description
 
 ### Spellcasters and Gamemaster Characters
 
-- Gamemaster characters have no fate points
+- Gamemaster characters have no will points
 - When one attempts to cast a spell, gamemaster can simply choose main power not exceeding corresponding advantage rank of player character
 - Enhancement and side effects checks proceed normally
 
@@ -120,15 +127,15 @@ Each tradition is usually associated with a specific specialization (see Chapter
 - Response action; can disrupt turn order in combat (see "Rounds and Initiative" Chapter 4)
 - Reduces opponent's spell potency by your dispel's potency
 - If result reaches 0 (or drops below) - spell produces no effect
-- Must decide how many fate points to spend on dispelling before these checks
+- Must decide how many will points to spend on dispelling before these checks
 - Both you and opponent proceed with enhancement and side effects checks normally
 
 ### Hide Magic
 
-- If you want to cast spell discreetly, can additionally spend a fate point to hide it
+- If you want to cast spell discreetly, can additionally spend a will point to hide it
 - Does not count toward final power calculation
 - To detect hidden magic, another mage must actively investigate area using Sense Magic
-- To detect hidden spell, another mage's Sense Magic power must be equal or higher than hidden spell's hidden fate point
+- To detect hidden spell, another mage's Sense Magic power must be equal or higher than hidden spell's hidden will point
 
 ### Weave Words (Word of Power)
 
@@ -140,7 +147,7 @@ Each tradition is usually associated with a specific specialization (see Chapter
 ### Conceal Magic
 
 - Rank 2, Distance: self, Duration: instant
-- If you want to cast spell discreetly, can additionally spend a fate point to hide it
+- If you want to cast spell discreetly, can additionally spend a will point to hide it
 - Does not count toward final power calculation
 - To detect hidden magic, other mage must actively investigate area using Sense Magic
 
@@ -149,7 +156,7 @@ Each tradition is usually associated with a specific specialization (see Chapter
 - Rank 2, Distance: medium, Duration: instant
 - Reduces opponent's spell potency by your potency
 - If result reaches 0 - spell produces no effect
-- Must decide how many fate points to spend on suppressing before these checks
+- Must decide how many will points to spend on suppressing before these checks
 
 ### Mask Magic
 
@@ -169,7 +176,7 @@ Each tradition is usually associated with a specific specialization (see Chapter
 - Rank 2, Word of Power, Duration: instant
 - Reduces opponent's spell potency by your potency
 - If result reaches 0 - spell produces no effect
-- Must decide how many fate points to spend on dispelling before these checks
+- Must decide how many will points to spend on dispelling before these checks
 
 ### Shielding Magic
 
@@ -303,7 +310,7 @@ Each tradition is usually associated with a specific specialization (see Chapter
 #### Hide Magic
 
 - Rank 2, Distance: self, Duration: instant
-- If you want to cast spell discreetly, can additionally spend a fate point to hide it
+- If you want to cast spell discreetly, can additionally spend a will point to hide it
 - Does not count toward final power calculation
 - To detect hidden magic, other mage must actively investigate area using Sense Magic
 
@@ -423,7 +430,7 @@ Each tradition is usually associated with a specific specialization (see Chapter
 ### Blood Strength
 
 - Rank 3, Distance: self, Duration: one round
-- Using these spells, magician accumulates energy in own blood. Hero receives fate points equal to twice spell's final power. But very briefly: these fate points must be spent in next round, otherwise they disappear.
+- Using these spells, magician accumulates energy in own blood. Hero receives will points equal to twice spell's final power. But very briefly: these will points must be spent in next round, otherwise they disappear.
 
 ## Death Magic
 
@@ -460,12 +467,12 @@ Each tradition is usually associated with a specific specialization (see Chapter
 
 - Rank 2, Distance: up close, Duration: instant
 - Using these spells, necromant can reach victim's heart and squeeze life out. Damage equal to spell's final power. These spells only affect living human-like creatures.
-- Spending 1 additional fate point (does not count toward final power) can increase distance to medium.
+- Spending 1 additional will point (does not count toward final power) can increase distance to medium.
 
 ### Life Drain
 
 - Rank 3, Ritual, Distance: up close, Duration: instant
-- Your character can drain life forces from surrounding plants and animals. Hero receives fate points equal to twice spell's final power. Ritual can only be performed in area covered with vegetation, so inside buildings and on rocky slopes of mountains it's useless. Upon ritual completion all living reasonable creatures and plants within up close distance - in same zone as necromancer - die.
+- Your character can drain life forces from surrounding plants and animals. Hero receives will points equal to twice spell's final power. Ritual can only be performed in area covered with vegetation, so inside buildings and on rocky slopes of mountains it's useless. Upon ritual completion all living reasonable creatures and plants within up close distance - in same zone as necromancer - die.
 
 ### Horror
 
@@ -528,7 +535,7 @@ Magic uses runes, esoteric signs and symbols that reflect fundamental principles
 #### Rune of Power
 
 - Rank 3, Ritual, Distance: up close, Duration: instant
-- Your hero charges symbol with magical power. Requires somehow inscribing needed symbol on item, allowing fate points to be stored in it. Amount equal to spell's final power. Subsequently this symbol can be used when casting any spells, spending stored fate points. These spells don't require enchanting. Other magicians versed in rune craft can use your hero's runes if they manage to reach them, so keep them like pupil of eye!
+- Your hero charges symbol with magical power. Requires somehow inscribing needed symbol on item, allowing will points to be stored in it. Amount equal to spell's final power. Subsequently this symbol can be used when casting any spells, spending stored will points. These spells don't require enchanting. Other magicians versed in rune craft can use your hero's runes if they manage to reach them, so keep them like pupil of eye!
 
 ## Elementalism Tradition
 
@@ -613,21 +620,21 @@ If creating spell below rank of your magical specialization, can (but don't have
 ### Magical Items
 
 - Skilled magicians and druids can enchant inanimate objects to create magical traps or powerful artifacts
-- Spell creation follows normal rules; additionally spend fate points to bind spell to item
-- Additional fate points spent on binding not counted toward final power, but affect enhancement check
-- Spending 1 additional fate point: charm holds until activation, but not more than 1 day
-- Spending 2 additional fate points: can hold indefinitely, but after activation still disperse
-- Spending 5 additional fate points: spell permanently bound to item; can activate once per day, but each activation requires spending fate points equal to final power
+- Spell creation follows normal rules; additionally spend will points to bind spell to item
+- Additional will points spent on binding not counted toward final power, but affect enhancement check
+- Spending 1 additional will point: charm holds until activation, but not more than 1 day
+- Spending 2 additional will points: can hold indefinitely, but after activation still disperse
+- Spending 5 additional will points: spell permanently bound to item; can activate once per day, but each activation requires spending will points equal to final power
 - Activation method chosen by magician: speak certain phrase, open item, break it or throw on ground
 - After activation spell works exactly as if created normally
 
-### Fate Transfer
+### Will transfer
 
 - Rank 3, Distance: up close, Duration: instant
-- Spells allow transferring fate points to another or stealing from surrounding
-- To cast requires spending 1 fate point; after can take or transfer as many as desired
+- Spells allow transferring will points to another or stealing from surrounding
+- To cast requires spending 1 will point; after can take or transfer as many as desired
 - If target resists - process complicated - amount transferred/limited by spell's final power
-- Fate points spent on creating these spells are considered expended and cannot be transferred
+- Will points spent on creating these spells are considered expended and cannot be transferred
 
 ### Shapechange
 

@@ -11,7 +11,7 @@
   const STORE = "rootclaw-sheet-v1";
   const GEAR_ROWS = 8;
   const MUTATION_ROWS = 6;
-  const TRACKS = { damage: 10, stress: 10, supplies: 6 };
+  const TRACKS = { damage: 10, stress: 10, supplies: 6, psychosis: 10 };
   const trackValues = { damage: 0, stress: 0, supplies: 0 };
 
   const lang = () => (document.documentElement.lang === "ru" ? "ru" : "en");
@@ -255,7 +255,7 @@
       }
       if (cost) {
         cost.textContent = value === "psi"
-          ? (l === "ru" ? "1 аура" : "1 Aura")
+          ? (l === "ru" ? "1 воля" : "1 Will")
           : value === "bio"
             ? (l === "ru" ? "постоянно" : "always")
             : "—";
@@ -265,7 +265,7 @@
     const sum = root.querySelector("[data-mutation-sum]");
     if (!sum) return;
     if (!psi) {
-      sum.textContent = l === "ru" ? "Пси-мутации тратят 1 ауру за применение" : "Psi-mutations cost 1 Aura per use";
+      sum.textContent = l === "ru" ? "Пси-мутации тратят 1 волю за применение" : "Psi-mutations cost 1 Will per use";
       return;
     }
     const word = l === "ru" ? (psi === 1 ? "аура" : psi < 5 ? "ауры" : "аур") : psi === 1 ? "Aura" : "Aura";
