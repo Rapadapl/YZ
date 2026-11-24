@@ -61,7 +61,7 @@ Each tradition is usually associated with a specific specialization (see Chapter
 - Every 1 rolled (a curse) adds psychosis: +1 for a rank 1 spell, +2 for rank 2, +3 for rank 3 and above. A psi-power of any grade: +1.
 - If at least one curse is rolled, a side effect occurs: roll d12 on the table below.
 - A curse does not cancel the spell: it may work and still leave a mark.
-- At psychosis 10 the hero falls into instinct; the save is rolled with Empathy — see `05-magic-psychosis.md`.
+- At psychosis 10 the hero falls into instinct and at 18 transforms; the save is rolled with Empathy — see `05-magic-psychosis.md`.
 
 ### Safe Magic
 

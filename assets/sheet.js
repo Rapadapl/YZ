@@ -11,7 +11,7 @@
   const STORE = "rootclaw-sheet-v1";
   const GEAR_ROWS = 8;
   const MUTATION_ROWS = 6;
-  const TRACKS = { damage: 10, stress: 10, supplies: 6, psychosis: 10 };
+  const TRACKS = { damage: 10, stress: 10, supplies: 6, psychosis: 18 };
   const trackValues = { damage: 0, stress: 0, supplies: 0, psychosis: 0 };
 
   const lang = () => (document.documentElement.lang === "ru" ? "ru" : "en");
