@@ -174,6 +174,66 @@ Each tradition is usually associated with a specific specialization (see Chapter
 - For this does not count as action
 - To detect hidden magic, other mage must actively investigate area using Sense Magic
 
+### Beast's eye
+
+- Rank 1, self, scene.
+- See through the eyes of one beast at Short range. While it lasts, your own body is helpless.
+- +1 die to Observation for whatever the beast sees.
+
+### Quiet step
+
+- Rank 1, self, scene.
+- Your steps make no sound: +2 dice to Stealth while moving.
+- The sound of your voice, a shot or a dropped object remains.
+
+### Blood trace
+
+- Rank 1, Engaged, instant.
+- A touch stops the bleeding and gives +1 die to the next Healing check on that wound.
+- It does nothing for a severed limb.
+
+### Bark skin
+
+- Rank 2, self, scene.
+- The skin hardens: armour 2 against cutting and piercing.
+- −1 die to Acrobatics while it lasts.
+
+### Word of wind
+
+- Rank 2, Short, instant.
+- A gust strikes the target: an opposed Force roll, or the target is knocked down and loses a fast action.
+- Fires in the zone are put out and smoke or dust is scattered.
+
+### Death's shadow
+
+- Rank 2, Short, a round.
+- The target sees their own death: −2 dice on all rolls while it lasts.
+- A second casting on the same target in the same scene does nothing.
+
+### Bone spike
+
+- Rank 3, Short, instant.
+- A spike grows from earth or wall: damage 2, ignores 1 point of armour.
+- Indoors it needs a surface a spike can grow from.
+
+### Beast's gift
+
+- Rank 3, Engaged, a shift.
+- An ally gains one beast trait until the end of the scene.
+- A second casting on the same hero in the same scene does nothing.
+
+### Seal of silence
+
+- Rank 3, Short, scene.
+- Sound does not leave the zone: fighting and screams inside are not heard outside.
+- Inside the zone everything is heard as usual.
+
+### The way back
+
+- Rank 3, ritual, a shift.
+- An ally at Engaged range loses 2 psychosis and you gain 1.
+- It does not touch psychosis 18: that needs a save or an ally, not a spell.
+
 ## Specific Magical Traditions
 
 ### Druidic Tradition
