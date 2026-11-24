@@ -15,7 +15,7 @@ Psychosis is a track from 0 to 18 and the only price of magic. Keep it in the op
 | 0-2 | Clear | No trace yet: the hero sleeps, eats and talks like a person. No change to any check. |
 | 3-4 | Beast under the skin | +1 die to Observation: sharper smell and hearing. -1 die to Persuasion with anyone not of your own. |
 | 5-6 | On the edge | +1 die to Brawl and Shooting against whoever drew blood first. -1 die to Crafting and Healing: the hands shake. |
-| 7-8 | Breakdown close | -1 die to every Wits check except Observation. A night's sleep no longer clears stress. |
+| 7-8 | Breakdown close | -1 die to every Wits check except Observation. A night's sleep no longer clears psychosis. |
 | 9 | One step from the beast | +1 die to Survival and Stealth. Helping an ally now needs an Empathy roll. Any new curse or shock takes the hero to 10. |
 | 10-11 | Instinct | An Empathy save at the start of every round. On a failure the instinct runs that round and the save pool loses a die. Empty pool means 18. |
 | 12-13 | Deeper instinct | A successful save only drops psychosis to 10. Speech is broken: -2 dice to Persuasion and Animal Ken. |

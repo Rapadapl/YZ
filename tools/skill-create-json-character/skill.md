@@ -34,7 +34,7 @@ and the import handler that rejects anything without `fields`):
 - `variant` — `"classic"` or `"modern"`.
 - `fields` — a flat object whose keys are the form's `data-field` names; values
   are strings (numbers as strings are fine) or booleans for checkboxes.
-- `tracks` — `{ "damage": 0-10, "stress": 0-10, "supplies": 0-6, "psychosis": 0-18 }`.
+- `tracks` — `{ "damage": 0-10, "supplies": 0-6, "psychosis": 0-18 }`. Раны — это здоровье.
 
 The sheet clears itself, then applies only the keys present in `fields`, so
 missing keys are fine and unknown keys are ignored. But a file without `fields`
@@ -76,7 +76,7 @@ Rest of the sheet:
   `weapon.<n>.range`.
 - `armour` — one line.
 - `carry.backpack`, `carry.led` — booleans; `carry.mount` — number.
-- `cond.physical.1`…`3`, `cond.mental.1`…`3` — conditions.
+- `cond.physical.1`…`3` — optional physical conditions.
 - `xp.earned`, `xp.spent` — numbers.
 - `notes` — free text, Markdown is fine.
 
@@ -131,7 +131,7 @@ Rest of the sheet:
     "xp.spent": "0",
     "notes": ""
   },
-  "tracks": { "damage": 0, "stress": 0, "supplies": 6, "psychosis": 0 }
+  "tracks": { "damage": 0, "supplies": 6, "psychosis": 0 }
 }
 ```
 

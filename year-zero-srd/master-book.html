@@ -57,7 +57,7 @@
         <dl class="variants">
           <div data-system="classic">
             <dt>The classic variant</dt>
-            <dd>Pools of <span class="die">d6</span>. Damage is a number of points, armour is a number of dice, and wounds and stress are counted separately.</dd>
+            <dd>Pools of <span class="die">d6</span>. Damage is a number of points, armour is a number of dice, and wounds are counted in boxes: 10 for a hero, the HP value for a beast.</dd>
           </div>
           <div data-system="modern">
             <dt>The modern variant</dt>
@@ -334,22 +334,21 @@
             <caption>Three ways to pay for damage</caption>
             <thead><tr><th scope="col">System</th><th scope="col">How damage is tracked</th><th scope="col">Broken when</th></tr></thead>
             <tbody>
-              <tr><td>Health and resolve</td><td>Two pools, one physical and one mental</td><td>Either pool reaches zero</td></tr>
+              <tr><td>Wounds</td><td>One pool: 10 boxes for a hero, the HP value for a beast</td><td>The pool reaches zero</td></tr>
               <tr><td>Attribute damage</td><td>The attribute used by the attack is reduced</td><td>Any attribute reaches zero</td></tr>
-              <tr><td>Conditions</td><td>Three physical and three mental slots</td><td>A fourth condition of the same type is taken</td></tr>
             </tbody>
           </table>
         </div>
 
-        <h3>Conditions</h3>
-        <p>The three physical conditions are Exhausted, Battered and Wounded; the three mental ones are Angry, Scared and Disheartened. Pushing a roll for Strength or Agility gives a physical condition of your choice, for Wits or Empathy a mental one. Each point of damage from an attack gives a physical condition; each point of potential stress gives a mental condition, reduced by one for every success on an Insight roll.</p>
-        <p>Every physical condition gives −1 to rolls using Strength or Agility, every mental one −1 to rolls using Wits or Empathy. Take a fourth condition of the same type and you are broken, and suffer a critical injury of that type.</p>
+        <h3>Wounds and psychosis</h3>
+        <p>Wounds are health. A hero has 10 boxes; a beast or NPC uses the HP value on its card, and a person with no card has 10. One point of damage fills one box, and when the boxes are full the character is broken and takes a physical critical injury. Conditions such as battered or stunned are optional tags: each gives −1 to Body and Agility checks, but they never take a character out and their number is not capped.</p>
+        <p>The mind runs on psychosis, not on a second health pool. It rises from fear, shocks and magic, falls with meditation, sleep and company, and its 0–18 bands are described in chapter 05. There are no mental injuries and no mental conditions.</p>
 
         <h3>Being broken and getting up</h3>
-        <p>Being broken means you are out of action: no actions, no skill rolls. You cannot go below zero in health, resolve or any attribute — further damage may give you another critical injury instead. Healing is a slow action, and only helps a broken character: each success removes one point of damage or stress. On your own you recover one point per shift, provided you are not starving, dehydrated or hypothermic; a character who is not broken also heals one point per shift.</p>
+        <p>Being broken means you are out of action: no actions, no skill rolls. Health does not go below zero — further damage may give you another critical injury instead. Healing is a slow action and only helps a broken character: each success removes one wound. On your own you recover one wound per shift, provided you are not starving, dehydrated or hypothermic; a character who is not broken heals the same way.</p>
 
-        <h3>Critical injuries</h3>
-        <p>You suffer a physical critical injury when your health or Strength is reduced to zero, and a mental one when your resolve or Wits is reduced to zero — or when you are broken by conditions of that type. Some games also use a weapon's crit threshold, or give a critical injury on any attack that rolls two or more successes. One exception: damage from your own pushing roll never gives a critical injury, so you can never kill yourself by pushing.</p>
+<h3>Critical injuries</h3>
+        <p>You suffer a critical injury when your wounds (health) reach zero, or Strength if the game tracks damage by attribute. Some games also use a weapon's crit threshold, or give a critical injury on any attack that rolls two or more successes. One exception: damage from your own pushing roll never gives a critical injury, so you can never kill yourself by pushing.</p>
 
         <h3>Death</h3>
         <p>A lethal injury states a time limit — a round, a stretch or a shift. When it runs out you make a death save: a Stamina roll that costs no action. Fail and you die; succeed and you live until the next time limit, when you roll again.</p>
@@ -402,32 +401,6 @@
           </table>
         </div>
 
-        <h3>Mental injuries (D66)</h3>
-        <div class="tbl-wrap">
-          <table class="tbl">
-            <caption>Mental critical injuries</caption>
-            <thead><tr><th scope="col" class="num">D66</th><th scope="col">Trauma</th><th scope="col">Effect</th><th scope="col">Healing</th></tr></thead>
-            <tbody>
-              <tr><td class="num">11–16</td><td>Trembling</td><td>−1 on all Agility-based rolls</td><td>D6</td></tr>
-              <tr><td class="num">21</td><td>White hair</td><td>None</td><td>Permanent</td></tr>
-              <tr><td class="num">22–24</td><td>Anxious</td><td>−1 on all Wits-based rolls</td><td>D6</td></tr>
-              <tr><td class="num">25–31</td><td>Sullen</td><td>−1 on all Empathy-based rolls</td><td>D6</td></tr>
-              <tr><td class="num">32–35</td><td>Nightmares</td><td>Make an Insight roll every shift spent sleeping; on a failure the sleep doesn't count</td><td>D6</td></tr>
-              <tr><td class="num">36–41</td><td>Nocturnal</td><td>You can only sleep during the light part of the day</td><td>2D6</td></tr>
-              <tr><td class="num">42–43</td><td>Phobic</td><td>Terrified of something related to what broke you; 1 point of stress within Short range of it, each round</td><td>2D6</td></tr>
-              <tr><td class="num">44–45</td><td>Alcoholic</td><td>Drink alcohol every day or suffer 1 point of stress</td><td>3D6</td></tr>
-              <tr><td class="num">46–51</td><td>Claustrophobic</td><td>Each stretch in a confined space, suffer 1 point of stress</td><td>2D6</td></tr>
-              <tr><td class="num">52</td><td>Mythomaniac</td><td>You cannot stop lying about everything; play it out</td><td>2D6</td></tr>
-              <tr><td class="num">53–54</td><td>Paranoia</td><td>You are certain someone is out to get you; play it out</td><td>2D6</td></tr>
-              <tr><td class="num">55</td><td>Delusion</td><td>You are convinced of something entirely untrue</td><td>3D6</td></tr>
-              <tr><td class="num">56</td><td>Hallucinations</td><td>Make an Insight roll every shift; on a failure, a powerful hallucination</td><td>3D6</td></tr>
-              <tr><td class="num">61–62</td><td>Altered personality</td><td>Your personality changes fundamentally; decide how with the gamemaster</td><td>Permanent</td></tr>
-              <tr><td class="num">63</td><td>Amnesia</td><td>No memory of who you or the other characters are</td><td>D6</td></tr>
-              <tr><td class="num">64–65</td><td>Catatonic</td><td>You stare into oblivion and respond to no stimulus</td><td>D6</td></tr>
-              <tr><td class="num">66</td><td>Heart attack</td><td>Your heart stops and you die of pure fright</td><td>—</td></tr>
-            </tbody>
-          </table>
-        </div>
       </section>
 
       <section class="chapter">
@@ -466,9 +439,9 @@
 
         <h3>Cold, hunger and sleep</h3>
         <ul>
-          <li><strong>Cold:</strong> roll Stamina at intervals set by the weather. Failure means hypothermia: 1 point of damage and 1 point of stress, no natural healing, and repeated rolls. Broken while hypothermic means death at the next roll. Only warmth ends it.</li>
+          <li><strong>Cold:</strong> roll Stamina at intervals set by the weather. Failure means hypothermia: 1 point of damage, no natural healing, and repeated rolls. Broken while hypothermic means death at the next roll. Only warmth ends it.</li>
           <li><strong>Starvation:</strong> one ration a day; after a day without food you stop healing damage and lose 1 point a week. Broken while starving means death a week later without food.</li>
-          <li><strong>Sleep:</strong> at least one shift a day. After a day without sleep you cannot heal stress; broken by stress while sleep deprived, you collapse and sleep for a shift.</li>
+          <li><strong>Sleep:</strong> at least one shift a day. After a day without sleep you cannot heal wounds; if your wounds are already full, you collapse and sleep for a shift.</li>
         </ul>
 
         <h3>Darkness</h3>
@@ -563,7 +536,7 @@
             <thead><tr><th scope="col" class="num">D12</th><th scope="col">Effect</th></tr></thead>
             <tbody>
               <tr><td class="num">1</td><td>You cannot sleep for D6 days.</td></tr>
-              <tr><td class="num">2</td><td>The spell drains you: 1 point of stress.</td></tr>
+              <tr><td class="num">2</td><td>The spell drains you: 1 psychosis.</td></tr>
               <tr><td class="num">3</td><td>The magic hurts your body: 1 point of damage.</td></tr>
               <tr><td class="num">4</td><td>A magical disease with virulence 2D6; you and everyone at Engaged range are exposed for the next shift.</td></tr>
               <tr><td class="num">5</td><td>The spell also strikes a friend or unintended victim; a healing spell helps an enemy too.</td></tr>
@@ -684,9 +657,9 @@
               <tr><td class="num">2</td><td>Flooding</td><td>Heavy rain floods the camp; everyone rolls Stamina against cold and nobody sleeps</td></tr>
               <tr><td class="num">3</td><td>Fire dies</td><td>The firewood is wet; in cold weather everyone rolls Stamina against cold</td></tr>
               <tr><td class="num">4</td><td>Fire!</td><td>A tent is destroyed; each character takes intensity D fire and rolls Mobility to save their gear</td></tr>
-              <tr><td class="num">5</td><td>Ants</td><td>1 point of stress each, and nobody sleeps</td></tr>
-              <tr><td class="num">6</td><td>Lice</td><td>One character suffers 1 point of stress a day and cannot sleep; a Healing roll ends it</td></tr>
-              <tr><td class="num">7</td><td>Mosquitoes</td><td>Roll two D6 each; one point of stress per success</td></tr>
+              <tr><td class="num">5</td><td>Ants</td><td>1 psychosis each, and nobody sleeps</td></tr>
+              <tr><td class="num">6</td><td>Lice</td><td>One character suffers 1 psychosis a day and cannot sleep; a Healing roll ends it</td></tr>
+              <tr><td class="num">7</td><td>Mosquitoes</td><td>Roll two D6 each; one psychosis per success</td></tr>
               <tr><td class="num">8</td><td>Savage animal</td><td>A starving wolf, boar or bear attacks the camp</td></tr>
               <tr><td class="num">9</td><td>Lost gear</td><td>One character loses an item; the GM decides what, and whether it can be found</td></tr>
               <tr><td class="num">10</td><td>Broken gear</td><td>One character's item is broken; it can be repaired with Crafting</td></tr>

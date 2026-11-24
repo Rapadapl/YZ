@@ -92,17 +92,11 @@
 - 3 steps to raise ranks during character creation
 - Can lower one characteristic from C to D to gain an additional step
 
-### Health and Resolve
-- **Health**: Determines how much damage a character can take before being taken out
-- **Resolve**: Determines how much stress a character can take before being taken out
+### Health
 
-### Classic Variant
-- Health: Average of Body and Dexterity, rounded up + 1
-- Resolve: Average of Wits and Empathy, rounded up + 1
+Health and wounds are the same thing. A hero has **10 wound boxes**; a beast, NPC or ally has as many as its card's HP value says (a person with no card has 10). When the boxes are full, the character is taken out and takes a critical injury.
 
-### Modern Variant
-- Health: Sum of Body and Dexterity maximum dice, divided by 4, rounded up
-- Resolve: Sum of Wits and Empathy maximum dice, divided by 4, rounded up
+There is no Resolve: psychosis handles the mind, a counter from 0 to 18 (chapter 05).
 
 ## Skills
 
@@ -241,9 +235,8 @@
 When a hero fully commits to a task at risk of failure, they can make a special effort to re-roll any dice that didn't show a 1. 1s on main dice are called "curses" - they are not re-rolled.
 
 ### Price of Special Effort
-- **Modern variant - Wounds and Stress**: After special effort, character takes 1 wound point (if skill linked to Body or Dexterity) or 1 stress point (if linked to Wits or Empathy) for each curse rolled
+- **Wounds and psychosis**: After special effort, character takes 1 wound (if the skill is linked to Body or Agility) or 1 psychosis (if linked to Wits or Empathy) for each curse rolled
 - **Characteristic Reduction**: For each curse, immediately reduce the used characteristic
-- **Kubik Stressa (Stress Dice)**: After special effort, immediately gain 1 stress point per curse; these d6 dice add to skill checks (6s are successes), but a 1 on a stress die adds 1 psychosis
 - **Conditions**: After special effort, receive a condition (e.g., exhausted, annoyed, frightened); each imposes penalties on certain skill checks
 - **The world answers**: for each curse on a special effort, the gamemaster may answer at once or later with a complication that fits the fiction (a ledge gives way, a witness sees too much, a tool jams). No separate currency is involved.
 - **Only Once**: Special effort can only be applied once per check
