@@ -34,7 +34,7 @@ and the import handler that rejects anything without `fields`):
 - `variant` — `"classic"` or `"modern"`.
 - `fields` — a flat object whose keys are the form's `data-field` names; values
   are strings (numbers as strings are fine) or booleans for checkboxes.
-- `tracks` — `{ "damage": 0-10, "stress": 0-10, "supplies": 0-6, "psychosis": 0-10 }`.
+- `tracks` — `{ "damage": 0-10, "stress": 0-10, "supplies": 0-6, "psychosis": 0-18 }`.
 
 The sheet clears itself, then applies only the keys present in `fields`, so
 missing keys are fine and unknown keys are ignored. But a file without `fields`
@@ -182,7 +182,7 @@ a specialization column next to each. So:
   `body` / `agility` / `wits` / `empathy` — not Body/Dexterity/Wits/Empathy.
 - Aura is a single number −5…+5, the world's opinion rather than a pool. Casting costs nothing:
   psychosis is its only price, and it is the only magic counter on the sheet.
-  At psychosis 10 the hero falls into instinct and saves with Empathy.
+  At psychosis 10 the hero falls into instinct and saves with Empathy; at 18 the beast takes over.
 - Creatures live in the bestiary: `08-bestiary.md` / `08-bestiary.ru.md` and the
   `bestiary.html` pages. Point there, not at a page that does not exist.
 
