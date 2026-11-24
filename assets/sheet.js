@@ -8,8 +8,9 @@
   const root = document.querySelector("[data-sheet]");
   if (!root) return;
 
-  const STORE = "yze-sheet-v1";
+  const STORE = "rootclaw-sheet-v1";
   const GEAR_ROWS = 8;
+  const MUTATION_ROWS = 6;
   const TRACKS = { damage: 10, stress: 10, supplies: 6 };
   const trackValues = { damage: 0, stress: 0, supplies: 0 };
 
@@ -27,26 +28,28 @@
   };
 
   const CHARS = [
-    { id: "body", en: "Body", ru: "Тело" },
-    { id: "dexterity", en: "Dexterity", ru: "Ловкость" },
+    { id: "body", en: "Strength", ru: "Сила" },
+    { id: "agility", en: "Agility", ru: "Ловкость" },
     { id: "wits", en: "Wits", ru: "Смекалка" },
     { id: "empathy", en: "Empathy", ru: "Эмпатия" }
   ];
 
   const SKILLS = [
-    { id: "skelm", en: "Skelm", ru: "Скельм", char: "body" },
-    { id: "near-combat", en: "Near combat", ru: "Ближний бой", char: "body" },
+    { id: "force", en: "Force", ru: "Мощь", char: "body" },
+    { id: "brawl", en: "Brawl", ru: "Драка", char: "body" },
     { id: "endurance", en: "Endurance", ru: "Выносливость", char: "body" },
-    { id: "ranged", en: "Ranged", ru: "Стрельба", char: "dexterity" },
-    { id: "dexterity", en: "Dexterity", ru: "Проворство", char: "dexterity" },
-    { id: "stealth", en: "Stealth", ru: "Скрытность", char: "dexterity" },
-    { id: "craft", en: "Craft", ru: "Ремесло", char: "wits" },
+    { id: "shooting", en: "Shooting", ru: "Стрельба", char: "agility" },
+    { id: "acrobatics", en: "Acrobatics", ru: "Акробатика", char: "agility" },
+    { id: "stealth", en: "Stealth", ru: "Скрытность", char: "agility" },
+    { id: "crafting", en: "Crafting", ru: "Ремесло", char: "wits" },
     { id: "observation", en: "Observation", ru: "Наблюдательность", char: "wits" },
     { id: "survival", en: "Survival", ru: "Выживание", char: "wits" },
+    { id: "animal-ken", en: "Animal Ken", ru: "Звериный язык", char: "empathy" },
     { id: "healing", en: "Healing", ru: "Медицина", char: "empathy" },
-    { id: "insight", en: "Insight", ru: "Проницательность", char: "empathy" },
     { id: "persuasion", en: "Persuasion", ru: "Убеждение", char: "empathy" }
   ];
+
+  const GRADES = ["", "I", "II", "III"];
 
   const RANKS = [
     { value: "A", die: "d12" },
@@ -193,6 +196,84 @@
     }
   };
 
+  /* Mutations are half the character: two bio, or one bio and one psi. The cost
+     column follows the type, and psi rows are counted into a summary. */
+  const buildMutations = () => {
+    const host = root.querySelector("[data-mutation-rows]");
+    if (!host) return;
+
+    for (let index = 0; index < MUTATION_ROWS; index += 1) {
+      const row = document.createElement("tr");
+
+      const nameCell = document.createElement("td");
+      const name = document.createElement("input");
+      name.className = "f";
+      name.type = "text";
+      name.dataset.field = `mutations.${index}.name`;
+      name.setAttribute("aria-label", `Mutation ${index + 1}`);
+      nameCell.append(name);
+
+      const typeCell = document.createElement("td");
+      const type = document.createElement("select");
+      type.className = "f mut__type";
+      type.dataset.field = `mutations.${index}.type`;
+      type.setAttribute("aria-label", `Mutation ${index + 1} type`);
+      type.innerHTML = '<option value="">—</option><option value="bio">Bio</option><option value="psi">Psi</option>';
+      typeCell.append(type);
+
+      const gradeCell = document.createElement("td");
+      gradeCell.className = "mut__grade";
+      const grade = document.createElement("select");
+      grade.className = "f";
+      grade.dataset.field = `mutations.${index}.grade`;
+      grade.setAttribute("aria-label", `Mutation ${index + 1} grade`);
+      grade.innerHTML = GRADES.map((value) => `<option value="${value}">${value || "—"}</option>`).join("");
+      gradeCell.append(grade);
+
+      const costCell = document.createElement("td");
+      costCell.className = "mut__cost";
+      costCell.dataset.mutationCost = String(index);
+
+      row.append(nameCell, typeCell, gradeCell, costCell);
+      host.append(row);
+    }
+  };
+
+  const paintMutations = () => {
+    const l = lang();
+    let psi = 0;
+
+    for (let index = 0; index < MUTATION_ROWS; index += 1) {
+      const type = root.querySelector(`[data-field="mutations.${index}.type"]`);
+      const cost = root.querySelector(`[data-mutation-cost="${index}"]`);
+      const value = type ? type.value : "";
+      if (value === "psi") psi += 1;
+
+      if (type) {
+        type.options[1].textContent = l === "ru" ? "Био" : "Bio";
+        type.options[2].textContent = l === "ru" ? "Пси" : "Psi";
+      }
+      if (cost) {
+        cost.textContent = value === "psi"
+          ? (l === "ru" ? "1 аура" : "1 Aura")
+          : value === "bio"
+            ? (l === "ru" ? "постоянно" : "always")
+            : "—";
+      }
+    }
+
+    const sum = root.querySelector("[data-mutation-sum]");
+    if (!sum) return;
+    if (!psi) {
+      sum.textContent = l === "ru" ? "Пси-мутации тратят 1 ауру за применение" : "Psi-mutations cost 1 Aura per use";
+      return;
+    }
+    const word = l === "ru" ? (psi === 1 ? "аура" : psi < 5 ? "ауры" : "аур") : psi === 1 ? "Aura" : "Aura";
+    sum.textContent = l === "ru"
+      ? `Пси: ${psi} · ${psi} ${word} за применение`
+      : `Psi: ${psi} · ${psi} Aura per use`;
+  };
+
   /* A damage track is a counter, not a set of independent ticks: clicking the
      fifth box marks five points, and clicking the last marked box takes one
      back. That way the track can never show a gap in the middle. */
@@ -255,7 +336,7 @@
   const collect = () => {
     const data = { version: 1, variant: document.body.dataset.variant || "classic", fields: {} };
     fields().forEach((field) => {
-      data.fields[field.dataset.field] = field.value;
+      data.fields[field.dataset.field] = field.type === "checkbox" ? field.checked : field.value;
     });
     data.tracks = {};
     Object.keys(TRACKS).forEach((track) => {
@@ -271,6 +352,10 @@
     const saved = data.fields || {};
     fields().forEach((field) => {
       const value = saved[field.dataset.field];
+      if (field.type === "checkbox") {
+        field.checked = value === true || value === "on" || value === 1;
+        return;
+      }
       if (typeof value === "string" || typeof value === "number") field.value = value;
     });
     const tracks = data.tracks || {};
@@ -283,6 +368,10 @@
 
   const clear = () => {
     fields().forEach((field) => {
+      if (field.type === "checkbox") {
+        field.checked = false;
+        return;
+      }
       field.value = field.tagName === "SELECT" ? (field.classList.contains("char__rank") || field.classList.contains("skill__rank") ? "C" : "") : "";
     });
     Object.keys(TRACKS).forEach((track) => {
@@ -331,7 +420,13 @@
 
     const bodyValue = Number((read("chars.body.value") || {}).value || 0);
     const bodyRank = (read("chars.body.rank") || {}).value || "C";
-    const capacity = document.body.dataset.variant === "modern" ? DIE_MAX[bodyRank] || 0 : bodyValue * 2;
+    const base = document.body.dataset.variant === "modern" ? DIE_MAX[bodyRank] || 0 : bodyValue * 2;
+
+    /* a worn backpack adds a second carry limit's worth of gear, at the price
+       of two dice on every Mobility roll */
+    const backpack = read("carry.backpack");
+    const loaded = !!(backpack && backpack.checked);
+    const capacity = loaded ? base * 2 : base;
 
     let load = 0;
     for (let index = 0; index < GEAR_ROWS; index += 1) {
@@ -343,6 +438,38 @@
     if (output) output.textContent = `${load} / ${capacity}`;
     const block = root.querySelector("[data-load]");
     if (block) block.classList.toggle("is-over", load > capacity);
+    const penalty = root.querySelector("[data-load-pen]");
+    if (penalty) penalty.hidden = !loaded;
+
+    /* mounts and vehicles carry their own load; leading the animal on foot
+       instead of riding doubles it */
+    const mountField = read("carry.mount");
+    const mountLimit = Math.max(0, Number(mountField && mountField.value) || 0);
+    const ledBox = read("carry.led");
+    const led = !!(ledBox && ledBox.checked);
+    const mountValue = mountLimit ? mountLimit * (led ? 2 : 1) : 0;
+    const mountOutput = root.querySelector("[data-mount-value]");
+    if (mountOutput) mountOutput.textContent = mountValue ? String(mountValue) : "—";
+
+    /* aura is a standing score, not a pool: the sheet reads it back as light,
+       dark or balanced so the table can see which bonus applies */
+    const auraField = read("aura.value");
+    const auraRaw = auraField ? String(auraField.value).trim() : "";
+    const aura = Math.max(-5, Math.min(5, Number(auraRaw) || 0));
+    const auraOutput = root.querySelector("[data-aura-state]");
+    if (auraOutput) {
+      const l = lang();
+      auraOutput.textContent = auraRaw === ""
+        ? "—"
+        : aura === 0
+          ? (l === "ru" ? "Ровная" : "Balanced")
+          : aura > 0
+            ? (l === "ru" ? `Светлая +${aura}` : `Light +${aura}`)
+            : (l === "ru" ? `Тёмная −${Math.abs(aura)}` : `Dark −${Math.abs(aura)}`);
+      auraOutput.dataset.balance = auraRaw === "" || aura === 0 ? "even" : aura > 0 ? "light" : "dark";
+    }
+
+    paintMutations();
   };
 
   /* ---------- wiring ---------------------------------------------------- */
@@ -381,7 +508,7 @@
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      link.download = `yze-${slug}.json`;
+      link.download = `rootclaw-${slug}.json`;
       document.body.append(link);
       link.click();
       link.remove();
@@ -441,6 +568,7 @@
       document.querySelectorAll('[data-field$=".load"]').forEach((node) => {
         if (node.type === "number") node.setAttribute("aria-label", t("sheetLoad"));
       });
+      recalculate();
     });
   });
 
@@ -448,6 +576,7 @@
 
   buildChars();
   buildSkills();
+  buildMutations();
   buildGear();
   buildTracks();
   paintTracks();

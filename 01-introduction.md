@@ -1,4 +1,4 @@
-# Year Zero Engine - Introduction
+# Root & Claw — Introduction
 
 ## Core Concepts
 

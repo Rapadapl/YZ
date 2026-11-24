@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mutations and skills — Root &amp; Claw</title>
+<meta name="description" content="The Root &amp; Claw module: mutant lineages, twelve skills, bio-mutations, psi-powers, aura and beast traits for a world grown over by the Tree.">
+<link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/book.css">
+<script src="assets/i18n.js" defer></script>
+<script src="assets/book.js" defer></script>
+</head>
+<body class="module-page">
+<a class="skip-link" href="#main"></a>
+<div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Reading progress"></div>
+<button class="rail-toggle" type="button" aria-expanded="false" aria-controls="rail" data-str="openMenu"></button>
+<button class="scrim" type="button" hidden aria-label="Close contents"></button>
+
+<div class="shell">
+  <aside class="rail" id="rail" data-open="false" aria-label="Contents">
+    <div class="rail__brand">
+      <span class="rail__brand-mark">ROOT &amp; CLAW</span>
+      <a class="rail__brand-title" href="module.html" data-str="moduleBook"></a>
+      <span class="rail__brand-sub">Module one</span>
+    </div>
+
+    <div class="rail__search">
+      <label class="visually-hidden" for="toc-search" data-str-aria="searchLabel"></label>
+      <input id="toc-search" type="search" autocomplete="off" data-toc-search data-str-placeholder="searchPlaceholder">
+      <span class="rail__search-key" aria-hidden="true">/</span>
+    </div>
+
+    <nav aria-label="Contents">
+      <ul class="toc" id="toc"></ul>
+    </nav>
+
+    <div class="rail__foot">
+      <div class="lang-switch" data-lang-switch>
+        <span aria-current="true">EN</span>
+        <a href="module.ru.html" lang="ru" hreflang="ru" data-alt-lang="module.ru.html">RU</a>
+      </div>
+      <a class="btn" href="index.html" data-str="library"></a>
+      <a class="btn" href="lore.html">Lore</a>
+      <a class="btn" href="player-book.html" data-str="playerBook"></a>
+      <a class="btn" href="character.html" data-str="sheet"></a>
+      <button class="btn" type="button" data-print data-str="print"></button>
+      <button class="btn" type="button" data-close data-str="closeMenu"></button>
+    </div>
+  </aside>
+
+  <main class="book module-book" id="main">
+    <div class="book__inner">
+      <header class="masthead">
+        <p class="masthead__book">Root &amp; Claw · Module one</p>
+        <h1>Mutations and skills</h1>
+        <p class="masthead__lead">The world after the Tree is full of animals who stand upright, talk, and carry a little too much of everything inside them. This module adds what makes them heroes: a lineage, a dozen skills with new names, two kinds of mutation, an aura, and the traits of a beast.</p>
+
+        <dl class="variants">
+          <div>
+            <dt>Bio-mutations</dt>
+            <dd>The body rewrites itself and keeps the change: claws, hide, gills, spores. They never cost aura and they never turn off.</dd>
+          </div>
+          <div>
+            <dt>Psi-mutations</dt>
+            <dd>The mind pushes outward: spark, blaze, telekinesis, healing. Each use is a slow action and costs 1 Aura.</dd>
+          </div>
+        </dl>
+      </header>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">01</span>
+          <h2 id="world">The world after the Tree</h2>
+        </div>
+
+        <p>The Tree came after the people. Its roots went through the roads and the towers and drank what was underneath, and in the centuries since, the animals that survived it grew into the space people left: upright, handed, and talkative. Some are furred, some scaled, some feathered. All of them are a little wrong, in the way that a thing built from whatever was lying around is wrong.</p>
+
+        <p>Tribes keep the old machinery running where they can and worship it where they cannot. Between the tribe fires lie the ruins, the mushroom forests and the rot — a sickness that turns a living body into a garden. Everyone who walks out of a village is either running from the rot or looking for something that might stop it.</p>
+
+        <p>Heroes in this world are mutants, and the mutation is not a monster's curse. It is the thing that let them survive: the extra heart, the second stomach, the arm that ends in a blade of bone. A mutant is measured by what the body has become and by what the mind can push out of it.</p>
+
+        <div class="rule">
+          <span class="rule__label">What this module changes</span>
+          <p>Checks, damage, initiative, healing and travel work exactly as the core books describe. The module adds lineages, mutations, aura and beast traits, and it renames five of the twelve skills. Nothing else in the system moves.</p>
+        </div>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">02</span>
+          <h2 id="lineages">Lineages</h2>
+        </div>
+
+        <p>A lineage is what the hero's ancestors were before the Tree. It gives one step in a skill at creation and one beast trait, free. A lineage is not a species lock: a raccoon-kin can be a brawler and a hare-kin can be a sniper, they just start from a different corner. The nine below are the common ones around the tribes; a village on the edge of the map may be something else entirely, and the master can build it from the same parts.</p>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>Lineages</caption>
+            <thead><tr><th scope="col">Lineage</th><th scope="col">Free skill step</th><th scope="col">Trait</th><th scope="col">Reputation</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Raccoon-kin</strong></td><td>Crafting</td><td>Keen paws</td><td>Hands first: locks, wires, pockets. The tribe brings them anything broken and expects it back working.</td></tr>
+              <tr><td><strong>Rodent-kin</strong></td><td>Stealth</td><td>Burrower</td><td>Tunnel scouts. They know a way under every wall and smell the rot before anyone else does.</td></tr>
+              <tr><td><strong>Hare-kin</strong></td><td>Acrobatics</td><td>Spring heels</td><td>Couriers and lookouts: the fastest legs in the tribe and no shame about using them.</td></tr>
+              <tr><td><strong>Mustelid-kin</strong></td><td>Brawl</td><td>Lockjaw</td><td>Small, cheerful and impossible to shake off once they have their teeth in something.</td></tr>
+              <tr><td><strong>Bird-kin</strong></td><td>Observation</td><td>Hollow bones</td><td>Watchers on the ridge; they see the herd before the herd sees the tribe.</td></tr>
+              <tr><td><strong>Reptile-kin</strong></td><td>Endurance</td><td>Cold blood</td><td>Patient, slow-spoken and hard to hurry — they outlast weather, poison and argument.</td></tr>
+              <tr><td><strong>Cat-kin</strong></td><td>Stealth</td><td>Soft paws</td><td>Night hunters who walk on the roof and leave no track worth following.</td></tr>
+              <tr><td><strong>Dog-kin</strong></td><td>Survival</td><td>Pack bond</td><td>Rangers and trackers. One is dangerous; a pack of them is the end of the hunt.</td></tr>
+              <tr><td><strong>Boar-kin</strong></td><td>Force</td><td>Charge</td><td>Line-breakers. Their whole argument is a run-up and a shoulder.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>The free step is one level in the classic variant (never above 3 at creation) or one rank in the modern one (never above B). Every lineage also picks one more trait from the beast traits chapter at creation — two traits in total, one of them fixed by the lineage.</p>
+
+        <div class="example">
+          <span class="example__label">Example</span>
+          <p>Vess is raccoon-kin: Crafting at 2 instead of 1, and Keen paws. At creation she takes Echo sense as her second trait, because she is the one who goes into the dark tunnels first.</p>
+        </div>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">03</span>
+          <h2 id="skills">Skills</h2>
+        </div>
+
+        <p>The twelve skills are the same twelve the core books teach; five of them are renamed to fit the world. A character sheet from this module uses these names.</p>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>The twelve skills</caption>
+            <thead><tr><th scope="col">Skill</th><th scope="col">Attribute</th><th scope="col">What it covers</th><th scope="col">Core name</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Force</strong></td><td>Strength</td><td>Lifting, shoving, breaking, holding a door shut.</td><td>Force</td></tr>
+              <tr><td><strong>Brawl</strong></td><td>Strength</td><td>Fists, claws, teeth, grapples, improvised weapons.</td><td>Melee</td></tr>
+              <tr><td><strong>Endurance</strong></td><td>Strength</td><td>Long marches, cold, poison, disease, the rot.</td><td>Stamina</td></tr>
+              <tr><td><strong>Shooting</strong></td><td>Agility</td><td>Bows, scrap guns, thrown things, careful aiming.</td><td>Marksmanship</td></tr>
+              <tr><td><strong>Acrobatics</strong></td><td>Agility</td><td>Climbing, balance, gliding, landing, squeezing through.</td><td>Mobility</td></tr>
+              <tr><td><strong>Stealth</strong></td><td>Agility</td><td>Moving unseen, hiding a scent, following without being heard.</td><td>Stealth</td></tr>
+              <tr><td><strong>Crafting</strong></td><td>Wits</td><td>Scrap, repairs, traps, gadgets, and getting a machine to speak again.</td><td>Crafting</td></tr>
+              <tr><td><strong>Observation</strong></td><td>Wits</td><td>Spotting, tracking, searching ruins, reading a room.</td><td>Observation</td></tr>
+              <tr><td><strong>Survival</strong></td><td>Wits</td><td>Weather, water, forage, camp, the safe path through the rot.</td><td>Survival</td></tr>
+              <tr><td><strong>Animal Ken</strong></td><td>Empathy</td><td>Calming, riding and commanding beasts — and reading anything that is more beast than not.</td><td>Insight</td></tr>
+              <tr><td><strong>Healing</strong></td><td>Empathy</td><td>Wounds, poison, fever, and keeping someone alive until morning.</td><td>Healing</td></tr>
+              <tr><td><strong>Persuasion</strong></td><td>Empathy</td><td>Trade, treaties, threats, lies, and talking a tribe out of a war.</td><td>Persuasion</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Rolling is unchanged: the skill step plus the attribute, in whichever variant the table plays. Specializations exist as in the core books and cost 10 XP. A character with a beast-related specialty — tracking by scent, riding a war-boar, handling a hive — gets the usual modifier from it.</p>
+
+        <div class="warn">
+          <span class="warn__label">Animal Ken is not a leash</span>
+          <p>A beast does not obey a good roll; it does what a beast does. Animal Ken buys understanding and a moment of cooperation — it does not turn a wild thing into a servant, and it never works twice on the same frightened animal in one scene.</p>
+        </div>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">04</span>
+          <h2 id="bio">Bio-mutations</h2>
+        </div>
+
+        <p>A bio-mutation is written into the body and stays there. It is always on, it costs no aura, and it cannot be hidden from anyone who looks closely. Every mutant begins with two; a character may begin with one bio-mutation and one psi-mutation instead.</p>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>Bio-mutations and their grades</caption>
+            <thead><tr><th scope="col">Mutation</th><th scope="col">Grade I</th><th scope="col">Grade II</th><th scope="col">Grade III</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Claws</strong></td><td>Natural weapon, Engaged, damage 1.</td><td>+1 die on Brawl attacks made with the claws.</td><td>Damage 2.</td></tr>
+              <tr><td><strong>Fangs</strong></td><td>Bite, Engaged, damage 2.</td><td>+1 damage against a target you are grappling.</td><td>Damage 3.</td></tr>
+              <tr><td><strong>Thick hide</strong></td><td>Armour 1.</td><td>Armour 2.</td><td>Armour 3.</td></tr>
+              <tr><td><strong>Glide membrane</strong></td><td>Halve falling damage; glide one zone.</td><td>Glide two zones, still halving the fall.</td><td>Glide three zones and land without a roll.</td></tr>
+              <tr><td><strong>Gills</strong></td><td>Breathe water; swim as fast as you walk.</td><td>+1 die to Acrobatics in water.</td><td>No limit on depth or time under water.</td></tr>
+              <tr><td><strong>Tail</strong></td><td>+1 die to Acrobatics for balance and climbing; can hold a light item.</td><td>+2 dice; can hang from it hands-free.</td><td>Can fire a pistol from the tail at −2.</td></tr>
+              <tr><td><strong>Night eyes</strong></td><td>Ignore the −2 for dim light.</td><td>+1 die to Observation in darkness.</td><td>See in total darkness.</td></tr>
+              <tr><td><strong>Regeneration</strong></td><td>Heal 1 extra damage per shift.</td><td>Heal 1 extra damage and 1 stress per shift.</td><td>Regrow a lost limb in D6 days.</td></tr>
+              <tr><td><strong>Spring legs</strong></td><td>Jump one extra zone, once per round.</td><td>Two extra zones.</td><td>Land from any height without a roll.</td></tr>
+              <tr><td><strong>Spore sac</strong></td><td>Once per scene, fill your zone: everyone else takes −2 for one round.</td><td>Twice per scene.</td><td>Also blinds: a slow action and a Mobility roll to clear the eyes.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Natural weapons are used with Brawl, ignore the load of a weapon you are not carrying, and can never be disarmed — but they also cannot be given to a friend. Armour from a hide does not stack with worn armour; use the better of the two.</p>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">05</span>
+          <h2 id="psi">Psi-mutations and aura</h2>
+        </div>
+
+        <p>A psi-mutation is the mind reaching past the body. Using one is a slow action and costs 1 Aura, whether it works or not. Roll Wits plus the power's grade: grade I, II and III are +1, +2 and +3 dice in the classic variant, and a d6, d8 and d10 in the modern one. One success is enough; extra successes buy damage, targets or duration, agreed with the master.</p>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>Psi-mutations</caption>
+            <thead><tr><th scope="col">Power</th><th scope="col">Range</th><th scope="col">Effect</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Spark</strong></td><td>Short</td><td>Damage 1 plus the grade. A metal-clad target loses its next fast action.</td></tr>
+              <tr><td><strong>Blaze</strong></td><td>Short</td><td>Damage 2 and everything flammable in the zone catches fire.</td></tr>
+              <tr><td><strong>Mucus bubble</strong></td><td>Short</td><td>Opposed by Acrobatics: the target is stuck and needs a slow action and a Force roll to get free. On yourself, it slows a fall.</td></tr>
+              <tr><td><strong>Telekinesis</strong></td><td>Medium</td><td>Lift and move an object up to your own weight. Grade III can hurl it for 2 damage.</td></tr>
+              <tr><td><strong>Fungi</strong></td><td>Short</td><td>A spore cloud fills the zone: everyone inside takes −2 on all rolls for one round.</td></tr>
+              <tr><td><strong>Mend</strong></td><td>Engaged</td><td>Heal 1 damage per success, on yourself or another. It does not touch stress or critical injuries.</td></tr>
+              <tr><td><strong>Beast call</strong></td><td>Long</td><td>Call one animal of the area; it follows simple commands for a scene, then leaves.</td></tr>
+              <tr><td><strong>Blink</strong></td><td>Short</td><td>Step into a zone you can see, ignoring whatever stands between.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Aura</h3>
+        <p>Aura is the world's opinion of you, worn where it shows: a track from −5 to +5, starting at 0. It is not spent and it is not a resource. It moves when you do something the world notices.</p>
+
+        <ul>
+          <li><strong>Spare a beaten foe, heal a stranger, keep a promise:</strong> aura rises one step.</li>
+          <li><strong>Kill the defenceless, abandon a companion:</strong> aura falls one step.</li>
+          <li><strong>Break a sworn pact:</strong> aura falls two steps.</li>
+        </ul>
+
+        <div class="grid-2">
+          <div class="rule">
+            <span class="rule__label">Light aura (+1 to +5)</span>
+            <p>+1 die to Animal Ken and to Persuasion with beasts, tribes and settlers who have heard of you. Animals come closer instead of running.</p>
+          </div>
+          <div class="rule">
+            <span class="rule__label">Dark aura (−1 to −5)</span>
+            <p>+1 die to Brawl and Shooting against an enemy who has already seen you draw blood. −1 die to Animal Ken: beasts remember you.</p>
+          </div>
+        </div>
+
+        <p>Aura changes after the action that caused it, never during. It can be read by anyone who meets the character for more than a few minutes, and the master may use it to decide how a tribe opens the gate.</p>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">06</span>
+          <h2 id="traits">Beast traits</h2>
+        </div>
+
+        <p>Traits are small, permanent advantages of body and instinct. A character has two: the one their lineage gives, and one chosen freely at creation. Another can be bought later with experience.</p>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>Beast traits</caption>
+            <thead><tr><th scope="col">Trait</th><th scope="col">Effect</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Keen paws</strong></td><td>+1 die to Crafting with fine mechanisms, locks and wires.</td></tr>
+              <tr><td><strong>Burrower</strong></td><td>Dig through soft ground; a slow action takes you one zone underground, out of sight.</td></tr>
+              <tr><td><strong>Spring heels</strong></td><td>+1 die to Acrobatics when jumping or landing; falling damage is halved.</td></tr>
+              <tr><td><strong>Lockjaw</strong></td><td>Your bite holds: a target you hit must win an opposed Force roll to move away.</td></tr>
+              <tr><td><strong>Hollow bones</strong></td><td>+1 die to Acrobatics when climbing or gliding; −1 die to Endurance against crushing damage.</td></tr>
+              <tr><td><strong>Cold blood</strong></td><td>+1 die to Endurance against cold, poison and disease.</td></tr>
+              <tr><td><strong>Keen nose</strong></td><td>+1 die to Observation when tracking by scent.</td></tr>
+              <tr><td><strong>Echo sense</strong></td><td>In darkness you sense everything at Engaged and Short range without penalty.</td></tr>
+              <tr><td><strong>Soft paws</strong></td><td>+1 die to Stealth while moving at a walk or slower; you leave no track worth following.</td></tr>
+              <tr><td><strong>Pack bond</strong></td><td>+1 die when you help another character, and +1 die when someone helps you.</td></tr>
+              <tr><td><strong>Charge</strong></td><td>After moving at least one zone straight at a target, your first Brawl attack against it this round deals +1 damage.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">07</span>
+          <h2 id="creation">Creating a mutant</h2>
+        </div>
+
+        <p>Creation is seven steps, and the first four decide almost everything about how the hero will feel at the table.</p>
+
+        <ol>
+          <li><strong>Lineage.</strong> Choose one. Take its free skill step and its trait.</li>
+          <li><strong>Attributes.</strong> Fourteen points, 2 to 5 each, in the classic variant; or all four at C with three increases in the modern one — exactly as the player's book says.</li>
+          <li><strong>Skills.</strong> Ten points to place. No skill above 3 in the classic variant or above B in the modern one. At least three skills should stay at 0: a mutant who can do everything has not decided what they are.</li>
+          <li><strong>Mutations.</strong> Two bio-mutations, or one bio and one psi. Psi-mutations begin at grade I.</li>
+          <li><strong>Second trait.</strong> One more from the beast traits chapter.</li>
+          <li><strong>Aura, tribe, name.</strong> Aura starts at 0. Name the tribe that raised the hero and the one thing they left behind.</li>
+          <li><strong>Gear.</strong> A weapon in each hand or one two-handed weapon, armour if the tribe has any, and eight regular items. Load is twice Strength in the classic variant, or the Strength die's size in the modern one — a backpack doubles it at the price of −2 on Acrobatics checks.</li>
+        </ol>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>Experience costs</caption>
+            <thead><tr><th scope="col">What</th><th scope="col" class="num">XP</th></tr></thead>
+            <tbody>
+              <tr><td>New skill at level 1 / rank D</td><td class="num">5</td></tr>
+              <tr><td>Raise a skill (as the core books)</td><td class="num">5 / 10 / 15 / 20 / 25</td></tr>
+              <tr><td>New bio-mutation at grade I</td><td class="num">10</td></tr>
+              <tr><td>Raise a mutation to grade II / III</td><td class="num">10 / 15</td></tr>
+              <tr><td>New beast trait</td><td class="num">15</td></tr>
+              <tr><td>New specialization</td><td class="num">10</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Mutations are grown, not found: raising one takes a week of fever, hunger and sleep in a safe place, and the master may ask for an Endurance roll at the end of it. A failed roll does not lose the experience — the change simply takes another week.</p>
+
+        <div class="rule">
+          <span class="rule__label">A mutant in one line</span>
+          <p>Pick what the body became, pick what the mind can push out of it, and spend everything else on the skills that keep the tribe fed.</p>
+        </div>
+      </section>
+
+      <nav class="pager" aria-label="Chapters">
+        <a class="pager__link" data-pager="prev" href="#world"><span>Previous chapter</span><b data-pager-label></b></a>
+        <a class="pager__link pager__link--next" data-pager="next" href="#lineages"><span>Next chapter</span><b data-pager-label></b></a>
+      </nav>
+
+      <footer class="colophon">
+        <p data-str="note"></p>
+        <p>Core rules: <a href="player-book.html">the player's book</a> and <a href="master-book.html">the master's book</a>. The world itself: <a href="lore.html">the lore of the Overgrowth</a>. The sheet for this module: <a href="character.html">character sheet</a>.</p>
+      </footer>
+    </div>
+  </main>
+</div>
+</body>
+</html>

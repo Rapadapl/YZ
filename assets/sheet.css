@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Year Zero Engine — character sheet
+   Root & Claw — character sheet
    A field form, not a dashboard: hairlines, numbered steps in the order the
    player's book teaches them, and nothing that a pencil cannot fill in.
    Loaded after book.css, so it inherits the palette and the type.
@@ -159,6 +159,39 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.line--check .check { min-width: 0; }
+
+/* ---------- checkboxes --------------------------------------------------- */
+
+.check {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  font-size: var(--step--2);
+  color: var(--muted);
+  cursor: pointer;
+  min-width: 0;
+}
+.check input[type="checkbox"] {
+  flex: none;
+  width: 0.92rem;
+  height: 0.92rem;
+  margin: 0;
+  align-self: center;
+  accent-color: var(--verdigris);
+  cursor: pointer;
+}
+.check input[type="checkbox"]:focus-visible {
+  outline: 2px solid var(--verdigris);
+  outline-offset: 2px;
+}
+.check > span { min-width: 0; }
+
+.f--inline {
+  width: 4.6rem;
+  max-width: 4.6rem;
+  justify-self: start;
+}
 
 .f {
   font: inherit;
@@ -308,9 +341,68 @@ body[data-variant="modern"] .skills .skill__level { display: none; }
 .skills__val { width: 2.6rem; text-align: center; }
 .skills__val .f { text-align: center; font-variant-numeric: tabular-nums; }
 .skills__specrank { width: 3.1rem; }
-.skills td .f { border-bottom-color: transparent; }
+.skills td .f { border-bottom-color: var(--form-line-soft); }
 .skills td .f:hover { border-bottom-color: var(--form-line); }
 .skills td .f:focus { border-bottom-color: var(--verdigris); }
+
+/* ---------- mutations ---------------------------------------------------- */
+
+.muts {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--step--1);
+}
+.muts th {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.58rem;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  text-align: left;
+  padding: 0 0.25rem 0.25rem;
+  border-bottom: 1px solid var(--form-line);
+  white-space: nowrap;
+}
+.muts td {
+  padding: 0.02rem 0.25rem;
+  border-bottom: 1px solid var(--form-line-soft);
+  vertical-align: middle;
+}
+.muts tr:last-child td { border-bottom: 0; }
+.muts td .f { border-bottom-color: var(--form-line-soft); }
+.muts td .f:hover { border-bottom-color: var(--form-line); }
+.muts td .f:focus { border-bottom-color: var(--verdigris); }
+.mut__type { width: 5.2rem; }
+.mut__grade { width: 4.4rem; }
+.mut__cost {
+  width: 6rem;
+  text-align: right;
+  font-size: var(--step--2);
+  color: var(--muted);
+  white-space: nowrap;
+}
+.mut__sum {
+  margin: 0.4rem 0 0;
+  font-size: var(--step--2);
+  color: var(--muted);
+}
+
+/* ---------- aura --------------------------------------------------------- */
+
+.aura {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  min-width: 0;
+}
+.aura__state {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  color: var(--muted);
+  white-space: nowrap;
+}
+.aura__state[data-balance="light"] { color: var(--verdigris); }
+.aura__state[data-balance="dark"] { color: var(--rust); }
 
 /* ---------- damage, stress, supplies ------------------------------------ */
 
@@ -397,6 +489,36 @@ body[data-variant="modern"] .skills .skill__level { display: none; }
 }
 .load.is-over .load__value { color: var(--rust); }
 
+.load__pen {
+  font-size: var(--step--2);
+  color: var(--rust);
+  border: 1px solid currentColor;
+  padding: 0 0.3rem;
+  line-height: 1.3;
+}
+.load__pen[hidden] { display: none; }
+
+/* ---------- carrying ----------------------------------------------------- */
+
+.carry {
+  margin-top: 0.5rem;
+  padding-top: 0.35rem;
+  border-top: 1px dashed var(--form-line-soft);
+}
+.carry .line { grid-template-columns: 6.2rem minmax(0, 1fr); }
+.carry__sum {
+  margin: 0.25rem 0 0;
+  font-size: var(--step--2);
+  color: var(--muted);
+}
+.carry__sum b {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.carry__hint { margin-top: 0.3rem; max-width: 40ch; }
+
 .gear { display: flex; flex-direction: column; }
 
 .weapons { margin-top: 0.55rem; }
@@ -433,6 +555,41 @@ body[data-variant="modern"] .skills .skill__level { display: none; }
 .xp { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
 .xp .line { grid-template-columns: auto 3.2rem; gap: 0.4rem; align-items: center; }
 
+/* ---------- at the table ------------------------------------------------- */
+
+.sec--wide { grid-column: 1 / -1; }
+
+.sec__note {
+  margin-left: auto;
+  font-size: var(--step--2);
+  color: var(--muted);
+  text-align: right;
+}
+
+.quick {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem 1.4rem;
+}
+.quick__card { break-inside: avoid; }
+.quick__card h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.66rem;
+  letter-spacing: 0.03em;
+  color: var(--ink);
+  margin: 0 0 0.25rem;
+}
+.quick__card ul {
+  margin: 0;
+  padding-left: 0.85rem;
+  font-size: var(--step--2);
+  line-height: 1.45;
+  color: #3a4740;
+}
+.quick__card li + li { margin-top: 0.2rem; }
+.quick__card li::marker { color: var(--verdigris); }
+
 /* ---------- foot --------------------------------------------------------- */
 
 .sheet-foot {
@@ -449,6 +606,7 @@ body[data-variant="modern"] .skills .skill__level { display: none; }
 
 @media (max-width: 62rem) {
   .sheet { grid-template-columns: minmax(0, 1fr); }
+  .quick { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .sheet__col > .sec:first-child { padding-top: 0.9rem; border-top: 1px solid var(--form-line-soft); }
   .sheet__col:first-child > .sec:first-child { border-top: 0; }
 }
@@ -457,6 +615,8 @@ body[data-variant="modern"] .skills .skill__level { display: none; }
   .line--mid { grid-template-columns: auto 3.2rem; }
   .chars { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .conditions { grid-template-columns: minmax(0, 1fr); }
+  .quick { grid-template-columns: minmax(0, 1fr); }
+  .sec__note { display: none; }
   .sheet__tools { width: 100%; }
   .sec__head { flex-wrap: wrap; }
   .seg { margin-left: 0; }
@@ -490,7 +650,7 @@ body[data-variant="modern"] .skills .skill__level { display: none; }
     letter-spacing: -0.02em;
   }
   .sheet-lead::after {
-    content: "YEAR ZERO ENGINE";
+    content: "ROOT & CLAW";
     display: block;
     font-family: var(--font-display);
     font-size: 6.5pt;
@@ -500,13 +660,16 @@ body[data-variant="modern"] .skills .skill__level { display: none; }
   }
 
   .sheet {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0 5mm;
+    display: block;
+    column-count: 2;
+    column-gap: 5mm;
     border: 0;
     padding: 0;
     background: #fff;
     box-shadow: none;
   }
+  .sheet__col { display: contents; }
+  .sec--wide { column-span: all; }
 
   .sec { padding: 3.2mm 0 3.6mm; border-top: 0.4pt solid #b3bbae; break-inside: avoid; }
   .sheet__col > .sec:first-child { padding-top: 0; }
@@ -539,6 +702,8 @@ body[data-variant="modern"] .skills .skill__level { display: none; }
   .skills__char { font-size: 6.6pt; }
   .gear__head span { font-size: 6pt; }
   .skills td .f { border-bottom: 0.4pt solid #cfd4c9; }
+  .muts td .f { border-bottom: 0.4pt solid #cfd4c9; }
+  .muts select.f { background-image: none; padding-right: 0.25rem; }
 
   .pip { width: 3.4mm; height: 3.9mm; border: 0.4pt solid #6b766e; }
   .pip[aria-pressed="true"] { background: #2a6b58; border-color: #2a6b58; }
@@ -548,6 +713,25 @@ body[data-variant="modern"] .skills .skill__level { display: none; }
   .track__name { width: 14mm; font-size: 6.4pt; }
 
   .load__value { font-size: 8.4pt; }
+  .load__pen { font-size: 5.6pt; }
+  .carry { margin-top: 1mm; padding-top: 0.8mm; border-top: 0.3pt dashed #b3bbae; }
+  .carry .line { padding-block: 0.5mm; }
+  .check { font-size: 5.8pt; }
+  .check input[type="checkbox"] { width: 2.6mm; height: 2.6mm; }
+  .f--inline { width: 10mm; max-width: 10mm; }
+
+  .sec--wide { grid-column: 1 / -1; }
+  .sec__note { display: none; }
+  .quick { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.5mm 3mm; }
+  .muts th { font-size: 5.8pt; }
+  .muts td { padding-block: 0.4mm; }
+  .mut__cost { font-size: 6pt; }
+  .mut__sum { font-size: 6pt; margin-top: 0.8mm; }
+  .aura__state { font-size: 6.4pt; }
+  .quick__card h3 { font-size: 6.6pt; margin-bottom: 0.6mm; }
+  .quick__card ul { font-size: 6.4pt; line-height: 1.35; padding-left: 3mm; }
+  .quick__card li + li { margin-top: 0.4mm; }
+
   .gear__row .f { padding-block: 0.55mm; }
   .f--area { min-height: 26mm; }
   .track { padding: 1.1mm 0; }

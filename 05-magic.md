@@ -1,4 +1,4 @@
-# Year Zero Engine - Magic
+# Root & Claw — Magic
 
 ## Magic System Overview
 

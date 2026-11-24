@@ -1,6 +1,6 @@
-# Year Zero Engine - Reference Document Overview
+# Root & Claw — Reference Document Overview
 
-This folder contains the complete Year Zero Engine (YZE) reference document split into convenient .md files for easy reading.
+This folder contains the complete Root & Claw rules reference, split into convenient .md files for easy reading.
 
 ## File Structure
 
@@ -13,7 +13,7 @@ This folder contains the complete Year Zero Engine (YZE) reference document spli
 
 ## How to Use
 
-Each file contains the key rules from that chapter of the YZE reference document. 
+Each file contains the key rules from that chapter. 
 Read them in order for a complete understanding, or reference individual files as needed.
 
 ## License
@@ -22,4 +22,4 @@ This document is licensed under the Year Zero Engine Free Tabletop License (YZE 
 See the original PDF for full license terms.
 
 ---
-*Generated from YZ SRD.pdf - Complete Year Zero Engine rules reference*
+*Complete Root & Claw rules reference*

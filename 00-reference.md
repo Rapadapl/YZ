@@ -1,12 +1,12 @@
-# Year Zero Engine - File Reference
+# Root & Claw — File Reference
 
-This folder contains the complete Year Zero Engine (YZE) reference document split into convenient .md files.
+This folder contains the complete Root & Claw rules reference, split into convenient .md files.
 
 ## File Index
 
 | File | Description |
 |------|-------------|
-| `00-overview.md` | General overview and introduction to the YZE system |
+| `00-overview.md` | General overview and introduction to the Root & Claw system |
 | `01-introduction.md` | Core concepts: accessibility, speed, risk/reward, wounds, edges, time units, character creation basics |
 | `02-player-characters.md` | Detailed character creation: 7 steps, attributes (Body/Dexterity/Wits/Empathy), skills (12 basic), specializations, personality edges, equipment, encumbrance, experience and advancement |
 | `03-skills-specializations.md` | Detailed skill descriptions, checks (classic vs modern), special efforts, advantages/penalties, passive checks, critical failures, help, opposed checks |
@@ -18,7 +18,7 @@ This folder contains the complete Year Zero Engine (YZE) reference document spli
 
 - Read files sequentially for complete system understanding
 - Reference individual files for specific rules queries
-- Each file contains key rules from that chapter of the YZE reference document
+- Each file contains key rules from that chapter.
 - The `00-overview.md` file provides a quick summary of each chapter
 
 ## License
@@ -27,4 +27,4 @@ This document is licensed under the Year Zero Engine Free Tabletop License (YZE 
 See the original PDF for full license terms.
 
 ---
-*Reference generated from YZ SRD.pdf - Complete Year Zero Engine rules reference*
+*Complete Root & Claw rules reference*

@@ -1,4 +1,4 @@
-/* Shared behaviour for the Year Zero Engine reference books:
+/* Shared behaviour for the Root & Claw books:
    contents built from headings, reading progress, in-book search,
    mobile drawer, language hand-off and chapter paging. */
 

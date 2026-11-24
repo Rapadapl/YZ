@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Year Zero Engine — field reference
+   Root & Claw — field reference
    Shared design system for the player's book, the master's book and the index.
    ========================================================================== */
 
@@ -509,6 +509,10 @@ table.tbl {
   border-bottom: 1px solid var(--line);
 }
 .tbl tbody tr:nth-child(even) { background: #e4e7de; }
+/* the module tables are four columns wide with longer Russian headings */
+.module-book .tbl th,
+.module-book .tbl td { padding-inline: 0.5rem; }
+
 .tbl td.num,
 .tbl th.num { text-align: right; font-variant-numeric: tabular-nums; }
 .tbl td:first-child { font-weight: 500; }
@@ -815,17 +819,120 @@ html[data-system="modern"] [data-system="classic"] { display: none !important; }
     font-size: 10.5pt;
     line-height: 1.5;
   }
-  .rail, .rail-toggle, .scrim, .progress, .pager { display: none !important; }
+  .rail, .rail-toggle, .scrim, .progress, .pager, .skip-link, .edition { display: none !important; }
   .shell { display: block; }
   .book__inner { max-width: none; padding: 0; }
   .masthead { padding-top: 0; }
   .chapter { break-inside: auto; }
   .chapter h2, h3 { break-after: avoid; }
-  .tbl-wrap, .rule, .warn, .example, .variants { break-inside: avoid; }
+  .tbl-wrap { break-inside: auto; overflow: visible; }
+  .tbl { break-inside: auto; }
+  .tbl thead { display: table-header-group; }
+  .tbl tr { break-inside: avoid; }
+  .rule, .warn, .example, .variants { break-inside: avoid; }
   a { color: #000; text-decoration: none; }
   .chapter h2 a.anchor::after { content: ""; }
   .colophon { border-top: 1px solid #999; }
   .edition__btn, .edition__label { display: none; }
   .edition { margin-top: 6mm; }
   .edition__note { color: #444; }
+}
+
+/* ---------- bestiary ---------- */
+
+.bestiary-page .edition,
+.bestiary-page .edition__note { display: none; }
+
+.beasts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+  margin: 1.3rem 0 2rem;
+}
+
+@media (max-width: 760px) {
+  .beasts { grid-template-columns: 1fr; }
+}
+
+.beast {
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--line);
+  border-radius: 0.55rem;
+  padding: 0.8rem 0.95rem 0.95rem;
+  background: var(--paper-raised);
+  break-inside: avoid;
+}
+
+.beast[data-threat="1"] { border-left-color: var(--verdigris-light); }
+.beast[data-threat="2"] { border-left-color: var(--gold); }
+.beast[data-threat="3"] { border-left-color: var(--rust); }
+
+.beast__name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  line-height: 1.3;
+  margin: 0 0 0.55rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.beast__epithet {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.beast__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin: 0 0 0.55rem;
+}
+
+.beast .stat {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  padding: 0.08rem 0.4rem;
+  border: 1px solid var(--line-soft);
+  border-radius: 0.3rem;
+  background: var(--paper);
+  font-size: 0.84rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.beast .stat b {
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.beast__line {
+  margin: 0.18rem 0 0;
+  font-size: 0.94rem;
+  line-height: 1.42;
+}
+
+.beast__line b { color: var(--verdigris); }
+
+.tbl caption {
+  caption-side: top;
+  text-align: left;
+  padding-bottom: 0.4rem;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+@media print {
+  .beast { background: #fff; border-color: #999; border-left-color: #555; }
+  .beasts { grid-template-columns: 1fr 1fr; gap: 5mm; }
+  .beast__line { font-size: 9pt; }
 }
