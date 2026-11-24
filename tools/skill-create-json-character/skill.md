@@ -2,161 +2,203 @@
 name: root-and-claw-create-character-json
 description: >
   Create a ready-to-import JSON character for the Root & Claw mutant-animal
-  module. Reads the module and player's book, knows the skill/skill-creation
-  rules (clones, writing a clone), lineage, mutations, aura, characteristics
-  (classic 1-5 / modern A-D), twelve skills, specializations, personality
-  edges, equipment, load, aura marks, printing to A4. If asked to produce a
-  character file, outputs a JSON file that can be imported on the site. If
-  asked to build a character step by step, asks the minimal set of questions
-  needed to fill the JSON and nothing extra. Never invents a name, lineage or
-  mutation the user did not choose. Writes any notes as Markdown.
+  module that the on-site sheet (character.html) actually accepts. Knows the
+  exact import shape (version/variant/fields/tracks), the nine lineages and
+  their self-names, four characteristics, twelve skills with their sheet ids,
+  specializations and their real XP costs, mutations I-III, aura -5..+5, beast
+  traits, load and backpack, conditions and XP. Asks only the questions needed
+  to fill the file, never invents a name, lineage or mutation, and writes the
+  JSON to disk ready to import.
 ---
 
 # root-and-claw-create-character-json
 
 Use this skill when the user asks for a Root & Claw character as a JSON file,
-an importable character, a character built from the module, a "generate a
-character", "create a JSON character", "save a character for the site", or
-"build me a mutant character" request. This skill ends with a JSON file on
-disk that matches the module's character structure and the player's book.
+an importable character, "создай JSON-персонажа", "сгенерируй персонажа",
+"сохрани персонажа для сайта", or "собери мутанта". The skill ends with a JSON
+file on disk that `year-zero-srd/character.html` imports without errors.
 
-## What this skill knows about the system
+Rules, lineages and file names come from `tools/root-and-claw/reference/rules-map.md`.
+Read it before writing a character; do not rely on memory for numbers.
 
-It reads and follows:
+## The import contract
 
-- the module: lineage, twelve skills, mutations, aura, beast traits, creating
-  a mutant in seven steps, load and backpack, printing to A4;
-- the player's book: how a roll works, characteristics (classic 1-5 and modern
-  A-D), skills, specializations, experience, personality edges, equipment,
-  encumbrance, mount and vehicle, conditions, injuries, stress;
-- the skill-creation rule: a skill can be created from scratch or adapted from
-  another skill; the skill's name, description, ranks, prerequisites and
-  specialisation cost follow the specialization table in the player's book.
+The sheet exports and imports exactly this shape (`assets/sheet.js`, `collect()`,
+and the import handler that rejects anything without `fields`):
 
-It does not invent setting material; if the user wants setting details, they
-refer to the lore page and the bestiary page.
+```text
+{ "version": 1, "variant": "classic", "fields": { ... }, "tracks": { ... } }
+```
 
-## Character JSON shape
+- `version` — always `1`.
+- `variant` — `"classic"` or `"modern"`.
+- `fields` — a flat object whose keys are the form's `data-field` names; values
+  are strings (numbers as strings are fine) or booleans for checkboxes.
+- `tracks` — `{ "damage": 0-10, "stress": 0-10, "supplies": 0-6 }`.
 
-The JSON file must represent one character and be usable on the site. Use a
-flat structure the site can import. Suggested top-level keys:
+The sheet clears itself, then applies only the keys present in `fields`, so
+missing keys are fine and unknown keys are ignored. But a file without `fields`
+is rejected with "import failed". There is no nested character object and no
+`system`, `lineage` object, `characteristics` object or `skills` array — those
+do not import.
 
-- `system`: `"root-and-claw"`
-- `variant`: `"classic"` | `"modern"`
-- `name`: string (only if the user gave one; otherwise omit or use a prompt
-  placeholder the user can fill)
-- `lineage`: string from the module's six lineages, plus the lineage's self-name
-- `characteristics`: object with the four characteristics (Body, Dexterity, Wits,
-  Empathy) as either numbers 1-5 (classic) or ranks A-D (modern), matching the
-  chosen variant
-- `skills`: array of skill objects, each with `name`, `rank` (classic level 0-5
-  or modern A-D), and `linked` characteristic; include the twelve base skills
-  and any specializations chosen
-- `mutations`: array of mutation objects from the module, with name and rank or
-  level as the module specifies
-- `aura`: object with aura marks (dark to light) and any aura-related trait the
-  module gives
-- `traits`: array of beast traits the character has
-- `personality`: array of personality edges/edges the user chose
-- `equipment`: array of equipment items, with `name`, `weight` category
-  (small/light/heavy/very heavy) and any noted special property
-- `load`: object with current load category and notes (backpack, mount, vehicle
-  if used)
-- `notes`: string for any freeform notes
-- `meta`: `{ "created_by_skill": true, "locale": "ru" | "en" }`
+### Field names
 
-If the site has a stricter import schema, follow it; this skill writes the
-file in the shape above when no stricter schema is known.
+Header: `name`, `lineage`, `tribe`, `concept`.
 
-## Step-by-step build flow
+Characteristics — for each of `body` (Сила), `agility` (Ловкость), `wits`
+(Смекалка), `empathy` (Эмпатия):
 
-When the user asks to build a character, do the following, asking only the
-questions needed to fill the JSON:
+- `chars.<id>.value` — number 1–5 (classic);
+- `chars.<id>.rank` — `A`|`B`|`C`|`D` (modern; keep it filled in both variants).
 
-1. Ask variant: classic (1-5, 14 points) or modern (A-D, 3 steps, can lower to
-   gain a step).
-2. Ask lineage: one of the six lineages from the module, and the character's
-   self-name within that lineage.
-3. Ask characteristics: how to distribute the points/steps, respecting the module's
-   limits (classic min 2, max 5, one characteristic can be 5, others max 4;
-   modern all C, 3 steps, optional lower-to-gain).
-4. Ask skills: which of the twelve base skills get the starting levels/ranks
-   the module or player's book says, plus any specializations the user wants.
-   If the user wants a custom skill, this is the moment to use the
-   skill-creation rule: name, description, ranks, prerequisite, cost.
-5. Ask mutations: how many bio-mutations and psi-powers to start with, and which
-   ones, from the module.
-6. Ask aura: the aura marks the character starts with and any aura-related
-   trait.
-7. Ask traits: which beast traits the character has from the module.
-8. Ask personality edges: which edges the character has (pride, weakness, dark
-   secret, dream, relationships, best friend).
-9. Ask equipment: archetypal starting equipment if the user wants the module's
-   archetype defaults, or a custom list.
-10. Ask name (optional): only if the user wants one. Never invent one silently.
-11. Write the JSON to disk and tell the user the file path.
+Skills — for each of the twelve ids `force`, `brawl`, `endurance`, `shooting`,
+`acrobatics`, `stealth`, `crafting`, `observation`, `survival`, `animal-ken`,
+`healing`, `persuasion`:
 
-Do not ask for anything that is not needed to fill the JSON. If the user says
-"just make a ronin-type raccoon", ask only for the variant, the raccoon
-lineage, the self-name, and any extra mutations/traits they want; fill the rest
-from the module defaults and the player's book distributions, and tell the user
-what you filled in.
+- `skills.<id>.level` — number 0–5 (classic);
+- `skills.<id>.rank` — `A`|`B`|`C`|`D`|`""` (modern);
+- `skills.<id>.spec` — specialization name, free text;
+- `skills.<id>.specRank` — `A`|`B`|`C`|`D`|`""`.
 
-## Custom skill creation
+Mutations — six rows `mutations.0` … `mutations.5`:
 
-The user may ask to "create a skill" within the module. When they do:
+- `mutations.<n>.name`; `mutations.<n>.type` — `""`|`bio`|`psi`;
+  `mutations.<n>.grade` — `""`|`I`|`II`|`III`.
 
-- Ask what the skill does, when you use it, what characteristic or skill it is
-  linked to, and what ranks or levels it has.
-- Ask whether it is a specialization of an existing skill or a new skill.
-- Ask about prerequisites and cost, using the specialization cost table from the
-  player's book (new skill 5 XP to reach level 1 / rank D; specializations cost
-  10 XP to reach rank D, then scale up).
-- Write the skill into the character's skills array with a `created: true` flag
-  and a short note that it was created with the skill-creation rule.
-- If the user wants the skill to be part of the world, remind them it is a
-  personal skill for this character unless it is a setting skill from the lore
-  or bestiary.
+Rest of the sheet:
 
-## File output
+- `trait.0`, `trait.1` — two beast traits.
+- `aura.value` — integer −5…+5.
+- `edge.pride`, `edge.weakness` — personality edges.
+- `gear.0` … `gear.7`: `gear.<n>.item`, `gear.<n>.load` (0–9).
+- `weapon.0` … `weapon.2`: `weapon.<n>.name`, `weapon.<n>.damage`,
+  `weapon.<n>.range`.
+- `armour` — one line.
+- `carry.backpack`, `carry.led` — booleans; `carry.mount` — number.
+- `cond.physical.1`…`3`, `cond.mental.1`…`3` — conditions.
+- `xp.earned`, `xp.spent` — numbers.
+- `notes` — free text, Markdown is fine.
 
-- Write the JSON to a file in the workspace, e.g. `characters/<name-snake>.json`
-  or a path the user asks for. If the user does not name a path, put it in
-  `characters/` and tell them the path.
-- Use UTF-8. Keep the JSON tidy: 2-space indent, no extra notes outside the
-  JSON in the file.
-- After writing, show the path and a short summary: variant, lineage, number of
-  skills, number of mutations, aura, load state, and any custom skill created.
-- If the user asked to import it on the site, tell them the file path and that
-  it is ready to import; do not pretend the site has been updated unless you
-  actually deployed or the user did.
+### Complete example
 
-## Language
+```json
+{
+  "version": 1,
+  "variant": "classic",
+  "fields": {
+    "name": "Сойка",
+    "lineage": "Енот-род (Защёлка)",
+    "tribe": "Верхний склад",
+    "concept": "Взломщик и курьер",
+    "chars.body.value": "3",
+    "chars.body.rank": "C",
+    "chars.agility.value": "4",
+    "chars.agility.rank": "B",
+    "chars.wits.value": "4",
+    "chars.wits.rank": "B",
+    "chars.empathy.value": "3",
+    "chars.empathy.rank": "C",
+    "skills.force.level": "2",
+    "skills.force.rank": "D",
+    "skills.force.spec": "",
+    "skills.force.specRank": "",
+    "skills.acrobatics.level": "3",
+    "skills.acrobatics.rank": "C",
+    "skills.acrobatics.spec": "Лазать по руинам",
+    "skills.acrobatics.specRank": "D",
+    "mutations.0.name": "Хваткие пальцы",
+    "mutations.0.type": "bio",
+    "mutations.0.grade": "II",
+    "mutations.1.name": "Чужой глаз",
+    "mutations.1.type": "psi",
+    "mutations.1.grade": "I",
+    "trait.0": "Ночное зрение",
+    "trait.1": "Ловкие пальцы",
+    "aura.value": "1",
+    "edge.pride": "Не бросаю начатое",
+    "edge.weakness": "Не могу пройти мимо запертой двери",
+    "gear.0.item": "Отмычки",
+    "gear.0.load": "1",
+    "weapon.0.name": "Короткий нож",
+    "weapon.0.damage": "2",
+    "weapon.0.range": "Вплотную",
+    "armour": "Кожаный жилет",
+    "carry.backpack": true,
+    "carry.mount": "0",
+    "carry.led": false,
+    "xp.earned": "0",
+    "xp.spent": "0",
+    "notes": ""
+  },
+  "tracks": { "damage": 0, "stress": 0, "supplies": 6 }
+}
+```
 
-- Speak to the user in Russian unless they ask otherwise.
-- The JSON keys and any machine-facing strings can stay in English; the human
-  fields (name, notes, and any text fields) should be in the language the user
-  is using.
-- Do not translate the module's fixed terms into something made up; keep the
-  module's own names (lineages, skills, mutations, aura terms) as they are in
-  the module, and translate only the user-facing free text.
+## Build flow
 
-## Errors and refusals
+Ask only what is needed to fill the file, in Russian, one or two questions at a
+time:
 
-- If the user asks for a character but does not give enough to fill the JSON,
-  ask the minimal questions; do not invent.
-- If the user asks for a specialist or archetype not in the module, say so and
-  offer to build one from the module's pieces, but do not pretend the module
-  contains it.
-- If the user asks to import on the site and the site import path is unknown,
-  tell them where the file is and that they can import it; do not fabricate a
-  live import.
+1. Variant: classic (14 points, 2–5 each) or modern (all C, three steps, may
+   lower one to gain a step).
+2. Lineage: one of the nine, plus the character's self-name inside it.
+3. Characteristics: how to spend the points or steps.
+4. Skills: starting levels/ranks for the twelve, and any specialization.
+5. Mutations: two bio, or one bio and one psi, with grades I–III.
+6. Aura: the starting value from −5 to +5.
+7. Beast traits: which two.
+8. Edges: pride and weakness.
+9. Equipment, weapons, armour; whether the backpack is worn.
+10. Name and concept — only if the user gives them; never invent a name silently.
 
-## Examples
+If the user says "просто енот-разбойник, две био-мутации, светлая аура", fill
+those, take the rest from the module's defaults, and say what you filled in.
 
-- "Создай JSON-персонажа для Корня и Когтя" → ask variant, lineage, points,
-  skills, mutations, aura, traits, edges, equipment, name; write JSON.
-- "Должен быть енот-род, два био-мутации, аура светлая, груз в рюкзаке" →
-  fill those, ask the rest.
-- "Создай кастомный навык — уход от пыли" → ask what it does, what it is
-  linked to, ranks, cost, prerequisite; write it into skills with `created: true`.
+## Skill creation
+
+The sheet has no slot for a brand-new skill: it only has the twelve base rows and
+a specialization column next to each. So:
+
+- A specialization of an existing skill goes into `skills.<id>.spec` and
+  `skills.<id>.specRank`.
+- A truly new skill goes into `skills.<id>.spec` of the closest base skill and
+  is described in `notes` with its own name, rank and rules — or, if the user
+  prefers, only in `notes`. Say plainly that the site cannot show it as a
+  separate row.
+- Costs, when the user asks: a new skill is level 1 / rank D for **5 XP**; a
+  specialization is **5 XP** for rank D, then 10 / 15 / 20 for C / B / A, and it
+  needs a mentor, a full shift of training from both, and a Persuasion check at
+  the end.
+- Never inflate a specialization to "10 XP for D". That 10 is the price of C.
+
+## Facts to get right
+
+- **Nine lineages**, not six: Енот-род (Защёлка), Грызун-род (Нора), Заяц-род
+  (Долгий бег), Кунье-род (Узел), Птице-род (Гребневой дозор), Чешуйчатый род
+  (Медленный двор), Кошачий род (Девять шагов), Псовый род (Стая), Кабаний род
+  (Клыкастая линия).
+- Four characteristics are Сила / Ловкость / Смекалка / Эмпатия with sheet ids
+  `body` / `agility` / `wits` / `empathy` — not Body/Dexterity/Wits/Empathy.
+- Aura is a single number −5…+5, not a pool of marks.
+- There is no bestiary file in the project; creatures live in the module and the
+  lore. Do not send the user to a page that does not exist.
+
+## Output
+
+- Write UTF-8 JSON with 2-space indent, nothing outside the JSON in the file.
+- Default path: `characters/<slug>.json`; otherwise the path the user names.
+- Check the file parses before handing it over, e.g.
+  `python3 -c "import json;json.load(open('characters/<slug>.json'))"`.
+- Tell the user the path, then a short summary: variant, lineage, number of
+  skills with levels, mutations, aura, load, and anything you filled in.
+- To import: open `character.html`, press «Импорт» and choose the file. Do not
+  claim the site was updated unless it actually was.
+
+## Language and refusals
+
+- Speak Russian; keep `fields` keys and machine values in English as above.
+- Keep the module's terms as the module has them; translate only free text.
+- If the user asks for a lineage, mutation or archetype the module does not
+  have, say so and offer to build from what exists, or write it as a local
+  addition in `notes`.
