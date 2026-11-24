@@ -39,40 +39,28 @@ Each tradition is usually associated with a specific specialization (see Chapter
 - Can create a spell one rank higher than specialization allows, but always causes a random side effect
 - Never can cast a spell two or more ranks above specialization
 
-### Spell Potency
+### Will: the price of a casting
 
-- Spell creation requires huge mental effort, expressed in spending one or more **Will points**
-- Usually hero gains will points from making special efforts, but other methods may exist depending on specific game
+- Every casting spends **Will**: at least 1, even when the spell description does not say so.
+- Maximum Will = Wits + Empathy (modern variant: A — 4, B — 3, C — 2, D — 1).
+- Will and psychosis are one and the same: Will spent becomes psychosis, Will returned removes it. Full rules in `05-magic-psychosis.md`.
+- Aura takes no part in a casting: it is the world's opinion, not a resource.
 
-### Main Power
+### Main power
 
-- The number of will points spent on creating a spell is called its **main power**
-- Together with other factors (e.g., check result) determines final power
+- The number of Will points spent is the spell's **main power**.
+- The number of main dice (d6) equals the Will spent.
+- Spell creation cannot fail.
+- Each success (6) raises the final power by 1.
+- Example: 2 Will spent, 2 successes — final power 4.
+- Special effort cannot be used when creating a spell.
 
-### Check Nuances
+### Curses and side effects
 
-- Spell creation cannot result in failure
-- Number of main dice (d6) to roll equals number of spent will points
-- If at least one success (6) is rolled - spell is enhanced
-- If at least one curse (1) is rolled - side effect occurs
-- Cannot make special effort when creating a spell
-
-### Enhancement
-
-- Each success rolled increases spell potency by 1
-- Example: if you spend 2 will points and get 2 successes, final power = 4
-
-### Side Effects of Magic
-
-- If at least one curse is rolled during spell creation, hero releases powerful forces they cannot control, causing a side effect
-- Roll d12 and consult side effects table (see below)
-
-### Will, curses and psychosis
-
-- Will is the casting resource: see `05-magic-psychosis.md`. Aura takes no part in a casting.
-- Every curse (1) on a casting die adds psychosis: +1 for a rank 1 spell, +2 for rank 2, +3 for rank 3 and above.
-- Psychosis does not cancel the spell: it may work and still leave a mark.
-- At psychosis 10 the hero falls into instinct; the save and the way back are in `05-magic-psychosis.md`.
+- Every 1 rolled (a curse) costs extra Will: +1 for a rank 1 spell, +2 for rank 2, +3 for rank 3 and above. A psi-power of any grade: +1.
+- If at least one curse is rolled, a side effect occurs: roll d12 on the table below.
+- A curse does not cancel the spell: it may work and still leave a mark.
+- When the Will is gone the hero falls into instinct; the save is rolled with Empathy — see `05-magic-psychosis.md`.
 
 ### Safe Magic
 
@@ -90,10 +78,10 @@ Each tradition is usually associated with a specific specialization (see Chapter
 - Parameter determining duration of spell effect
 - **Instant**: Effect occurs immediately after which spell is considered completed
 
-### Will points
+### Minimum Will
 
-- At least 1 will point must be spent to create a spell
-- Even if not explicitly stated in spell description
+- At least 1 Will must be spent to create a spell, even if the spell description does not say so
+- Recovering Will, and losing it to shocks, is in `05-magic-psychosis.md`
 
 ### Spellcasters and Gamemaster Characters
 
