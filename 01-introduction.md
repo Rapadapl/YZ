@@ -245,7 +245,7 @@ When a hero fully commits to a task at risk of failure, they can make a special 
 - **Characteristic Reduction**: For each curse, immediately reduce the used characteristic
 - **Kubik Stressa (Stress Dice)**: After special effort, immediately gain 1 stress point per curse; these d6 dice add to skill checks (6s are successes), but if a 1 appears on a stress die, must make a panic check
 - **Conditions**: After special effort, receive a condition (e.g., exhausted, annoyed, frightened); each imposes penalties on certain skill checks
-- **Fate Points**: After each special effort, gamemaster receives 1 fate point to create obstacles and unfortunate circumstances
+- **The world answers**: for each curse on a special effort, the gamemaster may answer at once or later with a complication that fits the fiction (a ledge gives way, a witness sees too much, a tool jams). No separate currency is involved.
 - **Only Once**: Special effort can only be applied once per check
 
 ## Passive Checks

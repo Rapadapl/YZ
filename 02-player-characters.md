@@ -187,8 +187,8 @@ After special effort, immediately gain 1 stress point per curse; these d6 dice a
 ### Conditions
 After special effort, receive a condition (e.g., exhausted, annoyed, frightened); each imposes penalties on certain skill checks.
 
-### Fate Points
-After each special effort, gamemaster receives 1 fate point to create obstacles and unfortunate circumstances.
+### The World Answers
+There is no separate currency for bad luck. For each curse on a special effort, the gamemaster may answer at once or later with a complication that fits the fiction: a ledge gives way, a witness sees too much, a tool jams, a patrol arrives. The size of the complication matches the number of curses, and it is played out as an ordinary event, not spent from a pool.
 
 ### Only Once
 Special effort can only be applied once per check.
