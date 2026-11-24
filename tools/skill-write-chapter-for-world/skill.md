@@ -82,8 +82,9 @@ a new file in `главы/` numbered after the last one. When in doubt, ask: «�
 
 ## Referencing and refusals
 
-- Point at real files only, as in `world-contract.md` § «Ссылки на источники»;
-  there is no bestiary file in the project.
+- Point at real files only, as in `world-contract.md` § «Ссылки на источники».
+  Creatures come from `08-bestiary.ru.md` / `bestiary.ru.html`, or are new and
+  marked as new in the same card format.
 - A panic or psychosis variant that is not in `05-magic-psychosis.md` is a house
   rule and is labelled as one.
 - Do not invent new lineages, mutations, gods or beasts without asking; if the

@@ -67,8 +67,9 @@ Every document points at the source it leans on with a real file name, as in
 `06-travel.ru.md`», «Древо, Гниль, линии и места — `07-lore.ru.md`», «линии,
 мутации и звериные черты — `module.ru.html`».
 
-A house rule is written as a house rule and names what it changes. There is no
-bestiary file in the project, so never link to one.
+A house rule is written as a house rule and names what it changes. Creatures
+come from the bestiary (`08-bestiary.ru.md`, `bestiary.ru.html`) with a pointer;
+new ones are written in the same card format and marked as new.
 
 ## Example
 

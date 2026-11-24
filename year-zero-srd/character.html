@@ -116,8 +116,8 @@
           <span class="sec__num">04</span>
           <h2 data-en="Damage and condition" data-ru="Урон и состояние">Damage and condition</h2>
         </div>
-        <p class="sec__hint" data-en="Tick a box per point of damage or stress. Three conditions of one kind take the hero out."
-           data-ru="Отмечайте клетку за каждый пункт урона или стресса. Три состояния одного вида выводят героя из строя.">Tick a box per point of damage or stress. Three conditions of one kind take the hero out.</p>
+        <p class="sec__hint" data-en="Tick a box per point of damage, stress or psychosis. Three conditions of one kind take the hero out. Psychosis rises from curses and shocks; at 10 the beast takes over (see 05-magic-psychosis.md)."
+           data-ru="Отмечайте клетку за каждый пункт урона, стресса или психоза. Три состояния одного вида выводят героя из строя. Психоз растёт от проклятий при касте и от потрясений; на 10 герой уходит в инстинкты (см. 05-magic-psychosis.ru.md).">Tick a box per point of damage, stress or psychosis. Three conditions of one kind take the hero out.</p>
 
         <div class="track">
           <span class="track__name" data-en="Damage" data-ru="Раны">Damage</span>
@@ -126,6 +126,10 @@
         <div class="track">
           <span class="track__name" data-en="Stress" data-ru="Стресс">Stress</span>
           <div class="track__pips" data-track="stress"></div>
+        </div>
+        <div class="track">
+          <span class="track__name" data-en="Stress" data-ru="Стресс">Psychosis</span>
+          <div class="track__pips" data-track="psychosis"></div>
         </div>
 
         <div class="conditions">
@@ -153,8 +157,8 @@
           <span class="sec__num">05</span>
           <h2 data-en="Mutations" data-ru="Мутации">Mutations</h2>
         </div>
-        <p class="sec__hint" data-en="Two bio-mutations, or one bio and one psi. Psi costs 1 Aura per use and rolls Wits + grade."
-           data-ru="Две био-мутации или одна био и одна пси. Пси тратит 1 ауру за применение, бросок Смекалки плюс ступень.">Two bio-mutations, or one bio and one psi. Psi costs 1 Aura per use.</p>
+        <p class="sec__hint" data-en="Two bio-mutations, or one bio and one psi. Psi costs 1 Will per use and rolls Wits + grade."
+           data-ru="Две био-мутации или одна био и одна пси. Пси тратит 1 волю за применение, бросок Смекалки плюс ступень.">Two bio-mutations, or one bio and one psi. Psi costs 1 Will per use.</p>
 
         <div class="tbl-wrap">
           <table class="muts">
@@ -185,6 +189,14 @@
           <label class="line">
             <span class="line__label" data-en="Trait" data-ru="Черта">Trait</span>
             <input class="f" type="text" data-field="trait.1">
+          </label>
+          <label class="line">
+            <span class="line__label" data-en="Will" data-ru="Воля">Will</span>
+            <span class="aura">
+              <input class="f f--inline" type="number" min="0" max="12" inputmode="numeric" data-field="will.value" aria-label="Will, current">
+              <span class="aura__state" aria-hidden="true">/</span>
+              <input class="f f--inline" type="number" min="0" max="12" inputmode="numeric" data-field="will.max" aria-label="Will, maximum">
+            </span>
           </label>
           <label class="line">
             <span class="line__label" data-en="Aura" data-ru="Аура">Aura</span>
@@ -381,7 +393,7 @@
           <h3 data-en="Mutations" data-ru="Мутации">Mutations</h3>
           <ul>
             <li data-en="Bio-mutations are always on and cost no aura." data-ru="Био-мутации всегда включены и не тратят ауру.">Bio-mutations are always on and cost no aura.</li>
-            <li data-en="A psi-power is a slow action and costs 1 Aura, hit or miss." data-ru="Пси-сила — медленное действие и 1 аура, попали или нет.">A psi-power is a slow action and costs 1 Aura, hit or miss.</li>
+            <li data-en="A psi-power is a slow action and costs 1 Will, hit or miss. A curse on its die adds 1 psychosis." data-ru="Пси-сила — медленное действие и 1 воля, попали или нет. Проклятие на её кубике даёт 1 психоз.">A psi-power is a slow action and costs 1 Will, hit or miss.</li>
             <li data-en="Roll Wits plus grade: +1/+2/+3 dice, or d6/d8/d10." data-ru="Бросок Смекалки плюс ступень: +1/+2/+3 кубика или d6/d8/d10.">Roll Wits plus grade: +1/+2/+3 dice, or d6/d8/d10.</li>
             <li data-en="Extra successes buy damage, targets or duration." data-ru="Лишние успехи покупают урон, цели или длительность.">Extra successes buy damage, targets or duration.</li>
           </ul>
