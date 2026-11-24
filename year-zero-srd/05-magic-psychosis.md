@@ -1,43 +1,21 @@
-## Panic Table (Aftermath of a Casting Gone Wrong)
+# Root & Claw — psychosis
 
-When a character pushes a casting past the line between spell and symptom, roll the panic table instead of or in addition to the side-effect table. The panic table is the way the world answers a will that outruns its tongue.
+Magic has no resource: no points, no charges. A spell spends nothing but the caster. The price of magic is **psychosis**: it rises from curses on the dice and from shocks, falls on its own when the hero does not cast, and at its maximum hands the body to the beast.
 
-Each entry on the panic table is a condition. A condition is something the character carries until a stated end, or until they spend a turn bringing it to an end. A condition can be psychological (the mind snaps), somatic (the body betrays), or dispositional (the character becomes what they are not). A condition can last a scene, a fight, a shift, a day, or until something changes the character’s relationship to what they have done.
+Aura has nothing to do with it: aura is the world's opinion of the hero, a number from −5 to +5, and it is not spent on casting or on psi-powers.
 
-### Making the Roll
+## The psychosis track
 
-- A panic roll is made by the character who pushed the casting.
-- The roll is made once per casting that crosses the line, not once per spell.
-- The roll is a d6 plus the character’s current stress points. Stress points are the points the character has accumulated from special effort, from curses on the casting, from … yes, from this table too, if they fail to recover.
-- The result of the roll is the character’s panic level.
-- If the character’s panic level is 1–6, the character is under control. Nothing happens.
-- If the character’s panic level is 7, the character gets a nervous tick. Everyone within near distance of the character gains 1 stress point. (Everyone: all player characters within near distance, plus any gamemaster character the gamemaster judges close enough to feel it.)
-- If the character’s panic level is 8, the character gets nervous tremors. All Dexterity checks for the character have a –2 modifier until the end of the scene or until the character spends a full shift doing something physical that burns the tremors out (the character decides when).
-- If the character’s panic level is 9, the character drops something important. The gamemaster decides what: weapon, focus, grimoire, companion’s token. The item is dropped at the character’s feet; if the character is not holding it, it is dropped from the character’s grasp or storage; if the character is holding it, the item is dropped from the character’s hand and may be lost.
-- If the character’s panic level is 10, the character freezes in place and loses their next turn. (In a non-timed scene, the character loses their next turn in the next scene they are in, or the next time they would take an action, whichever comes first.)
-- If the character’s panic level is 11, the character must spend their next action moving away from the nearest source of the thing that triggered the panic, toward cover or open space, and may not take any other action until they have put that source at least one range band away. If the character is in combat, they must retreat one zone per action until they are not within near distance of the source; if they cannot retreat, they stand and do nothing. The character drops 1 stress point after the movement, but everyone else within near distance gains 1 stress point.
-- If the character’s panic level is 12, the character screams for a full round and loses their next turn. Everyone who can hear the scream must immediately make a panic roll. The screaming character drops 1 stress point after the scream.
-- If the character’s panic level is 13, the character must throw away everything they are carrying or wearing that is not part of their body or their gear. They then run to the nearest place the character thinks of as safe and will not leave it unless forced, attacked, or given permission by someone they trust. They will not attack, and they will not take any action that risks harm to themselves or anyone else.
-- If the character’s panic level is 14, the character must immediately attack the nearest creature, friend or foe, and will not stop until the creature is taken out or the character is taken out. Anyone who witnesses this must make a panic roll.
-- If the character’s panic level is 15 or more, the character drops to the ground as if dead. They are not dead. They cannot move, act, or speak. They are conscious of everything around them but cannot respond. The condition lasts until the end of the encounter or until someone they trust spends a full shift talking to them, touching them, and doing something that reminds them who they are (the gamemaster decides what counts). At the end of the condition, the character wakes up confused and loses 1 stress point; if they were at 1 stress point before the drop, they now have 0 stress points and cannot gain stress points from any source until they have a full shift of calm.
+| Psychosis | State | What it means at the table |
+| --- | --- | --- |
+| 0-2 | Clear | Magic has left no trace yet: the hero sleeps, eats and talks like a person. |
+| 3-4 | Beast under the skin | Only your own people see the signs: pupils, smell, growling in sleep. No rule changes yet. |
+| 5-6 | On the edge | The hero catches himself in beastly urges instead of words; to strangers he is already strange. |
+| 7-8 | Breakdown close | Held together by habit and by his own. Being left alone is a bad idea. |
+| 9 | One step from the beast | Any new curse or shock takes him to 10. |
+| 10 | Instinct | An Empathy save at the start of each round; a failure shrinks the pool by one die. Pool gone means full transformation. |
 
-### Duration and Recovery
-
-- Stress points from the panic table are stress points. They count toward the roll for future panic rolls, and they are removed by the same things that remove other stress points: a full shift of calm, a healthy meal, a conversation with someone who listens, a night’s rest, a moment of honest self-recognition — the gamemaster decides what counts as a removal in their world, as long as it is a removal and not a negation.
-- A condition from the panic table can be ended early by the same methods that end other conditions, if the method is appropriate to the condition. The gamemaster decides what counts.
-
-### How It Relates to the Side-Effect Table
-
-- If a casting would produce both a side effect and a panic roll, the two happen in the order the gamemaster thinks is more dramatic, or in the order the table produces, if that is more dramatic.
-- A panic roll is not a side effect. It is a separate table. If you are using both, you have two rolls, not one.
-
-### How It Relates to Empathy
-
-- A character who has pushed a casting past the line and then taken a panic roll has failed to keep the thing they tried to keep. They may have kept the spell, or they may not have. The panic table is not a spell-roll; it is a fear save, and a hero's Empathy is what holds them together. The spell may have worked, or the spell may have not worked. The panic table does not resolve the spell.
-
----
-
-# Psychosis and panic
+Curses raise psychosis: +1 at rank 1, +2 at rank 2, +3 at rank 3 and above; a curse on a psi-power gives +1. Shocks give +1 to +3. Rest, meditation, your own people and sleep bring it down — see below. At 10 neither food nor talk works: only the save, or an ally.
 
 ## Casting costs nothing
 
@@ -115,7 +93,3 @@ The save is rolled with **Empathy** — it asks whether the hero can still hear 
 - **Failure:** the save pool loses one die for this episode and the hero stays in instinct. The longer it lasts, the harder the way back.
 - **Pool empty:** full transformation. The hero becomes a beast run by the GM — for good, short of a ritual nobody in the Overgrowth has performed twice.
 - **An ally** can bring the hero back without the hero's roll: a slow action at Engaged and a Persuasion or Animal Ken check. Success ends the instinct and drops psychosis to 9. Failure costs the ally a round and, at the GM's discretion, a wound.
-
-## Panic (stress)
-
-A separate table and a separate counter. Roll d6 and add current stress; the effect lasts until the hero sheds the stress. Psychosis does not touch it, and panic adds no psychosis. The full panic rules are above; the quick reference is 1–6 control, 7 tic, 8 tremors, 9 dropped item, 10 paralysis, 11 retreat, 12 scream, 13 flight, 14 rage, 15+ catatonia.

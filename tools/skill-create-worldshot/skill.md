@@ -20,7 +20,7 @@ ready-to-run chapter; chapters belong to `skill-write-chapter-for-world`.
 Two shared documents are binding here:
 
 - `tools/root-and-claw/reference/rules-map.md` — all system facts (nine
-  lineages, twelve skills, XP, mutations, aura, load, magic, panic);
+  lineages, twelve skills, XP, mutations, aura, load, magic, psychosis);
 - `tools/root-and-claw/reference/world-contract.md` — folder layout, file names,
   language, reference discipline, question order, encounter ranking, 4–5 hour
   sizing, AI notes block, continue-or-new.
@@ -63,7 +63,7 @@ Every document points at the source it leans on with a real file name, as in
 `world-contract.md` § «Ссылки на источники». Typical inline pointers:
 «характеристики и опыт — `02-player-characters.ru.md`», «навыки и
 специализации — `03-skills-specializations.ru.md`», «бой — `04-combat-damage.ru.md`»,
-«магия — `05-magic.ru.md`, паника — `05-magic-psychosis.md`», «путешествия —
+«магия — `05-magic.ru.md`, психоз — `05-magic-psychosis.md`», «путешествия —
 `06-travel.ru.md`», «Древо, Гниль, линии и места — `07-lore.ru.md`», «линии,
 мутации и звериные черты — `module.ru.html`».
 

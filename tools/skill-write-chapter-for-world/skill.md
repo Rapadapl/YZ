@@ -44,7 +44,7 @@ chapter, one or two at a time, in Russian. Chapter-specific ones:
 - which locations, factions and creatures appear;
 - tone and difficulty;
 - personal stakes from the characters or the world;
-- variant and house rules in play (classic or modern, panic table, custom
+- variant and house rules in play (classic or modern, psychosis table, custom
   skills or mutations).
 
 Do not invent the user's answer. If they say "там должна быть загадка про сап",
@@ -85,7 +85,7 @@ a new file in `главы/` numbered after the last one. When in doubt, ask: «�
 - Point at real files only, as in `world-contract.md` § «Ссылки на источники».
   Creatures come from `08-bestiary.ru.md` / `bestiary.ru.html`, or are new and
   marked as new in the same card format.
-- A panic or psychosis variant that is not in `05-magic-psychosis.md` is a house
+- A psychosis variant that is not in `05-magic-psychosis.md` is a house
   rule and is labelled as one.
 - Do not invent new lineages, mutations, gods or beasts without asking; if the
   user wants them, ask and write them as local additions.
