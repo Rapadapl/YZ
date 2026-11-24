@@ -2,7 +2,7 @@
 
 Magic has no resource: no points, no charges. A spell spends nothing but the caster. The price of magic is **psychosis**: it rises from curses on the dice and from shocks, falls on its own when the hero does not cast, and at its maximum hands the body to the beast.
 
-Aura has nothing to do with it: aura is the world's opinion of the hero, a number from −5 to +5, and it is not spent on casting or on psi-powers.
+Aura has nothing to do with it: aura is the world's opinion of the hero, a number from −5 to +5, and magic does not move it.
 
 ## The psychosis track
 
@@ -23,7 +23,7 @@ Magic has no resource: no points, no charges. A spell spends nothing but the cas
 
 The price of magic is **psychosis**. It rises from curses on the dice and from shocks, falls on its own while the hero is not casting, and at the top hands the body to the beast.
 
-Aura has nothing to do with it: aura is the world's opinion of a hero, a number from −5 to +5, and it is never spent on a casting or a psi-power.
+Aura has nothing to do with it: aura is the world's opinion of a hero, a number from −5 to +5, and magic does not move it.
 
 ## Casting dice
 

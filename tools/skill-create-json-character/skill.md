@@ -5,7 +5,7 @@ description: >
   module that the on-site sheet (character.html) actually accepts. Knows the
   exact import shape (version/variant/fields/tracks), the nine lineages and
   their self-names, four characteristics, twelve skills with their sheet ids,
-  specializations and their real XP costs, mutations I-III, aura -5..+5, beast
+  specializations and their real XP costs, mutations I-III, aura -5..+5 as the world's opinion, beast
   traits, load and backpack, conditions and XP. Asks only the questions needed
   to fill the file, never invents a name, lineage or mutation, and writes the
   JSON to disk ready to import.
@@ -180,7 +180,7 @@ a specialization column next to each. So:
   (Клыкастая линия).
 - Four characteristics are Сила / Ловкость / Смекалка / Эмпатия with sheet ids
   `body` / `agility` / `wits` / `empathy` — not Body/Dexterity/Wits/Empathy.
-- Aura is a single number −5…+5 and is never spent. Casting costs nothing:
+- Aura is a single number −5…+5, the world's opinion rather than a pool. Casting costs nothing:
   psychosis is its only price, and it is the only magic counter on the sheet.
   At psychosis 10 the hero falls into instinct and saves with Empathy.
 - Creatures live in the bestiary: `08-bestiary.md` / `08-bestiary.ru.md` and the
