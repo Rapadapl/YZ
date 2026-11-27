@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>变异与技能 — 根与爪</title>
+<meta name="description" content="《根与爪》模组：变异动物血脉、十二项技能、生物变异、灵能、气场与兽性特质，适用于被树覆盖的世界。">
+<link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/book.css">
+<script src="assets/i18n.js" defer></script>
+<script src="assets/book.js" defer></script>
+</head>
+<body class="module-page">
+<a class="skip-link" href="#main"></a>
+<div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+<button class="rail-toggle" type="button" aria-expanded="false" aria-controls="rail" data-str="openMenu"></button>
+<button class="scrim" type="button" hidden aria-label="关闭目录"></button>
+
+<div class="shell">
+  <aside class="rail" id="rail" data-open="false" aria-label="目录">
+    <div class="rail__brand">
+      <span class="rail__brand-mark">根与爪</span>
+      <a class="rail__brand-title" href="module.zh.html" data-str="moduleBook"></a>
+      <span class="rail__brand-sub">第一模组</span>
+    </div>
+
+    <div class="rail__search">
+      <label class="visually-hidden" for="toc-search" data-str-aria="searchLabel"></label>
+      <input id="toc-search" type="search" autocomplete="off" data-toc-search data-str-placeholder="searchPlaceholder">
+      <span class="rail__search-key" aria-hidden="true">/</span>
+    </div>
+
+    <nav aria-label="目录">
+      <ul class="toc" id="toc"></ul>
+    </nav>
+
+    <div class="rail__foot">
+      <div class="lang-switch" data-lang-switch>
+        <a href="module.html" lang="en" hreflang="en" data-alt-lang="module.html">EN</a>
+        <a href="module.ru.html" lang="ru" hreflang="ru" data-alt-lang="module.ru.html">RU</a>
+        <span aria-current="true">中文</span>
+      </div>
+      <a class="btn" href="index.zh.html" data-str="library"></a>
+      <a class="btn" href="lore.zh.html">世界设定</a>
+      <a class="btn" href="player-book.zh.html" data-str="playerBook"></a>
+      <a class="btn" href="character.html?lang=zh" data-str="sheet"></a>
+      <button class="btn" type="button" data-print data-str="print"></button>
+      <button class="btn" type="button" data-close></button>
+    </div>
+  </aside>
+
+  <main class="book module-book" id="main">
+    <div class="book__inner">
+      <header class="masthead">
+        <p class="masthead__book">根与爪 · 第一模组</p>
+        <h1>变异与技能</h1>
+        <p class="masthead__lead">树之后的世界满是直立、说话、身上比该有的多带了一点东西的野兽。这个模组补上让他们成为英雄的部分：血脉、十个改了名字的技能、两类变异、气场，以及兽性特质。</p>
+
+        <dl class="variants">
+          <div>
+            <dt>生物变异</dt>
+            <dd>身体重写自己并留下改变：爪、皮、鳃、孢子。它们始终开启，无法关闭。</dd>
+          </div>
+          <div>
+            <dt>灵能变异</dt>
+            <dd>心智向外推：火花、火焰、念力、治疗。每次使用都是慢动作，并加 1 点气场。</dd>
+          </div>
+        </dl>
+      </header>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">01</span>
+          <h2 id="world">树之后的世界</h2>
+        </div>
+
+        <p>树在人类之后到来。它的根穿过道路与高塔，吸干了下面的一切；几个世纪里，活下来的动物长进了空出来的位置：直立、有手、会说话。有的披毛，有的覆鳞，有的长羽。他们都有一点不对劲——就像一件用手边散落的东西拼起来的物件，总有点不对劲。</p>
+
+        <p>部族能修的旧机器就继续用，修不了的就当神拜。火堆之间是废墟、蘑菇林和腐烂——把活体变成花园的病。离开村庄的人，不是在逃离腐烂，就是在寻找能阻止它的东西。</p>
+
+        <p>这个世界的英雄是变异者，而变异在这里不是怪物的诅咒。它是活下来的原因：第二颗心脏、第二个胃、一条末端长成骨刃的手臂。衡量一个变异者，看身体变成了什么，也看心智能从身体里推出什么。</p>
+
+        <div class="rule">
+          <span class="rule__label">模组改变了什么</span>
+          <p>检定、伤害、先攻、治疗与旅行完全按主书运行。模组加入血脉、变异、气场与兽性特质，并给十二项技能中的五项改名。系统里没有别的改动。</p>
+        </div>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">02</span>
+          <h2 id="lineages">血脉</h2>
+        </div>
+
+        <p>血脉是英雄的祖先在树之前是什么。它在创建时给一级技能和一项免费兽性特质。血脉不是外形的牢笼：浣熊族可以是打手，兔族可以是狙击手；他们只是从不同的角落出发。下面九条血脉是这些部族常见的；地图边缘的村庄可能完全不同，主持人可以用同样的部件拼出来。</p>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>血脉</caption>
+            <thead><tr><th scope="col">血脉</th><th scope="col">技能等级</th><th scope="col">特质</th><th scope="col">名声</th></tr></thead>
+            <tbody>
+              <tr><td><strong>浣熊族</strong></td><td>手艺</td><td>抓握爪</td><td>手先到：锁、电线、别人的口袋。部族把坏掉的东西都送给他们，等它重新能用。</td></tr>
+              <tr><td><strong>啮齿族</strong></td><td>潜行</td><td>掘地者</td><td>隧道斥候。知道每堵墙下的暗道，也最先嗅到腐烂。</td></tr>
+              <tr><td><strong>兔族</strong></td><td>体操</td><td>弹簧脚跟</td><td>信使与斥候：部族里最快的腿，也毫不为被人使唤而羞耻。</td></tr>
+              <tr><td><strong>貂族</strong></td><td>武斗</td><td>死咬</td><td>小、快活、一旦咬住就不松口。</td></tr>
+              <tr><td><strong>鸟族</strong></td><td>观察</td><td>中空骨</td><td>山脊上的哨兵：兽群看见部族之前，他们先看见兽群。</td></tr>
+              <tr><td><strong>鳞族</strong></td><td>耐力</td><td>冷血</td><td>耐心、话慢，很难催——他们能熬过天气、毒和孢子。</td></tr>
+              <tr><td><strong>猫族</strong></td><td>潜行</td><td>软爪</td><td>夜猎者：走屋顶，不留一条值得跟的足迹。</td></tr>
+              <tr><td><strong>犬族</strong></td><td>生存</td><td>群感</td><td>追踪者与斥候。一只就危险；一群就是狩猎的终点。</td></tr>
+              <tr><td><strong>野猪族</strong></td><td>力量</td><td>冲锋</td><td>冲垮阵线。他们全部的论据就是冲锋和肩膀。</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>自由等级在经典版是一级（创建时不超过 3），在现代版是一个阶（不超过 B）。每条血脉还要从兽性特质一章再取一项——一共两项，其中一项由血脉指定。</p>
+
+        <div class="example">
+          <span class="example__label">示例</span>
+          <p>薇斯是浣熊族：手艺 2 而不是 1，外加抓握爪。创建时她第二项特质选回声定位：第一个钻进黑暗隧道的总是她。</p>
+        </div>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">03</span>
+          <h2 id="skills">技能</h2>
+        </div>
+
+        <p>十二项技能与主书相同；其中五项按这个世界改了名字。这个模组的角色卡使用这些名字。</p>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>十二项技能</caption>
+            <thead><tr><th scope="col">技能</th><th scope="col">属性</th><th scope="col">覆盖什么</th><th scope="col">核心规则中的名字</th></tr></thead>
+            <tbody>
+              <tr><td><strong>力量</strong></td><td>力量</td><td>举起、推动、破坏、顶住门。</td><td>力量</td></tr>
+              <tr><td><strong>武斗</strong></td><td>力量</td><td>拳、爪、牙、擒抱，手边抓到什么。</td><td>近战</td></tr>
+              <tr><td><strong>耐力</strong></td><td>力量</td><td>长途跋涉、寒冷、毒、病、腐烂。</td><td>耐力</td></tr>
+              <tr><td><strong>射击</strong></td><td>敏捷</td><td>弓、短铳、投掷、仔细瞄准。</td><td>射击</td></tr>
+              <tr><td><strong>体操</strong></td><td>敏捷</td><td>攀爬、平衡、滑翔、落地、钻过缝隙。</td><td>灵活</td></tr>
+              <tr><td><strong>潜行</strong></td><td>敏捷</td><td>不被发现地移动、掩盖气味、无声跟踪。</td><td>潜行</td></tr>
+              <tr><td><strong>手艺</strong></td><td>智识</td><td>废料、修理、陷阱、机械、让机器开口。</td><td>手艺</td></tr>
+              <tr><td><strong>观察</strong></td><td>智识</td><td>察觉、追踪、搜查废墟、读懂一个房间。</td><td>观察</td></tr>
+              <tr><td><strong>生存</strong></td><td>智识</td><td>天气、水、食物、营地、穿过腐烂的安全路线。</td><td>生存</td></tr>
+              <tr><td><strong>兽语</strong></td><td>共情</td><td>安抚、骑乘、引导野兽——以及理解一切更像野兽而非人的东西。</td><td>洞察</td></tr>
+              <tr><td><strong>医学</strong></td><td>共情</td><td>伤口、毒、发热，以及让某人活到天亮。</td><td>医学</td></tr>
+              <tr><td><strong>说服</strong></td><td>共情</td><td>交易、契约、威胁、谎言，以及劝住一个部族不要开战。</td><td>说服</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>投掷没变：技能等级加属性，按桌面选择的版本。专长与主书相同，花费 10 点经验。拥有野兽专长的英雄——循气味追踪、骑战猪、处理蜂巢——照常获得它的加值。</p>
+
+        <div class="warn">
+          <span class="warn__label">兽语不是缰绳</span>
+          <p>野兽不会服从一次好投掷；它做野兽会做的事。兽语买到的是理解与片刻合作——它不会把野生动物变成仆人，也不会在同一只受惊动物身上一场戏内生效两次。</p>
+        </div>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">04</span>
+          <h2 id="bio">生物变异</h2>
+        </div>
+
+        <p>生物变异写进身体，并留在那里。它始终开启，也躲不过仔细看的人。每个变异者从两项开始；也可以选一项生物加一项灵能。</p>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>生物变异与阶</caption>
+            <thead><tr><th scope="col">变异</th><th scope="col">I 阶</th><th scope="col">II 阶</th><th scope="col">III 阶</th></tr></thead>
+            <tbody>
+              <tr><td><strong>爪</strong></td><td>天生武器，贴身，伤害 1。</td><td>用爪武斗 +1 骰。</td><td>伤害 2。</td></tr>
+              <tr><td><strong>獠牙</strong></td><td>咬，贴身，伤害 2。</td><td>对被擒抱目标 +1 伤害。</td><td>伤害 3。</td></tr>
+              <tr><td><strong>厚皮</strong></td><td>护甲 1。</td><td>护甲 2。</td><td>护甲 3。</td></tr>
+              <tr><td><strong>蹼膜</strong></td><td>坠落伤害减半；滑翔一个区域。</td><td>两个区域，坠落伤害仍减半。</td><td>三个区域，落地无需投掷。</td></tr>
+              <tr><td><strong>鳃</strong></td><td>水下呼吸；以步行速度游泳。</td><td>水中体操 +1 骰。</td><td>深度与时间都不受限。</td></tr>
+              <tr><td><strong>尾巴</strong></td><td>平衡与攀爬体操 +1 骰；可夹住轻物。</td><td>+2 骰；可不用手悬挂。</td><td>可用尾巴开枪，−2。</td></tr>
+              <tr><td><strong>夜眼</strong></td><td>无视微光的 −2。</td><td>黑暗中观察 +1 骰。</td><td>全黑中也能看见。</td></tr>
+              <tr><td><strong>再生</strong></td><td>每班多恢复 1 点伤害。</td><td>每班恢复 2 点。</td><td>D6 天内长出失去的肢体。</td></tr>
+              <tr><td><strong>弹簧腿</strong></td><td>每轮可多跳一个区域。</td><td>两个区域。</td><td>从任意高度落地无需投掷。</td></tr>
+              <tr><td><strong>孢子囊</strong></td><td>每场一次填满所在区域：其他人一轮内 −2。</td><td>每场两次。</td><td>还会致盲：慢动作加体操检定才能睁眼。</td></tr>
+              <tr><td><strong>骨片</strong></td><td>对远程攻击护甲 1。</td><td>护甲 2；骨片不妨碍游泳。</td><td>护甲 3，且无法被击倒。</td></tr>
+              <tr><td><strong>蜘蛛腺</strong></td><td>贴身吐网：目标被粘住，需体操才能挣脱。</td><td>可吐到短距。</td><td>能缠住大型野兽；需一场戏才能咬穿。</td></tr>
+              <tr><td><strong>回声定位</strong></td><td>无视全黑的 −2。</td><td>黑暗中观察 +1 骰，并知道目标的准确位置。</td><td>可“看见”薄墙后与水中。</td></tr>
+              <tr><td><strong>白蚁颚</strong></td><td>一轮咬穿木头。</td><td>一班咬穿石头或金属。</td><td>一场戏穿墙，留下一个洞。</td></tr>
+              <tr><td><strong>毒囊</strong></td><td>獠牙或爪带毒：目标投耐力，否则一轮内 −1。</td><td>检定难度 +1。</td><td>失败则目标麻痹一轮。</td></tr>
+              <tr><td><strong>翼褶</strong></td><td>无需投掷滑翔两个区域。</td><td>每场一次飞短距。</td><td>飞中距；空中体操 +1 骰。</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>天生武器用武斗，不计负重，也无法被夺走——但也不能交给同伴。皮甲不与穿戴护甲叠加：取较好的一项。</p>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">05</span>
+          <h2 id="psi">灵能变异与气场</h2>
+        </div>
+
+        <p>灵能变异是心智伸到身体之外。使用是慢动作，且不花代价：魔法的代价是精神错乱，骰上每颗 1 加 1 点。气场与灵能无关。投智识加能力阶：I、II、III 阶在经典版是 +1、+2、+3 颗骰，现代版是 d6、d8、d10。一个成功就够；多余成功按与主持人的约定购买伤害、目标数或持续时间。</p>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>灵能变异</caption>
+            <thead><tr><th scope="col">能力</th><th scope="col">距离</th><th scope="col">效果</th></tr></thead>
+            <tbody>
+              <tr><td><strong>火花</strong></td><td>短距</td><td>伤害 1 加阶。穿金属的目标失去下一个快动作。</td></tr>
+              <tr><td><strong>火焰</strong></td><td>短距</td><td>伤害 2，区域内可燃物起火。</td></tr>
+              <tr><td><strong>黏液泡</strong></td><td>短距</td><td>对抗体操：目标被粘住，需慢动作加力量检定才能脱身。对自己使用可减缓坠落。</td></tr>
+              <tr><td><strong>念力</strong></td><td>中距</td><td>举起并移动不超过自身体重的物体。III 阶可将其掷出，造成 2 伤害。</td></tr>
+              <tr><td><strong>菌丝网</strong></td><td>短距</td><td>区域内孢子云：里面所有人一轮内所有投掷 −2。</td></tr>
+              <tr><td><strong>收拢血肉</strong></td><td>贴身</td><td>每个成功治疗 1 点伤害，自己或他人。不处理重伤与精神错乱。</td></tr>
+              <tr><td><strong>兽之召唤</strong></td><td>长距</td><td>召唤附近一只野兽；它执行简单命令一场戏，然后离开。</td></tr>
+              <tr><td><strong>闪烁</strong></td><td>短距</td><td>踏入看得见的区域，穿过中间的一切。</td></tr>
+              <tr><td><strong>他人之手</strong></td><td>短距</td><td>开锁、从手中取物、扣动扳机。对抗他人意志时投智识对抗。</td></tr>
+              <tr><td><strong>无声尖叫</strong></td><td>短距</td><td>无声打击神经：目标以共情对抗你的阶，否则失去快动作。</td></tr>
+              <tr><td><strong>恐惧气味</strong></td><td>短距</td><td>嗅到恐惧、谎言与疾病：对距离内目标洞察 +2 骰。</td></tr>
+              <tr><td><strong>虫群</strong></td><td>短距</td><td>召来虫群：区域内所有人投掷 −1，直到驱散（一个动作加力量检定）。</td></tr>
+              <tr><td><strong>皮肤伪装</strong></td><td>自身</td><td>皮肤与衣物变成环境色：潜行 +2 骰直到回合结束。</td></tr>
+              <tr><td><strong>内心之声</strong></td><td>中距</td><td>向同伴传递一个念头或画面；他可回一个字。敌人听不见。</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div data-psychosis-table></div>
+
+        <h3>气场</h3>
+        <p>气场是世界对你的看法，而且看得见：从 −5 到 +5，起始为 0。它不是资源，而是世界的意见：魔法和灵能都不影响它。你做了世界会记住的事，它才移动。</p>
+
+        <ul>
+          <li><strong>饶过败者、治疗外人、守诺：</strong>气场 +1。</li>
+          <li><strong>杀害无力者、抛下同伴：</strong>气场 −1。</li>
+          <li><strong>违背誓言：</strong>气场 −2。</li>
+        </ul>
+
+        <div class="grid-2">
+          <div class="rule">
+            <span class="rule__label">光明气场（+1…+5）</span>
+            <p>对野兽、部族和听说过你的定居者，兽语与说服 +1 骰。动物会靠近，而不是逃跑。</p>
+          </div>
+          <div class="rule">
+            <span class="rule__label">黑暗气场（−1…−5）</span>
+            <p>对已经见过你流血的敌人，武斗与射击 +1 骰。兽语 −1 骰：野兽记得你。</p>
+          </div>
+        </div>
+
+        <p>气场在引发它的行动之后改变，从不在行动之中。与英雄相处超过几分钟的人都能读出来，主持人也可以据此决定部族是否开城门。</p>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">06</span>
+          <h2 id="traits">兽性特质</h2>
+        </div>
+
+        <p>特质是身体与本能的小而持久的优势。英雄有两项：一项来自血脉，一项在创建时自由选择。之后还可以用经验再买一项。</p>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>兽性特质</caption>
+            <thead><tr><th scope="col">特质</th><th scope="col">效果</th></tr></thead>
+            <tbody>
+              <tr><td><strong>抓握爪</strong></td><td>处理精细机械、锁与电线时手艺 +1 骰。</td></tr>
+              <tr><td><strong>掘地者</strong></td><td>挖松软泥土；慢动作可钻到地下一个区域，避开视线。</td></tr>
+              <tr><td><strong>弹簧脚跟</strong></td><td>跳跃与落地体操 +1 骰；坠落伤害减半。</td></tr>
+              <tr><td><strong>死咬</strong></td><td>咬住不放：被你击中的目标必须以力量对抗，才能离开。</td></tr>
+              <tr><td><strong>中空骨</strong></td><td>攀爬与滑翔体操 +1 骰；对抗钝击伤害时耐力 −1 骰。</td></tr>
+              <tr><td><strong>冷血</strong></td><td>对抗寒冷、毒与疾病时耐力 +1 骰。</td></tr>
+              <tr><td><strong>灵敏鼻</strong></td><td>循气味追踪时观察 +1 骰。</td></tr>
+              <tr><td><strong>回声定位</strong></td><td>黑暗中你能无惩罚地感知贴身与短距内的一切。</td></tr>
+              <tr><td><strong>软爪</strong></td><td>以步行或更慢速度移动时潜行 +1 骰；不会留下值得跟的足迹。</td></tr>
+              <tr><td><strong>群感</strong></td><td>你帮助别人时 +1 骰，别人帮助你时也 +1 骰。</td></tr>
+              <tr><td><strong>冲锋</strong></td><td>若你至少直线移动一个区域冲向目标，本轮第一次武斗 +1 伤害。</td></tr>
+              <tr><td><strong>夜猎者</strong></td><td>黑暗中你能无惩罚地看见短距；全黑中只能看见轮廓。</td></tr>
+              <tr><td><strong>浮力</strong></td><td>你不会沉入水与泥，也能在水中等待而不耗气。</td></tr>
+              <tr><td><strong>铁胃</strong></td><td>对抗毒与腐坏食物时耐力 +1 骰；腐肉对你来说是食物。</td></tr>
+              <tr><td><strong>听地</strong></td><td>把耳朵贴在地上，能感到长距外的脚步，并知道有多少。</td></tr>
+              <tr><td><strong>群声</strong></td><td>每场一次，无需兽语检定即可向群族或野兽下命令。</td></tr>
+              <tr><td><strong>血腥味</strong></td><td>你嗅得到短距内的伤员，并知道他们往哪去了。</td></tr>
+              <tr><td><strong>卷尾</strong></td><td>挂在尾巴上时，你可以用一只手行动且无惩罚。</td></tr>
+              <tr><td><strong>浅眠</strong></td><td>任何声音都能把你唤醒，睡醒后的第一轮没有惩罚。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">07</span>
+          <h2 id="creation">创造变异者</h2>
+        </div>
+
+        <p>创建分七步，前四步几乎决定英雄在桌边会成为什么样的人。</p>
+
+        <ol>
+          <li><strong>血脉。</strong>选一条。取得它的技能等级与特质。</li>
+          <li><strong>属性。</strong>经典版十四点，每项 2–5；或现代版四项全为 C，三次提升——与玩家手册完全一致。</li>
+          <li><strong>技能。</strong>十点。经典版任何技能不超过 3，现代版不超过 B。至少三项技能要留在 0：什么都会的变异者，还没决定自己是谁。</li>
+          <li><strong>变异。</strong>两项生物变异，或一项生物加一项灵能。灵能从 I 阶开始。</li>
+          <li><strong>第二特质。</strong>从兽性特质一章再选一项。</li>
+          <li><strong>气场、部族、名字。</strong>气场从 0 开始。说出养大英雄的部族，以及他留在身后的唯一一样东西。</li>
+          <li><strong>装备。</strong>每手一件武器或一件双手武器，部族有护甲就给护甲，再加八件普通物品。负重等于力量的两倍（经典）或力量骰的骰面（现代）；背包使其翻倍，代价是体操 −2。</li>
+        </ol>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>经验花费</caption>
+            <thead><tr><th scope="col">项目</th><th scope="col" class="num">经验</th></tr></thead>
+            <tbody>
+              <tr><td>新技能 1 级 / D 阶</td><td class="num">5</td></tr>
+              <tr><td>提升技能（同主书）</td><td class="num">5 / 10 / 15 / 20 / 25</td></tr>
+              <tr><td>新生物变异 I 阶</td><td class="num">10</td></tr>
+              <tr><td>变异提升到 II / III 阶</td><td class="num">10 / 15</td></tr>
+              <tr><td>新兽性特质</td><td class="num">15</td></tr>
+              <tr><td>新专长</td><td class="num">10</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>变异是养出来的，不是捡来的：提升需要一周的发热、饥饿和在安全处睡眠，主持人可以在结束时要求一次耐力检定。失败不扣经验——改变只是再多要一周。</p>
+
+        <div class="rule">
+          <span class="rule__label">一句话的变异者</span>
+          <p>决定身体变成了什么，决定心智能从中推出什么，把剩下的全花在养活部族的技能上。</p>
+        </div>
+      </section>
+
+      <nav class="pager" aria-label="章节">
+        <a class="pager__link" data-pager="prev" href="#world"><span></span><b data-pager-label></b></a>
+        <a class="pager__link pager__link--next" data-pager="next" href="#lineages"><span></span><b data-pager-label></b></a>
+      </nav>
+
+      <footer class="colophon">
+        <p data-str="note"></p>
+        <p>核心规则：<a href="player-book.zh.html">玩家手册</a>与<a href="master-book.zh.html">主持人手册</a>。世界：<a href="lore.zh.html">蔓生世界设定</a>。本模组的角色卡：<a href="character.html?lang=zh">角色卡</a>。</p>
+      </footer>
+    </div>
+  </main>
+</div>
+  <script src="assets/psychosis-table.js" defer></script>
+</body>
+</html>

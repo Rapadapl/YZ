@@ -804,6 +804,103 @@ html[data-system="modern"] [data-system="classic"] { display: none !important; }
   .home__section ul { columns: 1; }
 }
 
+/* ---------- phones ------------------------------------------------------ */
+
+@media screen and (max-width: 46rem) {
+  .rail-toggle {
+    top: 0.55rem;
+    left: 0.55rem;
+    min-height: 2.75rem;
+    padding: 0.6rem 0.85rem;
+    font-size: 0.78rem;
+  }
+
+  .rail { width: min(22rem, 92vw); padding: 1.2rem 1rem 1rem; }
+  .rail__search input { padding-block: 0.7rem; font-size: 1rem; }
+  .toc { font-size: 1rem; }
+  .toc li + li { margin-top: 0.15rem; }
+  .toc a { padding: 0.55rem 0.45rem 0.55rem 0.1rem; }
+  .rail__foot .btn { min-height: 2.75rem; padding: 0.55rem 0.8rem; }
+  .rail__foot .lang-switch a,
+  .rail__foot .lang-switch span { display: inline-flex; align-items: center; min-height: 2.75rem; padding-inline: 0.7rem; }
+
+  .book__inner { padding: 0 0.95rem; }
+  .masthead { padding-top: 4.2rem; }
+  .masthead h1 { font-size: clamp(1.8rem, 8.6vw, 2.5rem); line-height: 1.07; }
+  .masthead__lead { font-size: 1.05rem; }
+  .chapter { padding-top: 2rem; margin-top: 2rem; }
+  .chapter__head { gap: 0 0.6rem; }
+  .chapter h2 { font-size: clamp(1.3rem, 5.6vw, 1.6rem); }
+  h3 { font-size: 1.05rem; margin-top: 1.6rem; }
+  .rule,
+  .warn,
+  .example { padding: 0.8rem 0.9rem; }
+  .example { font-size: 0.92rem; }
+  .die { white-space: normal; }
+  .pager { flex-direction: column; gap: 0.8rem; }
+  .pager__link { max-width: 100%; }
+  .pager__link--next { text-align: left; margin-left: 0; }
+  .colophon { margin-top: 2rem; }
+
+  .home__head { padding: 0.9rem 1rem; gap: 0.6rem 1rem; }
+  .lang-switch .btn { min-height: 2.5rem; padding-inline: 0.8rem; }
+  .home__hero { padding: 2rem 1rem 1.6rem; }
+  .home__hero h1 { font-size: clamp(1.9rem, 9vw, 3rem); }
+  .home__hero p { font-size: 1.05rem; }
+  .book-card { padding: 1.4rem 1.05rem; }
+  .home__section { padding: 1.6rem 1.05rem; }
+  .home__foot { padding: 1.1rem 1.05rem; }
+
+  .tbl-wrap {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+  }
+}
+
+/* Wide reference tables become labelled cards instead of a sideways scroll.
+   book.js copies each column heading into data-label on its cells. */
+
+@media screen and (max-width: 34rem) {
+  .tbl-wrap { overflow: visible; margin: 1rem 0 1.3rem; }
+  .tbl,
+  .tbl tbody,
+  .tbl tr,
+  .tbl td { display: block; width: 100%; }
+  .tbl { font-size: 0.95rem; }
+  .tbl thead { display: none; }
+
+  .tbl tr {
+    margin: 0 0 0.7rem;
+    padding: 0.3rem 0.1rem;
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 0.5rem;
+  }
+  .tbl tbody tr:nth-child(even) { background: var(--paper-raised); }
+
+  .tbl td {
+    display: grid;
+    grid-template-columns: minmax(6.5rem, 38%) minmax(0, 1fr);
+    gap: 0.15rem 0.6rem;
+    padding: 0.3rem 0.7rem;
+    border-bottom: 1px solid var(--line-soft);
+    text-align: left;
+  }
+  .tbl tr td:last-child { border-bottom: 0; }
+  .tbl td::before {
+    content: attr(data-label);
+    font-family: var(--font-display);
+    font-size: 0.62rem;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .tbl td.num,
+  .tbl th.num { text-align: left; }
+  .tbl caption { display: block; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
@@ -841,7 +938,9 @@ html[data-system="modern"] [data-system="classic"] { display: none !important; }
 /* ---------- bestiary ---------- */
 
 .bestiary-page .edition,
-.bestiary-page .edition__note { display: none; }
+.bestiary-page .edition__note,
+.prices-page .edition,
+.prices-page .edition__note { display: none; }
 
 .beasts {
   display: grid;
@@ -852,6 +951,13 @@ html[data-system="modern"] [data-system="classic"] { display: none !important; }
 
 @media (max-width: 760px) {
   .beasts { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 30rem) {
+  .beasts { gap: 0.7rem; margin: 1rem 0 1.6rem; }
+  .beast { padding: 0.75rem 0.8rem 0.85rem; }
+  .beast__stats { gap: 0.25rem; }
+  .beast .stat { font-size: 0.8rem; }
 }
 
 .beast {

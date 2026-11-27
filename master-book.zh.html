@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>主持人手册 — 根与爪</title>
+<meta name="description" content="《根与爪》主持人手册：战斗与先攻、伤害与护甲、伤害系统、危险、载具与追逐、魔法与旅行——经典 d6 与现代分级骰两种版本。">
+<link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/book.css">
+<script src="assets/i18n.js" defer></script>
+<script src="assets/book.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main"></a>
+<div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+<button class="rail-toggle" type="button" aria-expanded="false" aria-controls="rail" data-str="openMenu"></button>
+<button class="scrim" type="button" hidden aria-label="关闭目录"></button>
+
+<div class="shell">
+  <aside class="rail" id="rail" data-open="false" aria-label="目录">
+    <div class="rail__brand">
+      <span class="rail__brand-mark">根与爪</span>
+      <a class="rail__brand-title" href="master-book.zh.html" data-str="masterBook"></a>
+      <span class="rail__brand-sub">核心规则</span>
+    </div>
+
+    <div class="rail__search">
+      <label class="visually-hidden" for="toc-search" data-str-aria="searchLabel"></label>
+      <input id="toc-search" type="search" autocomplete="off" data-toc-search data-str-placeholder="searchPlaceholder">
+      <span class="rail__search-key" aria-hidden="true">/</span>
+    </div>
+
+    <nav aria-label="目录">
+      <ul class="toc" id="toc"></ul>
+    </nav>
+
+    <div class="rail__foot">
+      <div class="lang-switch" data-lang-switch>
+        <a href="master-book.html" lang="en" hreflang="en" data-alt-lang="master-book.html">EN</a>
+        <a href="master-book.ru.html" lang="ru" hreflang="ru" data-alt-lang="master-book.ru.html">RU</a>
+        <span aria-current="true">中文</span>
+      </div>
+      <a class="btn" href="index.zh.html" data-str="library"></a>
+      <a class="btn" href="module.zh.html" data-str="moduleNav"></a>
+      <a class="btn" href="player-book.zh.html" data-str="playerBook"></a>
+      <a class="btn" href="character.html?lang=zh" data-str="sheet"></a>
+      <button class="btn" type="button" data-print data-str="print"></button>
+      <button class="btn" type="button" data-close></button>
+    </div>
+  </aside>
+
+  <main class="book" id="main">
+    <div class="book__inner">
+      <header class="masthead">
+        <p class="masthead__book">根与爪 · 核心规则</p>
+        <h1>主持人手册</h1>
+        <p class="masthead__lead">主持人运行规则：暴力如何裁定、代价多少、魔法如何弯折世界，以及道路会向走在上面的人索取什么。</p>
+
+        <dl class="variants">
+          <div data-system="classic">
+            <dt>经典版</dt>
+            <dd>d6 骰池。伤害是点数，护甲是骰子，伤口按格计算：英雄 10 格，野兽用“血”。</dd>
+          </div>
+          <div data-system="modern">
+            <dt>现代版</dt>
+            <dd>分级骰 A 到 D。伤害与护甲用阶与可靠度表示，同样的伤害也可以用状态支付。</dd>
+          </div>
+        </dl>
+      </header>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">01</span>
+          <h2 id="running">如何主持游戏</h2>
+        </div>
+
+        <p>结果不确定且代价真实时才投骰。若一个称职的角色本就会成功——说“是”，继续；若动作不可能——说出来，给出另一条路。其余才是检定。</p>
+
+        <h3>如何定难度</h3>
+        <p>通常主持人根本不评难度：只在困难情境下投骰。外部环境明显帮助或妨碍时，用下表。修正叠加，并在投掷前说明。</p>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>难度</caption>
+            <thead><tr><th scope="col">难度</th><th scope="col" class="num">修正</th><th scope="col">典型情境</th></tr></thead>
+            <tbody>
+              <tr><td>极简</td><td class="num">+3</td><td>没有压力、好工具、时间充裕</td></tr>
+              <tr><td>简单</td><td class="num">+2</td><td>条件有利，轻微干扰</td></tr>
+              <tr><td>容易</td><td class="num">+1</td><td>稍微偏向角色</td></tr>
+              <tr><td>普通</td><td class="num">0</td><td>两个熟练者对抗</td></tr>
+              <tr><td>有挑战</td><td class="num">−1</td><td>光线差、工具差、天气差</td></tr>
+              <tr><td>困难</td><td class="num">−2</td><td>敌对环境、自制装备</td></tr>
+              <tr><td>严峻</td><td class="num">−3</td><td>一切都对着你，而且所有人都知道</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>修正，经典版</h3>
+        <p>+1 修正是一颗额外基础骰，+2 是两颗，以此类推。多个修正叠加。加减骰永远先动技能骰；技能骰不够，再动装备骰；装备也没有了，才动属性骰。若一颗骰都不剩，就没有成功机会：该换计划了。</p>
+
+        <div class="variant" data-system="modern">
+          <b>现代版</b>
+          这里 +1 修正把基础骰提升一阶，+2 提升两阶，−1 降低一阶。尽量让两颗骰平衡：先升较小骰，降较大骰。不能高于两颗 d12；要降到低于两颗 d6，就移除一颗——不会低于一颗 d6。没有技能、只投一颗基础骰时，升一阶就是加一颗 d6。
+        </div>
+
+        <h3>优势与劣势，现代版</h3>
+        <p>可以用优势与劣势代替数字修正。优势加第三颗与两颗中较小者同型的骰；劣势移除较小骰，只留一颗。二者一一抵消，抵消后仍只有一种生效。投掷仍可推进。</p>
+
+        <h3>协助</h3>
+        <p>另一个角色若身体在旁且能影响结果，可以协助；须在投掷前声明。每名协助者 +1，最多 +3——超过三人不再有帮助。战斗中协助消耗与被协助动作同类型（慢或快）的动作。NPC 之间也完全一样。</p>
+
+        <h3>对抗</h3>
+        <p>要赢对抗投掷，成功数必须多于对方：一方每个成功抵消另一方一个成功。只有主动方可以推进，且可以在看到对方投掷后决定。平局则无事：主动方的动作通常失败；若需要胜者，重投。</p>
+
+        <h3>世界回应</h3>
+        <p>没有单独货币。每次推进，主持人用一个麻烦回应——武器卡壳、东西掉落、援兵到来。规模对应诅咒数量，这是常规事件而非储备：可能的麻烦清单必须对所有玩家清楚，否则它与普通主持之间的界线就模糊了。</p>
+
+        <h3>主持人的角色</h3>
+        <p>NPC 使用与玩家角色相同的技能，也可以推进投掷。主持人只在 NPC 的行动直接影响玩家角色时投骰；其余时候直接决定发生了什么。一群相同 NPC 共用一张先攻牌就够。</p>
+
+        <div class="rule">
+          <span class="rule__label">让遭遇保持鲜活的一条规则</span>
+          <p>失败推动故事。失败的投掷必须留下继续的路——代价是时间、风险或资源，但要有路。门开了，但很响；足迹找到了，但灯灭了；谈判失败，现在有人欠了某个人情。</p>
+        </div>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">02</span>
+          <h2 id="combat">战斗</h2>
+        </div>
+
+        <p>战斗在划分为区域的图上进行——房间、走廊、从几步到约 25 米的一片地。战斗按约 5–10 秒一轮进行，每名参与者每轮按先攻顺序行动一次。</p>
+
+        <h3>区域及其特点</h3>
+        <ul>
+          <li><strong>杂乱：</strong>进入该区域需投灵活；失败则进入但倒地。</li>
+          <li><strong>微光：</strong>区域内观察 −2，对该区域的远程攻击 −2，攻击不能穿过它。</li>
+          <li><strong>狭窄：</strong>只能爬行，不能奔跑，也不能越过身边站着的人移动或射击。</li>
+        </ul>
+        <p>区域之间的边界或开放，或被墙封闭；封闭边界若有门或舱口（地图上会标明），它会挡住视线——除非站在开口处探头。</p>
+
+        <h3>距离类别</h3>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>对手之间的距离</caption>
+            <thead><tr><th scope="col">距离</th><th scope="col">描述</th></tr></thead>
+            <tbody>
+              <tr><td>贴身</td><td>就在旁边</td></tr>
+              <tr><td>近距</td><td>几米，同一区域</td></tr>
+              <tr><td>中距</td><td>至多 25 米，相邻区域</td></tr>
+              <tr><td>远距</td><td>约一百米（四个区域）</td></tr>
+              <tr><td>极远</td><td>约一公里</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>先攻</h3>
+        <p>取十张数字 1 到 10 的牌——普通牌组，去掉花牌，A 算 1。每名参与者抽一张，主持人为每个 NPC 或 NPC 群抽一张。从数字小的往大的行动，从 1 号牌开始。先攻只在战斗开始时抽一次：顺序保持整场，所以快速角色不会丢掉位置。</p>
+        <ul>
+          <li><strong>突袭：</strong>以完全意外的攻击开战者，可以任选一张先攻牌代替随机抽取；其他所有人，包括同伴，照常抽。</li>
+          <li><strong>埋伏：</strong>若袭击者准备充分，每个受害者投观察 −2。失败者随机拿低牌，10 号及以下。</li>
+          <li><strong>交换先攻：</strong>自己回合、行动之前，可以与本轮尚未行动的角色交换牌。对方不能拒绝，并立即行动；同一轮不能再次交换。</li>
+          <li><strong>隐藏先攻：</strong>不确定性的变体——牌面朝下，每轮开始时重抽。</li>
+        </ul>
+
+        <h3>回合</h3>
+        <p>角色得到一个慢动作和一个快动作，或两个快动作。把东西掉在地上或喊两句话是自由动作：不花代价，但仅限自己回合。帮助别人消耗与被协助动作同类型的动作。</p>
+
+        <div class="grid-2">
+          <div>
+            <h4>慢动作</h4>
+            <div class="tbl-wrap">
+              <table class="tbl">
+                <thead><tr><th scope="col">动作</th><th scope="col">需要</th><th scope="col">技能</th></tr></thead>
+                <tbody>
+                  <tr><td>爬行</td><td>倒地</td><td>—</td></tr>
+                  <tr><td>近战攻击</td><td>—</td><td>近战</td></tr>
+                  <tr><td>远程射击</td><td>远程武器</td><td>射击</td></tr>
+                  <tr><td>装填</td><td>火器</td><td>—</td></tr>
+                  <tr><td>急救</td><td>崩溃或濒死</td><td>医学</td></tr>
+                  <tr><td>说服</td><td>对手听得见你</td><td>说服</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div>
+            <h4>快动作</h4>
+            <div class="tbl-wrap">
+              <table class="tbl">
+                <thead><tr><th scope="col">动作</th><th scope="col">需要</th><th scope="col">技能</th></tr></thead>
+                <tbody>
+                  <tr><td>奔跑</td><td>贴身无敌人</td><td>杂乱区域用灵活</td></tr>
+                  <tr><td>穿过门或舱口</td><td>—</td><td>—</td></tr>
+                  <tr><td>起身</td><td>倒地</td><td>—</td></tr>
+                  <tr><td>拔出武器</td><td>—</td><td>—</td></tr>
+                  <tr><td>格挡攻击</td><td>遭近战攻击</td><td>近战</td></tr>
+                  <tr><td>擒抱中攻击</td><td>你抓住对手</td><td>近战</td></tr>
+                  <tr><td>后撤</td><td>敌人贴身</td><td>灵活</td></tr>
+                  <tr><td>瞄准</td><td>远程武器</td><td>—</td></tr>
+                  <tr><td>找掩体</td><td>同区域有掩体</td><td>—</td></tr>
+                  <tr><td>上车或下车</td><td>载具</td><td>—</td></tr>
+                  <tr><td>发动引擎</td><td>载具</td><td>—</td></tr>
+                  <tr><td>坐到驾驶位</td><td>载具</td><td>—</td></tr>
+                  <tr><td>驾驶</td><td>载具</td><td>灵活</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <h3>移动</h3>
+        <p>快动作让你移动到相邻区域，或在同区域内“近距”与“贴身”之间移动。区域不杂乱则无需投掷。爬行是慢动作，所以一轮不能爬两次；在狭窄区域，这是唯一可行的移动。普通木门或舱口承受 5 点伤害；更结实的还有护甲值。</p>
+        <p>后撤：若敌人贴身且中间没有障碍，离开需要投灵活。失败时你仍离开，但敌人立刻获得一次免费近战攻击——不消耗其动作，也不能格挡。</p>
+
+        <h3>潜行攻击</h3>
+        <p>悄悄靠近再动手就是潜行攻击。投潜行 −2 以进入近战距离。失败则敌人发现你——抽先攻。成功则攻击视为突袭：你选择先攻牌，近战攻击 +3，目标不能格挡。潜行攻击永远是一对一。</p>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">03</span>
+          <h2 id="attacks">攻击与伤害</h2>
+        </div>
+
+        <p>攻击是用武器进行的技能检定。近战在“贴身”距离使用近战技能，中间无障碍。远程攻击使用射击；投掷武器用灵活。成功即命中，额外成功表示打得更重。</p>
+
+        <h3>近战</h3>
+        <p>掩体不防近战。命中造成武器基础伤害，每个多余成功 +1。攻击毫无防备或未察觉的目标 +3，即使目标倒地也不再加。特殊手法在投掷前声明，且只能徒手：夺下手中物品、击倒、推到“近距”，或擒抱。成功擒抱使双方倒地，对手掉落武器且不能移动；他唯一的选择是慢动作近战对抗以挣脱，而你可以进行擒抱攻击：快速徒手攻击，不能格挡。冲撞是进入“贴身”那一轮的徒手打击：+2，命中则双方倒地，失手则只有你倒地。</p>
+
+        <h3>格挡</h3>
+        <p>遭近战攻击时，在攻击者投掷前可声明格挡并投近战——攻击变成对抗投掷。你每个成功抵消攻击者一个成功，多余成功无效。格挡是快动作，消耗本轮两个动作之一。徒手只能格挡其他类人生物的徒手攻击；对抗武器或野兽需要一件结实的东西。</p>
+
+        <h3>远程战斗</h3>
+        <p>拔武器是快动作，射击是慢动作。武器距离是它能使用的最大类别。</p>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>远程修正</caption>
+            <thead><tr><th scope="col">情形</th><th scope="col" class="num">修正</th></tr></thead>
+            <tbody>
+              <tr><td>瞄准射击</td><td class="num">+2</td></tr>
+              <tr><td>目标贴身</td><td class="num">−3；若其无防备则 +3</td></tr>
+              <tr><td>近距</td><td class="num">0</td></tr>
+              <tr><td>中距</td><td class="num">−1</td></tr>
+              <tr><td>远距</td><td class="num">−2</td></tr>
+              <tr><td>极远</td><td class="num">−3</td></tr>
+              <tr><td>大型目标，如车辆</td><td class="num">+2</td></tr>
+              <tr><td>小型目标，如舱口</td><td class="num">−2</td></tr>
+              <tr><td>微光</td><td class="num">−1</td></tr>
+              <tr><td>黑暗</td><td class="num">−2</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>瞄准是快动作，给下一次射击 +2。瞄准后若做了射击以外的事或受伤，瞄准丢失，需要重新花费。带瞄准镜可以慢动作瞄准，再 +1，共 +3，但同轮不能既慢速瞄准又射击。对看不见的目标，若大致知道位置，可以 −2 射击。</p>
+
+        <h3>自动射击</h3>
+        <p>连发按普通远程攻击处理，但命中后可立即再次攻击，同一或另一目标；若再次命中——第三次，之后结束。所有攻击后投一次弹药储备。</p>
+        <p><strong>弹药骰（可选）。</strong>所有火器都有射速：手枪 2，自动武器 5–6。加至多等于射速的弹药骰，或弹匣内子弹数减一——取较小者；只剩一发时不能加。弹药骰上的 6 是成功，但不帮助命中：若攻击按基础骰命中，每个弹药成功要么使伤害升一阶，要么对同区域同一或相邻目标追加一次命中。消耗为所有弹药骰点数之和加一。</p>
+
+        <h3>守备扇区</h3>
+        <p>用快动作，持远程武器且贴身无敌人时，可以守备一个方向。到下一轮自己回合前，你可以在任意时机向该方向的目标射击，甚至早于已声明的行动。射击是普通攻击并消耗你的慢动作，所以要留着。若两人互相守备并同时开火，用射击对抗决定谁先；不消耗动作。做了别的事、遭近战攻击或受伤，守备丢失。</p>
+
+        <h3>武器</h3>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>武器参考</caption>
+            <thead>
+              <tr><th scope="col">武器</th><th scope="col">握持</th><th scope="col" class="num">加值</th><th scope="col" class="num">伤害</th><th scope="col">距离</th><th scope="col" class="num">重量</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>徒手</td><td>—</td><td class="num">—</td><td class="num">1</td><td>贴身</td><td class="num">—</td></tr>
+              <tr><td>重物</td><td>单手</td><td class="num">+1</td><td class="num">1</td><td>贴身</td><td class="num">1</td></tr>
+              <tr><td>刀</td><td>单手</td><td class="num">+1</td><td class="num">2</td><td>贴身</td><td class="num">½</td></tr>
+              <tr><td>棍棒</td><td>单手</td><td class="num">+2</td><td class="num">1</td><td>贴身</td><td class="num">1</td></tr>
+              <tr><td>剑</td><td>单手</td><td class="num">+2</td><td class="num">2</td><td>贴身</td><td class="num">1</td></tr>
+              <tr><td>战斧</td><td>双手</td><td class="num">+2</td><td class="num">3</td><td>贴身</td><td class="num">2</td></tr>
+              <tr><td>矛</td><td>单手</td><td class="num">+1</td><td class="num">2</td><td>近距</td><td class="num">1</td></tr>
+              <tr><td>石头</td><td>单手</td><td class="num">—</td><td class="num">1</td><td>中距</td><td class="num">¼</td></tr>
+              <tr><td>投石索</td><td>单手</td><td class="num">+1</td><td class="num">1</td><td>中距</td><td class="num">½</td></tr>
+              <tr><td>弓</td><td>双手</td><td class="num">+1</td><td class="num">1</td><td>远距</td><td class="num">1</td></tr>
+              <tr><td>手枪</td><td>单手</td><td class="num">+2</td><td class="num">2</td><td>中距</td><td class="num">½</td></tr>
+              <tr><td>步枪</td><td>双手</td><td class="num">+2</td><td class="num">2</td><td>远距</td><td class="num">1</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>加值是额外基础骰。它会被推进和伤害降低；降到零时武器损坏，需要手艺修理。现代版中装备改用可靠度：状况良好的结实机械通常为 5，每点伤害降一，直到损坏。</p>
+
+        <h3>伤害</h3>
+        <p>伤害等于武器伤害值，加上第一个成功之后每个成功 1 点。3 点命中造成 3 点生命损失，或给予状态——取决于选定的伤害系统。</p>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">04</span>
+          <h2 id="injuries">护甲、掩体与创伤</h2>
+        </div>
+
+        <p>伤害不是抽象的命中点，而是角色留在战斗中的代价。护甲与掩体会削减它，穿过来的部分决定角色还能不能站住。</p>
+
+        <h3>护甲</h3>
+        <p><b>经典：</b>护甲有数值——投那么多基础骰，每个成功减 1 点伤害。<b>现代版：</b>护甲有 A 到 D 的阶——投两颗该类型的基础骰。投掷不消耗动作，不能推进；自己推进造成的伤害不受护甲保护。</p>
+        <p>护甲磨损：若伤害仍穿过来，护甲骰上每个诅咒（1）使其阶降一。若护甲吸收了全部伤害，诅咒无效。修理需要一班工作并成功投手艺，每成功恢复 1 点，直至原值。</p>
+
+        <h3>掩体</h3>
+        <p>在所在区域找掩体是快动作。掩体有护甲值，运作与护甲相同，但只对远程攻击有效。它也会磨损，并与护甲叠加：先投掩体，再投护甲。</p>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>掩体</caption>
+            <thead><tr><th scope="col">障碍</th><th scope="col">护甲值</th></tr></thead>
+            <tbody>
+              <tr><td>家具</td><td>3 / D</td></tr>
+              <tr><td>木门</td><td>4 / C</td></tr>
+              <tr><td>树干</td><td>5 / C</td></tr>
+              <tr><td>木墙</td><td>6 / B</td></tr>
+              <tr><td>石墙</td><td>8 / A</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>伤害系统</h3>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>三种为伤害付账的方式</caption>
+            <thead><tr><th scope="col">系统</th><th scope="col">伤害如何计算</th><th scope="col">何时崩溃</th></tr></thead>
+            <tbody>
+              <tr><td>伤口</td><td>单一池：英雄 10 格，野兽用“血”</td><td>池归零</td></tr>
+              <tr><td>属性伤害</td><td>降低被击中的属性</td><td>任一属性归零</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>伤口与精神错乱</h3>
+        <p>伤口就是生命。英雄 10 格；野兽或 NPC 用卡上的“血”，无卡的人为 10。1 点伤害占一格，格子填满则角色崩溃并受一次身体重伤。像“被打伤”或“眩晕”这样的状态是可选标记：每个使力量与敏捷检定 −1，但不使角色出局，数量不限。</p>
+        <p>心理由精神错乱承载，而不是第二条生命池。它因恐惧、冲击与魔法上升，通过冥想、睡眠与交谈下降，0–18 的区段在第 05 章描述。没有心理创伤或心理状态。</p>
+
+        <h3>崩溃与恢复</h3>
+        <p>崩溃的角色退出游戏：不能行动，不能投技能。生命不会低于零——后续伤害再给一次重伤。医学是慢动作，且只对崩溃者有效：每个成功移除 1 点伤口。角色每班自行恢复 1 点，前提是不饿、不渴、不冻；未崩溃者也一样恢复。</p>
+
+        <h3>重伤</h3>
+        <p>伤口（生命）归零时受重伤；若游戏使用属性伤害，则力量归零时受重伤。有些游戏用武器的致命阈值，或在两次以上成功的攻击时给重伤。唯一例外：自己推进造成的伤害永不造成重伤，所以不会因推进杀死自己。</p>
+
+        <h3>死亡</h3>
+        <p>致命伤会给出时限——一轮、一段或一班。时限到时进行死亡豁免：投耐力，不是动作。失败即死；成功则活到下一个时限，届时重投。</p>
+        <p>稳定伤势需要投医学，每次耗时与伤势时限相同。成功把时限提高一档——一轮到一段，一段到一班——而成功处理过、时限为一班的伤不再威胁生命。失败可以重试，但必须先再进行一次死亡豁免。同时崩溃又受致命伤的人需要两次独立的医学投掷，顺序随意。有些结果立即致死：没有豁免。</p>
+        <p>重伤有以天计的愈合时间，效果持续到愈合；多重伤同时愈合，永久伤永不愈合。技能减值叠加，即使没有技能也生效。若有人每天照顾一班并投医学，这一天算两天。可以治完全部伤害，却仍受重伤效果影响。</p>
+
+        <h3>身体重伤（D66）</h3>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>身体重伤</caption>
+            <thead><tr><th scope="col" class="num">D66</th><th scope="col">伤势</th><th scope="col">致命</th><th scope="col">效果</th><th scope="col">愈合</th></tr></thead>
+            <tbody>
+              <tr><td class="num">11</td><td>岔气</td><td>否</td><td>无</td><td>—</td></tr>
+              <tr><td class="num">12</td><td>震荡</td><td>否</td><td>无</td><td>—</td></tr>
+              <tr><td class="num">13</td><td>剧痛</td><td>否</td><td>无</td><td>—</td></tr>
+              <tr><td class="num">14</td><td>韧带拉伤</td><td>否</td><td>灵活 −2，移动为慢动作，直到成功投医学</td><td>—</td></tr>
+              <tr><td class="num">15</td><td>眼中充血</td><td>否</td><td>观察与射击 −2，直到成功投医学</td><td>—</td></tr>
+              <tr><td class="num">16</td><td>脑震荡</td><td>否</td><td>灵活 −2</td><td>D6</td></tr>
+              <tr><td class="num">21</td><td>耳朵被割掉</td><td>否</td><td>观察 −2</td><td>D6</td></tr>
+              <tr><td class="num">22</td><td>脚趾骨折</td><td>否</td><td>移动变为慢动作</td><td>D6</td></tr>
+              <tr><td class="num">23</td><td>手骨骨折</td><td>否</td><td>该手不能使用</td><td>D6</td></tr>
+              <tr><td class="num">24</td><td>牙齿被打掉</td><td>否</td><td>说服 −2</td><td>D6</td></tr>
+              <tr><td class="num">25</td><td>大腿被刺穿</td><td>否</td><td>移动变为慢动作</td><td>2D6</td></tr>
+              <tr><td class="num">26</td><td>肩膀被切开</td><td>否</td><td>该臂不能使用</td><td>D6</td></tr>
+              <tr><td class="num">31</td><td>鼻梁骨折</td><td>否</td><td>说服与观察 −1</td><td>D6</td></tr>
+              <tr><td class="num">32</td><td>裆部受击</td><td>否</td><td>每次投灵活或近战时受 1 点伤害</td><td>D6</td></tr>
+              <tr><td class="num">33</td><td>肋骨骨折</td><td>否</td><td>灵活与观察 −2</td><td>2D6</td></tr>
+              <tr><td class="num">34</td><td>眼睛被打瞎</td><td>否</td><td>射击与观察 −2</td><td>2D6</td></tr>
+              <tr><td class="num">35</td><td>膝盖骨碎裂</td><td>否</td><td>移动变为慢动作</td><td>2D6</td></tr>
+              <tr><td class="num">36</td><td>手臂骨折</td><td>否</td><td>该臂不能使用</td><td>2D6</td></tr>
+              <tr><td class="num">41</td><td>腿骨折</td><td>否</td><td>移动变为慢动作</td><td>2D6</td></tr>
+              <tr><td class="num">42</td><td>脚被压碎</td><td>否</td><td>移动变为慢动作</td><td>3D6</td></tr>
+              <tr><td class="num">43</td><td>肘部粉碎</td><td>否</td><td>该臂不能使用</td><td>3D6</td></tr>
+              <tr><td class="num">44</td><td>肺被刺穿</td><td>一班</td><td>耐力与灵活 −2</td><td>D6</td></tr>
+              <tr><td class="num">45</td><td>腹部被剖开</td><td>一班</td><td>每次投灵活或近战时受 1 点伤害</td><td>D6</td></tr>
+              <tr><td class="num">46</td><td>肠子被扯出</td><td>一班</td><td>毒力 6 的疾病</td><td>2D6</td></tr>
+              <tr><td class="num">51</td><td>肾脏受击</td><td>一天</td><td>灵活 −2，移动为慢动作</td><td>2D6</td></tr>
+              <tr><td class="num">52</td><td>手臂动脉被割开</td><td>一段</td><td>该臂不能使用</td><td>D6</td></tr>
+              <tr><td class="num">53</td><td>腿部动脉被割开</td><td>一段</td><td>移动变为慢动作</td><td>D6</td></tr>
+              <tr><td class="num">54</td><td>手臂被砍断</td><td>一班</td><td>该臂不能使用</td><td>永久</td></tr>
+              <tr><td class="num">55</td><td>腿被砍断</td><td>一班</td><td>移动变为慢动作</td><td>永久</td></tr>
+              <tr><td class="num">56</td><td>脊柱骨折</td><td>否</td><td>颈部以下瘫痪；若不及时投医学则永久</td><td>3D6</td></tr>
+              <tr><td class="num">61</td><td>颈静脉撕裂</td><td>一轮</td><td>耐力 −1</td><td>2D6</td></tr>
+              <tr><td class="num">62</td><td>主动脉撕裂</td><td>两轮</td><td>耐力 −2</td><td>3D6</td></tr>
+              <tr><td class="num">63</td><td>开膛</td><td>立即死亡</td><td>—</td><td>—</td></tr>
+              <tr><td class="num">64</td><td>颅骨碎裂</td><td>立即死亡</td><td>故事到此结束</td><td>—</td></tr>
+              <tr><td class="num">65</td><td>头部被穿透</td><td>立即死亡</td><td>当场死亡</td><td>—</td></tr>
+              <tr><td class="num">66</td><td>心脏被刺穿</td><td>立即死亡</td><td>心脏最后跳动一次</td><td>—</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">05</span>
+          <h2 id="hazards">危险、载具与追逐</h2>
+        </div>
+
+        <p>世界也是参与者。火、寒冷、坠落、水、毒与黑暗都会攻击，而且不需要先攻。</p>
+
+        <h3>火</h3>
+        <p>火有强度：经典 3 到 9，现代 D 到 A，按基础骰投。每个成功 1 点伤害；若伤害穿过，你起火，并在自己回合每轮再次燃烧，强度每轮升一阶。火没造成伤害时自行熄灭。你或贴身的同伴可以用灵活投掷（慢动作）扑灭，有毯子 +2。火不给普通重伤：若被火烧到崩溃，或已崩溃又受火焰伤害，你在自己回合每轮进行死亡豁免，直到死亡或医学投掷救下你。</p>
+
+        <h3>爆炸</h3>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>爆炸威力</caption>
+            <thead><tr><th scope="col" class="num">经典</th><th scope="col" class="num">现代</th><th scope="col" class="num">基础伤害</th></tr></thead>
+            <tbody>
+              <tr><td class="num">12</td><td class="num">A</td><td class="num">4</td></tr>
+              <tr><td class="num">9</td><td class="num">B</td><td class="num">3</td></tr>
+              <tr><td class="num">6</td><td class="num">C</td><td class="num">2</td></tr>
+              <tr><td class="num">3</td><td class="num">D</td><td class="num">1</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>对“近距”内每个人投爆炸威力；不能推进。成功造成基础伤害，每多一个成功 +1。贴身者再 +1。强力炸药若能无阻隔到达相邻区域，威力减 6（或降两阶）。</p>
+
+        <h3>坠落、溺水与毒</h3>
+        <ul>
+          <li><strong>坠落：</strong>伤害等于高度（米）除以 2，向下取整。受控跳跃可投灵活，每成功减 1 点伤害。</li>
+          <li><strong>溺水：</strong>每段投耐力以浮在水面，水下每轮投耐力以憋气。失败后每轮受 1 点力量伤害；在水中崩溃者一段后死亡。金属护甲会把您拖向水底。</li>
+          <li><strong>毒：</strong>用毒性衡量——3（D）弱，6（C）强，9（B）及以上极危险。投耐力对抗。致命毒每轮 1 点伤害直到崩溃，之后再失败一次即死；麻痹毒剥夺一段内的行动；催眠毒持续一班。</li>
+          <li><strong>疾病：</strong>投耐力对抗毒力（通常 6 或 C）。失败则患病：1 点伤害，无自然恢复，每天重投感染，每次失败再 1 点伤害。崩溃的病人无救助一天后死亡。照护者可以 +2 代投医学。</li>
+        </ul>
+
+        <h3>寒冷、饥饿与睡眠</h3>
+        <ul>
+          <li><strong>寒冷：</strong>按天气间隔投耐力。失败即失温：1 点伤害，无自然恢复，需重投。失温崩溃者在下次投掷时死亡。只有温暖能救。</li>
+          <li><strong>饥饿：</strong>每天一份口粮；一天不食则不能恢复伤害，每周失去 1 点。饥饿崩溃者一周无食后死亡。</li>
+          <li><strong>睡眠：</strong>每天至少一班。一天不睡则不能恢复伤口；伤口已归零则倒下睡一班。</li>
+        </ul>
+
+        <h3>黑暗</h3>
+        <p>全黑中奔跑需投灵活，失败受 1 点伤害。贴身攻击 −2；在“近距”须先成功投观察，同样 −2；更远完全不能命中。</p>
+
+        <h3>坐骑</h3>
+        <p>骑乘移动时投灵活并使用坐骑的敏捷：每个成功再移动一个区域。马上只能用单手武器攻击；对骑手的攻击 −1，马上所有远程攻击 −2。对手选择打骑手还是坐骑。力量归零的坐骑死亡，而不是受重伤。</p>
+
+        <h3>载具</h3>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>典型载具</caption>
+            <thead><tr><th scope="col">车辆</th><th scope="col" class="num">乘员</th><th scope="col" class="num">机动</th><th scope="col" class="num">车体</th><th scope="col" class="num">护甲</th><th scope="col" class="num">速度</th></tr></thead>
+            <tbody>
+              <tr><td>汽车</td><td class="num">4</td><td class="num">+1</td><td class="num">4</td><td class="num">3</td><td class="num">10/1</td></tr>
+              <tr><td>卡车</td><td class="num">3</td><td class="num">—</td><td class="num">8</td><td class="num">3</td><td class="num">8/1</td></tr>
+              <tr><td>摩托车</td><td class="num">1</td><td class="num">+2</td><td class="num">2</td><td class="num">—</td><td class="num">9/2</td></tr>
+              <tr><td>越野摩托</td><td class="num">1</td><td class="num">+2</td><td class="num">2</td><td class="num">—</td><td class="num">6/4</td></tr>
+              <tr><td>皮卡</td><td class="num">3</td><td class="num">+1</td><td class="num">3</td><td class="num">4</td><td class="num">9/4</td></tr>
+              <tr><td>装甲运兵车</td><td class="num">8</td><td class="num">—</td><td class="num">8</td><td class="num">8</td><td class="num">8/6</td></tr>
+              <tr><td>主战坦克</td><td class="num">—</td><td class="num">—</td><td class="num">10</td><td class="num">12</td><td class="num">7/6</td></tr>
+              <tr><td>直升机</td><td class="num">5</td><td class="num">+3</td><td class="num">5</td><td class="num">2</td><td class="num">40/40</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>速度按公路与越野列出，单位是每班十公里一格。普通驾驶无需投掷；复杂机动需投灵活并加机动修正，每成功再移动一个区域。撞击是近战攻击，用驾驶技能投，基础伤害等于车体一半向上取整。受到等于车体的伤害，车辆报废。车体护甲如身体护甲；一次达到车体一半以上的命中意味着部件损坏。</p>
+
+        <h3>追逐</h3>
+        <p>追逐由主持人宣布，从表中距离开始，最远“远距”，用距离类别而非区域计算。追逐按轮进行，不用先攻：每轮所有人秘密选择机动，主持人翻开随机障碍，然后结算——先猎物，后追逐者。可以放弃机动，但不能改选。</p>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>追逐机动</caption>
+            <thead><tr><th scope="col">机动</th><th scope="col">谁</th><th scope="col">投掷</th><th scope="col">效果</th></tr></thead>
+            <tbody>
+              <tr><td>追逐 / 逃跑</td><td>任何人</td><td>灵活 [驾驶]</td><td>每个成功拉近或拉远一个类别。超过“极远”追逐结束；到贴身，追逐者可立即攻击。</td></tr>
+              <tr><td>躲藏</td><td>只有猎物，不近于“中距”</td><td>潜行 [驾驶] 对抗观察</td><td>“中距”−2，“极远”+2。成功则追逐结束，或从任意距离潜行攻击。</td></tr>
+              <tr><td>掀翻</td><td>只有猎物</td><td>力量 [驾驶]</td><td>拉开一个类别；追逐者也要投力量，否则失去机动。</td></tr>
+              <tr><td>抄近路</td><td>只有追逐者</td><td>灵活 [驾驶]，对抗</td><td>“远距”与“极远”−2。成功则贴身并立即攻击；失败则“极远”。</td></tr>
+              <tr><td>停下射击</td><td>任何人</td><td>普通远程攻击</td><td>向对手射击，距离不变。</td></tr>
+              <tr><td>其他</td><td>任何人</td><td>按描述</td><td>其余一切；通常距离不变。由主持人裁定。</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>障碍表——步行追逐用 D10，车辆另有表——会改变本轮机动：死路取消逃跑，人群帮助躲藏，道路施工让所有人减速。乘客可在驾驶员机动后立即射击，−2，除非驾驶员停下并射击。</p>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">06</span>
+          <h2 id="magic">魔法</h2>
+        </div>
+
+        <p>魔法不是另一套游戏，而是一次无需代价的技能检定。施法不花东西：唯一的代价是它留下的精神错乱与失控。</p>
+
+        <h3>七门学科</h3>
+        <div class="grid-2">
+          <div>
+            <h4>德鲁伊系</h4>
+            <ul>
+              <li><strong>感知：</strong>超越人类的视听，过去与未来</li>
+              <li><strong>治疗：</strong>伤口、疾病、毒，甚至死亡</li>
+              <li><strong>变形：</strong>野兽的形态、感官与习性</li>
+            </ul>
+          </div>
+          <div>
+            <h4>巫术系</h4>
+            <ul>
+              <li><strong>血魔法：</strong>生命及其液态本质</li>
+              <li><strong>死灵魔法：</strong>腐朽、亡者、两次心跳之间的空间</li>
+              <li><strong>元素魔法：</strong>土、风、水与火</li>
+              <li><strong>符号魔法：</strong>在条件下触发的记号</li>
+            </ul>
+          </div>
+        </div>
+        <p>每门学科都是带阶的专长，没有它就不能使用其法术。新学科或新阶需要一位更高阶且愿意教的大师，通常收费；没有老师时经验花费三倍。</p>
+
+        <h3>如何施法</h3>
+        <p>法术有 1 到 3 阶，施法者可使用不超过自身学科阶的法术。施法通常是慢动作；咒语是快动作；仪式耗时一班或更久。骰数等于法术阶；每个成功使最终威力 +1。</p>
+        <ul>
+          <li>每颗 6 使威力等级 +1：法术过载。</li>
+          <li>每颗 1 增加精神错乱（1 阶 +1，2 阶 +2，3 阶及以上 +3），并按 D12 表触发魔法失控。</li>
+          <li>投掷不能推进，法术也从不只是简单失败。</li>
+        </ul>
+        <p>可以施放高于自身才能一阶的法术，但总是自动失控；高两阶则不可能。施放更低阶的法术时，每差一阶可移除一颗骰：失控更少，过载也更少。骰数为零时不投——法术直接生效。</p>
+        <p><strong>魔法书。</strong>从书或卷轴施法视为低一阶，但在战斗中取出魔法书需要快动作。<strong>NPC 施法者</strong>没有储备：基础威力等于法术阶，主持人照常投过载与失控。</p>
+
+        <h3>魔法失控（D12）</h3>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th scope="col" class="num">D12</th><th scope="col">效果</th></tr></thead>
+            <tbody>
+              <tr><td class="num">1</td><td>你 D6 天无法入睡。</td></tr>
+              <tr><td class="num">2</td><td>法术抽干力气：1 点精神错乱。</td></tr>
+              <tr><td class="num">3</td><td>魔法伤身：1 点伤害。</td></tr>
+              <tr><td class="num">4</td><td>毒力 2D6 的魔法疾病；你与所有贴身者在下一班暴露。</td></tr>
+              <tr><td class="num">5</td><td>法术波及朋友或随机受害者；治疗法术也治敌人。</td></tr>
+              <tr><td class="num">6</td><td>你的外貌永久改变。具体由主持人决定。</td></tr>
+              <tr><td class="num">7</td><td>法术使你失明：一整天如同在全黑中行动。</td></tr>
+              <tr><td class="num">8</td><td>心智受损：投一次心理重伤。</td></tr>
+              <tr><td class="num">9</td><td>骨骼断裂：投一次身体重伤。</td></tr>
+              <tr><td class="num">10</td><td>恶魔注意到你，并在本班内到来制造麻烦。</td></tr>
+              <tr><td class="num">11</td><td>法术反噬：攻击法术打中你，治疗法术伤你，变形出错，召唤反过来对付你。</td></tr>
+              <tr><td class="num">12</td><td>裂口打开，恶魔把你拖走。创建新角色；旧角色 D66 天后作为 NPC 回来——已被改变。</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>通用法术</h3>
+        <p>任何学科都可以在指定阶施放。</p>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th scope="col">法术</th><th scope="col" class="num">阶</th><th scope="col">作用</th></tr></thead>
+            <tbody>
+              <tr><td>魔法封印</td><td class="num">1</td><td>一班内保护一人或一地不受魔法；敌对法术失去等于封印的威力。</td></tr>
+              <tr><td>魔法感知</td><td class="num">1</td><td>显示正在起作用的魔法，并发现不高于自身威力的隐藏法术。</td></tr>
+              <tr><td>魔法驱散</td><td class="num">2，咒语</td><td>反应；降低他人法术的威力等级。降到零或以下则不生效。</td></tr>
+              <tr><td>隐藏魔法</td><td class="num">2</td><td>以一个额外施法骰隐藏法术；只有主动魔法感知能找到。</td></tr>
+              <tr><td>绑定魔法</td><td class="num">3，仪式</td><td>把法术绑在物品上：一天一个额外骰，永久两个，每日一次五个。</td></tr>
+              <tr><td>传导</td><td class="num">3</td><td>传递额外施法骰；抗力限制传递的最终威力。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">07</span>
+          <h2 id="travel">道路与生存</h2>
+        </div>
+
+        <p>路程按地图计算，地图分成六角格，一格直径十公里。路程以班计算——早晨、白天、傍晚、夜晚——每班开始时，每名旅人选择一个持续整班的活动。</p>
+
+        <h3>地形</h3>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>地形</caption>
+            <thead><tr><th scope="col">地形</th><th scope="col" class="num">速度</th><th scope="col" class="num">驾驶</th><th scope="col" class="num">采集</th><th scope="col" class="num">狩猎</th><th scope="col">遭遇距离</th></tr></thead>
+            <tbody>
+              <tr><td>道路</td><td class="num">×1</td><td class="num">+3</td><td class="num">同地形</td><td class="num">同地形</td><td>远距</td></tr>
+              <tr><td>开阔地</td><td class="num">×1</td><td class="num">+1</td><td class="num">−1</td><td class="num">+1</td><td>极远</td></tr>
+              <tr><td>森林</td><td class="num">×½</td><td class="num">−1</td><td class="num">+1</td><td class="num">+1</td><td>中距</td></tr>
+              <tr><td>丘陵</td><td class="num">×½</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td>远距</td></tr>
+              <tr><td>山地</td><td class="num">×⅓</td><td class="num">−1</td><td class="num">−2</td><td class="num">−1</td><td>远距</td></tr>
+              <tr><td>湖泊或河流</td><td class="num">×1</td><td class="num">+2</td><td class="num">—</td><td class="num">0</td><td>极远</td></tr>
+              <tr><td>沼泽</td><td class="num">×¼</td><td class="num">−1</td><td class="num">−1</td><td class="num">0</td><td>远距</td></tr>
+              <tr><td>废墟</td><td class="num">×½</td><td class="num">0</td><td class="num">−2</td><td class="num">−1</td><td>中距</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>速度倍率只用于离开道路的驾驶；徒步与在道路上驾驶永远是 ×1。湖泊或河流需要船或两栖载具。河流可在浅滩与桥上渡过，也可用木筏、船或游泳。</p>
+
+        <h3>活动</h3>
+        <p>赶路、驾驶、采集、观察、搜寻、狩猎、捕鱼、扎营、烹饪、休息与睡眠。不能选多于一个，只有观察者可以把观察与赶路结合。车辆乘客可以在有人驾驶时观察、休息或睡觉。</p>
+
+        <h3>赶路</h3>
+        <p>良好条件下，沿道路或开阔地每班走两格，其他地形离开道路每班一格。大雨时每人投耐力，失败失去一格移动。离开道路夜间赶路需一名角色为全队投生存；失败则本班没有前进。一天四班中有两班可以轻松行走；第三班需投耐力，第四班 −2，是强行军，会留下掉队者。</p>
+        <p><strong>导航：</strong>离开道路进入新格时，一名角色投生存。失败则队伍进入相邻的错误格——偶数失败向右，奇数失败向左。</p>
+
+        <h3>驾驶</h3>
+        <p>民用车辆正常行驶无需投掷。每班开始时投驾驶并加地形修正，进入新地形类型时再投一次；大雨 −2。失败即抛锚，通常发生在班中。离开道路油耗加倍，夜间越野速度减半。</p>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>途中故障（2D6）</caption>
+            <thead><tr><th scope="col" class="num">2D6</th><th scope="col">故障</th><th scope="col">效果</th></tr></thead>
+            <tbody>
+              <tr><td class="num">2</td><td>车轴断裂</td><td>修一班并成功投手艺前不能行驶</td></tr>
+              <tr><td class="num">3</td><td>撞到动物</td><td>随机野兽；车辆受到其生命一半的伤害</td></tr>
+              <tr><td class="num">4</td><td>变速箱</td><td>无法继续行驶；投手艺并工作一班</td></tr>
+              <tr><td class="num">5</td><td>燃油脏了</td><td>需排空油箱重新加注</td></tr>
+              <tr><td class="num">6</td><td>陷住</td><td>本班结束前不能移动；投力量或另一辆车，每班一次</td></tr>
+              <tr><td class="num">7</td><td>走错路</td><td>失去一格移动</td></tr>
+              <tr><td class="num">8</td><td>塌方</td><td>改道，或投力量清理一班</td></tr>
+              <tr><td class="num">9</td><td>过热</td><td>车辆停到本班结束</td></tr>
+              <tr><td class="num">10</td><td>爆胎</td><td>无法行驶；投手艺 +2，每班一次</td></tr>
+              <tr><td class="num">11</td><td>事故</td><td>受到等于车速的伤害</td></tr>
+              <tr><td class="num">12</td><td>引擎报废</td><td>车辆损毁</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>骑马每天可走两班；第三班需投灵活，失败会伤到坐骑。坐骑每天至少需要一班休息。</p>
+
+        <h3>观察、采集与狩猎</h3>
+        <p><strong>观察：</strong>一名角色进行被动观察投掷，不能推进，在队伍接近遭遇时使用。成功则队伍先发现对方，可以现身、后撤（失去一格越野移动），或设伏。乘车对步行者 −2；步行对机械化 +2。</p>
+        <p><strong>采集：</strong>选择食物或水，投生存并加地形修正。每个成功一份口粮。生食植物需投疾病，毒力 3（D）。一格每班只有一人采集，之后每班累计 −1，一周后重置，冬天除外。</p>
+        <p><strong>狩猎：</strong>先投生存找踪迹，再投观察接近，然后远程攻击；伤害等于动物生命或一次致命命中即杀死。生肉需投疾病，毒力 6（C）。陷阱可代替射击捕获合适动物——再投一次生存。</p>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>狩猎示例表（D6）</caption>
+            <thead><tr><th scope="col" class="num">D6</th><th scope="col">野兽</th><th scope="col" class="num">生命</th><th scope="col">陷阱</th><th scope="col">食物</th></tr></thead>
+            <tbody>
+              <tr><td class="num">1</td><td>山鹑</td><td class="num">1</td><td>否</td><td>1</td></tr>
+              <tr><td class="num">2</td><td>野兔</td><td class="num">1</td><td>是</td><td>1</td></tr>
+              <tr><td class="num">3</td><td>狐狸</td><td class="num">1</td><td>是</td><td>D3</td></tr>
+              <tr><td class="num">4</td><td>鹿</td><td class="num">2</td><td>否</td><td>2D6</td></tr>
+              <tr><td class="num">5</td><td>野猪</td><td class="num">3</td><td>否</td><td>2D6×2</td></tr>
+              <tr><td class="num">6</td><td>驼鹿</td><td class="num">5</td><td>否</td><td>2D6×4</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>捕鱼：</strong>在河流、湖泊或海边的格中，有渔具的角色投生存，每成功一份口粮。生鱼需投疾病，毒力 6（C）。一格每班只有一人捕鱼，之后每班累计 −1，一天后重置。</p>
+
+        <h3>营地</h3>
+        <p>扎营耗时一班并需投生存。成功则队伍找到有防护的隐蔽处；失败营地仍然立起，但主持人秘密投一次营地麻烦，并在任意时刻抛出。篝火可以烹饪并抵御寒冷，但烟会暴露营地。寒冷中无火睡眠需投耐力抗寒。睡在光地上省下扎营时间，但所有人都要投生存找地方，并受寒冷影响。</p>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>营地麻烦（D10）</caption>
+            <thead><tr><th scope="col" class="num">D10</th><th scope="col">麻烦</th><th scope="col">效果</th></tr></thead>
+            <tbody>
+              <tr><td class="num">1</td><td>食物坏了</td><td>一半口粮损失</td></tr>
+              <tr><td class="num">2</td><td>洪水</td><td>大雨淹没营地；所有人投耐力抗寒，无人入睡</td></tr>
+              <tr><td class="num">3</td><td>篝火熄灭</td><td>柴湿；寒冷中所有人投耐力抗寒</td></tr>
+              <tr><td class="num">4</td><td>起火！</td><td>帐篷被毁；每人受 D 强度火焰并投灵活抢救装备</td></tr>
+              <tr><td class="num">5</td><td>蚂蚁</td><td>每人 1 点精神错乱，无人入睡</td></tr>
+              <tr><td class="num">6</td><td>虱子</td><td>一名角色每天 1 点精神错乱且不能睡；投医学可终止</td></tr>
+              <tr><td class="num">7</td><td>蚊虫</td><td>每人投两颗 D6；每成功 1 点精神错乱</td></tr>
+              <tr><td class="num">8</td><td>掠食者</td><td>饥饿的狼、野猪或熊袭击营地</td></tr>
+              <tr><td class="num">9</td><td>装备丢失</td><td>一名角色失去一件物品；主持人决定是哪件、能否找回</td></tr>
+              <tr><td class="num">10</td><td>损坏</td><td>一名角色的一件物品损坏；可用手艺修理</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>烹饪需要火或厨房；一班可做至多十二份口粮。生存投掷失败则所有进食者投疾病——植物毒力 3（D），肉与鱼 6（C）。火边休息恢复伤害；睡眠每天至少一班。被战斗打断的休息或睡眠不再算数。探索地点会让路程停一班或更久；若探索超过半班，就不能休息或睡眠。船与木筏可渡河与海；海路按驾驶处理，乘客可休息或睡眠。</p>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">08</span>
+          <h2 id="table">桌边</h2>
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <h3>遭遇之前</h3>
+            <ul>
+              <li>一个值得到达的地方，以及一个它危险的理由</li>
+              <li>两个有欲望的 NPC，和一个说谎的</li>
+              <li>时钟：如果玩家什么都不做，会发生什么</li>
+              <li>伤害系统，写在所有人都看得见的地方</li>
+            </ul>
+          </div>
+          <div>
+            <h3>桌边</h3>
+            <ul>
+              <li>说“是”，或者说价格</li>
+              <li>投一次，然后推动故事</li>
+              <li>桌面松懈时，用一个麻烦回应</li>
+              <li>以一个决定收尾，而不是一堆表格</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>真正会用到的数字</caption>
+            <thead><tr><th scope="col">项目</th><th scope="col">数值</th></tr></thead>
+            <tbody>
+              <tr><td>难度修正</td><td>+3 到 −3</td></tr>
+              <tr><td>武器伤害</td><td>1–3 点，每个多余成功 +1</td></tr>
+              <tr><td>身体护甲</td><td>3–8 颗骰，或 D 到 A</td></tr>
+              <tr><td>火焰强度</td><td>3–9，或 D 到 A</td></tr>
+              <tr><td>爆炸威力</td><td>3、6、9 或 12——伤害 1 到 4</td></tr>
+              <tr><td>战斗移动</td><td>一个快动作移动一个区域</td></tr>
+              <tr><td>赶路</td><td>沿道路或开阔地每班两格，否则一格</td></tr>
+              <tr><td>每班治疗</td><td>无救助 1 点，有医者更多</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <nav class="pager" aria-label="章节">
+        <a class="pager__link" data-pager="prev" href="#running"><span></span><b data-pager-label></b></a>
+        <a class="pager__link pager__link--next" data-pager="next" href="#combat"><span></span><b data-pager-label></b></a>
+      </nav>
+
+      <footer class="colophon">
+        <p data-str="note"></p>
+        <p>来源：<a href="04-combat-damage.ru.md">04 — 战斗与伤害</a>、<a href="05-magic.ru.md">05 — 魔法</a>、<a href="06-travel.ru.md">06 — 道路</a>。玩家规则：<a href="player-book.zh.html">玩家手册</a>。</p>
+      </footer>
+    </div>
+  </main>
+</div>
+  <script src="assets/psychosis-table.js" defer></script>
+</body>
+</html>

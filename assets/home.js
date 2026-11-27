@@ -6,23 +6,36 @@
 
   const STORE_KEY = "yze-lang";
   const buttons = Array.from(document.querySelectorAll("[data-set-lang]"));
-  const translatable = Array.from(document.querySelectorAll("[data-en][data-ru]"));
+  const translatable = Array.from(document.querySelectorAll("[data-en]"));
+
+  const zhText = (node) => {
+    const direct = node.getAttribute("data-zh");
+    if (direct !== null) return direct;
+    const dictionary = window.YZE_ZH || {};
+    const key = node.getAttribute("data-en") || "";
+    return Object.prototype.hasOwnProperty.call(dictionary, key) ? dictionary[key] : null;
+  };
 
   const read = () => {
+    const asked = new URLSearchParams(window.location.search).get("lang");
+    if (asked === "en" || asked === "ru" || asked === "zh") return asked;
     try {
       const saved = localStorage.getItem(STORE_KEY);
-      if (saved === "en" || saved === "ru") return saved;
+      if (saved === "en" || saved === "ru" || saved === "zh") return saved;
     } catch (error) {
       /* storage may be blocked; fall back to the browser language */
     }
-    return (navigator.language || "en").toLowerCase().startsWith("ru") ? "ru" : "en";
+    const tag = (navigator.language || "en").toLowerCase();
+    if (tag.startsWith("ru")) return "ru";
+    if (tag.startsWith("zh")) return "zh";
+    return "en";
   };
 
   const apply = (lang) => {
     document.documentElement.lang = lang;
 
     translatable.forEach((node) => {
-      const value = node.getAttribute(`data-${lang}`);
+      const value = node.getAttribute(`data-${lang}`) ?? (lang === "zh" ? zhText(node) : null);
       if (value !== null) node.textContent = value;
     });
 

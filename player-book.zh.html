@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>玩家手册 — 根与爪</title>
+<meta name="description" content="《根与爪》玩家手册：角色创建、技能、性格棱角、装备、检定、特别努力与经验——经典 d6 与现代分级骰两种版本。">
+<link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/book.css">
+<script src="assets/i18n.js" defer></script>
+<script src="assets/book.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main"></a>
+<div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+<button class="rail-toggle" type="button" aria-expanded="false" aria-controls="rail" data-str="openMenu"></button>
+<button class="scrim" type="button" hidden aria-label="关闭目录"></button>
+
+<div class="shell">
+  <aside class="rail" id="rail" data-open="false" aria-label="目录">
+    <div class="rail__brand">
+      <span class="rail__brand-mark">根与爪</span>
+      <a class="rail__brand-title" href="player-book.zh.html" data-str="playerBook"></a>
+      <span class="rail__brand-sub">核心规则</span>
+    </div>
+
+    <div class="rail__search">
+      <label class="visually-hidden" for="toc-search" data-str-aria="searchLabel"></label>
+      <input id="toc-search" type="search" autocomplete="off" data-toc-search data-str-placeholder="searchPlaceholder">
+      <span class="rail__search-key" aria-hidden="true">/</span>
+    </div>
+
+    <nav aria-label="目录">
+      <ul class="toc" id="toc"></ul>
+    </nav>
+
+    <div class="rail__foot">
+      <div class="lang-switch" data-lang-switch>
+        <a href="player-book.html" lang="en" hreflang="en" data-alt-lang="player-book.html">EN</a>
+        <a href="player-book.ru.html" lang="ru" hreflang="ru" data-alt-lang="player-book.ru.html">RU</a>
+        <span aria-current="true">中文</span>
+      </div>
+      <a class="btn" href="index.zh.html" data-str="library"></a>
+      <a class="btn" href="module.zh.html" data-str="moduleNav"></a>
+      <a class="btn" href="character.html?lang=zh" data-str="sheet"></a>
+      <button class="btn" type="button" data-print data-str="print"></button>
+      <button class="btn" type="button" data-close></button>
+    </div>
+  </aside>
+
+  <main class="book" id="main">
+    <div class="book__inner">
+      <header class="masthead">
+        <p class="masthead__book">根与爪 · 核心规则</p>
+        <h1>玩家手册</h1>
+        <p class="masthead__lead">手里拿着角色卡的人需要的一切：检定怎么运作，英雄怎么拼起来，以及第一次遭遇之后他怎么成长。</p>
+
+        <dl class="variants">
+          <div data-system="classic">
+            <dt>经典版</dt>
+            <dd>d6 骰池。属性 1 到 5，技能 0 到 5。两者相加，投那么多骰；每颗 6 是一个成功。</dd>
+          </div>
+          <div data-system="modern">
+            <dt>现代版</dt>
+            <dd>每次检定两颗分级骰。属性与技能从 A 到 D，A 是 d12，D 是 d6。6 以上成功。</dd>
+          </div>
+        </dl>
+      </header>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">01</span>
+          <h2 id="roll">检定怎样运作</h2>
+        </div>
+
+        <p>技能检定一次回答两个问题：动作成没成，代价是多少。骰子衡量的是压力下一次尝试的结果，而不是英雄整体有多强。</p>
+
+        <h3>经典骰池</h3>
+        <p>取等于技能等级加相关属性的骰子，加上装备加骰，一起投。每颗 6 是一个成功，一个成功就够。没有技能时，只投资源属性的骰子。</p>
+
+        <h3>现代双骰</h3>
+        <p>为技能阶投一颗骰，为属性阶投一颗骰。至少一颗达到 6 以上即成功；一颗达到 10 以上算两个成功——只有 d10 和 d12 能做到。没有技能时只投属性骰。</p>
+
+        <h3>成功与效果</h3>
+        <p>一个成功完成任务。每个额外成功购买一个与主持人商定的额外效果：英雄更快、保持无声、帮助同伴、留下印象，或注意到别人没注意到的东西。战斗中每个多余成功 +1 点伤害。</p>
+
+        <h3>一个成功都没有</h3>
+        <p>没有成功的检定就是失败，而且有什么事出了岔子。描述具体是什么，以及故事如何继续：动作仍可能发生，但代价是时间、噪音、装备或位置。失败不该让游戏停下：路总是有的。</p>
+
+        <h3>推进检定</h3>
+        <p>角色可以押上自己，推进检定：重投所有不是 1 的骰子。1 是诅咒，留在原处。推进后的新结果生效，包括没有重投的骰子。</p>
+        <p>一次检定只能推进一次，而且只在角色主动行动时：被动检定，比如发现埋伏，不能推进。推进要付什么——伤口、精神错乱、状态、属性点，还是世界给出的麻烦——见第 7 章。</p>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">02</span>
+          <h2 id="creation">创建角色</h2>
+        </div>
+
+        <p>创建角色是七个步骤，按顺序来。每一步都在收窄下一步：原型提示英雄过去是谁，数字说明他现在会什么，性格棱角说明他愿意为什么冒险。</p>
+
+        <h3>第 1 步——选择原型</h3>
+        <p>原型是角色、职业或过去：打手、拾荒者、医者、档案员、猎人。它决定角色曾经是谁，提示属性、技能、专长与初始装备，并让桌面在一分钟内得到整体印象。它是起点，不是牢笼。</p>
+
+        <h3>第 2 步——确定属性</h3>
+        <p>四项属性描述身体与心智：<strong>力量</strong>——蛮力；<strong>敏捷</strong>——身体控制、速度与协调；<strong>智识</strong>——感知、智力与心理韧性；<strong>共情</strong>——魅力，以及读懂并影响他人的能力。</p>
+
+        <div class="variant" data-system="classic">
+          <b>经典</b>
+          在四项属性间分配 14 点。任何一项不低于 2，不高于 5。每个原型有一项关键属性可以达到 5；其余上限为 4。
+        </div>
+        <div class="tbl-wrap" data-system="classic">
+          <table class="tbl">
+            <caption>属性值</caption>
+            <thead><tr><th scope="col" class="num">数值</th><th scope="col">描述</th></tr></thead>
+            <tbody>
+              <tr><td class="num">5</td><td>卓越</td></tr>
+              <tr><td class="num">4</td><td>出色</td></tr>
+              <tr><td class="num">3</td><td>普通</td></tr>
+              <tr><td class="num">2</td><td>低于平均</td></tr>
+              <tr><td class="num">1</td><td>孱弱</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="variant" data-system="modern">
+          <b>现代版</b>
+          四项属性都从 C 开始。你有三次提升，最高到 A。可以把一项属性从 C 降到 D，换取第四次提升。不能超过 A。
+        </div>
+        <div class="tbl-wrap" data-system="modern">
+          <table class="tbl">
+            <caption>属性骰类型</caption>
+            <thead><tr><th scope="col">阶</th><th scope="col">骰</th><th scope="col" class="num">面数</th><th scope="col">描述</th></tr></thead>
+            <tbody>
+              <tr><td>A</td><td>d12</td><td class="num">12</td><td>卓越</td></tr>
+              <tr><td>B</td><td>d10</td><td class="num">10</td><td>出色</td></tr>
+              <tr><td>C</td><td>d8</td><td class="num">8</td><td>普通</td></tr>
+              <tr><td>D</td><td>d6</td><td class="num">6</td><td>孱弱</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>伤口</h3>
+        <p>伤口就是生命。英雄有 10 格；野兽或 NPC 用卡上的“血”值。格子填满，角色出局并受重伤。没有单独的意志值：心理由精神错乱处理（第 05 章）。</p>
+        <div class="grid-2">
+          <div data-system="classic">
+            <h4>经典</h4>
+            <ul>
+              <li><strong>伤口：</strong>英雄与同伴 10 格；野兽用卡上的“血”。</li>
+            </ul>
+          </div>
+          <div data-system="modern">
+            <h4>现代版</h4>
+            <ul>
+              <li><strong>伤口：</strong>同样是 10 格——版本不改变生命值。</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>第 3 步——确定技能</h3>
+        <p>十二项基础技能在第 3 章描述。技能是角色真正训练过的东西，永远与属性一起读取。</p>
+        <div class="variant" data-system="classic">
+          <b>经典</b>
+          在初始技能间分配 10 点。原型列表中的技能可以从 3 级开始；其余上限 1 级。技能 0 不是禁止：英雄可以只投属性骰试一试。
+        </div>
+        <div class="variant" data-system="modern">
+          <b>现代版</b>
+          选一项 B 阶技能、两项 C 阶、三项 D 阶；其余无阶。B 阶通常应来自原型技能，其余自由。无阶技能仍然投一颗属性骰。
+        </div>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>技能等级</caption>
+            <thead><tr><th scope="col" class="num">经典</th><th scope="col">现代</th><th scope="col">描述</th></tr></thead>
+            <tbody>
+              <tr><td class="num">5</td><td>A / d12</td><td>精英</td></tr>
+              <tr><td class="num">4</td><td>B / d10</td><td>老练</td></tr>
+              <tr><td class="num">3</td><td>C / d8</td><td>熟练</td></tr>
+              <tr><td class="num">2</td><td>—</td><td>受过训练</td></tr>
+              <tr><td class="num">1</td><td>D / d6</td><td>新手</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>第 4 步——选择专长</h3>
+        <p>专长是一种手法、技巧或狭窄领域：比技能更窄，在它之内给出虽小但可靠的加成。角色通常从一项开始，受原型限制，其余在游戏中学习——只能向已经掌握它的人学。</p>
+
+        <h3>第 5 步——性格棱角</h3>
+        <p>六句短语把一组数字变成一个人；它们在第 4 章描述。它们也是经验的主要引擎：照着它们演，就是英雄的成长之路。</p>
+
+        <h3>第 6 步——取得装备</h3>
+        <p>把英雄带的一切一行一件写下来。衣服和容器本身不计入负重上限；里面的东西计入。初始装备通常来自原型。</p>
+
+        <h3>第 7 步——给角色起名</h3>
+        <p>一个名字，或许再加一句它从哪来。这就够开始了。</p>
+
+        <div class="example">
+          <p><strong>示例，经典。</strong>打手取力量 5、敏捷 4、智识 3、共情 2——共 14 点，关键属性为 5。技能：力量 3、近战 3、射击 1，其余 0。她的专长是摔跤。骄傲是“面对挑战从不后退”，弱点是还不起的债。伤口 10 格，和所有英雄一样；野兽有自己的卡上数值。</p>
+          <p><strong>示例，现代版。</strong>同一个打手把力量提到 A、敏捷提到 B，把共情从 C 降到 D，换取第三和第四次提升，得到力量 A、敏捷 B、智识 C、共情 D。一项 B 阶技能（近战），两项 C 阶（力量、耐力），三项 D 阶（射击、观察、说服）。伤口仍是 10 格：版本不改变生命值。</p>
+        </div>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">03</span>
+          <h2 id="skills">十二项技能</h2>
+        </div>
+
+        <p>每项技能与一项属性相连。这种连接是固定的：它说明该加哪颗骰、加几颗，也解释了为什么强壮的人不必擅长一切体力活。</p>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>基础技能及其属性</caption>
+            <thead><tr><th scope="col">技能</th><th scope="col">属性</th><th scope="col">覆盖什么</th></tr></thead>
+            <tbody>
+              <tr><td>力量</td><td>力量</td><td>举起、推动或破坏沉重顽固的东西</td></tr>
+              <tr><td>近战</td><td>力量</td><td>用冷兵器或徒手攻击与防御</td></tr>
+              <tr><td>耐力</td><td>力量</td><td>体力储备：憋气、忍毒、从致命伤中活下来</td></tr>
+              <tr><td>射击</td><td>敏捷</td><td>使用远程武器射击</td></tr>
+              <tr><td>灵活</td><td>敏捷</td><td>冒险动作与精细操作：奔跑、跳跃、攀爬、后撤</td></tr>
+              <tr><td>潜行</td><td>敏捷</td><td>不被看见、不被听见，悄悄拿走别人的东西</td></tr>
+              <tr><td>手艺</td><td>智识</td><td>修好坏的，造出缺的</td></tr>
+              <tr><td>观察</td><td>智识</td><td>读懂一个地方、搜查它、注意到多余的东西</td></tr>
+              <tr><td>生存</td><td>智识</td><td>天气、地形、饥饿、干渴，以及猎你的东西</td></tr>
+              <tr><td>医学</td><td>共情</td><td>止血、接骨、保住一条命</td></tr>
+              <tr><td>洞察</td><td>共情</td><td>理解人，抓住谎言</td></tr>
+              <tr><td>说服</td><td>共情</td><td>劝说、安抚、讨价还价、令人信服地撒谎</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>有些游戏会加入自己的技能，但超过十六项就铺得太宽了。</p>
+
+        <h3>专长</h3>
+        <p>专长不替代技能——它在狭窄情境中为技能加值。多数专长只有有或无；有些分阶，通常三阶，每阶给一个新效果。专长只能向已经掌握它的人学，因此老师是一种值得珍惜的资源。</p>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>专长示例</caption>
+            <thead><tr><th scope="col">专长</th><th scope="col">效果</th></tr></thead>
+            <tbody>
+              <tr><td>保镖</td><td>替“近距”内的同伴承受一次攻击；投灵活，不消耗动作。</td></tr>
+              <tr><td>快速反应</td><td>抽两张先攻牌，选一张。</td></tr>
+              <tr><td>战地外科</td><td>救治因重伤濒死的人时，医学 +1。</td></tr>
+              <tr><td> hardened 历练</td><td>每场一次，因冲击产生的精神错乱降低 1。可取三次。</td></tr>
+              <tr><td>结实</td><td>生命上限 +1。可取三次。</td></tr>
+              <tr><td>杀手</td><td>敌人受重伤时，投两次并选择。</td></tr>
+              <tr><td>幸运</td><td>重投一次重伤并选较好结果。</td></tr>
+              <tr><td>负重者</td><td>负重上限 +2。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">04</span>
+          <h2 id="traits">性格棱角</h2>
+        </div>
+
+        <p>性格棱角是角色卡上推动故事的部分。每一条都是一句话，许多会在给英雄添麻烦时带来经验。</p>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>六条棱角</caption>
+            <thead><tr><th scope="col">棱角</th><th scope="col">是什么</th><th scope="col">桌边</th></tr></thead>
+            <tbody>
+              <tr><td>骄傲</td><td>英雄对自己的看法，且不肯放下</td><td>每次遭遇一次——若能解释骄傲如何帮忙，获得一个自动成功</td></tr>
+              <tr><td>弱点</td><td>盔甲上的裂缝：恐惧、习惯、饥渴</td><td>照它演，在遭遇结束时获得额外经验</td></tr>
+              <tr><td>黑暗秘密</td><td>游戏开始前发生的事</td><td>主持人的钩子；遭遇后可给额外经验</td></tr>
+              <tr><td>远大梦想</td><td>英雄愿意为之牺牲的长期目标</td><td>为它冒险或牺牲，获得额外经验</td></tr>
+              <tr><td>关系</td><td>对每位其他英雄一句话：你和他怎样</td><td>给主持人可拉动的把手，也给你行动的理由</td></tr>
+              <tr><td>朋友</td><td>你最亲近的那个角色</td><td>为他牺牲或冒大险，获得额外经验</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>每次遭遇之后都可以更换棱角——骄傲、弱点、黑暗秘密、远大梦想、关系——最好把变化与游戏中发生的事联系起来。</p>
+
+        <h3>为什么重要</h3>
+        <p>只会精准射击的角色，经验来得慢。那个离不开打架、被错的人欠债、或总回去找朋友的人，每场遭遇都能拿到经验——也让桌面有东西可以对抗。</p>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">05</span>
+          <h2 id="gear">装备与负重</h2>
+        </div>
+
+        <p>负重按普通物品计算：一把刀、一根绳、一天食物、一盒火柴。你带着什么，计划崩掉时你就只有什么。</p>
+
+        <div class="grid-2">
+          <div data-system="classic">
+            <h4>经典</h4>
+            <p>负重上限等于力量的两倍。力量 4 能带八件普通物品。</p>
+          </div>
+          <div data-system="modern">
+            <h4>现代版</h4>
+            <p>负重上限等于力量骰的面数。力量 A 带十二件，力量 D 带六件。</p>
+          </div>
+        </div>
+
+        <h3>重、轻与微小</h3>
+        <p>重物算两件、三件甚至更多普通物品：步枪、油罐、担架。轻物算 ½ 甚至 ¼：镜片、开锁工具、一封信。微小物品能握在拳里，完全不计——但还是得写下来。忘了记的装备就是丢了的装备。</p>
+
+        <h3>背包、牲口与机器</h3>
+        <p>背包额外携带等于负重上限的物品，但所有灵活投掷 −2。坐骑承载自己的上限，若步行牵引则翻倍；机器能载更多。</p>
+
+        <h3>消耗品</h3>
+        <p>食物、水、弹药、火把与能量可以两种方式计算。按件——一份口粮、十支箭或 25 发子弹算 ¼ 件普通物品；或者给每类设一个储备等级。每项储备算一件普通物品，无论等级多少。主持人要求储备检定时，投等于等级的 d6，最多六颗；每颗 1 使等级降一，归零则资源耗尽。给出消耗品，就是把等级步数转给别人。</p>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">06</span>
+          <h2 id="modifiers">修正、协助与对抗</h2>
+        </div>
+
+        <p>大多数检定不需要修正。当情境明显帮助或妨碍英雄时，主持人应用一个修正，桌面继续。</p>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>难度</caption>
+            <thead><tr><th scope="col">难度</th><th scope="col" class="num">修正</th></tr></thead>
+            <tbody>
+              <tr><td>极简</td><td class="num">+3</td></tr>
+              <tr><td>简单</td><td class="num">+2</td></tr>
+              <tr><td>容易</td><td class="num">+1</td></tr>
+              <tr><td>普通</td><td class="num">0</td></tr>
+              <tr><td>有挑战</td><td class="num">−1</td></tr>
+              <tr><td>困难</td><td class="num">−2</td></tr>
+              <tr><td>严峻</td><td class="num">−3</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>骰子从哪来</h3>
+        <p>失去骰子时，按这个顺序移除：先技能骰，再装备骰，最后属性骰。如果无骰可投，当前条件下尝试不可能——需要新办法，而不是新投掷。</p>
+
+        <div class="variant" data-system="modern">
+          <b>现代版</b>
+          修正不加骰，而是把基础骰升或降一阶。先升较小骰、降较大骰；不能高于两颗 d12，不能低于一颗 d6。优势加第三颗与较小骰同型的骰，劣势移除较小骰，二者一一抵消——永远只有一种生效。
+        </div>
+
+        <h3>协助</h3>
+        <p>另一个角色若在身边且能影响结果，可以协助；须在投掷前声明。每名协助者 +1，最多 +3。战斗中协助消耗与被协助动作同类型的动作。</p>
+
+        <h3>对抗检定</h3>
+        <p>双方投掷并比较成功数；一方每个成功抵消另一方一个成功。剩下成功的一方获胜。只有主动方可以推进，且可在看到对方投掷后决定。平局则无事发生：主动方的动作通常失败；若桌面需要结果，重投。</p>
+
+        <h3>被动检定</h3>
+        <p>发现埋伏、看穿谎言、保持镇定——这些不是动作，不能推进（第 7 章）。照投，接受结果。NPC 也投同样的检定，主持人只在他们的行动影响玩家角色时投。</p>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">07</span>
+          <h2 id="push">特别努力</h2>
+        </div>
+
+        <p>当一切都押上时，英雄可以再挖深一点：重投所有不是 1 的骰子。1 留在原处——它们是诅咒，也正是努力的代价。</p>
+
+        <h3>每次检定一次</h3>
+        <p>一次投掷只能推进一次，而且只在角色主动行动时：被动投掷不能推进。施法投掷也不能推进。推进后的新结果生效，包括没有重投的骰子。</p>
+
+        <h3>代价长什么样</h3>
+        <p>系统提供几种为努力付账的方式；游戏在开始前选定一种。</p>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>各版本的推进代价</caption>
+            <thead><tr><th scope="col">代价</th><th scope="col">如何运作</th></tr></thead>
+            <tbody>
+              <tr><td>伤口与精神错乱</td><td>每个诅咒 1 点伤口（若投的是力量或敏捷）；1 点精神错乱（若投的是智识或共情）。</td></tr>
+              <tr><td>属性伤害</td><td>属性骰上每个诅咒 1 点属性伤害，装备骰上每个诅咒使装备加值降一阶。被推进击垮的伤害永不造成重伤。</td></tr>
+              <tr><td>所有人的伤口</td><td>英雄与同伴 10 格伤口；野兽用卡上的“血”。伤口就是生命，没有单独储备。</td></tr>
+              <tr><td>状态</td><td>每次推进选一个状态——力量与敏捷为身体状态，智识与共情为心理状态。</td></tr>
+              <tr><td>世界回应</td><td>每次推进，主持人以一个麻烦回应：武器卡壳、东西掉落、援兵到来。没有单独货币，规模按诅咒数量。</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div data-psychosis-table></div>
+
+        <div class="example">
+          <p>力量 3、力量技能 3 的拾荒女投六颗骰撬舱门，得到两个 1，没有一个 6。她推进：重投四颗，出了两个成功——她因此受两点伤害或两个状态，取决于游戏选定的代价。</p>
+        </div>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">08</span>
+          <h2 id="experience">经验与成长</h2>
+        </div>
+
+        <p>经验在遭遇结束时以小组形式发放，回答六个问题。每个诚实的“是”一点；最后由主持人裁定。</p>
+
+        <ul>
+          <li>角色参与了这次遭遇吗？</li>
+          <li>角色探索了新地方吗？</li>
+          <li>角色击败了一个或多个危险对手吗？</li>
+          <li>角色不用武力克服了障碍吗？</li>
+          <li>角色依照自己的弱点、黑暗秘密、远大梦想或关系行动了吗？</li>
+          <li>角色还做了什么出色的事吗？</li>
+        </ul>
+
+        <p>点数在休息或遭遇之间花费。技能一次提升一级，而且自上次提升以来必须成功使用过——或者有一位技能更高的老师训练了角色一班。新技能 1 级或 D 阶花费 5 点经验。</p>
+
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption>技能提升费用</caption>
+            <thead><tr><th scope="col" class="num">经典：新等级</th><th scope="col" class="num">费用</th><th scope="col">现代：新阶</th><th scope="col" class="num">费用</th></tr></thead>
+            <tbody>
+              <tr><td class="num">1</td><td class="num">5</td><td>D</td><td class="num">5</td></tr>
+              <tr><td class="num">2</td><td class="num">10</td><td>C</td><td class="num">10</td></tr>
+              <tr><td class="num">3</td><td class="num">15</td><td>B</td><td class="num">15</td></tr>
+              <tr><td class="num">4</td><td class="num">20</td><td>A</td><td class="num">20</td></tr>
+              <tr><td class="num">5</td><td class="num">25</td><td>—</td><td class="num">—</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>专长总是花费 10 点经验。不能独自学习：需要一位已经掌握它的老师、至少一班的训练，以及训练结束时老师成功的一次说服投掷。失败只损失一班时间：经验保留，老师可以再试。</p>
+
+        <div class="rule">
+          <span class="rule__label">成长一句话</span>
+          <p>用技能挣得提升它的权利，找到比你懂得多的人学新东西，然后为两者付出经验。</p>
+        </div>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">09</span>
+          <h2 id="quick">速查</h2>
+        </div>
+
+        <h3>各阶骰子</h3>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th scope="col">阶</th><th scope="col">骰</th><th scope="col">成功条件</th></tr></thead>
+            <tbody>
+              <tr><td>A</td><td>d12</td><td>6–9：一个，10–12：两个</td></tr>
+              <tr><td>B</td><td>d10</td><td>6–9：一个，10：两个</td></tr>
+              <tr><td>C</td><td>d8</td><td>6–8：一个</td></tr>
+              <tr><td>D</td><td>d6</td><td>6：一个</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>第一次遭遇前的检查</h3>
+        <ul>
+          <li>原型已选并命名</li>
+          <li>四项属性已写，关键属性已标</li>
+          <li>十二项技能及等级或阶</li>
+          <li>一项专长</li>
+          <li>骄傲、弱点、黑暗秘密、远大梦想、关系与朋友</li>
+          <li>装备已写，负重已算</li>
+          <li>伤口已记：英雄 10 格，野兽“血”</li>
+        </ul>
+
+        <div class="rule">
+          <span class="rule__label">整个游戏三句话</span>
+          <p>说出你做什么、怎么做。投角色挣来的骰子。接受结果，让它改变局面。</p>
+        </div>
+      </section>
+
+      <nav class="pager" aria-label="章节">
+        <a class="pager__link" data-pager="prev" href="#roll"><span></span><b data-pager-label></b></a>
+        <a class="pager__link pager__link--next" data-pager="next" href="#creation"><span></span><b data-pager-label></b></a>
+      </nav>
+
+      <footer class="colophon">
+        <p data-str="note"></p>
+        <p>来源：<a href="01-introduction.ru.md">01 — 引言</a>、<a href="02-player-characters.ru.md">02 — 玩家角色</a>、<a href="03-skills-specializations.ru.md">03 — 技能与专长</a>。主持人规则：<a href="master-book.zh.html">主持人手册</a>。</p>
+      </footer>
+    </div>
+  </main>
+</div>
+  <script src="assets/psychosis-table.js" defer></script>
+</body>
+</html>

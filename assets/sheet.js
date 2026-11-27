@@ -14,7 +14,11 @@
   const TRACKS = { damage: 10, supplies: 6, psychosis: 18 };
   const trackValues = { damage: 0, supplies: 0, psychosis: 0 };
 
-  const lang = () => (document.documentElement.lang === "ru" ? "ru" : "en");
+  const lang = () => {
+    const tag = (document.documentElement.lang || "en").toLowerCase();
+    if (tag.startsWith("zh")) return "zh";
+    return tag.startsWith("ru") ? "ru" : "en";
+  };
 
   const t = (key, vars) => {
     const all = window.YZE_STRINGS || {};
@@ -62,7 +66,8 @@
   const names = [];
   const named = (element, en, ru) => {
     names.push({ element, en, ru });
-    element.textContent = lang() === "ru" ? ru : en;
+    const zh = window.YZE_ZH || {};
+    element.textContent = lang() === "zh" ? (zh[en] || en) : lang() === "ru" ? ru : en;
     return element;
   };
 
@@ -580,6 +585,22 @@
   buildGear();
   buildTracks();
   paintTracks();
+
+  /* ---------- wide tables ------------------------------------------------ */
+
+  /* The skills table cannot fit a phone. A shadow on the edge that still has
+     content says “swipe” instead of letting the cut columns look like a bug. */
+  const syncTableHints = () => {
+    document.querySelectorAll(".tbl-wrap").forEach((wrap) => {
+      const more = wrap.scrollWidth > wrap.clientWidth + 1 && wrap.scrollLeft + wrap.clientWidth < wrap.scrollWidth - 1;
+      wrap.classList.toggle("is-scrollable", more);
+    });
+  };
+  document.querySelectorAll(".tbl-wrap").forEach((wrap) => {
+    wrap.addEventListener("scroll", syncTableHints, { passive: true });
+  });
+  window.addEventListener("resize", syncTableHints);
+  window.requestAnimationFrame(syncTableHints);
 
   let stored = null;
   try {

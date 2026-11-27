@@ -622,6 +622,77 @@ body[data-variant="modern"] .skills .skill__level { display: none; }
   .seg { margin-left: 0; }
 }
 
+/* ---------- phones ------------------------------------------------------- */
+
+@media screen and (max-width: 40rem) {
+  /* the heading is not worth a fifth of the screen: it scrolls away, and the
+     tools become one swipeable row instead of three stacked ones */
+  .sheet__head { position: static; display: block; padding-block: 0.7rem; }
+  .sheet__head .home__mark { display: inline-block; margin-bottom: 0.55rem; }
+  .sheet__tools {
+    width: 100%;
+    margin-left: 0;
+    flex-wrap: nowrap;
+    gap: 0.4rem;
+    overflow-x: auto;
+    padding-bottom: 0.2rem;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+  }
+  .sheet__tools .btn { flex: 0 0 auto; min-height: 2.6rem; }
+  .sheet__tools .lang-switch { flex: 0 0 auto; }
+
+  .sheet-main { padding: 1.2rem 0.95rem 2.5rem; }
+  .sheet-lead h1 { font-size: clamp(1.55rem, 7vw, 2rem); }
+  .sheet { padding: 0.85rem 0.85rem 1rem; }
+
+  .line { grid-template-columns: minmax(0, 1fr); gap: 0.05rem; padding-block: 0.3rem; }
+  .line--mid { grid-template-columns: auto 3.4rem; }
+  .line--area { gap: 0.3rem; }
+  .carry .line { grid-template-columns: 5.8rem minmax(0, 1fr); }
+
+  /* 15px fields make iOS zoom the whole page in on focus */
+  .f,
+  .rail__search input { font-size: 1rem; }
+  .f { padding-block: 0.35rem; }
+  .f--big { font-size: 1.15rem; }
+  .sec__hint { font-size: 0.8rem; }
+
+  .seg__btn { min-height: 2.3rem; padding-inline: 0.7rem; }
+  .chars { gap: 0.4rem; }
+  .char { padding: 0.4rem 0.3rem 0.45rem; }
+
+  .track { flex-wrap: wrap; gap: 0.3rem 0.55rem; }
+  .track__name { width: auto; flex: 0 0 auto; }
+  .track__count { margin-left: auto; width: auto; }
+  .track__pips { order: 3; flex: 1 1 100%; gap: clamp(0.18rem, 0.7vw, 0.28rem); }
+  .pip {
+    width: clamp(1.2rem, 6.2vw, 1.7rem);
+    height: clamp(1.45rem, 7vw, 1.85rem);
+  }
+  .track__pips--six .pip { width: clamp(1.7rem, 8.4vw, 2.2rem); }
+  .pip[aria-pressed="true"]::after { inset: 0.22rem 0.17rem; }
+
+  .tbl-wrap {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+  }
+  .tbl-wrap.is-scrollable { box-shadow: inset -0.9rem 0 0.9rem -0.8rem rgba(20, 27, 24, 0.55); }
+  .skills,
+  .muts { min-width: 25.5rem; }
+  .skills th,
+  .muts th { font-size: 0.64rem; }
+  .weapons__head,
+  .weapons__row { grid-template-columns: minmax(0, 1fr) 3.6rem 4rem; gap: 0.3rem; }
+  .gear__head,
+  .gear__row { grid-template-columns: minmax(0, 1fr) 2.4rem; gap: 0.3rem; }
+
+  .sec__note { display: none; }
+  .quick { grid-template-columns: minmax(0, 1fr); }
+  .sheet-foot { flex-direction: column; gap: 0.35rem; }
+}
+
 /* ---------- print -------------------------------------------------------- */
 
 @media print {

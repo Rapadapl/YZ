@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>蔓生兽图鉴 — 根与爪</title>
+<meta name="description" content="蔓生兽图鉴：十九种野兽与八种蔓生居民——威胁、数值、攻击、它们想要什么、能取走什么。">
+<link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/book.css">
+<script src="assets/i18n.js" defer></script>
+<script src="assets/book.js" defer></script>
+</head>
+<body class="lore-page bestiary-page">
+<a class="skip-link" href="#main"></a>
+<div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+<button class="rail-toggle" type="button" aria-expanded="false" aria-controls="rail" data-str="openMenu"></button>
+<button class="scrim" type="button" hidden aria-label="关闭目录"></button>
+
+<div class="shell">
+  <aside class="rail" id="rail" data-open="false" aria-label="目录">
+    <div class="rail__brand">
+      <span class="rail__brand-mark">根与爪</span>
+      <a class="rail__brand-title" href="bestiary.zh.html">兽图鉴</a>
+      <span class="rail__brand-sub">蔓生</span>
+    </div>
+
+    <div class="rail__search">
+      <label class="visually-hidden" for="toc-search" data-str-aria="searchLabel"></label>
+      <input id="toc-search" type="search" autocomplete="off" data-toc-search data-str-placeholder="searchPlaceholder">
+      <span class="rail__search-key" aria-hidden="true">/</span>
+    </div>
+
+    <nav aria-label="目录">
+      <ul class="toc" id="toc"></ul>
+    </nav>
+
+    <div class="rail__foot">
+      <div class="lang-switch" data-lang-switch>
+        <a href="bestiary.html" lang="en" hreflang="en" data-alt-lang="bestiary.html">EN</a>
+        <a href="bestiary.ru.html" lang="ru" hreflang="ru" data-alt-lang="bestiary.ru.html">RU</a>
+        <span aria-current="true">中文</span>
+      </div>
+      <a class="btn" href="index.zh.html">全部书籍</a>
+      <a class="btn" href="module.zh.html">变异</a>
+      <a class="btn" href="lore.zh.html">世界设定</a>
+      <a class="btn" href="master-book.zh.html">主持人手册</a>
+      <a class="btn" href="character.html?lang=zh">角色卡</a>
+      <button class="btn" type="button" data-print data-str="print"></button>
+      <button class="btn" type="button" data-close></button>
+    </div>
+  </aside>
+
+  <main class="book module-book" id="main">
+    <div class="book__inner">
+      <header class="masthead">
+        <p class="masthead__book">根与爪 · 兽图鉴</p>
+        <h1>蔓生兽图鉴</h1>
+        <p class="masthead__lead">火堆之间会遇到的东西：害虫、掠食者、从根与汁液里长出来的、腐烂留下继续行走的形态、伟岸者——以及队伍在大道上遇到的人。每条记录都是一张主持人可以直接运行的卡：威胁、数值、它做什么、它想要什么、能从它身上取走什么。</p>
+      </header>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">00</span>
+          <h2 id="ch-0">怎样读一只野兽</h2>
+        </div>
+
+        <p><strong>威胁</strong>不是等级：它说的是疏忽要付多少代价。●——一名英雄一个糟糕的回合。●●——对初始队伍来说是一场真正的战斗。●●●——一整场戏的中心，而且必须有地形、弱点和退路。</p>
+        <p><strong>数值</strong>是经典版：四项属性、生命、护甲。攻击给出伤害与距离。现代版按下面的表读属性，生命与伤害仍是数字。</p>
+        <div class="tbl-wrap"><table class="tbl tbl--narrow"><caption>现代变体</caption><thead><tr><th scope="col">经典</th><th scope="col">阶</th></tr></thead><tbody><tr><td class="num">1–2</td><td>D</td></tr><tr><td class="num">3–4</td><td>C</td></tr><tr><td class="num">5</td><td>B</td></tr><tr><td class="num">6</td><td>A</td></tr></tbody></table></div>
+        <p><strong>它想要什么</strong>是卡上最有用的一行。得到想要的东西，野兽通常会离开；得不到，它就打到死。受腐烂触碰者不退，也不走。</p>
+        <p><strong>桌边：</strong>一群相同野兽共用一张卡、一次先攻。除第一只外，每多一只给群体攻击 +1 骰，最多 +3。生命过半的野兽会逃跑，除非卡上另有说明。抗腐烂是耐力检定；失败就是红晕（见<a href="lore.zh.html">世界设定</a>）。</p>
+        <p><strong>规模。</strong>三个威胁 1 等于一场威胁 2 的遭遇；威胁 3 加两个威胁 1 的仆从就是一整场戏。不要给伟岸者加数值——给它加地形。</p>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">01</span>
+          <h2 id="ch-1">小兽与食腐者</h2>
+        </div>
+
+        <p class="chapter__lead">不住在城里，却靠城活着的东西：吃电缆、血和光。危险不大——直到它们有九只。</p>
+        <div class="beasts"><article class="beast" data-threat="1"><h3 class="beast__name">铁丝鼠<span class="beast__epithet"> — 咬断一切会延伸的东西</span></h3><div class="beast__stats"><span class="stat"><b>威胁</b>●</span><span class="stat"><b>力</b>2</span><span class="stat"><b>敏</b>4</span><span class="stat"><b>智</b>1</span><span class="stat"><b>情</b>1</span><span class="stat"><b>血</b>2</span><span class="stat"><b>甲</b>0</span></div><p class="beast__line"><b>攻击。</b>咬 1（贴身）。</p><p class="beast__line"><b>特性。</b>啃电缆、绳子和皮带；留下铜粉。在废墟中潜行 +1 骰。</p><p class="beast__line"><b>想要。</b>温暖与铜。</p><p class="beast__line"><b>战利品。</b>巢里 D6 段环。</p></article><article class="beast" data-threat="1"><h3 class="beast__name">汁液蜱<span class="beast__epithet"> — 爪上的渴</span></h3><div class="beast__stats"><span class="stat"><b>威胁</b>●</span><span class="stat"><b>力</b>1</span><span class="stat"><b>敏</b>3</span><span class="stat"><b>智</b>1</span><span class="stat"><b>情</b>1</span><span class="stat"><b>血</b>1</span><span class="stat"><b>甲</b>1</span></div><p class="beast__line"><b>攻击。</b>咬 1 并吸附。</p><p class="beast__line"><b>特性。</b>吸附：敏捷 −1 骰，直到被扯下（力量，快动作）；每轮吸取 1 点伤害。</p><p class="beast__line"><b>想要。</b>汁液，以及喝过汁液的一切。</p><p class="beast__line"><b>战利品。</b>把蜱挤破，可得一小瓶液态汁液。</p></article><article class="beast" data-threat="1"><h3 class="beast__name">灰蛾<span class="beast__epithet"> — 有目的的灰云</span></h3><div class="beast__stats"><span class="stat"><b>威胁</b>●</span><span class="stat"><b>力</b>1</span><span class="stat"><b>敏</b>4</span><span class="stat"><b>智</b>1</span><span class="stat"><b>情</b>1</span><span class="stat"><b>血</b>3</span><span class="stat"><b>甲</b>0</span></div><p class="beast__line"><b>攻击。</b>翅 1（贴身）。</p><p class="beast__line"><b>特性。</b>群：对单一目标的攻击只造成一半伤害，向上取整。微光中使观察 −1 骰。</p><p class="beast__line"><b>想要。</b>灯光与灯的热。</p><p class="beast__line"><b>战利品。</b>一撮灰粉；手艺可做成烟幕。</p></article><article class="beast" data-threat="1"><h3 class="beast__name">铜鸦<span class="beast__epithet"> — 有记忆的贼</span></h3><div class="beast__stats"><span class="stat"><b>威胁</b>●</span><span class="stat"><b>力</b>1</span><span class="stat"><b>敏</b>5</span><span class="stat"><b>智</b>2</span><span class="stat"><b>情</b>2</span><span class="stat"><b>血</b>2</span><span class="stat"><b>甲</b>0</span></div><p class="beast__line"><b>攻击。</b>喙 1（贴身）。</p><p class="beast__line"><b>特性。</b>偷小东西，模仿人声；飞行时潜行 +2 骰。记得骗过它的那张脸。</p><p class="beast__line"><b>想要。</b>一切发亮的东西。</p><p class="beast__line"><b>战利品。</b>它最后偷的东西——常常是信使的封牌。</p></article></div>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">02</span>
+          <h2 id="ch-2">掠食者</h2>
+        </div>
+
+        <p class="chapter__lead">蔓生的掠食者不邪恶，也不愚蠢。每一种都有办法把一名英雄带出战斗，而每一种都宁愿不受伤。</p>
+        <div class="beasts"><article class="beast" data-threat="2"><h3 class="beast__name">长口<span class="beast__epithet"> — 耐心的猎人</span></h3><div class="beast__stats"><span class="stat"><b>威胁</b>●●</span><span class="stat"><b>力</b>4</span><span class="stat"><b>敏</b>4</span><span class="stat"><b>智</b>2</span><span class="stat"><b>情</b>1</span><span class="stat"><b>血</b>6</span><span class="stat"><b>甲</b>1</span></div><p class="beast__line"><b>攻击。</b>爪 2（贴身）；咬 3（贴身）。</p><p class="beast__line"><b>特性。</b>扑击：沿直线移动到目标后，第一次攻击 +2 伤害。高草中潜行 +1 骰。</p><p class="beast__line"><b>想要。</b>一个掉队、被火堆隔开的人。</p><p class="beast__line"><b>战利品。</b>皮（鞣制后护甲 1）、牙。</p></article><article class="beast" data-threat="2"><h3 class="beast__name">野獠<span class="beast__epithet"> — 四条腿的论据</span></h3><div class="beast__stats"><span class="stat"><b>威胁</b>●●</span><span class="stat"><b>力</b>5</span><span class="stat"><b>敏</b>3</span><span class="stat"><b>智</b>1</span><span class="stat"><b>情</b>1</span><span class="stat"><b>血</b>8</span><span class="stat"><b>甲</b>2</span></div><p class="beast__line"><b>攻击。</b>獠牙 3（贴身）；冲锋 +2。</p><p class="beast__line"><b>特性。</b>直线冲锋 +2 伤害；被撞中的目标若赢不了体操，就倒地。</p><p class="beast__line"><b>想要。</b>别来烦它，以及沼泽里最好的根。</p><p class="beast__line"><b>战利品。</b>獠牙、皮、一星期的肉。</p></article><article class="beast" data-threat="2"><h3 class="beast__name">冠鹰<span class="beast__epithet"> — 坠落的影子</span></h3><div class="beast__stats"><span class="stat"><b>威胁</b>●●</span><span class="stat"><b>力</b>2</span><span class="stat"><b>敏</b>5</span><span class="stat"><b>智</b>2</span><span class="stat"><b>情</b>1</span><span class="stat"><b>血</b>3</span><span class="stat"><b>甲</b>0</span></div><p class="beast__line"><b>攻击。</b>爪 2（贴身）。</p><p class="beast__line"><b>特性。</b>俯冲：从上方攻击 +2 伤害。一个季节可学会一种兽语；哨所出售幼鸟。</p><p class="beast__line"><b>想要。</b>小猎物和高处的栖木。</p><p class="beast__line"><b>战利品。</b>箭羽；巢里有骨头和遗失的工具。</p></article><article class="beast" data-threat="2"><h3 class="beast__name">灰群犬<span class="beast__epithet"> — 从不独行的那只</span></h3><div class="beast__stats"><span class="stat"><b>威胁</b>●●</span><span class="stat"><b>力</b>3</span><span class="stat"><b>敏</b>4</span><span class="stat"><b>智</b>2</span><span class="stat"><b>情</b>2</span><span class="stat"><b>血</b>4</span><span class="stat"><b>甲</b>1</span></div><p class="beast__line"><b>攻击。</b>咬 2（贴身）。</p><p class="beast__line"><b>特性。</b>群：本轮每有一只其他犬攻击同一目标，+1 骰，最多 +3。嚎叫每班引来 D3 只同类。</p><p class="beast__line"><b>想要。</b>群的食物，以及群能吃饱。</p><p class="beast__line"><b>战利品。</b>皮；有时脖子上还留着信使的项圈。</p></article></div>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">03</span>
+          <h2 id="ch-3">根与汁</h2>
+        </div>
+
+        <p class="chapter__lead">根与汁造出了本不该存在的野兽。它们比掠食者慢，比掠食者硬，而且不会失去兴趣。</p>
+        <div class="beasts"><article class="beast" data-threat="2"><h3 class="beast__name">汁液猎犬<span class="beast__epithet"> — 长错了，也长快了</span></h3><div class="beast__stats"><span class="stat"><b>威胁</b>●●</span><span class="stat"><b>力</b>3</span><span class="stat"><b>敏</b>4</span><span class="stat"><b>智</b>1</span><span class="stat"><b>情</b>1</span><span class="stat"><b>血</b>5</span><span class="stat"><b>甲</b>1</span></div><p class="beast__line"><b>攻击。</b>爪 2（贴身）；酸液喷吐 1（短距）。</p><p class="beast__line"><b>特性。</b>第二个成功时喷吐无视护甲。循汁液气味追踪，不会跟丢受伤的目标。</p><p class="beast__line"><b>想要。</b>汁液，以及带着汁液的温暖身体。</p><p class="beast__line"><b>战利品。</b>硬化的汁液腺；手艺可做成刀刃涂层。</p></article><article class="beast" data-threat="2"><h3 class="beast__name">根虫<span class="beast__epithet"> — 会动的土地</span></h3><div class="beast__stats"><span class="stat"><b>威胁</b>●●</span><span class="stat"><b>力</b>4</span><span class="stat"><b>敏</b>2</span><span class="stat"><b>智</b>1</span><span class="stat"><b>情</b>1</span><span class="stat"><b>血</b>7</span><span class="stat"><b>甲</b>2</span></div><p class="beast__line"><b>攻击。</b>咬 3（贴身）；绞缠 2。</p><p class="beast__line"><b>特性。</b>掘洞；能感到两个区域外的震动。从目标脚下钻出：体操，否则倒地。火能逼退它。</p><p class="beast__line"><b>想要。</b>热——营火、洞穴、睡着的营地。</p><p class="beast__line"><b>战利品。</b>一段根铁；搭扣出价不低。</p></article><article class="beast" data-threat="2"><h3 class="beast__name">玻璃蜂<span class="beast__epithet"> — 听见时已太晚的翅</span></h3><div class="beast__stats"><span class="stat"><b>威胁</b>●●</span><span class="stat"><b>力</b>1</span><span class="stat"><b>敏</b>5</span><span class="stat"><b>智</b>1</span><span class="stat"><b>情</b>1</span><span class="stat"><b>血</b>2</span><span class="stat"><b>甲</b>1</span></div><p class="beast__line"><b>攻击。</b>蜇 2（贴身）并中毒。</p><p class="beast__line"><b>特性。</b>毒：耐力检定，否则一班内所有投掷 −2 骰。会飞；巢里有 D6 只蜂。</p><p class="beast__line"><b>想要。</b>给巢的肉。</p><p class="beast__line"><b>战利品。</b>玻璃翅，匠人很看重；巢里有蜂后的琥珀。</p></article><article class="beast" data-threat="2"><h3 class="beast__name">孢子牧人<span class="beast__epithet"> — 放牧看不见的群</span></h3><div class="beast__stats"><span class="stat"><b>威胁</b>●●</span><span class="stat"><b>力</b>3</span><span class="stat"><b>敏</b>2</span><span class="stat"><b>智</b>3</span><span class="stat"><b>情</b>2</span><span class="stat"><b>血</b>5</span><span class="stat"><b>甲</b>1</span></div><p class="beast__line"><b>攻击。</b>杖 2（贴身）。</p><p class="beast__line"><b>特性。</b>呼出孢子：贴身者若赢不了耐力，失去快动作；失败还额外 −2 一轮。驱赶受触野兽。</p><p class="beast__line"><b>想要。</b>把自己的群赶进村庄。</p><p class="beast__line"><b>战利品。</b>孢子号角；吹响它，群会应声而来。</p></article></div>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">04</span>
+          <h2 id="ch-4">受腐烂触碰者</h2>
+        </div>
+
+        <p class="chapter__lead">腐烂不制造怪物。它只是不让病人停下来。下面是村庄最害怕的三种形态。</p>
+        <div class="beasts"><article class="beast" data-threat="2"><h3 class="beast__name">开花鹿<span class="beast__epithet"> — 很美，已不再是它</span></h3><div class="beast__stats"><span class="stat"><b>威胁</b>●●</span><span class="stat"><b>力</b>4</span><span class="stat"><b>敏</b>4</span><span class="stat"><b>智</b>2</span><span class="stat"><b>情</b>1</span><span class="stat"><b>血</b>6</span><span class="stat"><b>甲</b>1</span></div><p class="beast__line"><b>攻击。</b>角 3（贴身）。</p><p class="beast__line"><b>特性。</b>开花阶段。死亡时喷出孢子：贴身者若赢不了耐力，一班内 −2。</p><p class="beast__line"><b>想要。</b>趁还能走，走到树心。</p><p class="beast__line"><b>战利品。</b>角可用于手艺；孢子值钱，但路上不安全。</p></article><article class="beast" data-threat="3"><h3 class="beast__name">红晕熊<span class="beast__epithet"> — 站起来的烧</span></h3><div class="beast__stats"><span class="stat"><b>威胁</b>●●●</span><span class="stat"><b>力</b>5</span><span class="stat"><b>敏</b>3</span><span class="stat"><b>智</b>2</span><span class="stat"><b>情</b>1</span><span class="stat"><b>血</b>10</span><span class="stat"><b>甲</b>2</span></div><p class="beast__line"><b>攻击。</b>爪 3（贴身）；咬 3（贴身）。</p><p class="beast__line"><b>特性。</b>无视第一次受到的重伤。红晕阶段：血会传染——被它划伤的人必须抗腐烂。</p><p class="beast__line"><b>想要。</b>巢穴、食物，以及让它带着烧待着。</p><p class="beast__line"><b>战利品。</b>皮（鞣制后护甲 2）；肉已被感染。</p></article><article class="beast" data-threat="3"><h3 class="beast__name">花园圣者<span class="beast__epithet"> — 他还在说话，这就是陷阱</span></h3><div class="beast__stats"><span class="stat"><b>威胁</b>●●●</span><span class="stat"><b>力</b>3</span><span class="stat"><b>敏</b>2</span><span class="stat"><b>智</b>4</span><span class="stat"><b>情</b>3</span><span class="stat"><b>血</b>7</span><span class="stat"><b>甲</b>1</span></div><p class="beast__line"><b>攻击。</b>触碰 2（贴身）并喷孢子。</p><p class="beast__line"><b>特性。</b>花园阶段，却还能说话。触碰需要抗腐烂。能命令受触野兽；无法说服他——只能用好的论据拖住他。</p><p class="beast__line"><b>想要。</b>信众。</p><p class="beast__line"><b>战利品。</b>教派的歌书；干燥房间的钥匙。</p></article></div>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">05</span>
+          <h2 id="ch-5">伟岸者</h2>
+        </div>
+
+        <p class="chapter__lead">每个一张卡，围绕它是一整场游戏：这不是遭遇，是有自己意见的天气。</p>
+        <div class="beasts"><article class="beast" data-threat="3"><h3 class="beast__name">食根者<span class="beast__epithet"> — 会回咬的墙</span></h3><div class="beast__stats"><span class="stat"><b>威胁</b>●●●</span><span class="stat"><b>力</b>6</span><span class="stat"><b>敏</b>2</span><span class="stat"><b>智</b>1</span><span class="stat"><b>情</b>1</span><span class="stat"><b>血</b>14</span><span class="stat"><b>甲</b>3</span></div><p class="beast__line"><b>攻击。</b>咬 4（贴身）；横扫 3（所有贴身者）。</p><p class="beast__line"><b>特性。</b>一班内啃穿墙壁；能感到三个区域外的震动。只有火和响亮的机器能让它转身。</p><p class="beast__line"><b>想要。</b>它能感到的最古老的根。</p><p class="beast__line"><b>战利品。</b>一块根铁板；若分割尸体，需要一辆车。</p></article><article class="beast" data-threat="3"><h3 class="beast__name">树冠鳐<span class="beast__epithet"> — 拥有天空的水母</span></h3><div class="beast__stats"><span class="stat"><b>威胁</b>●●●</span><span class="stat"><b>力</b>3</span><span class="stat"><b>敏</b>5</span><span class="stat"><b>智</b>1</span><span class="stat"><b>情</b>1</span><span class="stat"><b>血</b>8</span><span class="stat"><b>甲</b>1</span></div><p class="beast__line"><b>攻击。</b>触须 2 两次（贴身）。</p><p class="beast__line"><b>特性。</b>在区域间漂浮，不受坠落伤害。微光中几乎隐形：靠近前发现它需要观察 −2。</p><p class="beast__line"><b>想要。</b>漂着，蜇任何够得到的东西。</p><p class="beast__line"><b>战利品。</b>气囊；可用来培育蹼膜。</p></article><article class="beast" data-threat="3"><h3 class="beast__name">沼泽母亲<span class="beast__epithet"> — 抓住自己孩子的沼泽</span></h3><div class="beast__stats"><span class="stat"><b>威胁</b>●●●</span><span class="stat"><b>力</b>4</span><span class="stat"><b>敏</b>2</span><span class="stat"><b>智</b>3</span><span class="stat"><b>情</b>2</span><span class="stat"><b>血</b>9</span><span class="stat"><b>甲</b>2</span></div><p class="beast__line"><b>攻击。</b>抓握 2（贴身）；溺毙。</p><p class="beast__line"><b>特性。</b>把抓住的目标拖进水里；在沼泽中每轮恢复 1 点伤害。巢里有 D6 只幼崽，每只都是威胁 1 的野兽。</p><p class="beast__line"><b>想要。</b>供品，以及自己那片水。</p><p class="beast__line"><b>战利品。</b>琥珀心——极好的灵能焦点；幼崽活着更值钱。</p></article><article class="beast" data-threat="3"><h3 class="beast__name">老獠牙<span class="beast__epithet"> — 部族不与之开战的那位</span></h3><div class="beast__stats"><span class="stat"><b>威胁</b>●●●</span><span class="stat"><b>力</b>6</span><span class="stat"><b>敏</b>4</span><span class="stat"><b>智</b>3</span><span class="stat"><b>情</b>3</span><span class="stat"><b>血</b>12</span><span class="stat"><b>甲</b>3</span></div><p class="beast__line"><b>攻击。</b>獠牙 4（贴身）；践踏 3。</p><p class="beast__line"><b>特性。</b>会说蹩脚的贸易通用语。獠牙血脉不会对他动手。对伤害过野猪族的人 +1 骰。</p><p class="beast__line"><b>想要。</b>让旧道保持开放，盐地不被打扰。</p><p class="beast__line"><b>战利品。</b>没有。杀他是诅咒，每头野猪都会知道。</p></article></div>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">06</span>
+          <h2 id="ch-6">蔓生的人</h2>
+        </div>
+
+        <p class="chapter__lead">不是怪物：队伍在大道上、门口、干燥房间里遇到的人。给每个人一个愿望和一个不打的理由——世界就自己运转了。</p>
+        <div class="beasts"><article class="beast" data-threat="1"><h3 class="beast__name">冠羽哨兵<span class="beast__epithet"> — 卖警告，不卖打架</span></h3><div class="beast__stats"><span class="stat"><b>威胁</b>●</span><span class="stat"><b>力</b>2</span><span class="stat"><b>敏</b>4</span><span class="stat"><b>智</b>3</span><span class="stat"><b>情</b>2</span><span class="stat"><b>血</b>4</span><span class="stat"><b>甲</b>1</span></div><p class="beast__line"><b>攻击。</b>矛 2（贴身）；投石索 1（中距）。</p><p class="beast__line"><b>特性。</b>比其他人多看一个区域：观察 +2 骰。哨声每班引来 D3 名同族。能爬就不会在地面打。</p><p class="beast__line"><b>想要。</b>在警告的事到来之前把警告卖掉。</p><p class="beast__line"><b>战利品。</b>环、黄铜哨、别人巢穴的地图。</p></article><article class="beast" data-threat="1"><h3 class="beast__name">长跑信使<span class="beast__epithet"> — 送到，或者与它同死</span></h3><div class="beast__stats"><span class="stat"><b>威胁</b>●</span><span class="stat"><b>力</b>2</span><span class="stat"><b>敏</b>5</span><span class="stat"><b>智</b>2</span><span class="stat"><b>情</b>2</span><span class="stat"><b>血</b>4</span><span class="stat"><b>甲</b>0</span></div><p class="beast__line"><b>攻击。</b>刀 1（贴身）；杖 2（贴身）。</p><p class="beast__line"><b>特性。</b>快动作多移动一个区域，且熟悉根道。带着封牌，宁死也不让人拆开。</p><p class="beast__line"><b>想要。</b>送到，并且是别人欠他，不是他欠别人。</p><p class="beast__line"><b>战利品。</b>封牌、D6 环、道路清单。</p></article><article class="beast" data-threat="1"><h3 class="beast__name">采汁人<span class="beast__epithet"> — 有点不对劲，而这很有用</span></h3><div class="beast__stats"><span class="stat"><b>威胁</b>●</span><span class="stat"><b>力</b>3</span><span class="stat"><b>敏</b>2</span><span class="stat"><b>智</b>3</span><span class="stat"><b>情</b>1</span><span class="stat"><b>血</b>5</span><span class="stat"><b>甲</b>0</span></div><p class="beast__line"><b>攻击。</b>割汁刀 2（贴身）。</p><p class="beast__line"><b>特性。</b>读得懂汁液：知道伤口、井或人是否被感染。少量饮用，因此有点不对劲。</p><p class="beast__line"><b>想要。</b>干净的脉管，以及不问问题的买家。</p><p class="beast__line"><b>战利品。</b>割汁工具、一瓶生汁液、一只受触的手。</p></article><article class="beast" data-threat="1"><h3 class="beast__name">缓慢法庭书记<span class="beast__epithet"> — 债记得</span></h3><div class="beast__stats"><span class="stat"><b>威胁</b>●</span><span class="stat"><b>力</b>1</span><span class="stat"><b>敏</b>2</span><span class="stat"><b>智</b>4</span><span class="stat"><b>情</b>3</span><span class="stat"><b>血</b>3</span><span class="stat"><b>甲</b>0</span></div><p class="beast__line"><b>攻击。</b>没有拿得出手的攻击；为此有护卫。</p><p class="beast__line"><b>特性。</b>记得山谷里每一笔债；他手里的收据就是法律。用环买不动他，只能用债。</p><p class="beast__line"><b>想要。</b>把账做平，并保住先例。</p><p class="beast__line"><b>战利品。</b>债簿、印章、D6 份装订的诉状。</p></article><article class="beast" data-threat="2"><h3 class="beast__name">搭扣窃贼<span class="beast__epithet"> — 为门付钱，不为房间</span></h3><div class="beast__stats"><span class="stat"><b>威胁</b>●●</span><span class="stat"><b>力</b>3</span><span class="stat"><b>敏</b>4</span><span class="stat"><b>智</b>3</span><span class="stat"><b>情</b>2</span><span class="stat"><b>血</b>4</span><span class="stat"><b>甲</b>1</span></div><p class="beast__line"><b>攻击。</b>撬棍 2（贴身）；飞钥匙 1（短距）。</p><p class="beast__line"><b>特性。</b>有工具时，一班内打开锁或机器：手艺 +1 骰。事情闹大就跑。</p><p class="beast__line"><b>想要。</b>为门付钱，而不是为门后的东西。</p><p class="beast__line"><b>战利品。</b>工具、钥匙复制品、水泵图纸。</p></article><article class="beast" data-threat="2"><h3 class="beast__name">灰烬合唱的歌者<span class="beast__epithet"> — 有声音的恩典</span></h3><div class="beast__stats"><span class="stat"><b>威胁</b>●●</span><span class="stat"><b>力</b>2</span><span class="stat"><b>敏</b>2</span><span class="stat"><b>智</b>3</span><span class="stat"><b>情</b>4</span><span class="stat"><b>血</b>4</span><span class="stat"><b>甲</b>0</span></div><p class="beast__line"><b>攻击。</b>杖 1（贴身）；孢子。</p><p class="beast__line"><b>特性。</b>向贴身者呼出孢子：耐力，否则失去快动作并 −2 一轮。真心相信花园是恩典，当面很难恨她。</p><p class="beast__line"><b>想要。</b>再多一个愿意听的人。</p><p class="beast__line"><b>战利品。</b>歌书、孢子号角、别人干燥房间的钥匙。</p></article><article class="beast" data-threat="2"><h3 class="beast__name">沼泽向导<span class="beast__epithet"> — 知道哪片水是汁</span></h3><div class="beast__stats"><span class="stat"><b>威胁</b>●●</span><span class="stat"><b>力</b>3</span><span class="stat"><b>敏</b>3</span><span class="stat"><b>智</b>3</span><span class="stat"><b>情</b>2</span><span class="stat"><b>血</b>5</span><span class="stat"><b>甲</b>0</span></div><p class="beast__line"><b>攻击。</b>长竿 2（贴身）；刀 2（贴身）。</p><p class="beast__line"><b>特性。</b>知道哪里水是汁、哪里能承重：他带路时，队伍过沼泽不必投掷。报酬永远先收。</p><p class="beast__line"><b>想要。</b>走完这一趟，并且不欠人情。</p><p class="beast__line"><b>战利品。</b>长竿、防汁斗篷、一袋环。</p></article><article class="beast" data-threat="2"><h3 class="beast__name">群族佣兵<span class="beast__epithet"> — 是合同，不是立场</span></h3><div class="beast__stats"><span class="stat"><b>威胁</b>●●</span><span class="stat"><b>力</b>4</span><span class="stat"><b>敏</b>3</span><span class="stat"><b>智</b>2</span><span class="stat"><b>情</b>2</span><span class="stat"><b>血</b>7</span><span class="stat"><b>甲</b>2</span></div><p class="beast__line"><b>攻击。</b>斧 3（贴身）；弩 2（中距）。</p><p class="beast__line"><b>特性。</b>身边有群族同伴时守住阵线不崩：同伴贴身攻击同一目标则 +1 骰。不会接对抗群族的合同。</p><p class="beast__line"><b>想要。</b>合同被遵守，群族拿到钱。</p><p class="beast__line"><b>战利品。</b>斧、弩、预付的一半报酬。</p></article></div>
+      </section>
+
+      <nav class="pager" aria-label="章节">
+        <a class="pager__link" data-pager="prev" href="#ch-0"><span></span><b data-pager-label></b></a>
+        <a class="pager__link pager__link--next" data-pager="next" href="#ch-0"><span></span><b data-pager-label></b></a>
+      </nav>
+
+      <footer class="colophon">
+        <p data-str="note"></p>
+        <p>文本：<a href="08-bestiary.ru.md">08-bestiary.ru.md</a>。规则：<a href="module.zh.html">模组</a>、<a href="player-book.zh.html">玩家手册</a>、<a href="master-book.zh.html">主持人手册</a>。</p>
+      </footer>
+    </div>
+  </main>
+</div>
+</body>
+</html>

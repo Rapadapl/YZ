@@ -82,10 +82,53 @@ window.YZE_STRINGS = {
     editionNoteBoth: "Оба варианта рядом. Выберите один, чтобы читать книгу как одну систему.",
     editionNoteClassic: "Издание «Классика d6»: пул d6, характеристики 1\u20135, навыки 0\u20135. Современные правила скрыты.",
     editionNoteModern: "Издание «Современный A\u2013D»: ранговые кубики, два кубика на проверку. Классические правила скрыты."
+  },
+  zh: {
+    contents: "目录",
+    searchLabel: "搜索本书",
+    searchPlaceholder: "搜索章节",
+    searchEmpty: "没有找到“{q}”。试试技能、武器或规则名。",
+    print: "打印或保存 PDF",
+    library: "全部书籍",
+    openMenu: "目录",
+    closeMenu: "关闭目录",
+    skip: "跳到正文",
+    onThisPage: "阅读位置",
+    progressLabel: "阅读进度",
+    prev: "上一章",
+    next: "下一章",
+    language: "语言",
+    playerBook: "玩家手册",
+    masterBook: "主持人手册",
+    moduleBook: "变异与技能",
+    moduleNav: "变异",
+    edition: "规则版本",
+    note: "《根与爪》是一套变异动物模组，适用于 d6 骰池与分级骰规则。核心规则在两本主书中，血脉、变异与兽性特质在模组中。",
+    contentsNote: "章节列表",
+    backToStart: "回到开头",
+    sheet: "角色卡",
+    sheetSaved: "已保存在此浏览器",
+    sheetSaveFailed: "未保存——浏览器禁止本地存储",
+    sheetExported: "副本已保存为文件",
+    sheetImported: "角色卡已打开",
+    sheetImportFailed: "这个文件不是角色卡",
+    sheetConfirmBlank: "清空角色卡并新建角色？",
+    sheetBlank: "空白角色卡",
+    sheetLoad: "负重",
+    editionBoth: "两种系统",
+    editionClassic: "经典 d6",
+    editionModern: "现代 A–D",
+    editionNoteBoth: "两种变体并列。选择一种，把本书当作单一系统来读。",
+    editionNoteClassic: "经典版：d6 骰池，属性 1–5，技能 0–5。现代规则已隐藏。",
+    editionNoteModern: "现代版：分级骰 A–D，每次检定两颗骰。经典规则已隐藏。"
   }
 };
 
-window.YZE_LANG = document.documentElement.lang === "ru" ? "ru" : "en";
+window.YZE_LANG = document.documentElement.lang === "ru"
+  ? "ru"
+  : document.documentElement.lang.toLowerCase().startsWith("zh")
+    ? "zh"
+    : "en";
 
 window.YZE_STR = (key, vars) => {
   const table = window.YZE_STRINGS[window.YZE_LANG] || window.YZE_STRINGS.en;

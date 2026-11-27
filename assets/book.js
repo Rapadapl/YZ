@@ -36,6 +36,22 @@
   const skip = document.querySelector(".skip-link");
   if (skip) skip.textContent = str("skip");
 
+  /* ---------- tables on phones ------------------------------------------ */
+
+  /* Below the card breakpoint a wide reference table is stacked, and every
+     cell needs to say which column the value came from. */
+  main.querySelectorAll("table.tbl").forEach((table) => {
+    const heads = Array.from(table.querySelectorAll("thead th")).map((th) =>
+      th.textContent.replace(/\s+/g, " ").trim()
+    );
+    if (!heads.length) return;
+    table.querySelectorAll("tbody tr").forEach((row) => {
+      Array.from(row.children).forEach((cell, index) => {
+        if (heads[index] && !cell.hasAttribute("data-label")) cell.setAttribute("data-label", heads[index]);
+      });
+    });
+  });
+
   /* ---------- contents -------------------------------------------------- */
 
   const rail = document.querySelector(".rail");
@@ -280,10 +296,27 @@
   /* A saved language choice outranks the file name: opening player-book.html
      after choosing Russian in the library goes to player-book.ru.html, and the
      same in reverse. replace() keeps the unwanted page out of the back stack. */
+  /* Every book that has a Chinese edition gets a 中文 link, built from the file
+     name, so the pages themselves do not repeat the same three links. */
+  if (lang !== "zh" && !document.querySelector('[data-alt-lang][lang="zh"]')) {
+    const file = window.location.pathname.split("/").pop() || "";
+    const target = file.replace(/(\.ru)?\.html$/i, ".zh.html");
+    const switchBox = document.querySelector("[data-lang-switch]");
+    if (switchBox && target !== file) {
+      const zhLink = document.createElement("a");
+      zhLink.href = target;
+      zhLink.lang = "zh";
+      zhLink.hreflang = "zh";
+      zhLink.dataset.altLang = target;
+      zhLink.textContent = "中文";
+      switchBox.append(zhLink);
+    }
+  }
+
   const savedLang = (() => {
     try {
       const saved = localStorage.getItem("yze-lang");
-      if (saved === "en" || saved === "ru") return saved;
+      if (saved === "en" || saved === "ru" || saved === "zh") return saved;
     } catch (error) {
       /* storage can be unavailable; the page simply stays as it is */
     }

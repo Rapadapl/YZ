@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>蔓生价目表 — 根与爪</title>
+<meta name="description" content="蔓生价目表：食物、旅行、装备、武器、服务与战利品各值多少环——供《根与爪》主持人参考。">
+<link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/book.css">
+<script src="assets/i18n.js" defer></script>
+<script src="assets/book.js" defer></script>
+</head>
+<body class="module-page prices-page">
+<a class="skip-link" href="#main"></a>
+<div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+<button class="rail-toggle" type="button" aria-expanded="false" aria-controls="rail" data-str="openMenu"></button>
+<button class="scrim" type="button" hidden aria-label="关闭目录"></button>
+
+<div class="shell">
+  <aside class="rail" id="rail" data-open="false" aria-label="目录">
+    <div class="rail__brand">
+      <span class="rail__brand-mark">根与爪</span>
+      <a class="rail__brand-title" href="prices.zh.html">价目表</a>
+      <span class="rail__brand-sub">主持人参考</span>
+    </div>
+
+    <div class="rail__search">
+      <label class="visually-hidden" for="toc-search" data-str-aria="searchLabel"></label>
+      <input id="toc-search" type="search" autocomplete="off" data-toc-search data-str-placeholder="searchPlaceholder">
+      <span class="rail__search-key" aria-hidden="true">/</span>
+    </div>
+
+    <nav aria-label="目录">
+      <ul class="toc" id="toc"></ul>
+    </nav>
+
+    <div class="rail__foot">
+      <div class="lang-switch" data-lang-switch>
+        <a href="prices.html" lang="en" hreflang="en" data-alt-lang="prices.html">EN</a>
+        <a href="prices.ru.html" lang="ru" hreflang="ru" data-alt-lang="prices.ru.html">RU</a>
+        <span aria-current="true">中文</span>
+      </div>
+      <a class="btn" href="index.zh.html">全部书籍</a>
+      <a class="btn" href="bestiary.zh.html">兽图鉴</a>
+      <a class="btn" href="master-book.zh.html">主持人手册</a>
+      <a class="btn" href="character.html?lang=zh">角色卡</a>
+      <button class="btn" type="button" data-print data-str="print"></button>
+      <button class="btn" type="button" data-close></button>
+    </div>
+  </aside>
+
+  <main class="book module-book" id="main">
+    <div class="book__inner">
+      <header class="masthead">
+        <p class="masthead__book">根与爪 · 主持人参考</p>
+        <h1>蔓生价目表</h1>
+        <p class="masthead__lead">一碗汤、一名向导、一把砍刀、一卷铜线各值多少环——短到可以塞在主持人屏风后面。把它当方向，不要当法律：在蔓生，价格由谁先找到谁决定。</p>
+      </header>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">00</span>
+          <h2 id="ch-0">怎样读价目</h2>
+        </div>
+
+        <p><strong>环</strong>是一段旧电缆，被切成等长的小段。一环就是一碗汤。一百环是一匹干活的马——如果马还存在的话。环穿在绳上，所以听得出一人背了多少债。</p>
+        <p><strong>价格</strong>是讨价还价的中点。任何商人都能让 ±20%，而急迫、腐烂和战争会推得更多。如果英雄今天就要这东西，而卖家并不急着卖，价格不必查表，直接翻倍。</p>
+
+        <div class="rule">
+          <span class="rule__label">经济三律</span>
+          <p>没人卖最后一件。没人公开收赃。也没人给大钱找零——这里没有大钱，只有环。</p>
+        </div>
+
+        <p><strong>各人身上有多少：</strong>乞丐 D6 环，劳工 2D6，匠人 3D6+10，商人 6D6+30，贵人 10D6+100。大笔钱几乎从不放在钱袋里，而在货里——铜、盐、汁液，或一本债簿。</p>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">01</span>
+          <h2 id="ch-1">食物与住处</h2>
+        </div>
+
+        <div class="tbl-wrap"><table class="tbl"><caption>桌与床</caption><thead><tr><th scope="col">项目</th><th scope="col" class="num">环</th><th scope="col">备注</th></tr></thead><tbody>
+          <tr><td>树皮汤</td><td class="num">1</td><td>一碗；续碗再加一环。</td></tr>
+          <tr><td>汁液粉面包</td><td class="num">1</td><td>到傍晚就硬了。</td></tr>
+          <tr><td>蘑菇奶酪</td><td class="num">2</td><td>能放一周。</td></tr>
+          <tr><td>烤幼虫</td><td class="num">1</td><td>路上便宜的蛋白。</td></tr>
+          <tr><td>肉，一份</td><td class="num">4</td><td>稀罕：那野兽太像邻居。</td></tr>
+          <tr><td>汁液，一小瓶</td><td class="num">8</td><td>治伤也改变人；从不当着证人卖。</td></tr>
+          <tr><td>水，一皮囊</td><td class="num">1</td><td>九井中只有六口还能打水。</td></tr>
+          <tr><td>盐，一袋</td><td class="num">3</td><td>比食物贵：干燥的房间与腐烂。</td></tr>
+          <tr><td>通铺床位</td><td class="num">2</td><td>每人；武器枕在头下。</td></tr>
+          <tr><td>干燥的房间</td><td class="num">2</td><td>每人；门从外面锁。</td></tr>
+          <tr><td>火边一个位置</td><td class="num">1</td><td>一夜，没有床。</td></tr>
+        </tbody></table></div>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">02</span>
+          <h2 id="ch-2">道路与运输</h2>
+        </div>
+
+        <div class="tbl-wrap"><table class="tbl"><caption>路、货与向导</caption><thead><tr><th scope="col">项目</th><th scope="col" class="num">环</th><th scope="col">备注</th></tr></thead><tbody>
+          <tr><td>向导，每区段</td><td class="num">12</td><td>认路；不为腐烂负责。</td></tr>
+          <tr><td>搬运工，每班</td><td class="num">3</td><td>自己人或雇的；饲料另算。</td></tr>
+          <tr><td>商队名额</td><td class="num">5</td><td>每区段，不含货物。</td></tr>
+          <tr><td>拖橇</td><td class="num">15</td><td>能拉一卷铜线或一台发电机。</td></tr>
+          <tr><td>牲口饲料，每天</td><td class="num">2</td><td>没有饲料，牲口不走。</td></tr>
+          <tr><td>渡口过河</td><td class="num">4</td><td>每人；货物加倍。</td></tr>
+          <tr><td>小船</td><td class="num">200</td><td>河是唯一快路。</td></tr>
+          <tr><td>护卫，每班</td><td class="num">5</td><td>群族的佣兵；是合同，不是立场。</td></tr>
+        </tbody></table></div>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">03</span>
+          <h2 id="ch-3">装备</h2>
+        </div>
+
+        <div class="tbl-wrap"><table class="tbl"><caption>上路要带的东西</caption><thead><tr><th scope="col">项目</th><th scope="col" class="num">环</th><th scope="col">备注</th></tr></thead><tbody>
+          <tr><td>绳，10 米</td><td class="num">2</td><td>麻绳；潮湿会烂。</td></tr>
+          <tr><td>提灯</td><td class="num">5</td><td>按班租——2。</td></tr>
+          <tr><td>油，一瓶</td><td class="num">1</td><td>一班的光。</td></tr>
+          <tr><td>火石与火绒</td><td class="num">1</td><td>没有火，就没有干燥的房间。</td></tr>
+          <tr><td>锅</td><td class="num">4</td><td>树皮汤不要钱；锅要。</td></tr>
+          <tr><td>毯子</td><td class="num">3</td><td>无火的一夜——+1 精神错乱。</td></tr>
+          <tr><td>背包</td><td class="num">8</td><td>负重上限翻倍，体操 −2。</td></tr>
+          <tr><td>破布与手套</td><td class="num">1</td><td>别徒手碰汁液或灵脂。</td></tr>
+          <tr><td>开锁工具</td><td class="num">10</td><td>手艺活；别人的门是别人的麻烦。</td></tr>
+          <tr><td>工具一套</td><td class="num">30</td><td>修理、锁、发电机。</td></tr>
+        </tbody></table></div>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">04</span>
+          <h2 id="ch-4">武器与护甲</h2>
+        </div>
+
+        <div class="tbl-wrap"><table class="tbl"><caption>武器</caption><thead><tr><th scope="col">武器</th><th scope="col" class="num">伤害</th><th scope="col" class="num">环</th><th scope="col">备注</th></tr></thead><tbody>
+          <tr><td>棍棒</td><td class="num">1</td><td class="num">2</td><td>贴身。</td></tr>
+          <tr><td>刀</td><td class="num">1</td><td class="num">4</td><td>贴身；人人都带。</td></tr>
+          <tr><td>撬棍</td><td class="num">2</td><td class="num">5</td><td>贴身；沉重。</td></tr>
+          <tr><td>树根长矛</td><td class="num">2</td><td class="num">6</td><td>贴身；把野兽挡在一步之外。</td></tr>
+          <tr><td>砍刀</td><td class="num">2</td><td class="num">8</td><td>贴身；干活也打仗。</td></tr>
+          <tr><td>斧</td><td class="num">2</td><td class="num">10</td><td>贴身；双手。</td></tr>
+          <tr><td>骨镞弓</td><td class="num">2</td><td class="num">12</td><td>中距；箭每支 1。</td></tr>
+          <tr><td>“响铃”短铳</td><td class="num">2</td><td class="num">35</td><td>短距；火药每发 3。</td></tr>
+          <tr><td>盾</td><td class="num">—</td><td class="num">10</td><td>对看得见的攻击 +1 护甲。</td></tr>
+          <tr><td>变异者骨刃</td><td class="num">2</td><td class="num">—</td><td>不卖：是身体的一部分。</td></tr>
+        </tbody></table></div>
+
+        <div class="tbl-wrap"><table class="tbl"><caption>护甲</caption><thead><tr><th scope="col">护甲</th><th scope="col" class="num">环</th><th scope="col">备注</th></tr></thead><tbody>
+          <tr><td>绗缝外套</td><td class="num">15</td><td>护甲 1；吸水变重。</td></tr>
+          <tr><td>皮背心</td><td class="num">25</td><td>护甲 1；不碍动作。</td></tr>
+          <tr><td>骨片甲</td><td class="num">30</td><td>调好后护甲 2。</td></tr>
+          <tr><td>锁子甲</td><td class="num">120</td><td>护甲 2；稀罕，另找他修。</td></tr>
+        </tbody></table></div>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">05</span>
+          <h2 id="ch-5">医药与汁液</h2>
+        </div>
+
+        <div class="tbl-wrap"><table class="tbl"><caption>治疗，以及治得太狠的东西</caption><thead><tr><th scope="col">项目</th><th scope="col" class="num">环</th><th scope="col">备注</th></tr></thead><tbody>
+          <tr><td>绷带与清创</td><td class="num">2</td><td>一处伤，无需投掷。</td></tr>
+          <tr><td>苦根</td><td class="num">3</td><td>红晕：三天与一间干燥的房。</td></tr>
+          <tr><td>急救包</td><td class="num">25</td><td>一场戏内医学 +1 骰。</td></tr>
+          <tr><td>解毒剂</td><td class="num">15</td><td>对野兽毒或汁液。</td></tr>
+          <tr><td>汁液，一小瓶</td><td class="num">8</td><td>附带变异、精神错乱与债。</td></tr>
+          <tr><td>孢子安瓿</td><td class="num">12</td><td>灰歌者会买；用盐保存。</td></tr>
+          <tr><td>灵铁</td><td class="num">40</td><td>灵能的焦点；闻起来像麻烦。</td></tr>
+        </tbody></table></div>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">06</span>
+          <h2 id="ch-6">服务与抽成</h2>
+        </div>
+
+        <div class="tbl-wrap"><table class="tbl"><caption>工作与别人的手</caption><thead><tr><th scope="col">服务</th><th scope="col" class="num">环</th><th scope="col">备注</th></tr></thead><tbody>
+          <tr><td>医者，一处伤</td><td class="num">5</td><td>不用汁液，也不问问题。</td></tr>
+          <tr><td>修工具</td><td class="num">3</td><td>一班。</td></tr>
+          <tr><td>修武器</td><td class="num">4</td><td>缺口、柄、配重。</td></tr>
+          <tr><td>修翻译器</td><td class="num">20</td><td>克罗姆卡会；别的匠人更贵。</td></tr>
+          <tr><td>抄地图</td><td class="num">8</td><td>准不准，看抄写员的良心。</td></tr>
+          <tr><td>贿赂守卫</td><td class="num">5–20</td><td>看你带了什么。</td></tr>
+          <tr><td>公会抽成</td><td class="num">40%</td><td>按任务；讲价可到 30%。</td></tr>
+          <tr><td>缓慢法庭裁决</td><td class="num">10%</td><td>按债额；判词会被记住。</td></tr>
+          <tr><td>獠牙誓</td><td class="num">—</td><td>不卖，也不收回。</td></tr>
+        </tbody></table></div>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">07</span>
+          <h2 id="ch-7">战利品与销赃</h2>
+        </div>
+
+        <p>卖出去只值一半：商人收货只给开价的 40–60%。下面是整件东西在英雄不需要时能换多少。</p>
+
+        <div class="tbl-wrap"><table class="tbl"><caption>拾荒者会交回什么</caption><thead><tr><th scope="col">战利品</th><th scope="col" class="num">环</th><th scope="col">备注</th></tr></thead><tbody>
+          <tr><td>铜，一卷</td><td class="num">60</td><td>3 负重；“里面有声音住着”。</td></tr>
+          <tr><td>黄铜</td><td class="num">20</td><td>接头、铭牌、弹壳。</td></tr>
+          <tr><td>工具</td><td class="num">30</td><td>按套，不按件。</td></tr>
+          <tr><td>发电机</td><td class="num">60</td><td>不含燃料 10 负重；要拖橇。</td></tr>
+          <tr><td>燃料，一罐</td><td class="num">15</td><td>轻，且贵。</td></tr>
+          <tr><td>唱片机</td><td class="num">40</td><td>收藏家会多给。</td></tr>
+          <tr><td>电路板与灯</td><td class="num">20</td><td>易碎，1 负重。</td></tr>
+          <tr><td>兽皮</td><td class="num">8</td><td>鞣制后护甲 1。</td></tr>
+          <tr><td>獠牙或角</td><td class="num">5</td><td>武器、护符、货物。</td></tr>
+          <tr><td>蘑菇与根</td><td class="num">2</td><td>一筐。</td></tr>
+          <tr><td>巢里的环</td><td class="num">D6</td><td>有时还带着别人的名牌。</td></tr>
+        </tbody></table></div>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter__head">
+          <span class="chapter__num">08</span>
+          <h2 id="ch-8">大件与加价</h2>
+        </div>
+
+        <div class="tbl-wrap"><table class="tbl"><caption>一生买一次的东西</caption><thead><tr><th scope="col">项目</th><th scope="col" class="num">环</th><th scope="col">备注</th></tr></thead><tbody>
+          <tr><td>干活的马</td><td class="num">100</td><td>如果马还存在。</td></tr>
+          <tr><td>战猪</td><td class="num">150</td><td>獠牙血脉只卖自己人。</td></tr>
+          <tr><td>受训巨甲虫</td><td class="num">80</td><td>慢，但驮得最多。</td></tr>
+          <tr><td>船</td><td class="num">200</td><td>河船；没有船工不走。</td></tr>
+          <tr><td>上层链上的位置</td><td class="num">300</td><td>屋顶、墙、水。</td></tr>
+          <tr><td>策佩帕德的房子</td><td class="num">500</td><td>附带前任主人的债。</td></tr>
+        </tbody></table></div>
+
+        <div class="tbl-wrap"><table class="tbl"><caption>价格修正</caption><thead><tr><th scope="col">情形</th><th scope="col" class="num">价格</th></tr></thead><tbody>
+          <tr><td>附近有腐烂，货物会坏</td><td class="num">−20%</td></tr>
+          <tr><td>急，今天就要</td><td class="num">+25%</td></tr>
+          <tr><td>长夜、冬天、围城</td><td class="num">+30%</td></tr>
+          <tr><td>战争或道路封闭</td><td class="num">+50%</td></tr>
+          <tr><td>同血脉的自家人</td><td class="num">−10%</td></tr>
+          <tr><td>没有担保的外人</td><td class="num">+10%</td></tr>
+          <tr><td>不讲价，“有多少拿多少”</td><td class="num">−10%</td></tr>
+          <tr><td>汁液、孢子、灵铁</td><td class="num">+50%</td></tr>
+        </tbody></table></div>
+
+        <p class="chapter__lead">拿不准时，就把价格定成做这东西的人两三天的工钱。在蔓生，一件东西值多少，等于一个人自己做不出来的程度。</p>
+      </section>
+
+      <div class="colophon">
+        <p>主持人参考。价格是方向，不是规则：交易、季节与需要比任何清单都更能推动它们。货币与习俗见<a href="lore.zh.html">世界设定</a>；野兽留下什么见<a href="bestiary.zh.html">兽图鉴</a>；负重与装备见<a href="player-book.zh.html">玩家手册</a>。</p>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>
