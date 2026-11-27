@@ -78,6 +78,17 @@
   margin: 0;
 }
 
+.sheet__linknote {
+  margin: 0.7rem 0 0;
+  padding: 0.5rem 0.65rem;
+  border-left: 2px solid var(--verdigris);
+  background: #f1f4e9;
+  font-size: var(--step--2);
+  line-height: 1.45;
+  color: #33403a;
+}
+.sheet__linknote[hidden] { display: none; }
+
 .sheet__status {
   margin-top: 0.7rem;
   font-size: var(--step--2);
