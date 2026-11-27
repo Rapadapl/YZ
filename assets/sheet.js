@@ -386,6 +386,65 @@
     recalculate();
   };
 
+  /* A shared sheet travels in the URL fragment, never on the server. The
+     payload is deflated raw and base64url-encoded; the fragment is not sent in
+     HTTP requests, so GitHub Pages never sees the character. */
+  const toBase64url = (bytes) => {
+    let binary = "";
+    const chunk = 0x8000;
+    for (let index = 0; index < bytes.length; index += chunk) {
+      binary += String.fromCharCode.apply(null, bytes.subarray(index, index + chunk));
+    }
+    return btoa(binary).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+  };
+
+  const fromBase64url = (value) => {
+    const padded = value.replace(/-/g, "+").replace(/_/g, "/");
+    const binary = atob(padded + "=".repeat((4 - (padded.length % 4)) % 4));
+    const bytes = new Uint8Array(binary.length);
+    for (let index = 0; index < binary.length; index += 1) bytes[index] = binary.charCodeAt(index);
+    return bytes;
+  };
+
+  const packSheet = async (data) => {
+    const bytes = new TextEncoder().encode(JSON.stringify(data));
+    if (typeof CompressionStream !== "function") return toBase64url(bytes);
+    try {
+      const stream = new Blob([bytes]).stream().pipeThrough(new CompressionStream("deflate-raw"));
+      return toBase64url(new Uint8Array(await new Response(stream).arrayBuffer()));
+    } catch (error) {
+      return toBase64url(bytes);
+    }
+  };
+
+  const unpackSheet = async (raw) => {
+    const bytes = fromBase64url(raw);
+    let decoded = bytes;
+    if (typeof DecompressionStream === "function") {
+      try {
+        const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream("deflate-raw"));
+        decoded = new Uint8Array(await new Response(stream).arrayBuffer());
+      } catch (error) {
+        decoded = bytes;
+      }
+    }
+    const data = JSON.parse(new TextDecoder().decode(decoded));
+    if (!data || typeof data !== "object" || !data.fields) throw new Error("shape");
+    return data;
+  };
+
+  const linkedSheet = async () => {
+    const params = new URLSearchParams(location.hash.replace(/^#/, ""));
+    const raw = params.get("p");
+    return raw ? unpackSheet(raw) : null;
+  };
+
+  const shareLink = async () => {
+    const url = new URL(location.href);
+    url.hash = "p=" + await packSheet(collect());
+    return url.toString();
+  };
+
   let saveTimer = null;
   let status = null;
 
@@ -502,6 +561,24 @@
     printButton.addEventListener("click", () => window.print());
   }
 
+  const shareButton = document.querySelector("[data-share]");
+  if (shareButton) {
+    shareButton.addEventListener("click", async () => {
+      const link = await shareLink();
+      let copied = false;
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(link);
+          copied = true;
+        } catch (error) {
+          copied = false;
+        }
+      }
+      if (!copied) window.prompt(t("sheetLinkPrompt"), link);
+      say(copied ? "sheetLinkCopied" : "sheetLinkCopyFailed");
+    });
+  }
+
   const exportButton = document.querySelector("[data-export]");
   if (exportButton) {
     exportButton.addEventListener("click", () => {
@@ -608,6 +685,36 @@
   } catch (error) {
     stored = null;
   }
-  if (stored) apply(stored);
-  else recalculate();
+
+  const start = async () => {
+    let linked = null;
+    try {
+      linked = await linkedSheet();
+    } catch (error) {
+      say("sheetLinkFailed");
+    }
+
+    if (linked) {
+      clear();
+      apply(linked);
+      say("sheetFromLink");
+      const note = document.querySelector("[data-link-note]");
+      if (note) {
+        note.textContent = t("sheetLinkNote");
+        note.hidden = false;
+      }
+      /* The link opened this sheet once. Keeping the fragment would make every
+         refresh throw away the player's edits, so drop it and let the normal
+         browser copy take over after the first change. */
+      try {
+        history.replaceState(null, "", location.pathname + location.search);
+      } catch (error) {}
+      return;
+    }
+
+    if (stored) apply(stored);
+    else recalculate();
+  };
+
+  start();
 })();
