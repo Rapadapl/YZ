@@ -406,6 +406,34 @@
     return bytes;
   };
 
+  /* A short link carries only an id: character.html#p=Kf92xQ7Rm1. The sheet
+     itself is served from data/<id>.json, sealed with AES-GCM under a key
+     derived from that id, so the file says nothing without the link. Long
+     links (the whole deflated sheet in the fragment) keep working. */
+  const SHEET_ID = /^[A-Za-z0-9_-]{6,24}$/;
+  const SHEET_SEAL = "yz-sheet:";
+
+  const sealedSheet = async (record, id) => {
+    if (!record || record.v !== 1 || !record.iv || !record.ct) throw new Error("shape");
+    if (!window.crypto || !window.crypto.subtle) throw new Error("crypto");
+    const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(SHEET_SEAL + id));
+    const key = await crypto.subtle.importKey("raw", digest, { name: "AES-GCM" }, false, ["decrypt"]);
+    const plain = await crypto.subtle.decrypt(
+      { name: "AES-GCM", iv: fromBase64url(record.iv) },
+      key,
+      fromBase64url(record.ct)
+    );
+    return JSON.parse(new TextDecoder().decode(plain));
+  };
+
+  const hostedSheet = async (id) => {
+    const response = await fetch(new URL(`data/${id}.json`, location.href), { cache: "no-store" });
+    if (!response.ok) throw new Error(response.status === 404 ? "missing" : "fetch");
+    const data = await sealedSheet(await response.json(), id);
+    if (!data || typeof data !== "object" || !data.fields) throw new Error("shape");
+    return data;
+  };
+
   const packSheet = async (data) => {
     const bytes = new TextEncoder().encode(JSON.stringify(data));
     if (typeof CompressionStream !== "function") return toBase64url(bytes);
@@ -418,6 +446,7 @@
   };
 
   const unpackSheet = async (raw) => {
+    if (SHEET_ID.test(raw)) return hostedSheet(raw);
     const bytes = fromBase64url(raw);
     let decoded = bytes;
     if (typeof DecompressionStream === "function") {
@@ -691,7 +720,7 @@
     try {
       linked = await linkedSheet();
     } catch (error) {
-      say("sheetLinkFailed");
+      say(error && error.message === "missing" ? "sheetLinkMissing" : "sheetLinkFailed");
     }
 
     if (linked) {
